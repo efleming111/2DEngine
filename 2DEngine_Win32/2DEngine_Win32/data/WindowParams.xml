@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<windowparameters>
+  <width size="1280" />
+  <height size="720" />
+  <fullscreen value="false" />
+  <title string="Engine 0.1v" />
+  <vsync value="true" />
+</windowparameters>

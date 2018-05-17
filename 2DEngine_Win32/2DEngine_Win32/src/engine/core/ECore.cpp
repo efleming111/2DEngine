@@ -10,6 +10,7 @@
 #include "../renderer/EGLRenderer.h"
 #include "../input/EInput.h"
 #include "../utilities/ETimer.h"
+#include "../audio/EAudio.h"
 #include "../physics/CPhysics.h"
 
 

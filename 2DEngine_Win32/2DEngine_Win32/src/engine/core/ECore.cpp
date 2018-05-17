@@ -8,7 +8,7 @@
 #include "ECore.h"
 #include "../renderer/EGLWindow.h"
 #include "../renderer/EGLRenderer.h"
-#include "..\input\CInput.h"
+#include "../input/EInput.h"
 #include "../utilities/ETimer.h"
 #include "../physics/CPhysics.h"
 
@@ -37,7 +37,7 @@ bool ECore::Initialize()
 	if (!lilGLRenderer->Initialize())
 		return false;
 
-	if (!Input->Initialize())
+	if (!lilInput->Initialize())
 		return false;
 
 	if (!lilTimer->Initialize())
@@ -71,7 +71,7 @@ void ECore::Run()
 	{
 		// Update core systems
 		lilTimer->Update();
-		Input->Update();
+		lilInput->Update();
 		Physics->Update();
 
 		// Update game
@@ -90,7 +90,7 @@ void ECore::ShutDown()
 
 	Physics->Shutdown();
 	lilAudio->Shutdown();
-	Input->Shutdown();
+	lilInput->Shutdown();
 	lilGLWindow->Shutdown();
 }
 

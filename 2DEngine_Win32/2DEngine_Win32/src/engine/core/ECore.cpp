@@ -11,7 +11,7 @@
 #include "../input/EInput.h"
 #include "../utilities/ETimer.h"
 #include "../audio/EAudio.h"
-#include "../physics/CPhysics.h"
+#include "../physics/EPhysics.h"
 
 
 ECore* ECore::s_Instance = 0;
@@ -47,7 +47,7 @@ bool ECore::Initialize()
 	if (!lilAudio->Initialize())
 		return false;
 
-	if (!Physics->Initialize(0.0f, -10.0f))
+	if (!lilPhysics->Initialize(0.0f, -10.0f))
 		return false;
 
 	m_Game = 0;
@@ -73,7 +73,7 @@ void ECore::Run()
 		// Update core systems
 		lilTimer->Update();
 		lilInput->Update();
-		Physics->Update();
+		lilPhysics->Update();
 
 		// Update game
 		m_Game->Update();
@@ -89,7 +89,7 @@ void ECore::ShutDown()
 	delete m_Game;
 	m_Game = 0;
 
-	Physics->Shutdown();
+	lilPhysics->Shutdown();
 	lilAudio->Shutdown();
 	lilInput->Shutdown();
 	lilGLWindow->Shutdown();

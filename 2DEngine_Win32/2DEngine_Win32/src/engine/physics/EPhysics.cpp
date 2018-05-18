@@ -8,33 +8,6 @@
 #include "EPhysics.h"
 #include "../utilities/ETimer.h"
 
-void PhysicsBody::Create(EPhysics* physics, PhysicsBodyType type, float x, float y, std::string name)
-{
-	m_Name = name;
-
-	b2BodyDef bodyDef;
-	bodyDef.type = (b2BodyType)type;
-	bodyDef.position.Set(x, y);
-	bodyDef.fixedRotation = true;
-	bodyDef.userData = (void*)this;
-
-	m_Body = physics->GetWorld()->CreateBody(&bodyDef);
-}
-
-void PhysicsBody::AddBoxCollider(float x, float y, float width, float height, bool isSensor)
-{
-	b2PolygonShape box;
-	box.SetAsBox(width * 0.5f, height * 0.5f, b2Vec2(x, y), 0.0f);
-
-	b2FixtureDef fixtureDef;
-	fixtureDef.shape = &box;
-	fixtureDef.density = 1.0f;
-	fixtureDef.friction = 0.3f;
-	fixtureDef.isSensor = isSensor;
-
-	m_Body->CreateFixture(&fixtureDef);
-}
-
 void ContactListener::BeginContact(b2Contact* contact)
 {
 	PhysicsBody* BodyA = static_cast<PhysicsBody*>(contact->GetFixtureA()->GetBody()->GetUserData());
@@ -53,6 +26,16 @@ void ContactListener::EndContact(b2Contact* contact)
 	BodyB->EndContact(BodyA);
 }
 
+EPhysics* EPhysics::s_Instance = 0;
+
+EPhysics* EPhysics::Instance()
+{
+	if (!s_Instance)
+		s_Instance = new EPhysics();
+
+	return s_Instance;
+}
+
 bool EPhysics::Initialize(float xGravity, float yGravity)
 {
 	b2Vec2 gravity(xGravity, yGravity);
@@ -68,13 +51,6 @@ bool EPhysics::Initialize(float xGravity, float yGravity)
 	return true;
 }
 
-void EPhysics::Shutdown()
-{
-	// TODO: Check if anything else needs deleted
-
-	delete m_World;
-}
-
 void EPhysics::Update()
 {
 	m_AccumTime += lilTimer->DeltaTime();
@@ -85,4 +61,25 @@ void EPhysics::Update()
 
 	m_World->Step(PHYSICS_TIME_STEP, m_VelocityIterations, m_PositionIterations);
 }
+
+void EPhysics::Shutdown()
+{
+	DestroyBodies();
+	delete m_World;
+}
+
+void EPhysics::AddBody(b2Body* body, const b2BodyDef* bodyDef)
+{
+	body = m_World->CreateBody(bodyDef);
+	m_Bodies.push_back(body);
+}
+
+void EPhysics::DestroyBodies()
+{
+	for (unsigned i = 0; i < m_Bodies.size(); ++i)
+		m_World->DestroyBody(m_Bodies[i]);
+
+	m_Bodies.resize(0);
+}
+
 

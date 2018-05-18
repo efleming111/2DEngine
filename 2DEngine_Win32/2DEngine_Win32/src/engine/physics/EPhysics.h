@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <string>
+#include <vector>
 
 #include <Box2D\Box2D.h>
 
@@ -15,15 +15,7 @@
 #define EMax b2Max
 #define EMin b2Min
 
-enum PhysicsBodyType {
-	STATIC_BODY = b2_staticBody,
-	KINEMATIC_BODY = b2_kinematicBody,
-	DYNAMIC_BODY = b2_dynamicBody
-};
-
 const float PHYSICS_TIME_STEP = 1.0f / 60.0f;
-
-class PhysicsBody;
 
 class ContactListener : public b2ContactListener
 {
@@ -31,20 +23,38 @@ class ContactListener : public b2ContactListener
 	void EndContact(b2Contact* contact);
 };
 
+#define lilPhysics EPhysics::Instance()
+
 class EPhysics
 {
 public:
-	EPhysics() {}
-	~EPhysics() {}
+	// Returns only instance of class
+	static EPhysics* Instance();
 
+	// Initialize physics engine with gravity
+	// @ xGravity - x gravity amount
+	// @ yGravity - y gravity amount
 	bool Initialize(float xGravity, float yGravity);
-	void Shutdown();
+
+	// Update the physics engine
 	void Update();
 
-	b2World* GetWorld() { return m_World; }
+	// Shuts down and cleans up physics engine
+	void Shutdown();
+
+	// Adds a body to the physics engine
+	// @ body - pointer to the body being added
+	// @ bodyDef - Reference to the body's definetion
+	void AddBody(b2Body* body, const b2BodyDef* bodyDef);
+
+	// Clear all the current bodies in the physics engine
+	void DestroyBodies();
 
 private:
+	static EPhysics* s_Instance;
+
 	b2World * m_World;
+	std::vector<b2Body*> m_Bodies;
 
 	int32 m_VelocityIterations;
 	int32 m_PositionIterations;
@@ -54,33 +64,10 @@ private:
 	float m_AccumTime;
 
 private:
+	// Only one instance of class and no copying
+	EPhysics() {}
+	~EPhysics() {}
 	EPhysics(const EPhysics& physics) {}
 	void operator=(const EPhysics& physics) {}
-};
-
-class PhysicsBody
-{
-public:
-	PhysicsBody() {}
-	virtual ~PhysicsBody() {}
-
-	void Create(EPhysics* physics, PhysicsBodyType type, float x, float y, std::string name);
-
-	void AddBoxCollider(float x, float y, float width, float height, bool isSensor);
-
-	virtual void BeginContact(PhysicsBody* other) {}
-	virtual void EndContact(PhysicsBody* other) {}
-
-	std::string& GetName() { return m_Name; }
-
-	EVector2D GetVelocity() { return m_Body->GetLinearVelocity(); }
-	EVector2D GetPosition() { return m_Body->GetPosition(); }
-
-	void SetVelocity(EVector2D vector) { m_Body->SetLinearVelocity(vector); }
-
-private:
-	b2Body * m_Body;
-
-	std::string m_Name;
 };
 

@@ -131,6 +131,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\audio\EAudio.h" />
+    <ClInclude Include="src\engine\components\ECameraComponent.h" />
+    <ClInclude Include="src\engine\components\EComponent.h" />
+    <ClInclude Include="src\engine\components\ELogicComponent.h" />
+    <ClInclude Include="src\engine\components\EPhysicsComponent.h" />
+    <ClInclude Include="src\engine\gameobjects\EGameObject.h" />
+    <ClInclude Include="src\engine\gameobjects\ETransform.h" />
     <ClInclude Include="src\engine\input\EKeyboard.h" />
     <ClInclude Include="src\engine\input\EMouse.h" />
     <ClInclude Include="src\engine\input\ETouch.h" />
@@ -151,6 +157,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\engine\audio\EAudio.cpp" />
+    <ClCompile Include="src\engine\components\ECameraComponent.cpp" />
+    <ClCompile Include="src\engine\components\ELogicComponent.cpp" />
+    <ClCompile Include="src\engine\components\EPhysicsComponent.cpp" />
+    <ClCompile Include="src\engine\gameobjects\EGameObject.cpp" />
     <ClCompile Include="src\engine\input\EKeyboard.cpp" />
     <ClCompile Include="src\engine\input\EMouse.cpp" />
     <ClCompile Include="src\engine\input\ETouch.cpp" />

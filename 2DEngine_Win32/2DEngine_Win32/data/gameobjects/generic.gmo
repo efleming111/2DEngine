@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameobject name="template">
+  <transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
+  <components>
+    <camera type="camera" name="MainCamera" />
+    <logic type="logic" name="PlayerLogic" function="PlayerLogic"/>
+    <sprite />
+    <physics type="physics" name="PlayerPhysics" bodytype="dynamic" />
+    <animator />
+  </components>
+</gameobject>

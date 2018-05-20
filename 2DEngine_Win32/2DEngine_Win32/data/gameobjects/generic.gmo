@@ -5,7 +5,8 @@
     <camera type="camera" name="MainCamera" />
     <logic type="logic" name="PlayerLogic" function="PlayerLogic"/>
     <sprite />
-    <physics type="physics" name="PlayerPhysics" bodytype="dynamic" />
+    <physics type="physics" name="PlayerPhysics" bodytype="dynamic" canRotate="false" numberofboxcolliders="1" />
+      <boxcollider width="1" height="1" xrel="0" yrel="0" angle="0" density="1.0" friction=".3" />
     <animator />
   </components>
 </gameobject>

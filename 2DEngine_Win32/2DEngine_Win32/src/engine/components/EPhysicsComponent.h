@@ -2,7 +2,7 @@
 //  2DEngine
 //  EPhysicsComponent.h
 //  Eric Fleming
-//  5/18/2018/2018
+//  5/18/2018
 //
 
 #pragma once
@@ -15,12 +15,6 @@
 #define EMax b2Max
 #define EMin b2Min
 
-enum PhysicsBodyType {
-	STATIC_BODY = b2_staticBody,
-	KINEMATIC_BODY = b2_kinematicBody,
-	DYNAMIC_BODY = b2_dynamicBody
-};
-
 class EPhysicsComponent : public EComponent
 {
 public:
@@ -31,6 +25,9 @@ public:
 	void Update();
 	void Destroy();
 
+	// Set the logic durring contact
+	// @ beginContact - function for logic when contact begins
+	// @ endContact - function for logic when contact ends
 	void SetContactLogicFunction(void(*beginContact)(EPhysicsComponent* other), void(*endContact)(EPhysicsComponent* other));
 
 	void BeginContact(EPhysicsComponent* other);

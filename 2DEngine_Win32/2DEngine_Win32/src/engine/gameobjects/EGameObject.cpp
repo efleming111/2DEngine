@@ -12,6 +12,7 @@
 #include "../utilities/EFileIO.h"
 #include "../components/ECameraComponent.h"
 #include "../components/ELogicComponent.h"
+#include "../components/EPhysicsComponent.h"
 
 void EGameObject::Create(const char* filename)
 {
@@ -110,7 +111,9 @@ void EGameObject::CreateComponents(TiXmlElement* components)
 
 		else if (type.compare("physics"))
 		{
-
+			EPhysicsComponent* physics = new EPhysicsComponent(this);
+			physics->Create(component);
+			m_Components.push_back(physics);
 		}
 
 		else if (type.compare("animator"))

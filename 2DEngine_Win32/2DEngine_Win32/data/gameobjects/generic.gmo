@@ -4,9 +4,9 @@
   <components>
     <camera type="camera" name="MainCamera" />
     <logic type="logic" name="PlayerLogic" function="PlayerLogic"/>
-    <sprite />
-    <physics type="physics" name="PlayerPhysics" bodytype="dynamic" canRotate="false" numberofboxcolliders="1" />
-      <boxcollider width="1" height="1" xrel="0" yrel="0" angle="0" density="1.0" friction=".3" />
+    <sprite type="sprite" name="PlayerSprite" isrendered="true" width="1.0" height="1.0" xrel="0.0" yrel="0.0f" texleft="0.0" texright="1.0" textop="1.0" texbottom="0.0" texturefile="path of file with ext" shaderfile="path of file without ext"/>
+    <physics type="physics" name="PlayerPhysics" bodytype="dynamic" canRotate="false" />
+      <boxcollider width="1.0" height="1.0" xrel="0.0" yrel="0.0" angle="0.0" density="1.0" friction=".3" />
     <animator />
   </components>
 </gameobject>

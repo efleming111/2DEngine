@@ -22,7 +22,7 @@ public:
 	EGameObject() {}
 	 ~EGameObject() {}
 
-	void Create(const char* filename);
+	void Create(const char* filename, float m_PixelsPerGameUnit);
 	void Update();
 	void Destroy();
 
@@ -33,6 +33,7 @@ public:
 
 public:
 	ETransform m_Transform;
+	float m_PixelsPerGameUnit;
 
 protected:
 	std::string m_Name;

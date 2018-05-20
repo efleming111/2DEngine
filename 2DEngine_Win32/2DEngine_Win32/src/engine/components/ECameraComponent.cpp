@@ -7,12 +7,15 @@
 
 #include "ECameraComponent.h"
 #include "../renderer/EGLWindow.h"
+#include "../renderer/EGLRenderer.h"
 
 void ECameraComponent::Create(TiXmlElement* element)
 {
 	m_Name = element->Attribute("name");
 
 	Update();
+
+	lilGLRenderer->RegisterCamera(this);
 }
 
 void ECameraComponent::Update()

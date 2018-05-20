@@ -13,9 +13,12 @@
 #include "../components/ECameraComponent.h"
 #include "../components/ELogicComponent.h"
 #include "../components/EPhysicsComponent.h"
+#include "../components/ESpriteComponent.h"
 
-void EGameObject::Create(const char* filename)
+void EGameObject::Create(const char* filename, float pixelsPerGameUnit)
 {
+	m_PixelsPerGameUnit = pixelsPerGameUnit;
+
 	char* xmlFile = lilFileIO::ReadFile(filename, "r");
 
 	TiXmlDocument xmlDoc;
@@ -33,19 +36,19 @@ void EGameObject::Create(const char* filename)
 	int value;
 	TiXmlElement* transform = rootElement->FirstChildElement("transform");
 	transform->Attribute("x", &value);
-	m_Transform.position.x = value; 
+	m_Transform.position.x = (float)value; 
 	transform->Attribute("y", &value);
-	m_Transform.position.y = value;
+	m_Transform.position.y = (float)value;
 	transform->Attribute("z", &value);
-	m_Transform.position.z = value;
+	m_Transform.position.z = (float)value;
 	transform->Attribute("rotation", &value);
-	m_Transform.rotation = value;
+	m_Transform.rotation = (float)value;
 	transform->Attribute("sx", &value);
-	m_Transform.scale.x = value;
+	m_Transform.scale.x = (float)value;
 	transform->Attribute("sy", &value);
-	m_Transform.scale.y = value;
+	m_Transform.scale.y = (float)value;
 	transform->Attribute("z", &value);
-	m_Transform.scale.z = value;
+	m_Transform.scale.z = (float)value;
 
 	CreateComponents(rootElement->FirstChildElement("components"));
 }
@@ -86,7 +89,7 @@ EComponent* EGameObject::GetComponent(std::string name)
 
 void EGameObject::CreateComponents(TiXmlElement* components)
 {
-	// TODO: Fill this out as components are created
+	// TODO: Fill this out as components are created, consider sort to update in correct order
 	for (TiXmlElement* component = components->FirstChildElement(); component; component = component->NextSiblingElement())
 	{
 		std::string type = component->Attribute("type");
@@ -106,7 +109,9 @@ void EGameObject::CreateComponents(TiXmlElement* components)
 
 		else if (type.compare("sprite"))
 		{
-
+			ESpriteComponent* sprite = new ESpriteComponent(this);
+			sprite->Create(component);
+			m_Components.push_back(sprite);
 		}
 
 		else if (type.compare("physics"))

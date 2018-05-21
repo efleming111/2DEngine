@@ -6,7 +6,8 @@
     <logic type="logic" name="PlayerLogic" function="PlayerLogic"/>
     <sprite type="sprite" name="PlayerSprite" isrendered="true" width="1.0" height="1.0" xrel="0.0" yrel="0.0f" texleft="0.0" texright="1.0" textop="1.0" texbottom="0.0" texturefile="path of file with ext" shaderfile="path of file without ext"/>
     <physics type="physics" name="PlayerPhysics" bodytype="dynamic" canRotate="false">
-      <boxcollider width="1.0" height="1.0" xrel="0.0" yrel="0.0" angle="0.0" density="1.0" friction=".3" issensor="false" />
+      <boxcollider type="box" width="1.0" height=".85" xrel="0.0" yrel=".25" angle="0.0" density="1.0" friction=".3" issensor="false" />
+      <circlecollider type="circle" radius=".5" xrel="0.0" yrel="-.175" density="1.0" friction=".3" issensor="false" />
     </physics>
     <animator />
   </components>

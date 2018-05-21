@@ -37,7 +37,13 @@ void EPhysicsComponent::Create(TiXmlElement* element)
 	m_Body = lilPhysics->AddBody(&bodyDef);
 
 	for (TiXmlElement* colliders = element->FirstChildElement(); colliders; colliders = colliders->NextSiblingElement())
-		AddBoxCollider(colliders);
+	{
+		std::string colliderType = colliders->Attribute("type");
+		if (colliderType.compare("box") == 0)
+			AddBoxCollider(colliders);
+		else if (colliderType.compare("circle") == 0)
+			AddCircleCollider(colliders);
+	}
 }
 
 void EPhysicsComponent::Update()
@@ -86,6 +92,34 @@ void EPhysicsComponent::AddBoxCollider(TiXmlElement* element)
 
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &box;
+	fixtureDef.density = (float)density;
+	fixtureDef.friction = (float)friction;
+
+	std::string isSensor = element->Attribute("issensor");
+	if (isSensor.compare("true") == 0)
+		fixtureDef.isSensor = true;
+	else
+		fixtureDef.isSensor = false;
+
+	m_Body->CreateFixture(&fixtureDef);
+}
+
+void EPhysicsComponent::AddCircleCollider(TiXmlElement * element)
+{
+	double radius, xRel, yRel, density, friction;
+
+	element->Attribute("radius", &radius);
+	element->Attribute("xrel", &xRel);
+	element->Attribute("yrel", &yRel);
+	element->Attribute("density", &density);
+	element->Attribute("friction", &friction);
+
+	b2CircleShape circle;
+	circle.m_p.Set(xRel, yRel);
+	circle.m_radius = (float)radius;
+
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &circle;
 	fixtureDef.density = (float)density;
 	fixtureDef.friction = (float)friction;
 

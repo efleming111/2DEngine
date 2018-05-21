@@ -49,5 +49,6 @@ private:
 	void operator=(const EPhysicsComponent& component) {}
 
 	void AddBoxCollider(TiXmlElement* element);
+	void AddCircleCollider(TiXmlElement* element);
 };
 

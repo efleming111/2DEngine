@@ -33,7 +33,7 @@ void EGameObject::Create(const char* filename, float pixelsPerGameUnit)
 
 	m_Name = rootElement->Attribute("name");
 
-	int value;
+	double value;
 	TiXmlElement* transform = rootElement->FirstChildElement("transform");
 	transform->Attribute("x", &value);
 	m_Transform.position.x = (float)value; 
@@ -47,7 +47,33 @@ void EGameObject::Create(const char* filename, float pixelsPerGameUnit)
 	m_Transform.scale.x = (float)value;
 	transform->Attribute("sy", &value);
 	m_Transform.scale.y = (float)value;
+	transform->Attribute("sz", &value);
+	m_Transform.scale.z = (float)value;
+
+	CreateComponents(rootElement->FirstChildElement("components"));
+}
+
+void EGameObject::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
+{
+	m_PixelsPerGameUnit = pixelsPerGameUnit;
+
+	m_Name = rootElement->Attribute("name");
+
+	double value;
+	TiXmlElement* transform = rootElement->FirstChildElement("transform");
+	transform->Attribute("x", &value);
+	m_Transform.position.x = (float)value;
+	transform->Attribute("y", &value);
+	m_Transform.position.y = (float)value;
 	transform->Attribute("z", &value);
+	m_Transform.position.z = (float)value;
+	transform->Attribute("rotation", &value);
+	m_Transform.rotation = (float)value;
+	transform->Attribute("sx", &value);
+	m_Transform.scale.x = (float)value;
+	transform->Attribute("sy", &value);
+	m_Transform.scale.y = (float)value;
+	transform->Attribute("sz", &value);
 	m_Transform.scale.z = (float)value;
 
 	CreateComponents(rootElement->FirstChildElement("components"));
@@ -78,7 +104,7 @@ EComponent* EGameObject::GetComponent(unsigned index)
 	return 0;
 }
 
-EComponent* EGameObject::GetComponent(std::string name)
+EComponent* EGameObject::GetComponent(const char* name)
 {
 	for (unsigned i = 0; i < m_Components.size(); ++i)
 		if (m_Components[i]->GetName().compare(name) == 0)
@@ -93,35 +119,35 @@ void EGameObject::CreateComponents(TiXmlElement* components)
 	for (TiXmlElement* component = components->FirstChildElement(); component; component = component->NextSiblingElement())
 	{
 		std::string type = component->Attribute("type");
-		if (type.compare("camera"))
+		if (type.compare("camera") == 0)
 		{
 			ECameraComponent* camera = new ECameraComponent(this);
 			camera->Create(component);
 			m_Components.push_back(camera);
 		}
 
-		else if (type.compare("logic"))
+		else if (type.compare("logic") == 0)
 		{
 			ELogicComponent* logic = new ELogicComponent(this);
 			logic->Create(component);
 			m_Components.push_back(logic);
 		}
 
-		else if (type.compare("sprite"))
+		else if (type.compare("sprite") == 0)
 		{
 			ESpriteComponent* sprite = new ESpriteComponent(this);
 			sprite->Create(component);
 			m_Components.push_back(sprite);
 		}
 
-		else if (type.compare("physics"))
+		else if (type.compare("physics") == 0)
 		{
 			EPhysicsComponent* physics = new EPhysicsComponent(this);
 			physics->Create(component);
 			m_Components.push_back(physics);
 		}
 
-		else if (type.compare("animator"))
+		else if (type.compare("animator") == 0)
 		{
 
 		}

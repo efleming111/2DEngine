@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gameobject name="Player">
+  <transform x="0" y="1" z=".5" rotation="0" sx="1" sy="1" sz="1" />
+  <components>
+    <logic type="logic" name="PlayerLogic" function="PlayerLogic"/>
+    <sprite type="sprite" name="PlayerSprite" isrendered="true" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft=".4645" texright=".5767" textop=".7013" texbottom=".5931" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+    <physics type="physics" name="PlayerPhysics" bodytype="dynamic" canRotate="false" >
+      <boxcollider width="1.0" height="1.35" xrel="0.0" yrel="0.0" angle="0.0" density="1.0" friction=".3" issensor="false" />
+    </physics>
+  </components>
+</gameobject>

@@ -22,14 +22,15 @@ public:
 	EGameObject() {}
 	 ~EGameObject() {}
 
-	void Create(const char* filename, float m_PixelsPerGameUnit);
+	void Create(const char* filename, float pixelsPerGameUnit);
+	void Create(TiXmlElement* rootElement, float pixelsPerGameUnit);
 	void Update();
 	void Destroy();
 
 	const std::string& GetName() { return m_Name; }
 
 	EComponent* GetComponent(unsigned index);
-	EComponent* GetComponent(std::string name);
+	EComponent* GetComponent(const char* name);
 
 public:
 	ETransform m_Transform;

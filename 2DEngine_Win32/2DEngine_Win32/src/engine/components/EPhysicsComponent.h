@@ -33,6 +33,11 @@ public:
 	void BeginContact(EPhysicsComponent* other);
 	void EndContact(EPhysicsComponent* other);
 
+	EVector2D GetVelocity() { return m_Body->GetLinearVelocity(); }
+	EVector2D GetPosition() { return m_Body->GetPosition(); }
+
+	void SetVelocity(EVector2D vector) { m_Body->SetLinearVelocity(vector); }
+
 protected:
 	void(*BeginContactLogic)(EPhysicsComponent* other);
 	void(*EndContactLogic)(EPhysicsComponent* other);

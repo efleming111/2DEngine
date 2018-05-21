@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<levels size="3" startIndex="0">
+  data/levels/level1.lvl ,
+  data/levels/level2.lvl ,
+  data/levels/level3.lvl
+</levels>

@@ -45,7 +45,7 @@ public:
 	// Adds a body to the physics engine
 	// @ body - pointer to the body being added
 	// @ bodyDef - Reference to the body's definetion
-	void AddBody(b2Body* body, const b2BodyDef* bodyDef);
+	b2Body* AddBody(const b2BodyDef* bodyDef);
 
 	// Clear all the current bodies in the physics engine
 	void DestroyBodies();

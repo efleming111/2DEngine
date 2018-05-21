@@ -44,8 +44,8 @@ void ESpriteComponent::Create(TiXmlElement* element)
 	m_Transform.rotation = 0.0f;
 	m_Transform.scale = glm::vec3(1.0f, 1.0f, 1.0f);
 
-	float halfWidth = (float)width * m_GameObject->m_PixelsPerGameUnit;
-	float halfHeight = (float)height * m_GameObject->m_PixelsPerGameUnit;
+	float halfWidth = (float)width * m_GameObject->m_PixelsPerGameUnit * .5f;
+	float halfHeight = (float)height * m_GameObject->m_PixelsPerGameUnit * .5f;
 
 	float vertexData[20] = {
 		-halfWidth, -halfHeight, 0.0f,		(float)texLeft, (float)texTop,

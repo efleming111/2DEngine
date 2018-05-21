@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level index="0">
+  <gameobject name="Block">
+    <transform x="-1" y="-1" z="0" rotation="0" sx="1" sy="1" sz="1" />
+    <components>
+      <sprite type="sprite" name="BlockSprite" isrendered="true" width="1.0" height="1.0" xrel="0.0" yrel="0.0f" texleft=".6630" texright=".7264" textop=".0697" texbottom=".0320" texturefile="data/spritesheets/leveltiles.png" shaderfile="data/shaders/BasicTextureShader"/>
+      <physics type="physics" name="BlockPhysics" bodytype="static" canRotate="false">
+        <boxcollider width="1.0" height="1.0" xrel="0.0" yrel="0.0" angle="0.0" density="1.0" friction=".3" issensor="false" />
+      </physics>
+    </components>
+  </gameobject>
+  <gameobject name="Block">
+    <transform x="0" y="-1" z="0" rotation="0" sx="1" sy="1" sz="1" />
+    <components>
+      <sprite type="sprite" name="BlockSprite" isrendered="true" width="1.0" height="1.0" xrel="0.0" yrel="0.0f" texleft=".6630" texright=".7264" textop=".0697" texbottom=".0320" texturefile="data/spritesheets/leveltiles.png" shaderfile="data/shaders/BasicTextureShader"/>
+      <physics type="physics" name="BlockPhysics" bodytype="static" canRotate="false">
+        <boxcollider width="1.0" height="1.0" xrel="0.0" yrel="0.0" angle="0.0" density="1.0" friction=".3" issensor="false" />
+      </physics>
+    </components>
+  </gameobject>
+  <gameobject name="Block">
+    <transform x="1" y="-1" z="0" rotation="0" sx="1" sy="1" sz="1" />
+    <components>
+      <sprite type="sprite" name="BlockSprite" isrendered="true" width="1.0" height="1.0" xrel="0.0" yrel="0.0f" texleft=".6630" texright=".7264" textop=".0697" texbottom=".0320" texturefile="data/spritesheets/leveltiles.png" shaderfile="data/shaders/BasicTextureShader"/>
+      <physics type="physics" name="BlockPhysics" bodytype="static" canRotate="false">
+        <boxcollider width="1.0" height="1.0" xrel="0.0" yrel="0.0" angle="0.0" density="1.0" friction=".3" issensor="false" />
+      </physics>
+    </components>
+  </gameobject>
+</level>

@@ -34,7 +34,7 @@ void EPhysicsComponent::Create(TiXmlElement* element)
 
 	bodyDef.userData = (void*)this;
 
-	lilPhysics->AddBody(m_Body, &bodyDef);
+	m_Body = lilPhysics->AddBody(&bodyDef);
 
 	for (TiXmlElement* colliders = element->FirstChildElement(); colliders; colliders = colliders->NextSiblingElement())
 		AddBoxCollider(colliders);
@@ -42,13 +42,15 @@ void EPhysicsComponent::Create(TiXmlElement* element)
 
 void EPhysicsComponent::Update()
 {
-	// Empty
+	b2Vec2 pos = m_Body->GetPosition();
+	m_GameObject->m_Transform.position.x = pos.x;
+	m_GameObject->m_Transform.position.y = pos.y;
 }
 
 void EPhysicsComponent::Destroy()
 {
-	BeginContactLogic = 0;
-	EndContactLogic = 0;
+	//BeginContactLogic = 0;
+	//EndContactLogic = 0;
 }
 
 void EPhysicsComponent::SetContactLogicFunction(void(*beginContact)(EPhysicsComponent *other), void(*endContact)(EPhysicsComponent *other))
@@ -80,12 +82,18 @@ void EPhysicsComponent::AddBoxCollider(TiXmlElement* element)
 	element->Attribute("friction", &friction);
 
 	b2PolygonShape box;
-	box.SetAsBox((float)width * .5f, (float)height * .5f, b2Vec2(m_GameObject->m_Transform.position.x + (float)xRel, m_GameObject->m_Transform.position.y + (float)yRel), (float)angle);
+	box.SetAsBox((float)width * .5f, (float)height * .5f, b2Vec2((float)xRel, (float)yRel), (float)angle);
 
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &box;
 	fixtureDef.density = (float)density;
 	fixtureDef.friction = (float)friction;
+
+	std::string isSensor = element->Attribute("issensor");
+	if (isSensor.compare("true") == 0)
+		fixtureDef.isSensor = true;
+	else
+		fixtureDef.isSensor = false;
 
 	m_Body->CreateFixture(&fixtureDef);
 }

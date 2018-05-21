@@ -69,10 +69,11 @@ void EPhysics::Shutdown()
 	delete m_World;
 }
 
-void EPhysics::AddBody(b2Body* body, const b2BodyDef* bodyDef)
+b2Body* EPhysics::AddBody(const b2BodyDef* bodyDef)
 {
-	body = m_World->CreateBody(bodyDef);
-	m_Bodies.push_back(body);
+	b2Body* tempBody = m_World->CreateBody(bodyDef);
+	m_Bodies.push_back(tempBody);
+	return m_Bodies.back();
 }
 
 void EPhysics::DestroyBodies()

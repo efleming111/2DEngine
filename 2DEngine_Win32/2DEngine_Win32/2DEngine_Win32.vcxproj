@@ -147,12 +147,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\engine\audio\EAudio.h" />
-    <ClInclude Include="src\engine\components\ECameraComponent.h" />
+    <ClInclude Include="src\engine\components\EAnimator.h" />
+    <ClInclude Include="src\engine\components\ECamera.h" />
     <ClInclude Include="src\engine\components\EComponent.h" />
-    <ClInclude Include="src\engine\components\ELogicComponent.h" />
-    <ClInclude Include="src\engine\components\ESpriteComponent.h" />
+    <ClInclude Include="src\engine\components\ELogic.h" />
+    <ClInclude Include="src\engine\components\ESprite.h" />
+    <ClInclude Include="src\engine\components\subcomponents\EAnimation.h" />
     <ClInclude Include="src\engine\components\subcomponents\EMesh.h" />
-    <ClInclude Include="src\engine\components\EPhysicsComponent.h" />
+    <ClInclude Include="src\engine\components\ERigidbody.h" />
     <ClInclude Include="src\engine\components\subcomponents\EMeshManager.h" />
     <ClInclude Include="src\engine\components\subcomponents\EShader.h" />
     <ClInclude Include="src\engine\components\subcomponents\EShaderManager.h" />
@@ -183,11 +185,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\engine\audio\EAudio.cpp" />
-    <ClCompile Include="src\engine\components\ECameraComponent.cpp" />
-    <ClCompile Include="src\engine\components\ELogicComponent.cpp" />
-    <ClCompile Include="src\engine\components\ESpriteComponent.cpp" />
+    <ClCompile Include="src\engine\components\EAnimator.cpp" />
+    <ClCompile Include="src\engine\components\ECamera.cpp" />
+    <ClCompile Include="src\engine\components\ELogic.cpp" />
+    <ClCompile Include="src\engine\components\ESprite.cpp" />
+    <ClCompile Include="src\engine\components\subcomponents\EAnimation.cpp" />
     <ClCompile Include="src\engine\components\subcomponents\EMesh.cpp" />
-    <ClCompile Include="src\engine\components\EPhysicsComponent.cpp" />
+    <ClCompile Include="src\engine\components\ERigidbody.cpp" />
     <ClCompile Include="src\engine\components\subcomponents\EMeshManager.cpp" />
     <ClCompile Include="src\engine\components\subcomponents\EShader.cpp" />
     <ClCompile Include="src\engine\components\subcomponents\EShaderManager.cpp" />
@@ -208,6 +212,7 @@
     <ClCompile Include="src\engine\utilities\ETimer.cpp" />
     <ClCompile Include="src\lilknight\lilKnightGame.cpp" />
     <ClCompile Include="src\lilknight\lilLevel.cpp" />
+    <ClCompile Include="src\lilknight\logic\lilPlayerLogic.cpp" />
     <ClCompile Include="thirdpartysrc\glad\glad.c" />
     <ClCompile Include="thirdpartysrc\tinyxml\tinystr.cpp" />
     <ClCompile Include="thirdpartysrc\tinyxml\tinyxml.cpp" />

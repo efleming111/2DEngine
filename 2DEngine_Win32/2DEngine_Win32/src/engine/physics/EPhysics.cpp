@@ -7,12 +7,12 @@
 
 #include "EPhysics.h"
 #include "../utilities/ETimer.h"
-#include "../components/EPhysicsComponent.h"
+#include "../components/ERigidbody.h"
 
 void ContactListener::BeginContact(b2Contact* contact)
 {
-	EPhysicsComponent* BodyA = static_cast<EPhysicsComponent*>(contact->GetFixtureA()->GetBody()->GetUserData());
-	EPhysicsComponent* BodyB = static_cast<EPhysicsComponent*>(contact->GetFixtureB()->GetBody()->GetUserData());
+	ERigidbody* BodyA = static_cast<ERigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
+	ERigidbody* BodyB = static_cast<ERigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
 	BodyA->BeginContact(BodyB);
 	BodyB->BeginContact(BodyA);
@@ -20,8 +20,8 @@ void ContactListener::BeginContact(b2Contact* contact)
 
 void ContactListener::EndContact(b2Contact* contact)
 {
-	EPhysicsComponent* BodyA = static_cast<EPhysicsComponent*>(contact->GetFixtureA()->GetBody()->GetUserData());
-	EPhysicsComponent* BodyB = static_cast<EPhysicsComponent*>(contact->GetFixtureB()->GetBody()->GetUserData());
+	ERigidbody* BodyA = static_cast<ERigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
+	ERigidbody* BodyB = static_cast<ERigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
 	BodyA->EndContact(BodyB);
 	BodyB->EndContact(BodyA);

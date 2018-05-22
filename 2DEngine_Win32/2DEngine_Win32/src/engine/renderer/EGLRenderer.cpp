@@ -85,12 +85,12 @@ void EGLRenderer::DrawFrame()
 	lilGLWindow->SwapBuffers();
 }
 
-void EGLRenderer::RegisterCamera(ECameraComponent* camera)
+void EGLRenderer::RegisterCamera(ECamera* camera)
 {
 	m_CurrentCamera = camera;
 }
 
-void EGLRenderer::AddSprite(ESpriteComponent* sprite)
+void EGLRenderer::AddSprite(ESprite* sprite)
 {
 	if (sprite)
 		m_Sprites.push_back(sprite);

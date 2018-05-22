@@ -26,11 +26,11 @@ public:
 	virtual void Update() = 0;
 	virtual void Destroy() = 0;
 
-	std::string& GetName() { return m_Name; }
+	std::string& GetType() { return m_Type; }
 
 protected:
 	EGameObject* m_GameObject;
-	std::string m_Name;
+	std::string m_Type;
 
 private:
 	EComponent(const EComponent& component) {}

@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ESpriteComponent.h
+//  ESprite.h
 //  Eric Fleming
 //  5/20/2018
 //
@@ -10,11 +10,11 @@
 #include "EComponent.h"
 #include "../gameobjects/ETransform.h"
 
-class ESpriteComponent : public EComponent
+class ESprite : public EComponent
 {
 public:
-	ESpriteComponent(EGameObject* gameObject) { m_GameObject = gameObject; }
-	~ESpriteComponent() {}
+	ESprite(EGameObject* gameObject) { m_GameObject = gameObject; }
+	~ESprite() {}
 
 	void Create(TiXmlElement* element);
 	void Update();
@@ -32,7 +32,7 @@ public:
 	bool isRendered;
 
 private:
-	ESpriteComponent(const ESpriteComponent& component) {}
-	void operator=(const ESpriteComponent& component) {}
+	ESprite(const ESprite& component) {}
+	void operator=(const ESprite& component) {}
 };
 

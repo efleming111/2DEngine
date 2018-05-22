@@ -1,24 +1,24 @@
 //
 //  2DEngine
-//  ECameraComponent.cpp
+//  ECamera.cpp
 //  Eric Fleming
 //  5/18/2018
 //
 
-#include "ECameraComponent.h"
+#include "ECamera.h"
 #include "../renderer/EGLWindow.h"
 #include "../renderer/EGLRenderer.h"
 
-void ECameraComponent::Create(TiXmlElement* element)
+void ECamera::Create(TiXmlElement* element)
 {
-	m_Name = element->Attribute("name");
+	m_Type = element->Attribute("type");
 
 	Update();
 
 	lilGLRenderer->RegisterCamera(this);
 }
 
-void ECameraComponent::Update()
+void ECamera::Update()
 {
 	float wWidth = (float)lilGLWindow->Width();
 	float wHeight = (float)lilGLWindow->Height();
@@ -27,18 +27,18 @@ void ECameraComponent::Update()
 	m_Projection = glm::ortho(wWidth * -.5f, wWidth * .5f, wHeight * -.5f, wHeight * .5f, 1.0f, -1.0f);
 }
 
-void ECameraComponent::Destroy()
+void ECamera::Destroy()
 {
 	// Empty
 }
 
-void ECameraComponent::SetPosition(float x, float y)
+void ECamera::SetPosition(float x, float y)
 {
 	m_GameObject->m_Transform.position.x = x;
 	m_GameObject->m_Transform.position.y = y;
 }
 
-void ECameraComponent::Move(float xAmount, float yAmount)
+void ECamera::Move(float xAmount, float yAmount)
 {
 	m_GameObject->m_Transform.position.x += xAmount;
 	m_GameObject->m_Transform.position.y += yAmount;

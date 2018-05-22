@@ -30,7 +30,7 @@ public:
 	const std::string& GetName() { return m_Name; }
 
 	EComponent* GetComponent(unsigned index);
-	EComponent* GetComponent(const char* name);
+	EComponent* GetComponent(const char* type);
 
 public:
 	ETransform m_Transform;

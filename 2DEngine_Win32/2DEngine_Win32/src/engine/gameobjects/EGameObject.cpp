@@ -10,10 +10,11 @@
 
 #include "EGameObject.h"
 #include "../utilities/EFileIO.h"
-#include "../components/ECameraComponent.h"
-#include "../components/ELogicComponent.h"
-#include "../components/EPhysicsComponent.h"
-#include "../components/ESpriteComponent.h"
+#include "../components/ECamera.h"
+#include "../components/ELogic.h"
+#include "../components/ERigidbody.h"
+#include "../components/ESprite.h"
+#include "../components/EAnimator.h"
 
 void EGameObject::Create(const char* filename, float pixelsPerGameUnit)
 {
@@ -104,10 +105,10 @@ EComponent* EGameObject::GetComponent(unsigned index)
 	return 0;
 }
 
-EComponent* EGameObject::GetComponent(const char* name)
+EComponent* EGameObject::GetComponent(const char* type)
 {
 	for (unsigned i = 0; i < m_Components.size(); ++i)
-		if (m_Components[i]->GetName().compare(name) == 0)
+		if (m_Components[i]->GetType().compare(type) == 0)
 			return m_Components[i];
 
 	return 0;
@@ -115,41 +116,42 @@ EComponent* EGameObject::GetComponent(const char* name)
 
 void EGameObject::CreateComponents(TiXmlElement* components)
 {
-	// TODO: Fill this out as components are created, consider sort to update in correct order
 	for (TiXmlElement* component = components->FirstChildElement(); component; component = component->NextSiblingElement())
 	{
 		std::string type = component->Attribute("type");
 		if (type.compare("camera") == 0)
 		{
-			ECameraComponent* camera = new ECameraComponent(this);
+			ECamera* camera = new ECamera(this);
 			camera->Create(component);
 			m_Components.push_back(camera);
 		}
 
 		else if (type.compare("logic") == 0)
 		{
-			ELogicComponent* logic = new ELogicComponent(this);
+			ELogic* logic = new ELogic(this);
 			logic->Create(component);
 			m_Components.push_back(logic);
 		}
 
 		else if (type.compare("sprite") == 0)
 		{
-			ESpriteComponent* sprite = new ESpriteComponent(this);
+			ESprite* sprite = new ESprite(this);
 			sprite->Create(component);
 			m_Components.push_back(sprite);
 		}
 
-		else if (type.compare("physics") == 0)
+		else if (type.compare("rigidbody") == 0)
 		{
-			EPhysicsComponent* physics = new EPhysicsComponent(this);
-			physics->Create(component);
-			m_Components.push_back(physics);
+			ERigidbody* rigidbody = new ERigidbody(this);
+			rigidbody->Create(component);
+			m_Components.push_back(rigidbody);
 		}
 
 		else if (type.compare("animator") == 0)
 		{
-
+			EAnimator* animator = new EAnimator(this);
+			animator->Create(component);
+			m_Components.push_back(animator);
 		}
 	}
 }

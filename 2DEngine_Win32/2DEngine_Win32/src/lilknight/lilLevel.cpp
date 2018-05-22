@@ -6,8 +6,8 @@
 //
 
 #include "lilLevel.h"
-#include "../engine/components/ELogicComponent.h"
-#include "../engine/components/EPhysicsComponent.h"
+#include "../engine/components/ELogic.h"
+#include "../engine/components/ERigidbody.h"
 #include "logic/lilPlayerLogic.h"
 #include "logic/lilLevelLogic.h"
 #include "../engine/utilities/EFileIO.h"
@@ -28,10 +28,10 @@ void lilLevel::Create(const char* filename)
 	EGameObject* player;
 	player = new EGameObject();
 	player->Create("data/gameobjects/playertest.gmo", 100.0f);
-	ELogicComponent* playerLogicComponet = (ELogicComponent*)player->GetComponent("PlayerLogic");
-	if(playerLogicComponet)
-		playerLogicComponet->SetLogicFunction(PlayerLogic);
-	EPhysicsComponent* playerPhysicsComponent = (EPhysicsComponent*)player->GetComponent("PlayerPhysics");
+	ELogic* playerLogicComponet = (ELogic*)player->GetComponent("logic");
+	if (playerLogicComponet)
+		playerLogicComponet->SetLogicObject(new PlayerLogic());
+	ERigidbody* playerPhysicsComponent = (ERigidbody*)player->GetComponent("rigidbody");
 	if (playerPhysicsComponent)
 		playerPhysicsComponent->SetContactLogicFunction(PlayerBeginContact, PlayerEndContact);
 	m_GameObjects.push_back(player);
@@ -58,6 +58,12 @@ void lilLevel::Destroy()
 	}
 
 	m_GameObjects.clear();
+
+	// TODO: clear textures
+	// TODO: clear renderer
+	// TODO: clear shaders
+	// TODO: free audio
+	// TODO: clear physic engine
 }
 
 void lilLevel::LoadLevel(const char* filename)
@@ -79,7 +85,7 @@ void lilLevel::LoadLevel(const char* filename)
 		EGameObject* block;
 		block = new EGameObject();
 		block->Create(levelObject, 100.0f);
-		EPhysicsComponent* blockPhysicsComponent = (EPhysicsComponent*)block->GetComponent("BlockPhysics");
+		ERigidbody* blockPhysicsComponent = (ERigidbody*)block->GetComponent("rigidbody");
 		if (blockPhysicsComponent)
 			blockPhysicsComponent->SetContactLogicFunction(BlockBeginContact, BlockEndContact);
 		m_GameObjects.push_back(block);

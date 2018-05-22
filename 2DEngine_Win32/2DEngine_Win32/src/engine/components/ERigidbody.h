@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EPhysicsComponent.h
+//  ERigidbody.h
 //  Eric Fleming
 //  5/18/2018
 //
@@ -15,11 +15,11 @@
 #define EMax b2Max
 #define EMin b2Min
 
-class EPhysicsComponent : public EComponent
+class ERigidbody : public EComponent
 {
 public:
-	EPhysicsComponent(EGameObject* gameObject) { m_GameObject = gameObject; }
-	~EPhysicsComponent() {}
+	ERigidbody(EGameObject* gameObject) { m_GameObject = gameObject; }
+	~ERigidbody() {}
 
 	void Create(TiXmlElement* element);
 	void Update();
@@ -28,10 +28,10 @@ public:
 	// Set the logic durring contact
 	// @ beginContact - function for logic when contact begins
 	// @ endContact - function for logic when contact ends
-	void SetContactLogicFunction(void(*beginContact)(EPhysicsComponent* other), void(*endContact)(EPhysicsComponent* other));
+	void SetContactLogicFunction(void(*beginContact)(ERigidbody* other), void(*endContact)(ERigidbody* other));
 
-	void BeginContact(EPhysicsComponent* other);
-	void EndContact(EPhysicsComponent* other);
+	void BeginContact(ERigidbody* other);
+	void EndContact(ERigidbody* other);
 
 	EVector2D GetVelocity() { return m_Body->GetLinearVelocity(); }
 	EVector2D GetPosition() { return m_Body->GetPosition(); }
@@ -39,14 +39,14 @@ public:
 	void SetVelocity(EVector2D vector) { m_Body->SetLinearVelocity(vector); }
 
 protected:
-	void(*BeginContactLogic)(EPhysicsComponent* other);
-	void(*EndContactLogic)(EPhysicsComponent* other);
+	void(*BeginContactLogic)(ERigidbody* other);
+	void(*EndContactLogic)(ERigidbody* other);
 
 	b2Body* m_Body;
 
 private:
-	EPhysicsComponent(const EPhysicsComponent& component) {}
-	void operator=(const EPhysicsComponent& component) {}
+	ERigidbody(const ERigidbody& component) {}
+	void operator=(const ERigidbody& component) {}
 
 	void AddBoxCollider(TiXmlElement* element);
 	void AddCircleCollider(TiXmlElement* element);

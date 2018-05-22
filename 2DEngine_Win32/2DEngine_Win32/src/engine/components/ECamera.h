@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ECameraComponent.h
+//  ECamera.h
 //  Eric Fleming
 //  5/18/2018
 //
@@ -12,11 +12,11 @@
 
 #include "EComponent.h"
 
-class ECameraComponent : public EComponent
+class ECamera : public EComponent
 {
 public:
-	ECameraComponent(EGameObject* gameObject) : EComponent(gameObject) {}
-	~ECameraComponent() {}
+	ECamera(EGameObject* gameObject) : EComponent(gameObject) {}
+	~ECamera() {}
 
 	void Create(TiXmlElement* element);
 	void Update();
@@ -36,6 +36,6 @@ protected:
 	glm::mat4 m_Projection;
 
 private:
-	ECameraComponent(const ECameraComponent& component) {}
-	void operator=(const ECameraComponent& component) {}
+	ECamera(const ECamera& component) {}
+	void operator=(const ECamera& component) {}
 };

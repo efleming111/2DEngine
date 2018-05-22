@@ -12,8 +12,8 @@
 #include "../../../thirdpartysrc/glad/glad/glad.h"
 #include <SDL.h>
 
-#include "../components/ECameraComponent.h"
-#include "../components/ESpriteComponent.h"
+#include "../components/ECamera.h"
+#include "../components/ESprite.h"
 
 #define lilGLRenderer EGLRenderer::Instance()
 
@@ -40,11 +40,11 @@ public:
 	// Draws the current frame
 	void DrawFrame();
 
-	void RegisterCamera(ECameraComponent* camera);
+	void RegisterCamera(ECamera* camera);
 
 	// Adds sprite to manager
 	// @ sprite - sprite to be added
-	void AddSprite(ESpriteComponent* sprite);
+	void AddSprite(ESprite* sprite);
 
 	// Frees all loaded sprites
 	void FreeSprites();
@@ -52,9 +52,9 @@ public:
 private:
 	static EGLRenderer* s_Instance;
 
-	ECameraComponent* m_CurrentCamera;
+	ECamera* m_CurrentCamera;
 
-	std::vector<ESpriteComponent*> m_Sprites;
+	std::vector<ESprite*> m_Sprites;
 
 private:
 	EGLRenderer() {}

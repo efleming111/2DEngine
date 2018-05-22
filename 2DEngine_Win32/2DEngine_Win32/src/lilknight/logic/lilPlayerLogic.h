@@ -7,56 +7,36 @@
 
 #include "../../engine/gameobjects/EGameObject.h"
 #include "../../engine/input/EInput.h"
-#include "../../engine/components/EPhysicsComponent.h"
+#include "../../engine/components/ERigidbody.h"
+#include "../../engine/components/ELogic.h"
+#include "../../engine/components/EAnimator.h"
 
 // TODO: For testing only
 #include <SDL.h>
 
 #pragma once
 
-void PlayerLogic(EGameObject* gameObject)
+class PlayerLogic : public ELogicObject
 {
-	static EPhysicsComponent* playerPhysics = (EPhysicsComponent*)gameObject->GetComponent("PlayerPhysics");
+public:
+	PlayerLogic() {}
+	~PlayerLogic() {}
 
-	EVector2D velocity = playerPhysics->GetVelocity();
+	void Create();
+	void Update();
+	void Destroy();
 
-#ifdef _WIN32
-	// TODO: add is grounded sensor
-	if (lilKeyboard->GetKeyDown(KC_SPACE))
-	{
-		velocity.y = 10.0f;
-	}
+protected:
+	ERigidbody* m_Rigidbody;
+	EAnimator* m_Animator;
 
-	if (lilKeyboard->GetKey(KC_A) || lilKeyboard->GetKey(KC_LEFTARROW))
-	{
-		velocity.x = EMax(velocity.x - .2f, -5.0f);
-	}
+	bool m_IsFacingRight;
 
-	else if (lilKeyboard->GetKey(KC_D) || lilKeyboard->GetKey(KC_RIGHTARROW))
-	{
-		velocity.x = EMin(velocity.x + .2f, 5.0f);
-}
+private:
+	PlayerLogic(const PlayerLogic& logic) {}
+	void operator=(const PlayerLogic& logic) {}
+};
 
-	else
-	{
-		velocity.x *= .98f;
-	}
-#endif
-
-#ifdef __ANDROID__
-
-#endif 
-
-	playerPhysics->SetVelocity(velocity);
-}
-
-void PlayerBeginContact(EPhysicsComponent* other)
-{
-	SDL_Log("Player Begin Contact, %s %d", __FILE__, __LINE__);
-}
-
-void PlayerEndContact(EPhysicsComponent* other)
-{
-	SDL_Log("Player End Contact, %s %d", __FILE__, __LINE__);
-}
+void PlayerBeginContact(ERigidbody* other);
+void PlayerEndContact(ERigidbody* other);
 

@@ -1,18 +1,18 @@
 //
 //  2DEngine
-//  EPhysicsComponent.cpp
+//  ERigidbody.cpp
 //  Eric Fleming
 //  5/19/2018/
 //
 
 #include <string>
 
-#include "EPhysicsComponent.h"
+#include "ERigidbody.h"
 #include "../physics/EPhysics.h"
 
-void EPhysicsComponent::Create(TiXmlElement* element)
+void ERigidbody::Create(TiXmlElement* element)
 {
-	m_Name = element->Attribute("name");
+	m_Type = element->Attribute("type");
 
 	b2BodyDef bodyDef;
 
@@ -46,36 +46,35 @@ void EPhysicsComponent::Create(TiXmlElement* element)
 	}
 }
 
-void EPhysicsComponent::Update()
+void ERigidbody::Update()
 {
 	b2Vec2 pos = m_Body->GetPosition();
 	m_GameObject->m_Transform.position.x = pos.x;
 	m_GameObject->m_Transform.position.y = pos.y;
 }
 
-void EPhysicsComponent::Destroy()
+void ERigidbody::Destroy()
 {
-	//BeginContactLogic = 0;
-	//EndContactLogic = 0;
+	// Empty
 }
 
-void EPhysicsComponent::SetContactLogicFunction(void(*beginContact)(EPhysicsComponent *other), void(*endContact)(EPhysicsComponent *other))
+void ERigidbody::SetContactLogicFunction(void(*beginContact)(ERigidbody *other), void(*endContact)(ERigidbody *other))
 {
 	BeginContactLogic = beginContact;
 	EndContactLogic = endContact;
 }
 
-void EPhysicsComponent::BeginContact(EPhysicsComponent* other)
+void ERigidbody::BeginContact(ERigidbody* other)
 {
 	BeginContactLogic(other);
 }
 
-void EPhysicsComponent::EndContact(EPhysicsComponent* other)
+void ERigidbody::EndContact(ERigidbody* other)
 {
 	EndContactLogic(other);
 }
 
-void EPhysicsComponent::AddBoxCollider(TiXmlElement* element)
+void ERigidbody::AddBoxCollider(TiXmlElement* element)
 {
 	double width, height, xRel, yRel, angle, density, friction;
 
@@ -104,7 +103,7 @@ void EPhysicsComponent::AddBoxCollider(TiXmlElement* element)
 	m_Body->CreateFixture(&fixtureDef);
 }
 
-void EPhysicsComponent::AddCircleCollider(TiXmlElement * element)
+void ERigidbody::AddCircleCollider(TiXmlElement * element)
 {
 	double radius, xRel, yRel, density, friction;
 
@@ -115,7 +114,7 @@ void EPhysicsComponent::AddCircleCollider(TiXmlElement * element)
 	element->Attribute("friction", &friction);
 
 	b2CircleShape circle;
-	circle.m_p.Set(xRel, yRel);
+	circle.m_p.Set((float)xRel, (float)yRel);
 	circle.m_radius = (float)radius;
 
 	b2FixtureDef fixtureDef;

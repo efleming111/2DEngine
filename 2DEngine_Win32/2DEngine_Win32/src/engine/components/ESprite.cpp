@@ -1,21 +1,21 @@
 //
 //  2DEngine
-//  ESpriteComponent.cpp
+//  ESprite.cpp
 //  Eric Fleming
 //  5/20/2018
 //
 
 #include <string>
 
-#include "ESpriteComponent.h"
+#include "ESprite.h"
 #include "subcomponents\EMeshManager.h"
 #include "subcomponents\ETextureManager.h"
 #include "subcomponents\EShaderManager.h"
 #include "../renderer/EGLRenderer.h"
 
-void ESpriteComponent::Create(TiXmlElement* element)
+void ESprite::Create(TiXmlElement* element)
 {
-	m_Name = element->Attribute("name");
+	m_Type = element->Attribute("type");
 
 	std::string rendered;
 	rendered = element->Attribute("isrendered");
@@ -67,13 +67,13 @@ void ESpriteComponent::Create(TiXmlElement* element)
 	lilGLRenderer->AddSprite(this);
 }
 
-void ESpriteComponent::Update()
+void ESprite::Update()
 {
 	m_Transform.position.x = (m_GameObject->m_Transform.position.x + m_XRel) * m_GameObject->m_PixelsPerGameUnit;
 	m_Transform.position.y = (m_GameObject->m_Transform.position.y + m_YRel) * m_GameObject->m_PixelsPerGameUnit;
 }
 
-void ESpriteComponent::Destroy()
+void ESprite::Destroy()
 {
 	// Empty
 }

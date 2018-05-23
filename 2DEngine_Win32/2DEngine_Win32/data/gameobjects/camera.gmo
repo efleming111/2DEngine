@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <gameobject name="Camera">
-  <transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
+  <transform x="5" y="7" z="0" rotation="0" sx="1" sy="1" sz="1" />
   <components>
     <camera type="camera" />
   </components>

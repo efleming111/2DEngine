@@ -14,6 +14,7 @@
 
 // TODO: For testing only
 #include <SDL.h>
+float tempPixPerGU = 72.0f;
 
 void lilLevel::Create(const char* filename)
 {
@@ -21,13 +22,13 @@ void lilLevel::Create(const char* filename)
 	// CREATES CAMERA
 	EGameObject* camera;
 	camera = new EGameObject();
-	camera->Create("data/gameobjects/camera.gmo", 100.0f);
+	camera->Create("data/gameobjects/camera.gmo", tempPixPerGU);
 	m_GameObjects.push_back(camera);
 
 	// CREATES PLAYER
 	EGameObject* player;
 	player = new EGameObject();
-	player->Create("data/gameobjects/playertest.gmo", 100.0f);
+	player->Create("data/gameobjects/playertest.gmo", tempPixPerGU);
 	ELogic* playerLogicComponet = (ELogic*)player->GetComponent("logic");
 	if (playerLogicComponet)
 		playerLogicComponet->SetLogicObject(new PlayerLogic());
@@ -84,7 +85,7 @@ void lilLevel::LoadLevel(const char* filename)
 	{
 		EGameObject* block;
 		block = new EGameObject();
-		block->Create(levelObject, 100.0f);
+		block->Create(levelObject, tempPixPerGU);
 		ERigidbody* blockPhysicsComponent = (ERigidbody*)block->GetComponent("rigidbody");
 		if (blockPhysicsComponent)
 			blockPhysicsComponent->SetContactLogicFunction(BlockBeginContact, BlockEndContact);

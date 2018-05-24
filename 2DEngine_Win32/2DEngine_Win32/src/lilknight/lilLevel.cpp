@@ -14,7 +14,7 @@
 
 // TODO: For testing only
 #include <SDL.h>
-float tempPixPerGU = 72.0f;
+float tempPixPerGU = 50.0f;
 
 void lilLevel::Create(const char* filename)
 {

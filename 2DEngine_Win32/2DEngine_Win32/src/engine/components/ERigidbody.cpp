@@ -26,7 +26,7 @@ void ERigidbody::Create(TiXmlElement* element)
 
 	bodyDef.position.Set(m_GameObject->m_Transform.position.x, m_GameObject->m_Transform.position.y);
 
-	std::string canRotate = element->Attribute("canRotate");
+	std::string canRotate = element->Attribute("canrotate");
 	if (canRotate.compare("true") == 0)
 		bodyDef.fixedRotation = false;
 	else

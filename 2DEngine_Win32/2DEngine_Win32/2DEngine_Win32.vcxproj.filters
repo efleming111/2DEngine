@@ -123,6 +123,12 @@
     <ClInclude Include="src\engine\components\subcomponents\EAnimation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\lilknight\logic\lilCameraLogic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\gameobjects\EGameObjectManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="thirdpartysrc\tinyxml\tinystr.cpp">
@@ -228,6 +234,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\components\subcomponents\EAnimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilknight\logic\lilCameraLogic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\gameobjects\EGameObjectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilknight\logic\lilLevelLogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

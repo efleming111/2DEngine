@@ -15,6 +15,11 @@ void PlayerLogic::Create()
 	m_IsFacingRight = true;
 }
 
+void PlayerLogic::OnStart()
+{
+	// Empty
+}
+
 void PlayerLogic::Update()
 {
 	EVector2D velocity = m_Rigidbody->GetVelocity();
@@ -71,12 +76,13 @@ void PlayerLogic::Destroy()
 
 void PlayerBeginContact(ERigidbody* other)
 {
-	SDL_Log("Player Begin Contact, %s %d", __FILE__, __LINE__);
+	std::string temp = other->GetGameObject()->GetName();
+	if(other->GetGameObject()->GetName().compare("Collider") == 0)
+		SDL_Log("Player Hit Ground, %s %d", __FILE__, __LINE__);
 }
 
 void PlayerEndContact(ERigidbody* other)
 {
-	SDL_Log("Player Begin Contact, %s %d", __FILE__, __LINE__);
 }
 
 

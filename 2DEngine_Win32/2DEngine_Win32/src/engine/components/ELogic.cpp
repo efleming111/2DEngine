@@ -41,3 +41,8 @@ void ELogic::SetLogicObject(ELogicObject* logic)
 		m_Logic->Create();
 	}
 }
+
+void ELogic::OnStart()
+{
+	m_Logic->OnStart();
+}

@@ -25,6 +25,7 @@ public:
 	}
 
 	virtual void Create() = 0;
+	virtual void OnStart() = 0;
 	virtual void Update() = 0;
 	virtual void Destroy() = 0;
 
@@ -48,6 +49,8 @@ public:
 	void Destroy();
 
 	void SetLogicObject(ELogicObject* logic);
+
+	void OnStart();
 
 protected:
 	ELogicObject * m_Logic;

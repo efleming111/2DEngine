@@ -161,6 +161,7 @@
     <ClInclude Include="src\engine\components\subcomponents\ETexture.h" />
     <ClInclude Include="src\engine\components\subcomponents\ETextureManager.h" />
     <ClInclude Include="src\engine\gameobjects\EGameObject.h" />
+    <ClInclude Include="src\engine\gameobjects\EGameObjectManager.h" />
     <ClInclude Include="src\engine\gameobjects\ETransform.h" />
     <ClInclude Include="src\engine\input\EKeyboard.h" />
     <ClInclude Include="src\engine\input\EMouse.h" />
@@ -176,6 +177,7 @@
     <ClInclude Include="src\engine\utilities\ETimer.h" />
     <ClInclude Include="src\lilknight\lilKnightGame.h" />
     <ClInclude Include="src\lilknight\lilLevel.h" />
+    <ClInclude Include="src\lilknight\logic\lilCameraLogic.h" />
     <ClInclude Include="src\lilknight\logic\lilLevelLogic.h" />
     <ClInclude Include="src\lilknight\logic\lilPlayerLogic.h" />
     <ClInclude Include="thirdpartysrc\glad\glad\glad.h" />
@@ -198,6 +200,7 @@
     <ClCompile Include="src\engine\components\subcomponents\ETexture.cpp" />
     <ClCompile Include="src\engine\components\subcomponents\ETextureManager.cpp" />
     <ClCompile Include="src\engine\gameobjects\EGameObject.cpp" />
+    <ClCompile Include="src\engine\gameobjects\EGameObjectManager.cpp" />
     <ClCompile Include="src\engine\input\EKeyboard.cpp" />
     <ClCompile Include="src\engine\input\EMouse.cpp" />
     <ClCompile Include="src\engine\input\ETouch.cpp" />
@@ -212,6 +215,8 @@
     <ClCompile Include="src\engine\utilities\ETimer.cpp" />
     <ClCompile Include="src\lilknight\lilKnightGame.cpp" />
     <ClCompile Include="src\lilknight\lilLevel.cpp" />
+    <ClCompile Include="src\lilknight\logic\lilCameraLogic.cpp" />
+    <ClCompile Include="src\lilknight\logic\lilLevelLogic.cpp" />
     <ClCompile Include="src\lilknight\logic\lilPlayerLogic.cpp" />
     <ClCompile Include="thirdpartysrc\glad\glad.c" />
     <ClCompile Include="thirdpartysrc\tinyxml\tinystr.cpp" />

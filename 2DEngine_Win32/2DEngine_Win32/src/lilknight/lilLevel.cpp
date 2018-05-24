@@ -6,10 +6,12 @@
 //
 
 #include "lilLevel.h"
+#include "../engine/gameobjects/EGameObjectManager.h"
 #include "../engine/components/ELogic.h"
 #include "../engine/components/ERigidbody.h"
 #include "logic/lilPlayerLogic.h"
 #include "logic/lilLevelLogic.h"
+#include "logic/lilCameraLogic.h"
 #include "../engine/utilities/EFileIO.h"
 
 // TODO: For testing only
@@ -23,7 +25,10 @@ void lilLevel::Create(const char* filename)
 	EGameObject* camera;
 	camera = new EGameObject();
 	camera->Create("data/gameobjects/camera.gmo", tempPixPerGU);
-	m_GameObjects.push_back(camera);
+	ELogic* cameraLogicComponet = (ELogic*)camera->GetComponent("logic");
+	if (cameraLogicComponet)
+		cameraLogicComponet->SetLogicObject(new CameraLogic());
+	lilGameObjectManager->AddGameObject(camera);
 
 	// CREATES PLAYER
 	EGameObject* player;
@@ -35,31 +40,26 @@ void lilLevel::Create(const char* filename)
 	ERigidbody* playerPhysicsComponent = (ERigidbody*)player->GetComponent("rigidbody");
 	if (playerPhysicsComponent)
 		playerPhysicsComponent->SetContactLogicFunction(PlayerBeginContact, PlayerEndContact);
-	m_GameObjects.push_back(player);
+	lilGameObjectManager->AddGameObject(player);
 
 
 	// CREATES LEVEL BLOCK
 	LoadLevel(filename);
+
+	lilGameObjectManager->OnStart();
 }
 
 void lilLevel::Update()
 {
 	//SDL_Log("Update Level, %s %d", __FILE__, __LINE__);
-	for (unsigned i = 0; i < m_GameObjects.size(); ++i)
-		m_GameObjects[i]->Update();
+	lilGameObjectManager->Update();
 }
 
 void lilLevel::Destroy()
 {
 	//SDL_Log("Destroy Level, %s %d", __FILE__, __LINE__);
-	for (unsigned i = 0; i < m_GameObjects.size(); ++i)
-	{
-		m_GameObjects[i]->Destroy();
-		delete m_GameObjects[i];
-	}
-
-	m_GameObjects.clear();
-
+	
+	lilGameObjectManager->FreeGameObjects();
 	// TODO: clear textures
 	// TODO: clear renderer
 	// TODO: clear shaders
@@ -89,7 +89,7 @@ void lilLevel::LoadLevel(const char* filename)
 		ERigidbody* blockPhysicsComponent = (ERigidbody*)block->GetComponent("rigidbody");
 		if (blockPhysicsComponent)
 			blockPhysicsComponent->SetContactLogicFunction(BlockBeginContact, BlockEndContact);
-		m_GameObjects.push_back(block);
+		lilGameObjectManager->AddGameObject(block);
 	}
 }
 

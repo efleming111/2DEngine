@@ -9,8 +9,6 @@
 
 #include <vector>
 
-#include "../engine/gameobjects/EGameObject.h"
-
 class lilLevel
 {
 public:
@@ -25,9 +23,6 @@ public:
 
 public:
 	int m_CurrentLevelIndex;
-
-private:
-	std::vector<EGameObject*> m_GameObjects;
 
 private:
 	lilLevel(const lilLevel& level) {}

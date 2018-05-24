@@ -33,6 +33,8 @@ public:
 	void BeginContact(ERigidbody* other);
 	void EndContact(ERigidbody* other);
 
+	EGameObject* GetGameObject() { return m_GameObject; }
+
 	EVector2D GetVelocity() { return m_Body->GetLinearVelocity(); }
 	EVector2D GetPosition() { return m_Body->GetPosition(); }
 

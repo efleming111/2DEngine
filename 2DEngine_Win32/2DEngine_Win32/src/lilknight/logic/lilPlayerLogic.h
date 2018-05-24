@@ -23,6 +23,7 @@ public:
 	~PlayerLogic() {}
 
 	void Create();
+	void OnStart();
 	void Update();
 	void Destroy();
 

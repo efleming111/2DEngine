@@ -12,13 +12,6 @@
 // TODO: For testing only
 #include <SDL.h>
 
-void BlockBeginContact(ERigidbody* other)
-{
-	SDL_Log("Block Begin Contact, %s %d", __FILE__, __LINE__);
-}
-
-void BlockEndContact(ERigidbody* other)
-{
-	SDL_Log("Block End Contact, %s %d", __FILE__, __LINE__);
-}
+void BlockBeginContact(ERigidbody* other);
+void BlockEndContact(ERigidbody* other);
 

@@ -7,6 +7,9 @@
 
 #pragma once
 
+#include <vector>
+#include <string>
+
 #include <Box2D\Box2D.h>
 
 #include "EComponent.h"
@@ -40,11 +43,15 @@ public:
 
 	void SetVelocity(EVector2D vector) { m_Body->SetLinearVelocity(vector); }
 
+	std::string* colliderName;
+
 protected:
 	void(*BeginContactLogic)(ERigidbody* other);
 	void(*EndContactLogic)(ERigidbody* other);
 
 	b2Body* m_Body;
+
+	std::vector<std::string> m_ColliderNames;
 
 private:
 	ERigidbody(const ERigidbody& component) {}

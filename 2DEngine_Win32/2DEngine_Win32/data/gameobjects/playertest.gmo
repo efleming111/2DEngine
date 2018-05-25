@@ -4,9 +4,9 @@
   <components>
     <logic type="logic"  />
     <rigidbody type="rigidbody" bodytype="dynamic" canrotate="false" >
-      <boxcollider type="box" width="1.0" height=".85" xrel="0.0" yrel=".25" angle="0.0" density="1.0" friction=".3" issensor="false" />
-      <boxcollider type="box" width=".5" height="2" xrel="0.0" yrel="-.675" angle="0.0" density="1.0" friction=".3" issensor="true" />
-      <circlecollider type="circle" radius=".5" xrel="0.0" yrel="-.175" density="1.0" friction=".3" issensor="false" />
+      <boxcollider type="box" name="playercollider" width="1.0" height=".85" xrel="0.0" yrel=".25" angle="0.0" density="1.0" friction=".3" issensor="false" />
+      <boxcollider type="box" name="isgrounded" width=".5" height="2" xrel="0.0" yrel="-.675" angle="0.0" density="1.0" friction=".3" issensor="true" />
+      <circlecollider type="circle" name="playercollider" radius=".5" xrel="0.0" yrel="-.175" density="1.0" friction=".3" issensor="false" />
     </rigidbody>
     <animator type="animator" startinganimation="0">
       <animation name="idle" frameinterval=".15" islooping="true">

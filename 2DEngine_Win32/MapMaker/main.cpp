@@ -40,6 +40,7 @@ struct TileMapBackgroundObject
 
 struct TileMapCollisionObject
 {
+	std::string name;
 	double x;
 	double y;
 	double width;
@@ -256,6 +257,7 @@ void OutputMap(std::string filename, int levelIndexNumber)
 
 		TiXmlElement* boxCollider = new TiXmlElement("boxcollider");
 		boxCollider->SetAttribute("type", "box");
+		boxCollider->SetAttribute("name", g_TileMap.collisionObjects[i]->name.c_str());
 		boxCollider->SetDoubleAttribute("width", g_TileMap.collisionObjects[i]->width / g_TileMap.tileWidth);
 		boxCollider->SetDoubleAttribute("height", g_TileMap.collisionObjects[i]->height / g_TileMap.tileHeight);
 		boxCollider->SetDoubleAttribute("xrel", 0.0);
@@ -336,6 +338,7 @@ bool ReadInTileMap(std::string filename)
 				{
 					TileMapCollisionObject* col = new TileMapCollisionObject();
 
+					col->name = grandChild->Attribute("name");
 					grandChild->Attribute("x", &col->x);
 					grandChild->Attribute("y", &col->y);
 					grandChild->Attribute("width", &col->width);

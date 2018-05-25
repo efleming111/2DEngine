@@ -5,13 +5,13 @@
 //  5/19/2018/
 //
 
-#include <string>
-
 #include "ERigidbody.h"
 #include "../physics/EPhysics.h"
 
 void ERigidbody::Create(TiXmlElement* element)
 {
+	colliderName = 0;
+
 	m_Type = element->Attribute("type");
 
 	b2BodyDef bodyDef;
@@ -100,6 +100,10 @@ void ERigidbody::AddBoxCollider(TiXmlElement* element)
 	else
 		fixtureDef.isSensor = false;
 
+	std::string name = element->Attribute("name");
+	m_ColliderNames.push_back(name);
+	fixtureDef.userData = (void*)m_ColliderNames.back().c_str();
+
 	m_Body->CreateFixture(&fixtureDef);
 }
 
@@ -127,6 +131,10 @@ void ERigidbody::AddCircleCollider(TiXmlElement * element)
 		fixtureDef.isSensor = true;
 	else
 		fixtureDef.isSensor = false;
+
+	std::string name = element->Attribute("name");
+	m_ColliderNames.push_back(name);
+	fixtureDef.userData = (void*)m_ColliderNames.back().c_str();
 
 	m_Body->CreateFixture(&fixtureDef);
 }

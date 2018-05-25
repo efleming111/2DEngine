@@ -14,8 +14,14 @@ void ContactListener::BeginContact(b2Contact* contact)
 	ERigidbody* BodyA = static_cast<ERigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
 	ERigidbody* BodyB = static_cast<ERigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
+	BodyA->colliderName = (std::string*)contact->GetFixtureA()->GetUserData();
+	BodyB->colliderName = (std::string*)contact->GetFixtureB()->GetUserData();
+
 	BodyA->BeginContact(BodyB);
 	BodyB->BeginContact(BodyA);
+
+	BodyA->colliderName = 0;
+	BodyB->colliderName = 0;
 }
 
 void ContactListener::EndContact(b2Contact* contact)
@@ -23,8 +29,14 @@ void ContactListener::EndContact(b2Contact* contact)
 	ERigidbody* BodyA = static_cast<ERigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
 	ERigidbody* BodyB = static_cast<ERigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
+	BodyA->colliderName = (std::string*)contact->GetFixtureA()->GetUserData();
+	BodyB->colliderName = (std::string*)contact->GetFixtureB()->GetUserData();
+
 	BodyA->EndContact(BodyB);
 	BodyB->EndContact(BodyA);
+
+	BodyA->colliderName = 0;
+	BodyB->colliderName = 0;
 }
 
 EPhysics* EPhysics::s_Instance = 0;

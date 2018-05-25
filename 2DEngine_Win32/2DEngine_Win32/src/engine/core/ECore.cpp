@@ -82,8 +82,8 @@ void ECore::Run()
 		lilGLRenderer->DrawFrame();
 
 		// TODO: Erase after testing
-		if(lilTimer->FPS() < 30)
-			SDL_Log("FPS: %d, %s %d", lilTimer->FPS(), __FILE__, __LINE__);
+		/*if(lilTimer->FPS() < 30)
+			SDL_Log("FPS: %d, %s %d", lilTimer->FPS(), __FILE__, __LINE__);*/
 	}
 }
 

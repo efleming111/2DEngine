@@ -14,14 +14,17 @@ void ContactListener::BeginContact(b2Contact* contact)
 	ERigidbody* BodyA = static_cast<ERigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
 	ERigidbody* BodyB = static_cast<ERigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
-	BodyA->colliderName = (std::string*)contact->GetFixtureA()->GetUserData();
-	BodyB->colliderName = (std::string*)contact->GetFixtureB()->GetUserData();
+	if (contact->GetFixtureA()->IsSensor() || contact->GetFixtureB()->IsSensor())
+	{
+		BodyA->colliderName = (std::string*)contact->GetFixtureA()->GetUserData();
+		BodyB->colliderName = (std::string*)contact->GetFixtureB()->GetUserData();
 
-	BodyA->BeginContact(BodyA, BodyB);
-	BodyB->BeginContact(BodyB, BodyA);
+		BodyA->BeginContact(BodyA, BodyB);
+		BodyB->BeginContact(BodyB, BodyA);
 
-	BodyA->colliderName = 0;
-	BodyB->colliderName = 0;
+		BodyA->colliderName = 0;
+		BodyB->colliderName = 0;
+	}
 }
 
 void ContactListener::EndContact(b2Contact* contact)
@@ -29,14 +32,17 @@ void ContactListener::EndContact(b2Contact* contact)
 	ERigidbody* BodyA = static_cast<ERigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
 	ERigidbody* BodyB = static_cast<ERigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
-	BodyA->colliderName = (std::string*)contact->GetFixtureA()->GetUserData();
-	BodyB->colliderName = (std::string*)contact->GetFixtureB()->GetUserData();
+	if (contact->GetFixtureA()->IsSensor() || contact->GetFixtureB()->IsSensor())
+	{
+		BodyA->colliderName = (std::string*)contact->GetFixtureA()->GetUserData();
+		BodyB->colliderName = (std::string*)contact->GetFixtureB()->GetUserData();
 
-	BodyA->EndContact(BodyA, BodyB);
-	BodyB->EndContact(BodyB, BodyA);
+		BodyA->EndContact(BodyA, BodyB);
+		BodyB->EndContact(BodyB, BodyA);
 
-	BodyA->colliderName = 0;
-	BodyB->colliderName = 0;
+		BodyA->colliderName = 0;
+		BodyB->colliderName = 0;
+	}
 }
 
 EPhysics* EPhysics::s_Instance = 0;

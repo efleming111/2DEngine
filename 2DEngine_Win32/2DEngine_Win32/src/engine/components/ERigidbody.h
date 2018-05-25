@@ -28,11 +28,6 @@ public:
 	void Update();
 	void Destroy();
 
-	// Set the logic durring contact
-	// @ beginContact - function for logic when contact begins
-	// @ endContact - function for logic when contact ends
-	void SetContactLogicFunction(void(*beginContact)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody), void(*endContact)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody));
-
 	void BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 	void EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 

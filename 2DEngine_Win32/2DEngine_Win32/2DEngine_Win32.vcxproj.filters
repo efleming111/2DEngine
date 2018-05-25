@@ -99,16 +99,7 @@
     <ClInclude Include="thirdpartysrc\glad\KHR\khrplatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\lilknight\logic\lilPlayerLogic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lilknight\logic\lilLevelLogic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\components\ECamera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\components\ELogic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\components\ERigidbody.h">
@@ -123,10 +114,16 @@
     <ClInclude Include="src\engine\components\subcomponents\EAnimation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\lilknight\logic\lilCameraLogic.h">
+    <ClInclude Include="src\engine\gameobjects\EGameObjectManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\gameobjects\EGameObjectManager.h">
+    <ClInclude Include="src\lilknight\gameobjects\lilPlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lilknight\gameobjects\lilLevelObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lilknight\gameobjects\lilCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -215,13 +212,7 @@
     <ClCompile Include="src\lilknight\lilLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\lilknight\logic\lilPlayerLogic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\components\ECamera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\components\ELogic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\components\ERigidbody.cpp">
@@ -236,13 +227,16 @@
     <ClCompile Include="src\engine\components\subcomponents\EAnimation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\lilknight\logic\lilCameraLogic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\gameobjects\EGameObjectManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\lilknight\logic\lilLevelLogic.cpp">
+    <ClCompile Include="src\lilknight\gameobjects\lilPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilknight\gameobjects\lilLevelObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilknight\gameobjects\lilCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

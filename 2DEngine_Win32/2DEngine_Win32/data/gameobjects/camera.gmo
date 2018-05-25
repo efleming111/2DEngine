@@ -3,6 +3,5 @@
   <transform x="14" y="7" z="0" rotation="0" sx="1" sy="1" sz="1" />
   <components>
     <camera type="camera" />
-    <logic type="logic" />
   </components>
 </gameobject>

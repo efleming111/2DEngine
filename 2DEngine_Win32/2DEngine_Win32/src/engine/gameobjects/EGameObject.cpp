@@ -11,7 +11,6 @@
 #include "EGameObject.h"
 #include "../utilities/EFileIO.h"
 #include "../components/ECamera.h"
-#include "../components/ELogic.h"
 #include "../components/ERigidbody.h"
 #include "../components/ESprite.h"
 #include "../components/EAnimator.h"
@@ -97,14 +96,6 @@ void EGameObject::Destroy()
 	m_Components.resize(0);
 }
 
-EComponent* EGameObject::GetComponent(unsigned index)
-{
-	if (index < m_Components.size())
-		return m_Components[index];
-
-	return 0;
-}
-
 EComponent* EGameObject::GetComponent(const char* type)
 {
 	for (unsigned i = 0; i < m_Components.size(); ++i)
@@ -124,13 +115,6 @@ void EGameObject::CreateComponents(TiXmlElement* components)
 			ECamera* camera = new ECamera(this);
 			camera->Create(component);
 			m_Components.push_back(camera);
-		}
-
-		else if (type.compare("logic") == 0)
-		{
-			ELogic* logic = new ELogic(this);
-			logic->Create(component);
-			m_Components.push_back(logic);
 		}
 
 		else if (type.compare("sprite") == 0)

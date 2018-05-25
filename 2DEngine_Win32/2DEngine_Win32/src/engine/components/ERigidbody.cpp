@@ -58,20 +58,14 @@ void ERigidbody::Destroy()
 	// Empty
 }
 
-void ERigidbody::SetContactLogicFunction(void(*beginContact)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody), void(*endContact)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody))
-{
-	BeginContactLogic = beginContact;
-	EndContactLogic = endContact;
-}
-
 void ERigidbody::BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
-	BeginContactLogic(thisRigidbody, otherRigidbody);
+	m_GameObject->BeginContact(thisRigidbody, otherRigidbody);
 }
 
 void ERigidbody::EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
-	EndContactLogic(thisRigidbody, otherRigidbody);
+	m_GameObject->EndContact(thisRigidbody, otherRigidbody);
 }
 
 void ERigidbody::AddBoxCollider(TiXmlElement* element)
@@ -138,3 +132,4 @@ void ERigidbody::AddCircleCollider(TiXmlElement * element)
 
 	m_Body->CreateFixture(&fixtureDef);
 }
+

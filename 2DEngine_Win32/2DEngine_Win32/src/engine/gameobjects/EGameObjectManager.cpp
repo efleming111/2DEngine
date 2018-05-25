@@ -6,7 +6,6 @@
 //
 
 #include "EGameObjectManager.h"
-#include "../components/ELogic.h"
 
 EGameObjectManager* EGameObjectManager::s_Instance = 0;
 
@@ -25,19 +24,8 @@ void EGameObjectManager::AddGameObject(EGameObject* gameObject)
 
 void EGameObjectManager::OnStart()
 {
-	/*for (unsigned i = 0; i < m_GameObjects.size(); ++i)
-	{
-		ELogic* logicComponet = (ELogic*)m_GameObjects[i]->GetComponent("logic");
-		if (logicComponet)
-			logicComponet->OnStart();
-	}*/
-
 	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
-	{
-		ELogic* logicComponet = (ELogic*)(*it)->GetComponent("logic");
-		if (logicComponet)
-			logicComponet->OnStart();
-	}
+		(*it)->OnStart();
 }
 
 void EGameObjectManager::Update()
@@ -73,7 +61,7 @@ EGameObject* EGameObjectManager::GetGameObject(std::string name)
 			return m_GameObjects[i];*/
 
 	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
-		if ((*it)->GetName().compare(name) == 0)
+		if ((*it)->m_Name.compare(name) == 0)
 			return (*it);
 
 	return 0;

@@ -15,29 +15,31 @@
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
 class EComponent;
+class ERigidbody;
 
 class EGameObject
 {
 public:
 	EGameObject() {}
-	 ~EGameObject() {}
+	 virtual ~EGameObject() {}
 
-	void Create(const char* filename, float pixelsPerGameUnit);
-	void Create(TiXmlElement* rootElement, float pixelsPerGameUnit);
-	void Update();
-	void Destroy();
+	virtual void Create(const char* filename, float pixelsPerGameUnit) = 0;
+	virtual void Create(TiXmlElement* rootElement, float pixelsPerGameUnit) = 0;
+	virtual void OnStart() = 0;
+	virtual void Update() = 0;
+	virtual void Destroy() = 0;
 
-	const std::string& GetName() { return m_Name; }
+	virtual void BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody) {}
+	virtual void EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody) {}
 
-	EComponent* GetComponent(unsigned index);
 	EComponent* GetComponent(const char* type);
 
 public:
+	std::string m_Name;
 	ETransform m_Transform;
 	float m_PixelsPerGameUnit;
 
 protected:
-	std::string m_Name;
 	std::vector<EComponent*> m_Components;
 
 private:

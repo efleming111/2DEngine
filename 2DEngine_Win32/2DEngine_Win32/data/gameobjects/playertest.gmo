@@ -2,7 +2,6 @@
 <gameobject name="Player">
   <transform x="7" y="7" z=".5" rotation="0" sx="1" sy="1" sz="1" />
   <components>
-    <logic type="logic"  />
     <rigidbody type="rigidbody" bodytype="dynamic" canrotate="false" >
       <boxcollider type="box" name="playertopcollider" width="1.0" height=".85" xrel="0.0" yrel=".25" angle="0.0" density="1.0" friction=".3" issensor="false" />
       <boxcollider type="box" name="groundsensor" width=".5" height=".5" xrel="0.0" yrel="-.675" angle="0.0" density="1.0" friction=".3" issensor="true" />

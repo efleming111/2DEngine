@@ -7,11 +7,10 @@
 
 #include "lilLevel.h"
 #include "../engine/gameobjects/EGameObjectManager.h"
-#include "../engine/components/ELogic.h"
 #include "../engine/components/ERigidbody.h"
-#include "logic/lilPlayerLogic.h"
-#include "logic/lilLevelLogic.h"
-#include "logic/lilCameraLogic.h"
+#include "gameobjects/lilPlayer.h"
+#include "gameobjects/lilLevelObject.h"
+#include "gameobjects/lilCamera.h"
 #include "../engine/utilities/EFileIO.h"
 
 // TODO: For testing only
@@ -22,24 +21,15 @@ void lilLevel::Create(const char* filename)
 {
 	//SDL_Log("Create Level, %s %d", __FILE__, __LINE__);
 	// CREATES CAMERA
-	EGameObject* camera;
-	camera = new EGameObject();
+	Camera* camera;
+	camera = new Camera();
 	camera->Create("data/gameobjects/camera.gmo", tempPixPerGU);
-	ELogic* cameraLogicComponet = (ELogic*)camera->GetComponent("logic");
-	if (cameraLogicComponet)
-		cameraLogicComponet->SetLogicObject(new CameraLogic());
 	lilGameObjectManager->AddGameObject(camera);
 
 	// CREATES PLAYER
-	EGameObject* player;
-	player = new EGameObject();
+	Player* player;
+	player = new Player();
 	player->Create("data/gameobjects/playertest.gmo", tempPixPerGU);
-	ELogic* playerLogicComponet = (ELogic*)player->GetComponent("logic");
-	if (playerLogicComponet)
-		playerLogicComponet->SetLogicObject(new PlayerLogic());
-	ERigidbody* playerPhysicsComponent = (ERigidbody*)player->GetComponent("rigidbody");
-	if (playerPhysicsComponent)
-		playerPhysicsComponent->SetContactLogicFunction(PlayerBeginContact, PlayerEndContact);
 	lilGameObjectManager->AddGameObject(player);
 
 
@@ -83,12 +73,9 @@ void lilLevel::LoadLevel(const char* filename)
 
 	for (TiXmlElement* levelObject = rootElement->FirstChildElement(); levelObject; levelObject = levelObject->NextSiblingElement())
 	{
-		EGameObject* block;
-		block = new EGameObject();
+		LevelObject* block;
+		block = new LevelObject();
 		block->Create(levelObject, tempPixPerGU);
-		ERigidbody* blockPhysicsComponent = (ERigidbody*)block->GetComponent("rigidbody");
-		if (blockPhysicsComponent)
-			blockPhysicsComponent->SetContactLogicFunction(BlockBeginContact, BlockEndContact);
 		lilGameObjectManager->AddGameObject(block);
 	}
 }

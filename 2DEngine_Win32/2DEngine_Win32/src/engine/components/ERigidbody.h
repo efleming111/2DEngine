@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <vector>
+#include <list>
 #include <string>
 
 #include <Box2D\Box2D.h>
@@ -31,10 +31,10 @@ public:
 	// Set the logic durring contact
 	// @ beginContact - function for logic when contact begins
 	// @ endContact - function for logic when contact ends
-	void SetContactLogicFunction(void(*beginContact)(ERigidbody* other), void(*endContact)(ERigidbody* other));
+	void SetContactLogicFunction(void(*beginContact)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody), void(*endContact)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody));
 
-	void BeginContact(ERigidbody* other);
-	void EndContact(ERigidbody* other);
+	void BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
+	void EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 
 	EGameObject* GetGameObject() { return m_GameObject; }
 
@@ -46,12 +46,12 @@ public:
 	std::string* colliderName;
 
 protected:
-	void(*BeginContactLogic)(ERigidbody* other);
-	void(*EndContactLogic)(ERigidbody* other);
+	void(*BeginContactLogic)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
+	void(*EndContactLogic)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 
 	b2Body* m_Body;
 
-	std::vector<std::string> m_ColliderNames;
+	std::list<std::string> m_ColliderNames;
 
 private:
 	ERigidbody(const ERigidbody& component) {}

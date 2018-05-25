@@ -17,8 +17,8 @@ void ContactListener::BeginContact(b2Contact* contact)
 	BodyA->colliderName = (std::string*)contact->GetFixtureA()->GetUserData();
 	BodyB->colliderName = (std::string*)contact->GetFixtureB()->GetUserData();
 
-	BodyA->BeginContact(BodyB);
-	BodyB->BeginContact(BodyA);
+	BodyA->BeginContact(BodyA, BodyB);
+	BodyB->BeginContact(BodyB, BodyA);
 
 	BodyA->colliderName = 0;
 	BodyB->colliderName = 0;
@@ -32,8 +32,8 @@ void ContactListener::EndContact(b2Contact* contact)
 	BodyA->colliderName = (std::string*)contact->GetFixtureA()->GetUserData();
 	BodyB->colliderName = (std::string*)contact->GetFixtureB()->GetUserData();
 
-	BodyA->EndContact(BodyB);
-	BodyB->EndContact(BodyA);
+	BodyA->EndContact(BodyA, BodyB);
+	BodyB->EndContact(BodyB, BodyA);
 
 	BodyA->colliderName = 0;
 	BodyB->colliderName = 0;

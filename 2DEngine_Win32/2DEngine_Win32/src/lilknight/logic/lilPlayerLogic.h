@@ -38,6 +38,6 @@ private:
 	void operator=(const PlayerLogic& logic) {}
 };
 
-void PlayerBeginContact(ERigidbody* other);
-void PlayerEndContact(ERigidbody* other);
+void PlayerBeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
+void PlayerEndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 

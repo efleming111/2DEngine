@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <vector>
+#include <list>
 #include <string>
 
 #include "EGameObject.h"
@@ -42,7 +42,7 @@ public:
 private:
 	static EGameObjectManager* s_Instance;
 
-	std::vector<EGameObject*> m_GameObjects;
+	std::list<EGameObject*> m_GameObjects;
 
 private:
 	EGameObjectManager() {}

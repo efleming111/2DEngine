@@ -74,17 +74,17 @@ void PlayerLogic::Destroy()
 	// Empty
 }
 
-void PlayerBeginContact(ERigidbody* other)
+void PlayerBeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
-	SDL_Log("Player hit %s, %s %d", other->colliderName->c_str(), __FILE__, __LINE__);
+	SDL_Log("%s hit %s, %s %d", thisRigidbody->colliderName, otherRigidbody->colliderName->c_str(), __FILE__, __LINE__);
 	/*std::string temp = other->GetGameObject()->GetName();
 	if(other->GetGameObject()->GetName().compare("Collider") == 0)
 		SDL_Log("Player Hit Ground, %s %d", __FILE__, __LINE__);*/
 }
 
-void PlayerEndContact(ERigidbody* other)
+void PlayerEndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
-	SDL_Log("Player hit %s, %s %d", other->colliderName->c_str(), __FILE__, __LINE__);
+	SDL_Log("%s hit %s, %s %d", thisRigidbody->colliderName, otherRigidbody->colliderName->c_str(), __FILE__, __LINE__);
 }
 
 

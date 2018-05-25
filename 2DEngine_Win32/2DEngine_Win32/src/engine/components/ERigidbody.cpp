@@ -58,20 +58,20 @@ void ERigidbody::Destroy()
 	// Empty
 }
 
-void ERigidbody::SetContactLogicFunction(void(*beginContact)(ERigidbody *other), void(*endContact)(ERigidbody *other))
+void ERigidbody::SetContactLogicFunction(void(*beginContact)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody), void(*endContact)(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody))
 {
 	BeginContactLogic = beginContact;
 	EndContactLogic = endContact;
 }
 
-void ERigidbody::BeginContact(ERigidbody* other)
+void ERigidbody::BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
-	BeginContactLogic(other);
+	BeginContactLogic(thisRigidbody, otherRigidbody);
 }
 
-void ERigidbody::EndContact(ERigidbody* other)
+void ERigidbody::EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
-	EndContactLogic(other);
+	EndContactLogic(thisRigidbody, otherRigidbody);
 }
 
 void ERigidbody::AddBoxCollider(TiXmlElement* element)

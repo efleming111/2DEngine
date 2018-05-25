@@ -12,6 +12,6 @@
 // TODO: For testing only
 #include <SDL.h>
 
-void BlockBeginContact(ERigidbody* other);
-void BlockEndContact(ERigidbody* other);
+void BlockBeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
+void BlockEndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 

@@ -7,12 +7,12 @@
 
 #include "lilLevelLogic.h"
 
-void BlockBeginContact(ERigidbody * other)
+void BlockBeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
 	//SDL_Log("Block End Contact, %s %d", __FILE__, __LINE__);
 }
 
-void BlockEndContact(ERigidbody* other)
+void BlockEndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
 	//SDL_Log("Block End Contact, %s %d", __FILE__, __LINE__);
 }

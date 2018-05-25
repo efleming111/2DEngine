@@ -25,9 +25,16 @@ void EGameObjectManager::AddGameObject(EGameObject* gameObject)
 
 void EGameObjectManager::OnStart()
 {
-	for (unsigned i = 0; i < m_GameObjects.size(); ++i)
+	/*for (unsigned i = 0; i < m_GameObjects.size(); ++i)
 	{
 		ELogic* logicComponet = (ELogic*)m_GameObjects[i]->GetComponent("logic");
+		if (logicComponet)
+			logicComponet->OnStart();
+	}*/
+
+	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
+	{
+		ELogic* logicComponet = (ELogic*)(*it)->GetComponent("logic");
 		if (logicComponet)
 			logicComponet->OnStart();
 	}
@@ -35,16 +42,25 @@ void EGameObjectManager::OnStart()
 
 void EGameObjectManager::Update()
 {
-	for (unsigned i = 0; i < m_GameObjects.size(); ++i)
-		m_GameObjects[i]->Update();
+	/*for (unsigned i = 0; i < m_GameObjects.size(); ++i)
+		m_GameObjects[i]->Update();*/
+
+	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
+		(*it)->Update();
 }
 
 void EGameObjectManager::FreeGameObjects()
 {
-	for (unsigned i = 0; i < m_GameObjects.size(); ++i)
+	/*for (unsigned i = 0; i < m_GameObjects.size(); ++i)
 	{
 		m_GameObjects[i]->Destroy();
 		delete m_GameObjects[i];
+	}*/
+
+	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
+	{
+		(*it)->Destroy();
+		delete (*it);
 	}
 
 	m_GameObjects.clear();
@@ -52,9 +68,13 @@ void EGameObjectManager::FreeGameObjects()
 
 EGameObject* EGameObjectManager::GetGameObject(std::string name)
 {
-	for (unsigned i = 0; i < m_GameObjects.size(); ++i)
+	/*for (unsigned i = 0; i < m_GameObjects.size(); ++i)
 		if (m_GameObjects[i]->GetName().compare(name) == 0)
-			return m_GameObjects[i];
+			return m_GameObjects[i];*/
+
+	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
+		if ((*it)->GetName().compare(name) == 0)
+			return (*it);
 
 	return 0;
 }

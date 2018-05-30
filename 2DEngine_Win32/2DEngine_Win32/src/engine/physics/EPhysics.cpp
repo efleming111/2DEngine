@@ -96,10 +96,10 @@ b2Body* EPhysics::AddBody(const b2BodyDef* bodyDef)
 
 void EPhysics::DestroyBodies()
 {
-	for (unsigned i = 0; i < m_Bodies.size(); ++i)
-		m_World->DestroyBody(m_Bodies[i]);
+	for (std::list<b2Body*>::iterator it = m_Bodies.begin(); it != m_Bodies.end(); ++it)
+		m_World->DestroyBody((*it));
 
-	m_Bodies.resize(0);
+	m_Bodies.clear();
 }
 
 

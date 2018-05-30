@@ -175,7 +175,7 @@
     <ClInclude Include="src\engine\utilities\EFileIO.h" />
     <ClInclude Include="src\engine\utilities\ETimer.h" />
     <ClInclude Include="src\lilknight\lilKnightGame.h" />
-    <ClInclude Include="src\lilknight\lilLevel.h" />
+    <ClInclude Include="src\lilknight\scenes\lilScene.h" />
     <ClInclude Include="src\lilknight\gameobjects\lilCamera.h" />
     <ClInclude Include="src\lilknight\gameobjects\lilLevelObject.h" />
     <ClInclude Include="src\lilknight\gameobjects\lilPlayer.h" />
@@ -212,7 +212,7 @@
     <ClCompile Include="src\engine\utilities\EFileIO.cpp" />
     <ClCompile Include="src\engine\utilities\ETimer.cpp" />
     <ClCompile Include="src\lilknight\lilKnightGame.cpp" />
-    <ClCompile Include="src\lilknight\lilLevel.cpp" />
+    <ClCompile Include="src\lilknight\scenes\lilScene.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilCamera.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilLevelObject.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilPlayer.cpp" />

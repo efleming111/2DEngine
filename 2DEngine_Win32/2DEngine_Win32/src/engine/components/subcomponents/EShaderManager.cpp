@@ -5,6 +5,10 @@
 //  4/3/2018
 //
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include "EShaderManager.h"
 
 EShaderManager* EShaderManager::s_Instance = 0;
@@ -17,36 +21,36 @@ EShaderManager* EShaderManager::Instance()
 	return s_Instance;
 }
 
-unsigned EShaderManager::AddShader(const char * filename)
+EShader* EShaderManager::AddShader(const char * filename)
 {
-	for (unsigned i = 0; i < m_Shaders.size(); ++i)
-		if (m_Shaders[i]->GetName().compare(filename) == 0)
-			return i;
+	for (std::list<EShader*>::iterator it = m_Shaders.begin(); it != m_Shaders.end(); ++it)
+		if ((*it)->GetName().compare(filename) == 0)
+			return (*it);
 
 	EShader* tempShader = new EShader();
 	tempShader->Create(filename);
 	m_Shaders.push_back(tempShader);
 
-	return (unsigned)(m_Shaders.size() - 1);
+	return tempShader;
 }
 
 void EShaderManager::FreeShaders()
 {
-	for (unsigned i = 0; i < m_Shaders.size(); ++i)
+	for (std::list<EShader*>::iterator it = m_Shaders.begin(); it != m_Shaders.end(); ++it)
 	{
-		m_Shaders[i]->Destroy();
-		delete m_Shaders[i];
-		m_Shaders[i] = 0;
+		(*it)->Destroy();
+		delete (*it);
 	}
 
-	m_Shaders.resize(0);
+	m_Shaders.clear();
 }
 
-EShader* EShaderManager::GetShader(unsigned index)
+void EShaderManager::SetViewAndProjectionMatrix(glm::mat4& viewMatrix, glm::mat4& projectionMatrix)
 {
-	if (index < m_Shaders.size())
-		return m_Shaders[index];
-
-	return 0;
+	for (std::list<EShader*>::iterator it = m_Shaders.begin(); it != m_Shaders.end(); ++it)
+	{
+		(*it)->SetUniform("camera", glm::value_ptr(viewMatrix));
+		(*it)->SetUniform("projection", glm::value_ptr(projectionMatrix));
+	}
 }
 

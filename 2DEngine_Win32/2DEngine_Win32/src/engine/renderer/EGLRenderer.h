@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <vector>
+#include <list>
 
 #include "../../../thirdpartysrc/glad/glad/glad.h"
 #include <SDL.h>
@@ -54,9 +54,10 @@ private:
 
 	ECamera* m_CurrentCamera;
 
-	std::vector<ESprite*> m_Sprites;
+	std::list<ESprite*> m_Sprites;
 
 private:
+	// Only one renderer, no copying
 	EGLRenderer() {}
 	~EGLRenderer() {}
 	EGLRenderer(const EGLRenderer& renderer) {}

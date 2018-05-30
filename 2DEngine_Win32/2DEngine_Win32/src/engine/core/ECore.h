@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <vector>
+#include <list>
 #include <string>
 
 #include <SDL.h>
@@ -51,7 +51,7 @@ public:
 private:
 	static ECore* s_Instance;
 
-	std::vector<std::string> m_CommandLineArgs;
+	std::list<std::string> m_CommandLineArgs;
 
 	bool m_Running;
 

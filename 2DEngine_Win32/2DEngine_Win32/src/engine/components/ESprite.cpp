@@ -56,13 +56,13 @@ void ESprite::Create(TiXmlElement* element)
 
 	unsigned short indices[6] = { 0, 1, 3, 3, 1, 2 };
 
-	meshIndex = lilMeshManager->AddMesh(vertexData, 20, indices, 6);
+	mesh = lilMeshManager->AddMesh(vertexData, 20, indices, 6);
 
 	std::string textureFile = element->Attribute("texturefile");
-	textureID = lilTextureManager->AddTexture(textureFile.c_str())->GetID();
+	textureID = lilTextureManager->AddTexture(textureFile.c_str());
 
 	std::string shaderFile = element->Attribute("shaderfile");
-	shaderIndex = lilShaderManager->AddShader(shaderFile.c_str());
+	shader = lilShaderManager->AddShader(shaderFile.c_str());
 
 	lilGLRenderer->AddSprite(this);
 }

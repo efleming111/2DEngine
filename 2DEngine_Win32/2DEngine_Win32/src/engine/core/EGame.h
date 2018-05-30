@@ -7,6 +7,7 @@
 
 #pragma once
 
+// Pure abstract class, overridden with the game
 class EGame
 {
 public:

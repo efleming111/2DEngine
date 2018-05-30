@@ -38,9 +38,6 @@ bool EGLRenderer::Initialize()
 	// TODO: depth testing not working
 	glEnable(GL_DEPTH_TEST);
 
-	//glEnable(GL_BLEND);
-	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
 	SetClearColor(0.8f, 0.2f, 0.2f, 1.0f);
 
 	return true;
@@ -58,27 +55,24 @@ void EGLRenderer::SetClearColor(float red, float green, float blue, float alpha)
 
 void EGLRenderer::DrawFrame()
 {
-	for (unsigned i = 0; i < lilShaderManager->Size(); ++i)
-	{
-		lilShaderManager->GetShader(i)->SetUniform("camera", glm::value_ptr(m_CurrentCamera->GetViewMatrix()));
-		lilShaderManager->GetShader(i)->SetUniform("projection", glm::value_ptr(m_CurrentCamera->GetProjectionMatrix()));
-	}
+	lilShaderManager->SetViewAndProjectionMatrix(m_CurrentCamera->GetViewMatrix(), m_CurrentCamera->GetProjectionMatrix());
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	for (unsigned i = 0; i < m_Sprites.size(); ++i)
+	for (std::list<ESprite*>::iterator it = m_Sprites.begin(); it != m_Sprites.end(); ++it)
 	{
-		if (m_Sprites[i]->isRendered)
+		if ((*it)->isRendered)
 		{
 			glm::mat4 model = glm::mat4(1.0f);
-			model = glm::translate(model, m_Sprites[i]->m_Transform.position);
-			model = glm::rotate(model, glm::radians(m_Sprites[i]->m_Transform.rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-			model = glm::scale(model, m_Sprites[i]->m_Transform.scale);
+			model = glm::translate(model, (*it)->m_Transform.position);
+			model = glm::rotate(model, glm::radians((*it)->m_Transform.rotation), glm::vec3(0.0f, 0.0f, 1.0f));
+			model = glm::scale(model, (*it)->m_Transform.scale);
 
-			lilShaderManager->GetShader(m_Sprites[i]->shaderIndex)->SetUniform("model", glm::value_ptr(model));
+			(*it)->shader->SetUniform("model", glm::value_ptr(model));
 
-			glBindTexture(GL_TEXTURE_2D, m_Sprites[i]->textureID);
-			lilMeshManager->GetMesh(m_Sprites[i]->meshIndex)->Draw();
+			glBindTexture(GL_TEXTURE_2D, (*it)->textureID);
+
+			(*it)->mesh->Draw();
 		}
 	}
 
@@ -98,10 +92,12 @@ void EGLRenderer::AddSprite(ESprite* sprite)
 
 void EGLRenderer::FreeSprites()
 {
-	for (unsigned i = 0; i < m_Sprites.size(); ++i)
+	for (std::list<ESprite*>::iterator it = m_Sprites.begin(); it != m_Sprites.end(); ++it)
 	{
-		m_Sprites[i]->Destroy();
-		delete m_Sprites[i];
+		(*it)->Destroy();
+		delete (*it);
 	}
+
+	m_Sprites.clear();
 }
 

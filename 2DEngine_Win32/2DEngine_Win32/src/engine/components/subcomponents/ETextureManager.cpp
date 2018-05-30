@@ -17,28 +17,27 @@ ETextureManager* ETextureManager::Instance()
 	return s_Instance;
 }
 
-ETexture* ETextureManager::AddTexture(const char* filename)
+unsigned ETextureManager::AddTexture(const char* filename)
 {
-	for (unsigned i = 0; i < m_Textures.size(); ++i)
-		if (m_Textures[i]->GetName().compare(filename) == 0)
-			return m_Textures[i];
+	for (std::list<ETexture*>::iterator it = m_Textures.begin(); it != m_Textures.end(); ++it)
+		if ((*it)->GetName().compare(filename) == 0)
+			return (*it)->GetID();
 
 	ETexture* tempTexture = new ETexture();
 	tempTexture->Create(filename);
 	m_Textures.push_back(tempTexture);
 
-	return m_Textures.back();
+	return tempTexture->GetID();
 }
 
 void ETextureManager::FreeTextures()
 {
-	for (unsigned i = 0; i < m_Textures.size(); ++i)
+	for (std::list<ETexture*>::iterator it = m_Textures.begin(); it != m_Textures.end(); ++it)
 	{
-		m_Textures[i]->Destroy();
-		delete m_Textures[i];
-		m_Textures[i] = 0;
+		(*it)->Destroy();
+		delete (*it);
 	}
 
-	m_Textures.resize(0);
+	m_Textures.clear();
 }
 

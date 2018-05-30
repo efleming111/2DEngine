@@ -37,6 +37,7 @@ private:
 	std::string m_Name;
 
 private:
+	// No copying
 	ETexture(const ETexture& texture) {}
 	void operator=(const ETexture& texture) {}
 };

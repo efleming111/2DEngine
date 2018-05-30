@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <vector>
+#include <list>
 
 #include "EShader.h"
 
@@ -20,24 +20,23 @@ public:
 	static EShaderManager* Instance();
 
 	// Adds shader to manager
-	// Returns index of shader, if shader exists, returns its shader ID
+	// Returns a pointer to created shader, if shader exists, returns pointer to that shader
 	// @ filename - name of shader file, both vert and frag shader must be named the same
-	unsigned AddShader(const char* filename);
+	EShader* AddShader(const char* filename);
 
 	// Frees all loaded shaders
 	void FreeShaders();
 
-	// Get shader requested by index
-	EShader* GetShader(unsigned index);
-
-	unsigned Size() { return (unsigned)m_Shaders.size(); }
+	// Sets the view and projection matrix for all shaders
+	void SetViewAndProjectionMatrix(glm::mat4& viewMatrix, glm::mat4& projectionMatrix);
 
 private:
 	static EShaderManager* s_Instance;
 
-	std::vector<EShader*> m_Shaders;
+	std::list<EShader*> m_Shaders;
 
 private:
+	// Only one copy
 	EShaderManager() {}
 	~EShaderManager() {}
 	EShaderManager(const EShaderManager& shaderManager) {}

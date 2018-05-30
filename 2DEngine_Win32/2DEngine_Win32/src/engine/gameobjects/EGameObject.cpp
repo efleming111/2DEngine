@@ -81,26 +81,30 @@ void EGameObject::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 
 void EGameObject::Update()
 {
-	for (unsigned i = 0; i < m_Components.size(); ++i)
-		m_Components[i]->Update();
+	for (std::list<EComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
+		(*it)->Update();
 }
 
 void EGameObject::Destroy()
 {
-	for (unsigned i = 0; i < m_Components.size(); ++i)
+	for (std::list<EComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
 	{
-		m_Components[i]->Destroy();
-		delete m_Components[i];
+		// Sprites get cleaned up by the renderer
+		if ((*it)->GetType().compare("sprite") == 0)
+			continue;
+
+		(*it)->Destroy();
+		delete (*it);
 	}
 
-	m_Components.resize(0);
+	m_Components.clear();
 }
 
 EComponent* EGameObject::GetComponent(const char* type)
 {
-	for (unsigned i = 0; i < m_Components.size(); ++i)
-		if (m_Components[i]->GetType().compare(type) == 0)
-			return m_Components[i];
+	for (std::list<EComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
+		if ((*it)->GetType().compare(type) == 0)
+			return (*it);
 
 	return 0;
 }

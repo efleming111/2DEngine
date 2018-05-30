@@ -129,6 +129,7 @@ void OutputMap(std::string filename, int levelIndexNumber)
 		{
 			TiXmlElement* gameobject = new TiXmlElement("gameobject");
 			level->LinkEndChild(gameobject);
+			gameobject->SetAttribute("type", "LevelObject");
 			gameobject->SetAttribute("name", "Block");
 
 			TiXmlElement* transform = new TiXmlElement("transform");
@@ -185,6 +186,7 @@ void OutputMap(std::string filename, int levelIndexNumber)
 		{
 			TiXmlElement* gameobject = new TiXmlElement("gameobject");
 			level->LinkEndChild(gameobject);
+			gameobject->SetAttribute("type", "LevelObject");
 			gameobject->SetAttribute("name", "Background");
 
 			double cenX = (g_TileMap.backgroundObjects[i]->x + (g_TileMap.backgroundObjects[i]->width * .5)) / g_TileMap.tileWidth;
@@ -231,6 +233,7 @@ void OutputMap(std::string filename, int levelIndexNumber)
 	{
 		TiXmlElement* gameobject = new TiXmlElement("gameobject");
 		level->LinkEndChild(gameobject);
+		gameobject->SetAttribute("type", "LevelObject");
 		gameobject->SetAttribute("name", "Collider");
 
 		double cenX = ((g_TileMap.collisionObjects[i]->x + (g_TileMap.collisionObjects[i]->width * .5)) / g_TileMap.tileWidth);

@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <vector>
+#include <list>
 
 #include "ETexture.h"
 
@@ -20,9 +20,9 @@ public:
 	static ETextureManager* Instance();
 
 	// Adds texture to manager
-	// Returns created texture, if texture exists, returns its texture ID
+	// Returns created textures id, if texture exists, returns that texture id
 	// @ filename - name of texture image to add
-	ETexture* AddTexture(const char* filename);
+	unsigned AddTexture(const char* filename);
 
 	// Frees all loaded textures
 	void FreeTextures();
@@ -30,9 +30,10 @@ public:
 private:
 	static ETextureManager* s_Instance;
 
-	std::vector<ETexture*> m_Textures;
+	std::list<ETexture*> m_Textures;
 
 private:
+	// Only one copy
 	ETextureManager() {}
 	~ETextureManager() {}
 	ETextureManager(const ETextureManager& textureManager) {}

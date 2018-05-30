@@ -7,11 +7,10 @@
 
 #pragma once
 
-#include <vector>
 #include <string>
 
 #include "../engine/core/EGame.h"
-#include "lilLevel.h"
+#include "scenes/lilScene.h"
 
 class lilKnightGame : public EGame
 {
@@ -33,25 +32,23 @@ public:
 	void CleanUp();
 
 private:
-	std::vector<std::string> m_LevelFilenames;
+	std::string m_CurrentLoadedSceneName;
 
-	int m_CurrentLoadedLevelIndex;
-
-	lilLevel* m_CurrentLevel;
-	lilLevel* m_NextLevel;
+	lilScene* m_CurrentScene;
+	lilScene* m_NextScene;
 
 private:
 	// No copying of class
 	lilKnightGame(const lilKnightGame& game) {}
 	void operator=(const lilKnightGame& game) {}
 
-	// Check current level to see if new level is to be loaded
-	bool CheckForLevelChange();
+	// Check current scene to see if new scene is to be loaded
+	bool CheckForSceneChange();
 
-	// Loads file name of all levels for game
-	void LoadAllLevelFilenames();
+	// Loads file name of first scene
+	void LoadFirstSceneFilename();
 
-	// Creates and loads a level object
-	lilLevel* LoadLevel();
+	// Creates and loads a scene object
+	lilScene* LoadScene();
 };
 

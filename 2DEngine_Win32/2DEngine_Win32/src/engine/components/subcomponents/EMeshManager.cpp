@@ -17,7 +17,7 @@ EMeshManager* EMeshManager::Instance()
 	return s_Instance;
 }
 
-int EMeshManager::AddMesh(float* vertexData, int vertexCount, unsigned short* indices, int indicesCount)
+EMesh* EMeshManager::AddMesh(float* vertexData, int vertexCount, unsigned short* indices, int indicesCount)
 {
 	EMesh* mesh;
 	mesh = new EMesh();
@@ -25,24 +25,17 @@ int EMeshManager::AddMesh(float* vertexData, int vertexCount, unsigned short* in
 
 	m_Meshes.push_back(mesh);
 
-	return (int)m_Meshes.size() - 1;
+	return mesh;
 }
 
 void EMeshManager::FreeMeshes()
 {
-	for (unsigned i = 0; i < m_Meshes.size(); ++i)
+	for (std::list<EMesh*>::iterator it = m_Meshes.begin(); it != m_Meshes.end(); ++it)
 	{
-		m_Meshes[i]->Destroy();
-		delete m_Meshes[i];
+		(*it)->Destroy();
+		delete (*it);
 	}
 
 	m_Meshes.clear();
 }
 
-EMesh* EMeshManager::GetMesh(unsigned index)
-{
-	if (index < m_Meshes.size())
-		return m_Meshes[index];
-
-	return 0;
-}

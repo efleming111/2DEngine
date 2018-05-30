@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <vector>
+#include <list>
 
 #include "EMesh.h"
 
@@ -19,23 +19,24 @@ public:
 	// Returns only instance of mesh manager
 	static EMeshManager* Instance();
 
-	int AddMesh(float* vertexData, int vertexCount, unsigned short* indices, int indicesCount);
+	// Creates and adds mesh object to manager
+	// Returns pointer to mesh
+	// @ vertexData - vertex data of object packed in an array of 3 position and 2 texture coordinates per vertex
+	// @ vertexCount - number of vertices multiplied by 5
+	// @ indices - index data
+	// @ indicesCount - size of indices array
+	EMesh* AddMesh(float* vertexData, int vertexCount, unsigned short* indices, int indicesCount);
 
 	// Frees all loaded meshes
 	void FreeMeshes();
 
-	// Returns mesh at index or null if mesh dosen't exist
-	EMesh* GetMesh(unsigned index);
-
-	// Returns number of meshes in manager
-	unsigned Size() { return (unsigned)m_Meshes.size(); }
-
 private:
 	static EMeshManager* s_Instance;
 
-	std::vector<EMesh*> m_Meshes;
+	std::list<EMesh*> m_Meshes;
 
 private:
+	// Only one copy
 	EMeshManager() {}
 	~EMeshManager() {}
 	EMeshManager(const EMeshManager& meshManager) {}

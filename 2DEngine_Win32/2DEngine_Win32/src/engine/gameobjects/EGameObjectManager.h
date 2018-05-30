@@ -37,14 +37,13 @@ public:
 	// @ name - name of game object
 	EGameObject* GetGameObject(std::string name);
 
-	unsigned Size() { return (unsigned)m_GameObjects.size(); }
-
 private:
 	static EGameObjectManager* s_Instance;
 
 	std::list<EGameObject*> m_GameObjects;
 
 private:
+	// Only instance of  game manager object, no copying
 	EGameObjectManager() {}
 	~EGameObjectManager() {}
 	EGameObjectManager(const EGameObjectManager& shaderManager) {}

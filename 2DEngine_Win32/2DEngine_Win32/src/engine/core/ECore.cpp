@@ -116,11 +116,10 @@ void ECore::HandleCommandArgs(int numOfArgs, char* args[])
 bool ECore::IsCommandActive(std::string command)
 {
 	bool temp = false;
-	for (unsigned i = 0; i < m_CommandLineArgs.size(); ++i)
-	{
-		if (!m_CommandLineArgs[i].compare(command))
+
+	for (std::list<std::string>::iterator it = m_CommandLineArgs.begin(); it != m_CommandLineArgs.end(); it++)
+		if ((*it).compare(command) == 0)
 			return true;
-	}
 
 	return false;
 }

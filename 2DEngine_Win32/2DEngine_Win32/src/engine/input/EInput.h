@@ -7,8 +7,6 @@
 
 #pragma once
 
-#include <vector>
-
 #include <SDL.h>
 
 #ifdef _WIN32
@@ -20,6 +18,8 @@
 #define lilMouse EInput::Instance()->GetMouse()
 #define lilKeyboard EInput::Instance()->GetKeyboard()
 #define lilGameController EInput::Instance()->GetController()
+
+const int MAX_GAME_CONTROLLERS = 4;
 #endif
 
 #ifdef __ANDROID__
@@ -28,8 +28,6 @@
 #define lilInput EInput::Instance()
 #define liltouch EInput::Instance()->Gettouch()
 #endif
-
-
 
 class EInput
 {
@@ -66,7 +64,8 @@ private:
 #ifdef _WIN32
 	EMouse* m_Mouse;
 	EKeyboard* m_Keyboard;
-	std::vector<EGameController*> m_GameControllers;
+	EGameController* m_GameControllers[MAX_GAME_CONTROLLERS];
+	unsigned m_NumberOfControllers;
 #endif
 
 #ifdef __ANDROID__

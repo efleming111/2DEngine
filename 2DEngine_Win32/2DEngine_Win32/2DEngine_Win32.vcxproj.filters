@@ -90,9 +90,6 @@
     <ClInclude Include="src\engine\components\subcomponents\ETextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\lilknight\lilLevel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="thirdpartysrc\glad\glad\glad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -124,6 +121,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\lilknight\gameobjects\lilCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lilknight\scenes\lilScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -209,9 +209,6 @@
     <ClCompile Include="thirdpartysrc\glad\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\lilknight\lilLevel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\engine\components\ECamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -237,6 +234,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\lilknight\gameobjects\lilCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilknight\scenes\lilScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

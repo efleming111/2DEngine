@@ -12,7 +12,6 @@
 
 void EAnimation::Create(TiXmlElement* element, EGameObject* gameObject)
 {
-	m_CurrentFrame = 0;
 	m_AccumlativeTime = 0.0f;
 
 	double frameInterval;
@@ -31,6 +30,8 @@ void EAnimation::Create(TiXmlElement* element, EGameObject* gameObject)
 		sprite->Create(spriteElement);
 		m_Frames.push_back(sprite);
 	}
+
+	m_CurrentFrame = m_Frames.begin();
 }
 
 void EAnimation::Update()
@@ -40,47 +41,41 @@ void EAnimation::Update()
 	{
 		m_AccumlativeTime -= m_TimeBetweenFrames;
 
-		m_Frames[m_CurrentFrame]->isRendered = false;
+		(*m_CurrentFrame)->isRendered = false;
 
 		m_CurrentFrame++;
-		if (m_CurrentFrame >= m_Frames.size())
+		if (m_CurrentFrame == m_Frames.end())
 			if (m_IsLooping)
-				m_CurrentFrame = 0;
+				m_CurrentFrame = m_Frames.begin();
 			else
 				m_CurrentFrame--;
 
-		m_Frames[m_CurrentFrame]->isRendered = true;
+		(*m_CurrentFrame)->isRendered = true;
 	}
 
-	m_Frames[m_CurrentFrame]->Update();
+	(*m_CurrentFrame)->Update();
 }
 
 void EAnimation::Destroy()
 {
-	for (unsigned i = 0; i < m_Frames.size(); ++i)
-	{
-		m_Frames[i]->Destroy();
-		delete m_Frames[i];
-	}
-
-	m_Frames.clear();
+	// Empty
 }
 
 void EAnimation::StartAnimation()
 {
-	m_CurrentFrame = 0;
+	m_CurrentFrame = m_Frames.begin();
 	m_AccumlativeTime = 0.0f;
-	m_Frames[m_CurrentFrame]->isRendered = true;
+	(*m_CurrentFrame)->isRendered = true;
 }
 
 void EAnimation::StopAnimation()
 {
-	m_Frames[m_CurrentFrame]->isRendered = false;
+	(*m_CurrentFrame)->isRendered = false;
 }
 
 void EAnimation::FlipAnimationX()
 {
-	for (unsigned i = 0; i < m_Frames.size(); ++i)
-		m_Frames[i]->m_Transform.scale.x *= -1.0f;
+	for (std::list<ESprite*>::iterator it = m_Frames.begin(); it != m_Frames.end(); ++it)
+		(*it)->m_Transform.scale.x *= -1.0f;
 }
 

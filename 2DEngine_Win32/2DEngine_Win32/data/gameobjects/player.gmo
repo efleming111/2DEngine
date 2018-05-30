@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <gameobject type="Player" name="Player">
+        <transform x="7" y="7" z=".5" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="rigidbody" bodytype="dynamic" canrotate="false" >
+                <boxcollider type="box" name="playertopcollider" width="1.0" height=".85" xrel="0.0" yrel=".25" angle="0.0" density="1.0" friction=".3" issensor="false" />
+                <boxcollider type="box" name="groundsensor" width=".5" height=".5" xrel="0.0" yrel="-.675" angle="0.0" density="1.0" friction=".3" issensor="true" />
+                <circlecollider type="circle" name="playerbottomcollider" radius=".5" xrel="0.0" yrel="-.175" density="1.0" friction=".3" issensor="false" />
+            </rigidbody>
+            <animator type="animator" startinganimation="0">
+                <animation name="idle" frameinterval=".15" islooping="true">
+                    <sprite type="sprite" isrendered="true" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.4645" texright="0.5767" textop="0.7013" texbottom="0.5931" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                    <sprite type="sprite" isrendered="false" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.5669" texright="0.6771" textop="0.5821" texbottom="0.4739" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                    <sprite type="sprite" isrendered="false" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.7736" texright="0.8818" textop="0.4657" texbottom="0.3575" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                    <sprite type="sprite" isrendered="false" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.2263" texright="0.3346" textop="0.5808" texbottom="0.4739" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                    <sprite type="sprite" isrendered="false" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.4527" texright="0.5629" textop="0.5821" texbottom="0.4739" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                </animation>
+                <animation name="walk" frameinterval=".1" islooping="true">
+                    <sprite type="sprite" isrendered="false" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.1122" texright="0.2185" textop="0.4698" texbottom="0.3575" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                    <sprite type="sprite" isrendered="false" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.8976" texright="0.9980" textop="0.1178" texbottom="0.0013" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                    <sprite type="sprite" isrendered="false" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.2125" texright="0.3146" textop="0.2328" texbottom="0.1205" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                    <sprite type="sprite" isrendered="false" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.3267" texright="0.4311" textop="0.3547" texbottom="0.2397" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                    <sprite type="sprite" isrendered="false" width="1.0" height="1.35" xrel="0.0" yrel="0.0f" texleft="0.8700" texright="0.9763" textop="0.3520" texbottom="0.2397" texturefile="data/spritesheets/knight.png" shaderfile="data/shaders/BasicTextureShader"/>
+                </animation>
+            </animator>
+        </components>
+    </gameobject>

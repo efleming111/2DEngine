@@ -8,13 +8,13 @@
 #pragma once
 
 #include <string>
-#include <vector>
 
 #include "../gameobjects/EGameObject.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
 class EGameObject;
 
+// Abstract class to derive all components from
 class EComponent
 {
 public:

@@ -9,6 +9,7 @@
 
 #include <glm\glm.hpp>
 
+// Transform object
 struct ETransform
 {
 	glm::vec3 position;

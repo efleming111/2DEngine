@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <vector>
+#include <list>
 
 #include "EComponent.h"
 #include "subcomponents\EAnimation.h"
@@ -18,24 +18,31 @@ public:
 	EAnimator(EGameObject* gameObject) : EComponent(gameObject) {}
 	~EAnimator() {}
 
+	// Creates animations for animator
+	// @ element - data for the animations for this animator
 	void Create(TiXmlElement* element);
+
+	// Updates the animator
 	void Update();
+
+	// Does nothing
 	void Destroy();
 
+	// Sets current animation
+	// @ animationIndex - index of animation to play, index starts at 0
 	void SetCurrentAnimation(unsigned animationIndex);
 
+	// Flips the animations along their y axis
 	void FlipAnimationX();
 
 private:
-	std::vector<EAnimation*> m_Animations;
+	std::list<EAnimation*> m_Animations;
 
-	int m_CurrentAnimation;
+	std::list<EAnimation*>::iterator m_CurrentAnimation;
 
 private:
+	// No copying
 	EAnimator(const EAnimator& animator) {}
 	void operator=(const EAnimator& animator) {}
-
-	void AddAnimation(EAnimation* animation);
-	void FreeAnimations();
 };
 

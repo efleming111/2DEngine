@@ -45,7 +45,7 @@ bool EInput::Initialize()
 
 	if (SDL_NumJoysticks() > 0)
 	{
-		for (int i = 0; i < SDL_NumJoysticks(); ++i)
+		for (int i = 0; i < SDL_NumJoysticks() && i < MAX_GAME_CONTROLLERS; ++i)
 		{
 			if (SDL_IsGameController(i))
 			{
@@ -54,7 +54,8 @@ bool EInput::Initialize()
 				{
 					EGameController* gameController = new EGameController();
 					gameController->Initialize(controller);
-					m_GameControllers.push_back(gameController);
+					m_GameControllers[i] = gameController;
+					m_NumberOfControllers = (unsigned)i + 1u;
 				}
 			}
 		}
@@ -79,7 +80,7 @@ void EInput::Update()
 #ifdef _WIN32
 	m_Keyboard->Update();
 	m_Mouse->Update();
-	for (unsigned i = 0; i < m_GameControllers.size(); ++i)
+	for (unsigned i = 0; i < m_NumberOfControllers; ++i)
 		m_GameControllers[i]->Update();
 #endif
 
@@ -374,7 +375,7 @@ void EInput::Shutdown()
 	delete m_Keyboard;
 	m_Keyboard = 0;
 
-	for (unsigned i = 0; i < m_GameControllers.size(); ++i)
+	for (unsigned i = 0; i < m_NumberOfControllers; ++i)
 	{
 		m_GameControllers[i]->Shutdown();
 		delete m_GameControllers[i];
@@ -390,7 +391,7 @@ void EInput::Shutdown()
 
 EGameController* EInput::GetController(unsigned index)
 {
-	if (index < m_GameControllers.size())
+	if (index < m_NumberOfControllers)
 		return m_GameControllers[index];
 
 	return 0;

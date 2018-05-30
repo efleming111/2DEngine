@@ -14,63 +14,63 @@
 
 lilKnightGame::lilKnightGame()
 {
-	m_CurrentLevel = 0;
-	m_NextLevel = 0;
+	m_CurrentScene = 0;
+	m_NextScene = 0;
 }
 
 bool lilKnightGame::Initialize()
 {
-	LoadAllLevelFilenames();
-	m_CurrentLevel = LoadLevel();
+	LoadFirstSceneFilename();
+	m_CurrentScene = LoadScene();
 
 	return true;
 }
 
 void lilKnightGame::Update()
 {
-	m_CurrentLevel->Update();
+	m_CurrentScene->Update();
 
-	if (CheckForLevelChange())
+	if (CheckForSceneChange())
 	{
-		m_NextLevel = LoadLevel();
-		m_CurrentLevel->Destroy();
-		delete m_CurrentLevel;
-		m_CurrentLevel = m_NextLevel;
-		m_NextLevel = 0;
+		m_NextScene = LoadScene();
+		m_CurrentScene->Destroy();
+		delete m_CurrentScene;
+		m_CurrentScene = m_NextScene;
+		m_NextScene = 0;
 	}
 }
 
 void lilKnightGame::CleanUp()
 {
-	if (m_CurrentLevel)
+	if (m_CurrentScene)
 	{
-		m_CurrentLevel->Destroy();
-		delete m_CurrentLevel;
-		m_CurrentLevel = 0;
+		m_CurrentScene->Destroy();
+		delete m_CurrentScene;
+		m_CurrentScene = 0;
 	}
 
-	if (m_NextLevel)
+	if (m_NextScene)
 	{
-		m_NextLevel->Destroy();
-		delete m_NextLevel;
-		m_NextLevel = 0;
+		m_NextScene->Destroy();
+		delete m_NextScene;
+		m_NextScene = 0;
 	}
 }
 
-bool lilKnightGame::CheckForLevelChange()
+bool lilKnightGame::CheckForSceneChange()
 {
-	if (m_CurrentLoadedLevelIndex != m_CurrentLevel->m_CurrentLevelIndex)
+	if (m_CurrentScene->sceneChangeRequest)
 	{
-		m_CurrentLoadedLevelIndex = m_CurrentLevel->m_CurrentLevelIndex;
+		m_CurrentLoadedSceneName = m_CurrentScene->nextSceneToLoad;
 		return true;
 	}
 
 	return false;
 }
 
-void lilKnightGame::LoadAllLevelFilenames()
+void lilKnightGame::LoadFirstSceneFilename()
 {
-	char* xmlFile = lilFileIO::ReadFile("data/levels/gamelevels.gme", "r");
+	char* xmlFile = lilFileIO::ReadFile("data/scenes/gamestart.gme", "r");
 
 	TiXmlDocument xmlDoc;
 	xmlDoc.Parse(xmlFile);
@@ -80,26 +80,13 @@ void lilKnightGame::LoadAllLevelFilenames()
 
 	TiXmlElement* rootElement = xmlDoc.RootElement();
 
-	int size = 0;
-	rootElement->Attribute("size", &size);
-	rootElement->Attribute("startIndex", &m_CurrentLoadedLevelIndex);
-
-	std::string str = rootElement->GetText();
-	std::stringstream levelNames(str, std::ios_base::in);
-	for (int i = 0; i < size; ++i)
-	{
-		std::string levelName;
-		char discard;
-		levelNames >> levelName;
-		levelNames >> discard;
-		m_LevelFilenames.push_back(levelName);
-	}
+	m_CurrentLoadedSceneName =  rootElement->Attribute("startscene");
 }
 
-lilLevel* lilKnightGame::LoadLevel()
+lilScene* lilKnightGame::LoadScene()
 {
-	lilLevel* level = new lilLevel();
-	level->Create(m_LevelFilenames[m_CurrentLoadedLevelIndex].c_str());
+	lilScene* level = new lilScene();
+	level->Create(m_CurrentLoadedSceneName.c_str());
 
 	return level;
 }

@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <vector>
+#include <list>
 
 #include <Box2D\Box2D.h>
 
@@ -54,7 +54,7 @@ private:
 	static EPhysics* s_Instance;
 
 	b2World * m_World;
-	std::vector<b2Body*> m_Bodies;
+	std::list<b2Body*> m_Bodies;
 
 	int32 m_VelocityIterations;
 	int32 m_PositionIterations;

@@ -30,21 +30,12 @@ void EGameObjectManager::OnStart()
 
 void EGameObjectManager::Update()
 {
-	/*for (unsigned i = 0; i < m_GameObjects.size(); ++i)
-		m_GameObjects[i]->Update();*/
-
 	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
 		(*it)->Update();
 }
 
 void EGameObjectManager::FreeGameObjects()
 {
-	/*for (unsigned i = 0; i < m_GameObjects.size(); ++i)
-	{
-		m_GameObjects[i]->Destroy();
-		delete m_GameObjects[i];
-	}*/
-
 	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
 	{
 		(*it)->Destroy();
@@ -56,10 +47,6 @@ void EGameObjectManager::FreeGameObjects()
 
 EGameObject* EGameObjectManager::GetGameObject(std::string name)
 {
-	/*for (unsigned i = 0; i < m_GameObjects.size(); ++i)
-		if (m_GameObjects[i]->GetName().compare(name) == 0)
-			return m_GameObjects[i];*/
-
 	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
 		if ((*it)->m_Name.compare(name) == 0)
 			return (*it);

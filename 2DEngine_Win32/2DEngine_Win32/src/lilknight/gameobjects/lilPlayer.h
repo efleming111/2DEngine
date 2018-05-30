@@ -21,7 +21,6 @@ public:
 	Player() {}
 	~Player() {}
 
-	void Create(const char* filename, float pixelsPerGameUnit);
 	void Create(TiXmlElement* rootElement, float pixelsPerGameUnit);
 	void OnStart();
 	void Update();

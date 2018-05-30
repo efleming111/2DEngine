@@ -7,11 +7,6 @@
 
 #include "lilCamera.h"
 
-void Camera::Create(const char* filename, float pixelsPerGameUnit)
-{
-	EGameObject::Create(filename, pixelsPerGameUnit);
-}
-
 void Camera::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	EGameObject::Create(rootElement, pixelsPerGameUnit);

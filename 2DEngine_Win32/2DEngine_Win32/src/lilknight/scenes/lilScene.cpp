@@ -1,6 +1,6 @@
 //
 //  lil Knight
-//  lilLevel.cpp
+//  lilScene.cpp
 //  Eric Fleming
 //  5/21/2018
 //
@@ -19,22 +19,24 @@
 #include "../gameobjects/lilCamera.h"
 #include "../../engine/utilities/EFileIO.h"
 
-// TODO: For testing only
-#include <SDL.h>
 float tempPixPerGU = 50.0f;
 
 void lilScene::Create(const char* filename)
 {
-	sceneChangeRequest = false;
+	loadNewScene = false;
 
 	GameObjectFactory(filename);
 
 	lilGameObjectManager->OnStart();
+
+	nextSceneFilename = m_SceneObject->GetNextScene();
 }
 
 void lilScene::Update()
 {
 	lilGameObjectManager->Update();
+
+	loadNewScene = m_SceneObject->ChangeScene();
 }
 
 void lilScene::Destroy()
@@ -67,6 +69,13 @@ void lilScene::GameObjectFactory(const char* filename)
 	for (TiXmlElement* gameObject = rootElement->FirstChildElement(); gameObject; gameObject = gameObject->NextSiblingElement())
 	{
 		std::string type = gameObject->Attribute("type");
+
+		if (type.compare("Scene") == 0)
+		{
+			m_SceneObject = new SceneObject();
+			m_SceneObject->Create(gameObject, tempPixPerGU);
+			lilGameObjectManager->AddGameObject(m_SceneObject);
+		}
 
 		if (type.compare("Camera") == 0)
 		{

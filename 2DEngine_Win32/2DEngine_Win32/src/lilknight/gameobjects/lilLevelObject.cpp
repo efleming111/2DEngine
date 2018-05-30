@@ -7,11 +7,6 @@
 
 #include "lilLevelObject.h"
 
-void LevelObject::Create(const char* filename, float pixelsPerGameUnit)
-{
-	EGameObject::Create(filename, pixelsPerGameUnit);
-}
-
 void LevelObject::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	EGameObject::Create(rootElement, pixelsPerGameUnit);

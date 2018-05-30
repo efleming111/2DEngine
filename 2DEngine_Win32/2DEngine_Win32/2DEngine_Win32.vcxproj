@@ -168,13 +168,13 @@
     <ClInclude Include="src\engine\input\EGameController.h" />
     <ClInclude Include="src\engine\input\EInput.h" />
     <ClInclude Include="src\engine\core\ECore.h" />
-    <ClInclude Include="src\engine\core\EGame.h" />
     <ClInclude Include="src\engine\physics\EPhysics.h" />
     <ClInclude Include="src\engine\renderer\EGLRenderer.h" />
     <ClInclude Include="src\engine\renderer\EGLWindow.h" />
     <ClInclude Include="src\engine\utilities\EFileIO.h" />
     <ClInclude Include="src\engine\utilities\ETimer.h" />
-    <ClInclude Include="src\lilknight\lilKnightGame.h" />
+    <ClInclude Include="src\engine\game\EGame.h" />
+    <ClInclude Include="src\lilknight\scenes\lilSceneObject.h" />
     <ClInclude Include="src\lilknight\scenes\lilScene.h" />
     <ClInclude Include="src\lilknight\gameobjects\lilCamera.h" />
     <ClInclude Include="src\lilknight\gameobjects\lilLevelObject.h" />
@@ -211,7 +211,8 @@
     <ClCompile Include="src\engine\renderer\EGLWindow.cpp" />
     <ClCompile Include="src\engine\utilities\EFileIO.cpp" />
     <ClCompile Include="src\engine\utilities\ETimer.cpp" />
-    <ClCompile Include="src\lilknight\lilKnightGame.cpp" />
+    <ClCompile Include="src\engine\game\EGame.cpp" />
+    <ClCompile Include="src\lilknight\scenes\lilSceneObject.cpp" />
     <ClCompile Include="src\lilknight\scenes\lilScene.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilCamera.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilLevelObject.cpp" />

@@ -25,11 +25,7 @@ public:
 	virtual ~EGameObject() {}
 
 	// Creates game object
-	// THIS FUNCTION MUST BE CALLED BY DERIVED CLASS
-	virtual void Create(const char* filename, float pixelsPerGameUnit) = 0;
-
-	// Creates game object
-	// THIS FUNCTION MUST BE CALLED BY DERIVED CLASS
+	// THIS FUNCTION MUST BE CALLED FIRST BY DERIVED CLASS
 	virtual void Create(TiXmlElement* rootElement, float pixelsPerGameUnit) = 0;
 
 	// Called just before the game loop runs
@@ -41,7 +37,7 @@ public:
 	virtual void Update() = 0;
 
 	// Destroys game object
-	// THIS FUNCTION MUST ONLY BE CALLED BY THE DERIVED CLASS
+	// THIS FUNCTION MUST BE CALLED BY THE DERIVED CLASS
 	virtual void Destroy() = 0;
 
 	// Handles collision with other objects

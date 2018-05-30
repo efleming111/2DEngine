@@ -15,44 +15,6 @@
 #include "../components/ESprite.h"
 #include "../components/EAnimator.h"
 
-void EGameObject::Create(const char* filename, float pixelsPerGameUnit)
-{
-	m_PixelsPerGameUnit = pixelsPerGameUnit;
-
-	char* xmlFile = lilFileIO::ReadFile(filename, "r");
-
-	TiXmlDocument xmlDoc;
-	xmlDoc.Parse(xmlFile);
-
-	delete[] xmlFile;
-	xmlFile = 0;
-
-	TiXmlElement* rootElement = xmlDoc.RootElement();
-	if (!rootElement)
-		return;
-
-	m_Name = rootElement->Attribute("name");
-
-	double value;
-	TiXmlElement* transform = rootElement->FirstChildElement("transform");
-	transform->Attribute("x", &value);
-	m_Transform.position.x = (float)value; 
-	transform->Attribute("y", &value);
-	m_Transform.position.y = (float)value;
-	transform->Attribute("z", &value);
-	m_Transform.position.z = (float)value;
-	transform->Attribute("rotation", &value);
-	m_Transform.rotation = (float)value;
-	transform->Attribute("sx", &value);
-	m_Transform.scale.x = (float)value;
-	transform->Attribute("sy", &value);
-	m_Transform.scale.y = (float)value;
-	transform->Attribute("sz", &value);
-	m_Transform.scale.z = (float)value;
-
-	CreateComponents(rootElement->FirstChildElement("components"));
-}
-
 void EGameObject::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	m_PixelsPerGameUnit = pixelsPerGameUnit;

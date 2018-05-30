@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<scene index="0" width="50" height="14">
+<scene width="50" height="14">
+    <gameobject type="Scene" name="Scene01">
+        <scenes option1="data/scenes/scene02.lvl" />
+        <transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+        </components>
+    </gameobject>
     <gameobject type="Camera" name="Camera">
         <transform x="14" y="7" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>

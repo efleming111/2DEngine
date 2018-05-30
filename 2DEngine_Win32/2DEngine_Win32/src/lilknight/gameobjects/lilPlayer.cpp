@@ -7,11 +7,6 @@
 
 #include "lilPlayer.h"
 
-void Player::Create(const char* filename, float pixelsPerGameUnit)
-{
-	EGameObject::Create(filename, pixelsPerGameUnit);
-}
-
 void Player::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	EGameObject::Create(rootElement, pixelsPerGameUnit);

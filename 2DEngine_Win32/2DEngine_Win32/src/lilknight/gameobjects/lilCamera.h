@@ -17,7 +17,6 @@ public:
 	Camera() {}
 	~Camera() {}
 
-	void Create(const char* filename, float pixelsPerGameUnit);
 	void Create(TiXmlElement* rootElement, float pixelsPerGameUnit);
 	void OnStart();
 	void Update();
@@ -27,6 +26,6 @@ private:
 	Player * m_Player;
 
 private:
-	Camera(const Camera& logic) {}
-	void operator=(const Camera& logic) {}
+	Camera(const Camera& camera) {}
+	void operator=(const Camera& camera) {}
 };

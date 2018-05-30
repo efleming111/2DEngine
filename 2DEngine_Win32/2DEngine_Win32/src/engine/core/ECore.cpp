@@ -50,19 +50,14 @@ bool ECore::Initialize()
 	if (!lilPhysics->Initialize(0.0f, -10.0f))
 		return false;
 
-	m_Game = 0;
-
-	return true;
-}
-
-void ECore::LoadGame(EGame* game)
-{
-	m_Game = game;
+	m_Game = new EGame();
 	if (!m_Game->Initialize())
 	{
 		SDL_Log("ERROR: Game Failed To Initialize, %s %d", __FILE__, __LINE__);
 		m_Running = false;
 	}
+
+	return true;
 }
 
 void ECore::Run()

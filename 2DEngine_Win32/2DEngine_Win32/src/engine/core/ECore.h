@@ -12,7 +12,7 @@
 
 #include <SDL.h>
 
-#include "EGame.h"
+#include "../game/EGame.h"
 
 #define lilEngine ECore::Instance()
 
@@ -24,10 +24,6 @@ public:
 
 	// Initialize all subsystems of the engine and main game file
 	bool Initialize();
-
-	// Loads the main game code
-	// @ game - Pass in the main game object, derived from EGame
-	void LoadGame(EGame* game);
 
 	// Runs the game loop, updating all subsystems
 	// Calls update on the main game

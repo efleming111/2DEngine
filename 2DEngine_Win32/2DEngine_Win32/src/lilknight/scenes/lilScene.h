@@ -1,6 +1,6 @@
 //
 //  lil Knight
-//  lilLevel.h
+//  lilScene.h
 //  Eric Fleming
 //  5/17/2018
 //
@@ -8,6 +8,7 @@
 #pragma once
 
 #include <string>
+#include "lilSceneObject.h"
 
 class lilScene
 {
@@ -18,18 +19,24 @@ public:
 	// Creates scene from filename passed
 	// @ filename - file name of scene data
 	void Create(const char* filename);
+
+	// Updates the scene
 	void Update();
+
+	// Cleans up scene
 	void Destroy();
 
 public:
-	// Variables used to change scenes
-	bool sceneChangeRequest;
-	std::string nextSceneToLoad;
+	bool loadNewScene;
+	std::string nextSceneFilename;
+
+private:
+	SceneObject* m_SceneObject;
 
 private:
 	// No copying
-	lilScene(const lilScene& level) {}
-	void operator=(const lilScene& level) {}
+	lilScene(const lilScene& scene) {}
+	void operator=(const lilScene& scene) {}
 
 	// Creates all game objects for scene
 	void GameObjectFactory(const char* filename);

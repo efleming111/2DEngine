@@ -24,12 +24,6 @@
     <ClInclude Include="src\engine\core\ECore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\core\EGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lilknight\lilKnightGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\engine\utilities\EFileIO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -123,7 +117,13 @@
     <ClInclude Include="src\lilknight\gameobjects\lilCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\game\EGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\lilknight\scenes\lilScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lilknight\scenes\lilSceneObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -144,9 +144,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\core\ECore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lilknight\lilKnightGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\utilities\EFileIO.cpp">
@@ -236,7 +233,13 @@
     <ClCompile Include="src\lilknight\gameobjects\lilCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\game\EGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\lilknight\scenes\lilScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilknight\scenes\lilSceneObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

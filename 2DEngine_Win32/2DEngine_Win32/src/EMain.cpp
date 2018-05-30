@@ -6,7 +6,6 @@
 //
 
 #include "engine\core\ECore.h"
-#include "lilknight\lilKnightGame.h"
 
 int main(int argc, char* argv[])
 {
@@ -14,8 +13,6 @@ int main(int argc, char* argv[])
 
 	if (lilEngine->Initialize())
 	{
-		// ADD NEW GAME OBJECT HERE
-		lilEngine->LoadGame(new lilKnightGame());
 		lilEngine->Run();
 		lilEngine->ShutDown();
 	}

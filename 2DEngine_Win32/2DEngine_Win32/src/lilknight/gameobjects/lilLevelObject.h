@@ -17,8 +17,6 @@ class LevelObject : public EGameObject
 public:
 	LevelObject() {}
 	~LevelObject() {}
-
-	void Create(const char* filename, float pixelsPerGameUnit);
 	void Create(TiXmlElement* rootElement, float pixelsPerGameUnit);
 	void OnStart();
 	void Update();

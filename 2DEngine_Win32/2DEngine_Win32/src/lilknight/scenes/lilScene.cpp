@@ -41,6 +41,8 @@ void lilScene::Update()
 
 void lilScene::Destroy()
 {
+	// This Order is important
+	lilPhysics->DestroyBodies();
 	lilAudio->FreeMusic();
 	lilAudio->FreeSounds();
 	lilGameObjectManager->FreeGameObjects();
@@ -48,7 +50,6 @@ void lilScene::Destroy()
 	lilShaderManager->FreeShaders();
 	lilMeshManager->FreeMeshes();
 	lilTextureManager->FreeTextures();
-	lilPhysics->DestroyBodies();
 }
 
 void lilScene::GameObjectFactory(const char* filename)

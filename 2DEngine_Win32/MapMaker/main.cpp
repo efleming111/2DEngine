@@ -14,10 +14,6 @@
 
 #include "tinyxml\tinyxml.h"
 
-// <sprite type="sprite" isrendered="true" width="1.0" height="1.0" xrel="0.0" yrel="0.0f" 
-// texleft=".6630" texright=".7264" textop=".0697" texbottom=".0320" 
-// texturefile="data/spritesheets/leveltiles.png" shaderfile="data/shaders/BasicTextureShader"/>
-
 // Map objects
 struct Sprite
 {
@@ -63,7 +59,7 @@ struct TileMap
 bool ReadInSpriteSheet(std::string filename);
 bool ReadInTileAtlas(std::string filename);
 bool ReadInTileMap(std::string filename);
-void OutputMap(std::string filename, int levelIndexNumber);
+void OutputMap(std::string filename);
 
 // Map globals
 std::vector<Sprite*> g_Sprites;
@@ -77,38 +73,30 @@ TileMap g_TileMap;
 int main(int argc, char* argv[])
 {
 	// TODO: temp to speed up testing
-	/*std::cout << "Enter sprite sheet file: ";
+	std::cout << "Enter sprite sheet file<xml>: ";
 	std::string filename;
 	std::getline(std::cin, filename);
 	if (!ReadInSpriteSheet(filename))
 		return 1;
 	
-	std::cout << "Enter tile atlas file: ";
+	std::cout << "Enter tile atlas file<tsx>: ";
 	std::getline(std::cin, filename);
 	if (!ReadInTileAtlas(filename))
 		return 1;
 
-	std::cout << "Enter tile map file: ";
+	std::cout << "Enter tile map file<tmx>: ";
 	std::getline(std::cin, filename);
 	if (!ReadInTileMap(filename))
 		return 1;
 
-	std::cout << "Enter level name: ";
+	std::cout << "Enter level name<lvl>: ";
 	std::getline(std::cin, filename);
-	std::cout << "Enter level index number: ";
-	int index;
-	std::cin >> index;
-	OutputMap(filename, index);*/
-
-	ReadInSpriteSheet("C:/2DEngine/assetcreation/freetilespritesheet.xml");
-	ReadInTileAtlas("C:/2DEngine/assetcreation/freetiles.tsx");
-	ReadInTileMap("C:/2DEngine/assetcreation/level_01.tmx");
-	OutputMap("C:/2DEngine/2DEngine_Win32/2DEngine_Win32/data/levels/level01.lvl", 0);
+	OutputMap(filename);
 
 	return 0;
 }
 
-void OutputMap(std::string filename, int levelIndexNumber)
+void OutputMap(std::string filename)
 {
 	std::string levelData;
 
@@ -116,8 +104,7 @@ void OutputMap(std::string filename, int levelIndexNumber)
 	TiXmlDeclaration* dec = new TiXmlDeclaration("1.0", "UTF-8", "");
 	xmlDoc.LinkEndChild(dec);
 
-	TiXmlElement* level = new TiXmlElement("level");
-	level->SetAttribute("index", levelIndexNumber);
+	TiXmlElement* level = new TiXmlElement("scene");
 	level->SetAttribute("width", g_TileMap.width);
 	level->SetAttribute("height", g_TileMap.height);
 	xmlDoc.LinkEndChild(level);
@@ -133,8 +120,8 @@ void OutputMap(std::string filename, int levelIndexNumber)
 			gameobject->SetAttribute("name", "Block");
 
 			TiXmlElement* transform = new TiXmlElement("transform");
-			transform->SetDoubleAttribute("x", (double)((int)i % 50) + .5);
-			transform->SetDoubleAttribute("y", (double)(g_TileMap.height - ((int)i / 50)) - .5);
+			transform->SetDoubleAttribute("x", (double)((int)i % g_TileMap.width) + .5);
+			transform->SetDoubleAttribute("y", (double)(g_TileMap.height - ((int)i / g_TileMap.width)) - .5);
 			transform->SetDoubleAttribute("z", 0.0);
 			transform->SetDoubleAttribute("rotation", 0.0);
 			transform->SetDoubleAttribute("sx", 1.0);
@@ -205,7 +192,15 @@ void OutputMap(std::string filename, int levelIndexNumber)
 			TiXmlElement* components = new TiXmlElement("components");
 			gameobject->LinkEndChild(components);
 
-			Sprite* currentSprite = g_Sprites[g_TileMap.backgroundObjects[i]->id];
+			Sprite* currentSprite = 0;
+			for (unsigned j = 0; j < g_Sprites.size(); ++j)
+			{
+				if (g_Sprites[j]->name.compare(g_TileAtlas[g_TileMap.backgroundObjects[i]->id]) == 0)
+				{
+					currentSprite = g_Sprites[j];
+					break;
+				}
+			}
 
 			TiXmlElement* sprite = new TiXmlElement("sprite");
 			sprite->SetAttribute("type", "sprite");

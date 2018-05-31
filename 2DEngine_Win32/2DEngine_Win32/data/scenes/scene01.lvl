@@ -41,988 +41,994 @@
     <gameobject type="LevelObject" name="Block">
         <transform x="45.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.125714" texright="0.247619" texbottom="0.605578" textop="0.860558" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="46.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="47.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="48.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="49.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.00199203" textop="0.256972" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="35.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.380952" texright="0.502857" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0" texright="0.125" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="36.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="37.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="38.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="39.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="40.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="41.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.752381" texright="0.874286" texbottom="0.778884" textop="0.964143" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.25" texright="0.375" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="45.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.000952381" texright="0.12381" texbottom="0.605578" textop="0.86255" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.125" texright="0.250977" texbottom="0.525237" textop="0.728707" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="46.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="47.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="48.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="49.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.744762" texright="0.866667" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="45.5" y="7.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.000952381" texright="0.12381" texbottom="0.605578" textop="0.86255" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.125" texright="0.250977" texbottom="0.525237" textop="0.728707" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="46.5" y="7.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="47.5" y="7.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="48.5" y="7.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="49.5" y="7.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.744762" texright="0.866667" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="28.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.125714" texright="0.247619" texbottom="0.605578" textop="0.860558" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="29.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="30.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="31.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="32.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.00199203" textop="0.256972" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0" texright="0.125" texbottom="0.525237" textop="0.727129" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="45.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.497143" texright="0.619048" texbottom="0.553785" textop="0.808765" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.121451" textop="0.323344" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="46.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.868571" texright="0.990476" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.5" texright="0.625" texbottom="0.121451" textop="0.323344" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="47.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.868571" texright="0.990476" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.5" texright="0.625" texbottom="0.121451" textop="0.323344" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="48.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.868571" texright="0.990476" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.5" texright="0.625" texbottom="0.121451" textop="0.323344" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="49.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.541905" texright="0.66381" texbottom="0.00199203" textop="0.256972" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.5" texright="0.625" texbottom="0.121451" textop="0.323344" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="28.5" y="5.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.000952381" texright="0.12381" texbottom="0.605578" textop="0.86255" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.125" texright="0.250977" texbottom="0.525237" textop="0.728707" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="29.5" y="5.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="30.5" y="5.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="31.5" y="5.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="32.5" y="5.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.744762" texright="0.866667" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.875" texright="1" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="12.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.380952" texright="0.502857" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0" texright="0.125" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="13.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="14.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="15.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="16.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.752381" texright="0.874286" texbottom="0.778884" textop="0.964143" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.25" texright="0.375" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="28.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.000952381" texright="0.12381" texbottom="0.605578" textop="0.86255" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.125" texright="0.250977" texbottom="0.525237" textop="0.728707" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="29.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="30.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="31.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="32.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.744762" texright="0.866667" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.875" texright="1" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="20.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.125714" texright="0.247619" texbottom="0.605578" textop="0.860558" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="21.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="22.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="23.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="24.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="25.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="26.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="27.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="28.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.789524" texright="0.911429" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.5" texright="0.625" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="29.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="30.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="31.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="32.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.744762" texright="0.866667" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.875" texright="1" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="0.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.125714" texright="0.247619" texbottom="0.605578" textop="0.860558" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="1.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="2.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="3.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="4.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="5.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="6.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="7.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="8.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.00199203" textop="0.256972" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0" texright="0.125" texbottom="0.525237" textop="0.727129" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="20.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.000952381" texright="0.12381" texbottom="0.605578" textop="0.86255" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.125" texright="0.250977" texbottom="0.525237" textop="0.728707" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="21.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="22.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="23.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="24.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="25.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="26.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="27.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="28.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="29.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="30.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="31.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="32.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.744762" texright="0.866667" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.875" texright="1" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="46.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.380952" texright="0.502857" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0" texright="0.125" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="47.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="48.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="49.5" y="2.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.752381" texright="0.874286" texbottom="0.778884" textop="0.964143" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.25" texright="0.375" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="0.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.000952381" texright="0.12381" texbottom="0.605578" textop="0.86255" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="1.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="2.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="3.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="4.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="5.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="6.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="7.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="8.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.249524" texright="0.371429" texbottom="0.605578" textop="0.860558" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.25" texright="0.375" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="9.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.620952" texright="0.742857" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="10.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.00199203" textop="0.256972" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0" texright="0.125" texbottom="0.525237" textop="0.727129" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="20.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.000952381" texright="0.12381" texbottom="0.605578" textop="0.86255" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.125" texright="0.250977" texbottom="0.525237" textop="0.728707" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="21.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="22.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="23.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="24.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="25.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="26.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="27.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="28.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="29.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="30.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="31.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="32.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.744762" texright="0.866667" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.875" texright="1" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="37.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.380952" texright="0.502857" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0" texright="0.125" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="38.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="39.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="40.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="41.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.504762" texright="0.626667" texbottom="0.812749" textop="0.998008" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="42.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.752381" texright="0.874286" texbottom="0.778884" textop="0.964143" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="0.726563" xrel="0" yrel="0" texleft="0.25" texright="0.375" texbottom="0.121451" textop="0.268139" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="0.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.00781" height="1.00781" xrel="0" yrel="0" texleft="0.000952381" texright="0.12381" texbottom="0.605578" textop="0.86255" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="1.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="2.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="3.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="4.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="5.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="6.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="7.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="8.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="9.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="10.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.744762" texright="0.866667" texbottom="0.51992" textop="0.7749" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.875" texright="1" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="19.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.125714" texright="0.247619" texbottom="0.605578" textop="0.860558" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.125" texright="0.25" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="20.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.789524" texright="0.911429" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.5" texright="0.625" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="21.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="22.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="23.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="24.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="25.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="26.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="27.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="28.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="29.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="30.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="31.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.260956" textop="0.515936" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.75" texright="0.875" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="32.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.249524" texright="0.371429" texbottom="0.605578" textop="0.860558" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.25" texright="0.375" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="33.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0.665714" texright="0.787619" texbottom="0.00199203" textop="0.256972" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1" height="1" xrel="0" yrel="0" texleft="0" texright="0.125" texbottom="0.525237" textop="0.727129" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Background">
-        <transform x="5.44822" y="5.06685" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="2.84138" y="3.49234" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="3.86662" height="4.12713" xrel="0" yrel="0" texleft="0.000952381" texright="0.269524" texbottom="0.00199203" textop="0.601594" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.67188" height="1.00313" xrel="0" yrel="0" texleft="0.352539" texright="0.44043" texbottom="0" textop="0.0851735" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Background">
-        <transform x="23.7687" y="6.46369" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="6.01799" y="5.13602" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="5.04352" height="4.91832" xrel="0" yrel="0" texleft="0.271429" texright="0.54" texbottom="0.00199203" textop="0.549801" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="4.68229" height="4.25781" xrel="0" yrel="0" texleft="0.526367" texright="0.801758" texbottom="0.525237" textop="1" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Background">
-        <transform x="15.3685" y="5.23853" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="31.456" y="7.39186" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="2.08073" height="1.0169" xrel="0" yrel="0" texleft="0.129524" texright="0.25619" texbottom="0.864542" textop="0.994024" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.33854" height="0.803125" xrel="0" yrel="0" texleft="0.352539" texright="0.44043" texbottom="0" textop="0.0851735" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Background">
-        <transform x="48.761" y="10.3512" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="40.1676" y="9.10483" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.16217" height="0.732326" xrel="0" yrel="0" texleft="0.87619" texright="0.945714" texbottom="0.870518" textop="0.962151" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.26563" height="0.759375" xrel="0" yrel="0" texleft="0.352539" texright="0.44043" texbottom="0" textop="0.0851735" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Background">
-        <transform x="2.82907" y="3.51467" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="15.2455" y="5.14787" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.81581" height="1.08949" xrel="0" yrel="0" texleft="0.913333" texright="0.999048" texbottom="0.260956" textop="0.368526" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="1.71484" height="0.838078" xrel="0" yrel="0" texleft="0.5625" texright="0.692383" texbottom="0" textop="0.102524" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Background">
-        <transform x="31.6762" y="7.53693" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="23.0533" y="6.08175" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.88684" height="1.1321" xrel="0" yrel="0" texleft="0.913333" texright="0.999048" texbottom="0.260956" textop="0.368526" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="4.26563" height="4.15974" xrel="0" yrel="0" texleft="0.250977" texright="0.526367" texbottom="0.525237" textop="0.958991" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Background">
-        <transform x="36.1676" y="9.19413" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="36.3654" y="9.12902" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="0.897195" height="0.926133" xrel="0" yrel="0" texleft="0.32" texright="0.379048" texbottom="0.864542" textop="0.992032" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="0.787109" height="0.8125" xrel="0" yrel="0" texleft="0.44043" texright="0.500977" texbottom="0" textop="0.100946" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Background">
-        <transform x="46.4784" y="10.5593" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="47.983" y="10.4709" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="sprite" isrendered="true" width="1.11173" height="1.14702" xrel="0" yrel="0" texleft="0.258095" texright="0.318095" texbottom="0.864542" textop="0.994024" texturefile="data/spritesheets/freetilespritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+            <sprite type="sprite" isrendered="true" width="0.920016" height="0.949219" xrel="0" yrel="0" texleft="0.500977" texright="0.5625" texbottom="0" textop="0.102524" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+        </components>
+    </gameobject>
+    <gameobject type="LevelObject" name="Background">
+        <transform x="48.4855" y="3.16906" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="sprite" isrendered="true" width="0.851859" height="0.878906" xrel="0" yrel="0" texleft="0.500977" texright="0.5625" texbottom="0" textop="0.102524" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="4.47441" y="1.51184" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="4.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="8.94883" height="3.00663" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="9" height="3" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="9.95505" y="1.02655" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="10" y="1" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="1.82291" height="1.84659" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="2" height="2" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="14.4649" y="4.40008" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="14.5" y="4.36776" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="5.01894" height="0.733902" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="5" height="0.735577" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="19.401" y="0.541156" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="19.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="0.875945" height="1.06534" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="23.9347" y="2.05632" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="24" y="2" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="7.85984" height="3.9536" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="8" height="4" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="30.4451" y="3.52414" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="30.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="4.87689" height="6.93655" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="5" height="7" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="33.428" y="0.529324" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="33.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="0.99432" height="1.04166" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="38.518" y="8.34186" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="38.5" y="8.3738" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="6.96023" height="0.710227" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="7" height="0.747596" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="39.9503" y="1.36977" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="40" y="1.36776" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="5.89488" height="0.686553" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="6" height="0.735577" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="47.4551" y="8.02225" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="47.5" y="8" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="4.94791" height="3.90625" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="5" height="4" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
     <gameobject type="LevelObject" name="Collider">
-        <transform x="48.0706" y="2.41148" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <transform x="48" y="2.36776" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="4.09564" height="0.78125" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="4" height="0.735577" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>

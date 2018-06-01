@@ -8,6 +8,7 @@
 #pragma once
 
 #include "../../engine/components/ERigidbody.h"
+#include "../../engine/components/ESprite.h"
 
 // TODO: For testing only
 #include <SDL.h>
@@ -26,10 +27,9 @@ public:
 	void EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 
 private:
+
+private:
 	LevelObject(const LevelObject& levelObject) {}
 	void operator=(const LevelObject& levelObject) {}
 };
-
-void BlockBeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
-void BlockEndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 

@@ -14,6 +14,7 @@ void LevelObject::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 
 void LevelObject::OnStart()
 {
+	// Empty
 }
 
 void LevelObject::Update()
@@ -33,5 +34,4 @@ void LevelObject::BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigid
 void LevelObject::EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
 }
-
 

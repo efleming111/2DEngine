@@ -46,7 +46,7 @@ void lilScene::Destroy()
 	lilAudio->FreeMusic();
 	lilAudio->FreeSounds();
 	lilGameObjectManager->FreeGameObjects();
-	lilGLRenderer->FreeSprites();
+	lilGLRenderer->FreeRenderer();
 	lilShaderManager->FreeShaders();
 	lilMeshManager->FreeMeshes();
 	lilTextureManager->FreeTextures();

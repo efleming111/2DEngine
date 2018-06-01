@@ -76,6 +76,6 @@ void EAnimation::StopAnimation()
 void EAnimation::FlipAnimationX()
 {
 	for (std::list<ESprite*>::iterator it = m_Frames.begin(); it != m_Frames.end(); ++it)
-		(*it)->m_Transform.scale.x *= -1.0f;
+		(*it)->transform.scale.x *= -1.0f;
 }
 

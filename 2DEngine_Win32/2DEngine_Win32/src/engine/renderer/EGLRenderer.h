@@ -17,6 +17,34 @@
 
 #define lilGLRenderer EGLRenderer::Instance()
 
+class ERenderable
+{
+public:
+	ERenderable() {}
+	~ERenderable() {}
+
+	// Creates a sprite
+	// @ element - data for setting up the renderable
+	void Create(TiXmlElement* element, float pixelsPerGameUnit);
+
+	void Draw(ESprite* sprite);
+
+public:
+	std::string name;
+
+private:
+	float m_PixelsPerGameUnit;
+
+	EMesh* m_Mesh;
+	EShader* m_Shader;
+	unsigned m_TextureID;
+
+private:
+	// No copying
+	ERenderable(const ERenderable& renderable) {}
+	void operator=(const ERenderable& renderable) {}
+};
+
 class EGLRenderer
 {
 public:
@@ -43,11 +71,12 @@ public:
 	void RegisterCamera(ECamera* camera);
 
 	// Adds sprite to manager
+	// Returns renderable that sprite uses
 	// @ sprite - sprite to be added
-	void AddSprite(ESprite* sprite);
+	ERenderable* AddSprite(ESprite* sprite, TiXmlElement* element, float pixelsPerGameUnit);
 
 	// Frees all loaded sprites
-	void FreeSprites();
+	void FreeRenderer();
 
 private:
 	static EGLRenderer* s_Instance;
@@ -55,6 +84,7 @@ private:
 	ECamera* m_CurrentCamera;
 
 	std::list<ESprite*> m_Sprites;
+	std::list<ERenderable*> m_Renderables;
 
 private:
 	// Only one renderer, no copying

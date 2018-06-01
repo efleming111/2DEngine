@@ -7,10 +7,14 @@
 
 #pragma once
 
+#include <string>
+
 #include "EComponent.h"
 #include "../gameobjects/ETransform.h"
 #include "subcomponents/EMesh.h"
 #include "subcomponents/EShader.h"
+
+class ERenderable;
 
 class ESprite : public EComponent
 {
@@ -28,15 +32,15 @@ public:
 	// Does nothing
 	void Destroy();
 
+	void Draw();
+
 public:
-	ETransform m_Transform;
-	float m_XRel;
-	float m_YRel;
+	std::string name;
+	ETransform transform;
+	float xRelative;
+	float yRelative;
 
-	EMesh* mesh;
-	EShader* shader;
-	unsigned textureID;
-
+	ERenderable* renderable;
 	bool isRendered;
 
 private:
@@ -44,4 +48,6 @@ private:
 	ESprite(const ESprite& component) {}
 	void operator=(const ESprite& component) {}
 };
+
+
 

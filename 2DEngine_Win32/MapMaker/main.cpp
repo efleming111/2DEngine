@@ -145,6 +145,7 @@ void OutputMap(std::string filename)
 			TiXmlElement* sprite = new TiXmlElement("sprite");
 			sprite->SetAttribute("type", "sprite");
 			sprite->SetAttribute("name", currentSprite->name.c_str());
+			sprite->SetAttribute("renderorder", 3);
 			sprite->SetAttribute("isrendered", "true");
 			sprite->SetDoubleAttribute("width", currentSprite->width / g_TileMap.tileWidth);
 			sprite->SetDoubleAttribute("height", currentSprite->height / g_TileMap.tileHeight);
@@ -206,6 +207,7 @@ void OutputMap(std::string filename)
 			TiXmlElement* sprite = new TiXmlElement("sprite");
 			sprite->SetAttribute("type", "sprite");
 			sprite->SetAttribute("name", currentSprite->name.c_str());
+			sprite->SetAttribute("renderorder", 2);
 			sprite->SetAttribute("isrendered", "true");
 			sprite->SetDoubleAttribute("width", g_TileMap.backgroundObjects[i]->width / g_TileMap.tileWidth);
 			sprite->SetDoubleAttribute("height", g_TileMap.backgroundObjects[i]->height / g_TileMap.tileHeight);

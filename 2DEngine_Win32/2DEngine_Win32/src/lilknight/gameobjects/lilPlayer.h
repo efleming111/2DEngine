@@ -5,6 +5,8 @@
 //  5/21/2018
 //
 
+#pragma once
+
 #include "../../engine/gameobjects/EGameObject.h"
 #include "../../engine/input/EInput.h"
 #include "../../engine/components/ERigidbody.h"
@@ -12,8 +14,6 @@
 
 // TODO: For testing only
 #include <SDL.h>
-
-#pragma once
 
 class Player : public EGameObject
 {

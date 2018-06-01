@@ -17,6 +17,7 @@
 #include "../gameobjects/lilPlayer.h"
 #include "../gameobjects/lilLevelObject.h"
 #include "../gameobjects/lilCamera.h"
+#include "../gameobjects/lilHUD.h"
 #include "../../engine/utilities/EFileIO.h"
 
 float tempPixPerGU = 50.0f;
@@ -92,6 +93,14 @@ void lilScene::GameObjectFactory(const char* filename)
 			player = new Player();
 			player->Create(gameObject, tempPixPerGU);
 			lilGameObjectManager->AddGameObject(player);
+		}
+
+		else if (type.compare("HUD") == 0)
+		{
+			HUD* hud;
+			hud = new HUD();
+			hud->Create(gameObject, tempPixPerGU);
+			lilGameObjectManager->AddGameObject(hud);
 		}
 
 		else if (type.compare("LevelObject") == 0)

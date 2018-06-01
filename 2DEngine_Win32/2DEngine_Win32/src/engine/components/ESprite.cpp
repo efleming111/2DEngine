@@ -22,6 +22,17 @@ void ESprite::Create(TiXmlElement* element)
 	m_Type = element->Attribute("type");
 	name = element->Attribute("name");
 
+	/*
+	1 - Backgrounds
+	2 - Background items
+	3 - Tiles
+	4 - Player
+	5 - Hud level 1
+	6 - Hud level 2
+	*/
+	int renderOrder;
+	element->Attribute("renderorder", &renderOrder);
+
 	std::string rendered;
 	rendered = element->Attribute("isrendered");
 	if (rendered.compare("true") == 0)
@@ -41,7 +52,7 @@ void ESprite::Create(TiXmlElement* element)
 
 	transform.position.x = xRelative + m_GameObject->m_Transform.position.x;
 	transform.position.y = yRelative + m_GameObject->m_Transform.position.y;
-	transform.position.z = 0.0f;
+	transform.position.z = (.01f * (float)renderOrder) / -m_GameObject->m_PixelsPerGameUnit;
 	transform.rotation = 0.0f;
 	transform.scale = glm::vec3((float)xScale, (float)yScale, 1.0f);
 

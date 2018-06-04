@@ -62,10 +62,19 @@ void EGameObject::Destroy()
 	m_Components.clear();
 }
 
-EComponent* EGameObject::GetComponent(const char* type)
+EComponent* EGameObject::GetComponentByType(const char* type)
 {
 	for (std::list<EComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
 		if ((*it)->GetType().compare(type) == 0)
+			return (*it);
+
+	return 0;
+}
+
+EComponent* EGameObject::GetComponentByName(const char* name)
+{
+	for (std::list<EComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
+		if ((*it)->GetName().compare(name) == 0)
 			return (*it);
 
 	return 0;

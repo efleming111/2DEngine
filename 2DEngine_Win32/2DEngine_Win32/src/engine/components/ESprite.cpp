@@ -20,7 +20,8 @@
 void ESprite::Create(TiXmlElement* element)
 {
 	m_Type = element->Attribute("type");
-	name = element->Attribute("name");
+	m_Name = element->Attribute("name");
+	renderableName = element->Attribute("renderablename");
 
 	/*
 	1 - Backgrounds
@@ -56,7 +57,7 @@ void ESprite::Create(TiXmlElement* element)
 	transform.rotation = 0.0f;
 	transform.scale = glm::vec3((float)xScale, (float)yScale, 1.0f);
 
-	 renderable = lilGLRenderer->AddSprite(this, element, m_GameObject->m_PixelsPerGameUnit);
+	renderable = lilGLRenderer->AddSprite(this);
 }
 
 void ESprite::Update()

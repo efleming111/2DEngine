@@ -8,7 +8,9 @@
 #pragma once
 
 #include <string>
+
 #include "lilSceneObject.h"
+#include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
 class lilScene
 {
@@ -38,7 +40,8 @@ private:
 	lilScene(const lilScene& scene) {}
 	void operator=(const lilScene& scene) {}
 
-	// Creates all game objects for scene
-	void GameObjectFactory(const char* filename);
+	// Creates all resources and game objects for scene
+	void LoadRenderableResources(TiXmlElement* resources);
+	void GameObjectFactory(TiXmlElement* scene);
 };
 

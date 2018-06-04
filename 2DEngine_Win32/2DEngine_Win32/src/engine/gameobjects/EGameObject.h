@@ -50,7 +50,11 @@ public:
 
 	// Returns requested conponent of game object
 	// Returns 0 if component does not exist
-	EComponent* GetComponent(const char* type);
+	EComponent* GetComponentByType(const char* type);
+
+	// Returns requested conponent of game object
+	// Returns 0 if component does not exist
+	EComponent* GetComponentByName(const char* name);
 
 public:
 	std::string m_Name;

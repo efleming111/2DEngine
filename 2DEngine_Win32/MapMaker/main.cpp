@@ -104,18 +104,46 @@ void OutputMap(std::string filename)
 	TiXmlDeclaration* dec = new TiXmlDeclaration("1.0", "UTF-8", "");
 	xmlDoc.LinkEndChild(dec);
 
-	TiXmlElement* level = new TiXmlElement("scene");
-	level->SetAttribute("width", g_TileMap.width);
-	level->SetAttribute("height", g_TileMap.height);
-	xmlDoc.LinkEndChild(level);
+	TiXmlElement* game = new TiXmlElement("game");
+	xmlDoc.LinkEndChild(game);
 
-	// Output tile map
+	// Set up resources
+	TiXmlElement* resources = new TiXmlElement("resources");
+	game->LinkEndChild(resources);
+
+	// Output renderable resources
+	for (unsigned i = 0; i < g_Sprites.size(); ++i)
+	{
+		TiXmlElement* renderable = new TiXmlElement("renderable");
+		resources->LinkEndChild(renderable);
+
+		renderable->SetAttribute("type", "Renderable");
+		renderable->SetAttribute("name", g_Sprites[i]->name.c_str());
+		renderable->SetAttribute("pivotpoint", "center");
+
+		renderable->SetDoubleAttribute("texleft", g_Sprites[i]->x / g_SpriteSheetWidth);
+		renderable->SetDoubleAttribute("texright", (g_Sprites[i]->x + g_Sprites[i]->width) / g_SpriteSheetWidth);
+		renderable->SetDoubleAttribute("texbottom", g_Sprites[i]->y / g_SpriteSheetHeight);
+		renderable->SetDoubleAttribute("textop", (g_Sprites[i]->y + g_Sprites[i]->height) / g_SpriteSheetHeight);
+		std::string texfile = "data/spritesheets/";
+		texfile += g_Sprites[i]->textureFilename;
+		renderable->SetAttribute("texturefile", texfile.c_str());
+		renderable->SetAttribute("shaderfile", "data/shaders/BasicTextureShader");
+	}
+
+	// Set up scene
+	TiXmlElement* scene = new TiXmlElement("scene");
+	scene->SetAttribute("width", g_TileMap.width);
+	scene->SetAttribute("height", g_TileMap.height);
+	game->LinkEndChild(scene);
+
+	// Output tile map game objects
 	for (unsigned i = 0; i < g_TileMap.mapIDs.size(); ++i)
 	{
 		if (g_TileMap.mapIDs[i] >= 0)
 		{
 			TiXmlElement* gameobject = new TiXmlElement("gameobject");
-			level->LinkEndChild(gameobject);
+			scene->LinkEndChild(gameobject);
 			gameobject->SetAttribute("type", "LevelObject");
 			gameobject->SetAttribute("name", "Block");
 
@@ -144,22 +172,14 @@ void OutputMap(std::string filename)
 
 			TiXmlElement* sprite = new TiXmlElement("sprite");
 			sprite->SetAttribute("type", "sprite");
-			sprite->SetAttribute("name", currentSprite->name.c_str());
+			sprite->SetAttribute("name", "tile");
+			sprite->SetAttribute("renderablename", currentSprite->name.c_str());
 			sprite->SetAttribute("renderorder", 3);
 			sprite->SetAttribute("isrendered", "true");
 			sprite->SetDoubleAttribute("width", currentSprite->width / g_TileMap.tileWidth);
 			sprite->SetDoubleAttribute("height", currentSprite->height / g_TileMap.tileHeight);
 			sprite->SetDoubleAttribute("xrel", 0.0);
 			sprite->SetDoubleAttribute("yrel", 0.0);
-			sprite->SetDoubleAttribute("texleft", currentSprite->x / g_SpriteSheetWidth);
-			sprite->SetDoubleAttribute("texright", (currentSprite->x + currentSprite->width) / g_SpriteSheetWidth);
-			sprite->SetDoubleAttribute("texbottom", currentSprite->y / g_SpriteSheetHeight);
-			sprite->SetDoubleAttribute("textop", (currentSprite->y + currentSprite->height) / g_SpriteSheetHeight);
-			std::string texfile = "data/spritesheets/";
-			texfile += currentSprite->textureFilename;
-			sprite->SetAttribute("texturefile", texfile.c_str());
-			sprite->SetAttribute("shaderfile", "data/shaders/BasicTextureShader");
-
 
 			components->LinkEndChild(sprite);
 		}
@@ -168,13 +188,13 @@ void OutputMap(std::string filename)
 
 	double mapHeight = g_TileMap.height * g_TileMap.tileHeight;
 
-	// Output background
+	// Output background game objects
 	for (unsigned i = 0; i < g_TileMap.backgroundObjects.size(); ++i)
 	{
 		if (g_TileMap.backgroundObjects[i]->id >= 0)
 		{
 			TiXmlElement* gameobject = new TiXmlElement("gameobject");
-			level->LinkEndChild(gameobject);
+			scene->LinkEndChild(gameobject);
 			gameobject->SetAttribute("type", "LevelObject");
 			gameobject->SetAttribute("name", "Background");
 
@@ -206,32 +226,24 @@ void OutputMap(std::string filename)
 
 			TiXmlElement* sprite = new TiXmlElement("sprite");
 			sprite->SetAttribute("type", "sprite");
-			sprite->SetAttribute("name", currentSprite->name.c_str());
+			sprite->SetAttribute("name", "background");
+			sprite->SetAttribute("renderablename", currentSprite->name.c_str());
 			sprite->SetAttribute("renderorder", 2);
 			sprite->SetAttribute("isrendered", "true");
 			sprite->SetDoubleAttribute("width", g_TileMap.backgroundObjects[i]->width / g_TileMap.tileWidth);
 			sprite->SetDoubleAttribute("height", g_TileMap.backgroundObjects[i]->height / g_TileMap.tileHeight);
 			sprite->SetDoubleAttribute("xrel", 0.0);
 			sprite->SetDoubleAttribute("yrel", 0.0);
-			sprite->SetDoubleAttribute("texleft", currentSprite->x / g_SpriteSheetWidth);
-			sprite->SetDoubleAttribute("texright", (currentSprite->x + currentSprite->width) / g_SpriteSheetWidth);
-			sprite->SetDoubleAttribute("texbottom", currentSprite->y / g_SpriteSheetHeight);
-			sprite->SetDoubleAttribute("textop", (currentSprite->y + currentSprite->height) / g_SpriteSheetHeight);
-			std::string texfile = "data/spritesheets/";
-			texfile += currentSprite->textureFilename;
-			sprite->SetAttribute("texturefile", texfile.c_str());
-			sprite->SetAttribute("shaderfile", "data/shaders/BasicTextureShader");
-
 
 			components->LinkEndChild(sprite);
 		}
 	}
 
-	// Output collision blocks
+	// Output collision blocks game objects
 	for (unsigned i = 0; i < g_TileMap.collisionObjects.size(); ++i)
 	{
 		TiXmlElement* gameobject = new TiXmlElement("gameobject");
-		level->LinkEndChild(gameobject);
+		scene->LinkEndChild(gameobject);
 		gameobject->SetAttribute("type", "LevelObject");
 		gameobject->SetAttribute("name", "Collider");
 

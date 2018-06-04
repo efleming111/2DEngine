@@ -29,6 +29,10 @@ public:
 	void BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 	void EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 
+	int GetCoins() { return m_Coins; }
+	float GetHealth() { return m_Health; }
+	float GetMagic() { return m_Magic; }
+
 protected:
 	ERigidbody* m_Rigidbody;
 	EAnimator* m_Animator;
@@ -36,6 +40,10 @@ protected:
 	bool m_IsFacingRight;
 
 	bool m_IsGrounded;
+
+	int m_Coins;
+	float m_Health;
+	float m_Magic;
 
 private:
 	Player(const Player& player) {}

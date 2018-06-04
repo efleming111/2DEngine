@@ -29,7 +29,20 @@ protected:
 	Player* m_Player;
 	Camera* m_Camera;
 
+	ERenderable* m_NumberRenderables[10];
+	ESprite* m_CoinAmount[6];
+	int m_LastCoinAmount;
+
+	ESprite* m_HealthAmount;
+	float m_FullHealth;
+	ESprite* m_MagicAmount;
+	float m_FullMagic;
+
 private:
 	HUD(const HUD& hud) {}
 	void operator=(const HUD& hud) {}
+
+	void DisplayPlayerCoins();
+	void UpdateHealthAmount();
+	void UpdateMagicAmount();
 };

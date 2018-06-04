@@ -10,12 +10,16 @@
 void Player::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	EGameObject::Create(rootElement, pixelsPerGameUnit);
+
+	m_Coins = 1;
+	m_Health = 1.0f;
+	m_Magic = 0.0f;
 }
 
 void Player::OnStart()
 {
-	m_Rigidbody = (ERigidbody*)GetComponent("rigidbody");
-	m_Animator = (EAnimator*)GetComponent("animator");
+	m_Rigidbody = (ERigidbody*)GetComponentByType("rigidbody");
+	m_Animator = (EAnimator*)GetComponentByType("animator");
 
 	m_IsFacingRight = true;
 	m_IsGrounded = false;
@@ -61,6 +65,16 @@ void Player::Update()
 		velocity.x *= .98f;
 		m_Animator->SetCurrentAnimation(0u);
 	}
+
+	// TODO: For testing HUD
+	if (lilKeyboard->GetKeyDown(KC_C))
+		m_Coins *= 9;
+
+	if (lilKeyboard->GetKeyDown(KC_H))
+		m_Health -= .1f;
+
+	if (lilKeyboard->GetKeyDown(KC_M))
+		m_Magic += .05f;
 #endif
 	
 #ifdef __ANDROID__

@@ -32,15 +32,35 @@ void ERenderable::Create(TiXmlElement* element, float pixelsPerGameUnit)
 	element->Attribute("textop", &texTop);
 	element->Attribute("texbottom", &texBottom);
 
-	float halfWidth = m_PixelsPerGameUnit * .5f;
-	float halfHeight = m_PixelsPerGameUnit * .5f;
+	std::string pivotPoint = element->Attribute("pivotpoint");
 
-	float vertexData[20] = {
-		-halfWidth, -halfHeight, 0.0f,		(float)texLeft, (float)texTop,
-		halfWidth, -halfHeight, 0.0f,		(float)texRight, (float)texTop,
-		halfWidth, halfHeight, 0.0f,		(float)texRight, (float)texBottom,
-		-halfWidth, halfHeight, 0.0f,		(float)texLeft, (float)texBottom
-	};
+	float* vertexData = 0;
+	if (pivotPoint.compare("center") == 0)
+	{
+		float halfWidth = m_PixelsPerGameUnit * .5f;
+		float halfHeight = m_PixelsPerGameUnit * .5f;
+
+		float vertices[20] = {
+			-halfWidth, -halfHeight, 0.0f,		(float)texLeft, (float)texTop,
+			halfWidth, -halfHeight, 0.0f,		(float)texRight, (float)texTop,
+			halfWidth, halfHeight, 0.0f,		(float)texRight, (float)texBottom,
+			-halfWidth, halfHeight, 0.0f,		(float)texLeft, (float)texBottom
+		};
+		vertexData = &vertices[0];
+	}
+
+	else if (pivotPoint.compare("leftcenter") == 0)
+	{
+		float halfHeight = m_PixelsPerGameUnit * .5f;
+
+		float vertices[20] = {
+			0.0, -halfHeight, 0.0f,		                (float)texLeft, (float)texTop,
+			m_PixelsPerGameUnit, -halfHeight, 0.0f,		(float)texRight, (float)texTop,
+			m_PixelsPerGameUnit, halfHeight, 0.0f,		(float)texRight, (float)texBottom,
+			0.0, halfHeight, 0.0f,		                (float)texLeft, (float)texBottom
+		};
+		vertexData = &vertices[0];
+	}
 
 	unsigned short indices[6] = { 0, 1, 3, 3, 1, 2 };
 
@@ -124,29 +144,32 @@ void EGLRenderer::RegisterCamera(ECamera* camera)
 	m_CurrentCamera = camera;
 }
 
-ERenderable* EGLRenderer::AddSprite(ESprite* sprite, TiXmlElement* element, float pixelsPerGameUnit)
+ERenderable* EGLRenderer::AddSprite(ESprite* sprite)
 {
-	std::string renderableName = element->Attribute("name");
-
 	ERenderable* renderable = 0;
-	bool createRenderable = true;
 	for (std::list<ERenderable*>::iterator it = m_Renderables.begin(); it != m_Renderables.end(); ++it)
-		if (renderableName.compare((*it)->name) == 0)
-		{
+		if (sprite->renderableName.compare((*it)->name) == 0)
 			renderable = (*it);
-			createRenderable = false;
-		}
-
-	if (createRenderable)
-	{
-		renderable = new ERenderable();
-		renderable->Create(element, pixelsPerGameUnit);
-		m_Renderables.push_back(renderable);
-	}
 	
 	m_Sprites.push_back(sprite);
 
 	return renderable;
+}
+
+void EGLRenderer::AddRenderable(TiXmlElement* element, float pixelsPerGameUnit)
+{
+	ERenderable* renderable = new ERenderable();
+	renderable->Create(element, pixelsPerGameUnit);
+	m_Renderables.push_back(renderable);
+}
+
+ERenderable* EGLRenderer::GetRenderable(const char* renderableName)
+{
+	for (std::list<ERenderable*>::iterator it = m_Renderables.begin(); it != m_Renderables.end(); ++it)
+		if ((*it)->name.compare(renderableName) == 0)
+			return (*it);
+
+	return 0;
 }
 
 void EGLRenderer::FreeRenderer()

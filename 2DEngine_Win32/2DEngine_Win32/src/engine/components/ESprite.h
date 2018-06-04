@@ -35,11 +35,11 @@ public:
 	void Draw();
 
 public:
-	std::string name;
 	ETransform transform;
 	float xRelative;
 	float yRelative;
 
+	std::string renderableName;
 	ERenderable* renderable;
 	bool isRendered;
 

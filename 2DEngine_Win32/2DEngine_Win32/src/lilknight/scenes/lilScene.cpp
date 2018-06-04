@@ -26,7 +26,20 @@ void lilScene::Create(const char* filename)
 {
 	loadNewScene = false;
 
-	GameObjectFactory(filename);
+	char* xmlFile = lilFileIO::ReadFile(filename, "r");
+
+	TiXmlDocument xmlDoc;
+	xmlDoc.Parse(xmlFile);
+
+	delete[] xmlFile;
+	xmlFile = 0;
+
+	TiXmlElement* rootElement = xmlDoc.RootElement();
+	if (!rootElement)
+		return;
+
+	LoadRenderableResources(rootElement->FirstChildElement("resources"));
+	GameObjectFactory(rootElement->FirstChildElement("scene"));
 
 	lilGameObjectManager->OnStart();
 
@@ -53,22 +66,22 @@ void lilScene::Destroy()
 	lilTextureManager->FreeTextures();
 }
 
-void lilScene::GameObjectFactory(const char* filename)
+void lilScene::LoadRenderableResources(TiXmlElement* resources)
 {
-	char* xmlFile = lilFileIO::ReadFile(filename, "r");
+	// TODO: Add new type of resource here
+	for (TiXmlElement* asset = resources->FirstChildElement(); asset; asset = asset->NextSiblingElement())
+	{
+		std::string type = asset->Attribute("type");
 
-	TiXmlDocument xmlDoc;
-	xmlDoc.Parse(xmlFile);
+		if (type.compare("Renderable") == 0)
+			lilGLRenderer->AddRenderable(asset, tempPixPerGU);
+	}
+}
 
-	delete[] xmlFile;
-	xmlFile = 0;
-
-	TiXmlElement* rootElement = xmlDoc.RootElement();
-	if (!rootElement)
-		return;
-
+void lilScene::GameObjectFactory(TiXmlElement* scene)
+{
 	// TODO: Add new game objects here
-	for (TiXmlElement* gameObject = rootElement->FirstChildElement(); gameObject; gameObject = gameObject->NextSiblingElement())
+	for (TiXmlElement* gameObject = scene->FirstChildElement(); gameObject; gameObject = gameObject->NextSiblingElement())
 	{
 		std::string type = gameObject->Attribute("type");
 

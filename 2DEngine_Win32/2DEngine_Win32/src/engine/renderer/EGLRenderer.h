@@ -29,6 +29,8 @@ public:
 
 	void Draw(ESprite* sprite);
 
+	EShader* GetShader() { return m_Shader; }
+
 public:
 	std::string name;
 
@@ -73,7 +75,13 @@ public:
 	// Adds sprite to manager
 	// Returns renderable that sprite uses
 	// @ sprite - sprite to be added
-	ERenderable* AddSprite(ESprite* sprite, TiXmlElement* element, float pixelsPerGameUnit);
+	ERenderable* AddSprite(ESprite* sprite);
+
+	// Adds renderable object to renderer
+	// @ element - data for the renderable
+	void AddRenderable(TiXmlElement* element, float pixelsPerGameUnit);
+
+	ERenderable* GetRenderable(const char* renderableName);
 
 	// Frees all loaded sprites
 	void FreeRenderer();

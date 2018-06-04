@@ -10,19 +10,6 @@
 void HUD::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	EGameObject::Create(rootElement, pixelsPerGameUnit);
-
-	/*TiXmlElement* components = rootElement->FirstChildElement("components");
-	for (TiXmlElement* component = components->FirstChildElement(); component; component = component->NextSiblingElement())
-	{
-		std::string type = component->Attribute("type");
-		if (type.compare("renderable") == 0)
-		{
-			ECamera* camera = new ECamera(this);
-			camera->Create(component);
-			m_Components.push_back(camera);
-		}
-	}*/
-	
 }
 
 void HUD::OnStart()
@@ -32,11 +19,34 @@ void HUD::OnStart()
 
 	m_Transform = m_Camera->m_Transform;
 
+	std::string numbers[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+	for(int i = 0; i < 10; ++i)
+		m_NumberRenderables[i] = lilGLRenderer->GetRenderable(numbers[i].c_str());
+
+	std::string names[] = { "100000s", "10000s", "1000s" , "100s" , "10s" , "1s" };
+	for(int i = 0; i < 6; ++i)
+		m_CoinAmount[i] = (ESprite*)GetComponentByName(names[i].c_str());
+
+	DisplayPlayerCoins();
+
+	m_HealthAmount = (ESprite*)GetComponentByName("healthamount");
+	m_FullHealth = m_HealthAmount->transform.scale.x;
+	UpdateHealthAmount();
+
+	m_MagicAmount = (ESprite*)GetComponentByName("magicamount");
+	m_FullMagic = m_MagicAmount->transform.scale.x;
+	UpdateMagicAmount();
 }
 
 void HUD::Update()
 {
 	m_Transform = m_Camera->m_Transform;
+
+	if (m_LastCoinAmount != m_Player->GetCoins())
+		DisplayPlayerCoins();
+
+	UpdateHealthAmount();
+	UpdateMagicAmount();
 
 	EGameObject::Update();
 }
@@ -44,4 +54,36 @@ void HUD::Update()
 void HUD::Destroy()
 {
 	EGameObject::Destroy();
+}
+
+void HUD::DisplayPlayerCoins()
+{
+	m_LastCoinAmount = m_Player->GetCoins();
+	if (m_LastCoinAmount < 999999)
+	{
+		int place = 100000;
+		int coins = m_LastCoinAmount;
+		for (int i = 0; i < 6; ++i)
+		{
+			int placeNumber = coins / place;
+			coins %= place;
+
+			m_CoinAmount[i]->renderable = m_NumberRenderables[placeNumber];
+
+			place /= 10;
+		}
+	}
+}
+
+void HUD::UpdateHealthAmount()
+{
+	m_HealthAmount->transform.scale.x = m_Player->GetHealth() * m_FullHealth;
+	EShader* shader = m_HealthAmount->renderable->GetShader();
+	shader->SetUniform("RGBalance", m_Player->GetHealth());
+}
+
+void HUD::UpdateMagicAmount()
+{
+	m_MagicAmount->transform.scale.x = m_Player->GetMagic() * m_FullMagic;
+	m_MagicAmount->renderable->GetShader()->SetUniform("RGBalance", m_Player->GetMagic());
 }

@@ -30,6 +30,7 @@ void SceneObject::OnStart()
 void SceneObject::Update()
 {
 	EGameObject::Update();
+	// TODO: Scene should change this not key press
 	if (lilKeyboard->GetKeyDown(KC_Y))
 		m_ChangeScene = true;
 }

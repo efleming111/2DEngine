@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
 	if (!ReadInTileMap(filename))
 		return 1;
 
-	std::cout << "Enter level name<lvl>: ";
+	std::cout << "Enter scene name: ";
 	std::getline(std::cin, filename);
 	OutputMap(filename);
 
@@ -98,18 +98,36 @@ int main(int argc, char* argv[])
 
 void OutputMap(std::string filename)
 {
-	std::string levelData;
+	std::string scnFilename = filename + ".scn";
+	std::string gobFilename = filename + ".gob";
+
+	TiXmlDocument scnDoc;
+	TiXmlDeclaration* scnDec = new TiXmlDeclaration("1.0", "UTF-8", "");
+	scnDoc.LinkEndChild(scnDec);
+
+	// Set up root element
+	TiXmlElement* scnScene = new TiXmlElement("scene");
+	scnScene->SetAttribute("width", g_TileMap.width);
+	scnScene->SetAttribute("height", g_TileMap.height);
+	scnDoc.LinkEndChild(scnScene);
+
+	TiXmlElement* scnGOB = new TiXmlElement("gob");
+	scnGOB->SetAttribute("filename", "ADD_GOB_FILENAMES_HERE");
+	scnScene->LinkEndChild(scnGOB);
+
+	scnDoc.SaveFile(scnFilename.c_str());
 
 	TiXmlDocument xmlDoc;
 	TiXmlDeclaration* dec = new TiXmlDeclaration("1.0", "UTF-8", "");
 	xmlDoc.LinkEndChild(dec);
 
-	TiXmlElement* game = new TiXmlElement("game");
-	xmlDoc.LinkEndChild(game);
+	// Set up root element
+	TiXmlElement* gob = new TiXmlElement("gob");
+	xmlDoc.LinkEndChild(gob);
 
 	// Set up resources
 	TiXmlElement* resources = new TiXmlElement("resources");
-	game->LinkEndChild(resources);
+	gob->LinkEndChild(resources);
 
 	// Output renderable resources
 	for (unsigned i = 0; i < g_Sprites.size(); ++i)
@@ -131,11 +149,28 @@ void OutputMap(std::string filename)
 		renderable->SetAttribute("shaderfile", "data/shaders/BasicTextureShader");
 	}
 
-	// Set up scene
-	TiXmlElement* scene = new TiXmlElement("scene");
-	scene->SetAttribute("width", g_TileMap.width);
-	scene->SetAttribute("height", g_TileMap.height);
-	game->LinkEndChild(scene);
+	// Set up scene game object
+	TiXmlElement* go = new TiXmlElement("gameobject");
+	go->SetAttribute("type", "Scene");
+	go->SetAttribute("name", "SCENE_NAME");
+	gob->LinkEndChild(go);
+
+	TiXmlElement* scenes = new TiXmlElement("scenes");
+	scenes->SetAttribute("option1", "NEXT_SCENE_NAME");
+	go->LinkEndChild(scenes);
+
+	TiXmlElement* trans = new TiXmlElement("transform");
+	trans->SetDoubleAttribute("x", 0);
+	trans->SetDoubleAttribute("y", 0);
+	trans->SetDoubleAttribute("z", 0);
+	trans->SetDoubleAttribute("rotation", 0.0);
+	trans->SetDoubleAttribute("sx", 1);
+	trans->SetDoubleAttribute("sy", 1);
+	trans->SetDoubleAttribute("sz", 1);
+	go->LinkEndChild(trans);
+
+	TiXmlElement* comp = new TiXmlElement("components");
+	go->LinkEndChild(comp);
 
 	// Output tile map game objects
 	for (unsigned i = 0; i < g_TileMap.mapIDs.size(); ++i)
@@ -143,7 +178,7 @@ void OutputMap(std::string filename)
 		if (g_TileMap.mapIDs[i] >= 0)
 		{
 			TiXmlElement* gameobject = new TiXmlElement("gameobject");
-			scene->LinkEndChild(gameobject);
+			gob->LinkEndChild(gameobject);
 			gameobject->SetAttribute("type", "LevelObject");
 			gameobject->SetAttribute("name", "Block");
 
@@ -194,7 +229,7 @@ void OutputMap(std::string filename)
 		if (g_TileMap.backgroundObjects[i]->id >= 0)
 		{
 			TiXmlElement* gameobject = new TiXmlElement("gameobject");
-			scene->LinkEndChild(gameobject);
+			gob->LinkEndChild(gameobject);
 			gameobject->SetAttribute("type", "LevelObject");
 			gameobject->SetAttribute("name", "Background");
 
@@ -243,7 +278,7 @@ void OutputMap(std::string filename)
 	for (unsigned i = 0; i < g_TileMap.collisionObjects.size(); ++i)
 	{
 		TiXmlElement* gameobject = new TiXmlElement("gameobject");
-		scene->LinkEndChild(gameobject);
+		gob->LinkEndChild(gameobject);
 		gameobject->SetAttribute("type", "LevelObject");
 		gameobject->SetAttribute("name", "Collider");
 
@@ -285,7 +320,7 @@ void OutputMap(std::string filename)
 
 	}
 
-	xmlDoc.SaveFile(filename.c_str());
+	xmlDoc.SaveFile(gobFilename.c_str());
 }
 
 bool ReadInTileMap(std::string filename)

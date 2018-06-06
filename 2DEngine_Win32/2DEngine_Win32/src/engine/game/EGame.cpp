@@ -21,7 +21,7 @@ bool EGame::Initialize()
 {
 	m_Scene = new lilScene();
 	// TODO: Change this to generic start scene from which the game is loaded
-	m_Scene->Create("data/scenes/scenemainmenu.lvl");
+	m_Scene->Create("data/scenes/starterscene.scn");
 
 	return true;
 }

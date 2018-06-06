@@ -12,6 +12,7 @@
 #include "../../engine/components/subcomponents/EShaderManager.h"
 #include "../../engine/components/subcomponents/ETextureManager.h"
 #include "../../engine/renderer/EGLRenderer.h"
+#include "../../engine/renderer/EGLWindow.h"
 #include "../../engine/audio/EAudio.h"
 #include "../../engine/physics/EPhysics.h"
 #include "../gameobjects/lilPlayer.h"
@@ -19,8 +20,6 @@
 #include "../gameobjects/lilCamera.h"
 #include "../gameobjects/lilHUD.h"
 #include "../../engine/utilities/EFileIO.h"
-
-float tempPixPerGU = 50.0f;
 
 void lilScene::Create(const char* filename)
 {
@@ -34,12 +33,36 @@ void lilScene::Create(const char* filename)
 	delete[] xmlFile;
 	xmlFile = 0;
 
-	TiXmlElement* rootElement = xmlDoc.RootElement();
-	if (!rootElement)
+	TiXmlElement* scene = xmlDoc.RootElement();
+	if (!scene)
 		return;
 
-	LoadRenderableResources(rootElement->FirstChildElement("resources"));
-	GameObjectFactory(rootElement->FirstChildElement("scene"));
+	int sceneWidth, sceneHeight;
+	scene->Attribute("width", &sceneWidth);
+	scene->Attribute("height", &sceneHeight);
+	if (sceneHeight == 0)
+		sceneHeight = 1;
+	m_PixelsPerGameUnit = (float)lilGLWindow->Height() / (float)sceneHeight;
+
+	for (TiXmlElement* gob = scene->FirstChildElement(); gob; gob = gob->NextSiblingElement())
+	{
+		std::string gobFilename = gob->Attribute("filename");
+
+		char* gobFile = lilFileIO::ReadFile(gobFilename.c_str(), "r");
+
+		TiXmlDocument gobDoc;
+		gobDoc.Parse(gobFile);
+
+		delete[] gobFile;
+		gobFile = 0;
+
+		TiXmlElement* rootElement = gobDoc.RootElement();
+		if (!rootElement)
+			return;
+
+		LoadRenderableResources(rootElement->FirstChildElement("resources"));
+		GameObjectFactory(rootElement);
+	}
 
 	lilGameObjectManager->OnStart();
 
@@ -74,21 +97,21 @@ void lilScene::LoadRenderableResources(TiXmlElement* resources)
 		std::string type = asset->Attribute("type");
 
 		if (type.compare("Renderable") == 0)
-			lilGLRenderer->AddRenderable(asset, tempPixPerGU);
+			lilGLRenderer->AddRenderable(asset, m_PixelsPerGameUnit);
 	}
 }
 
-void lilScene::GameObjectFactory(TiXmlElement* scene)
+void lilScene::GameObjectFactory(TiXmlElement* rootElement)
 {
 	// TODO: Add new game objects here
-	for (TiXmlElement* gameObject = scene->FirstChildElement(); gameObject; gameObject = gameObject->NextSiblingElement())
+	for (TiXmlElement* gameObject = rootElement->FirstChildElement("gameobject"); gameObject; gameObject = gameObject->NextSiblingElement())
 	{
 		std::string type = gameObject->Attribute("type");
 
 		if (type.compare("Scene") == 0)
 		{
 			m_SceneObject = new SceneObject();
-			m_SceneObject->Create(gameObject, tempPixPerGU);
+			m_SceneObject->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(m_SceneObject);
 		}
 
@@ -96,7 +119,7 @@ void lilScene::GameObjectFactory(TiXmlElement* scene)
 		{
 			Camera* camera;
 			camera = new Camera();
-			camera->Create(gameObject, tempPixPerGU);
+			camera->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(camera);
 		}
 
@@ -104,7 +127,7 @@ void lilScene::GameObjectFactory(TiXmlElement* scene)
 		{
 			Player* player;
 			player = new Player();
-			player->Create(gameObject, tempPixPerGU);
+			player->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(player);
 		}
 
@@ -112,7 +135,7 @@ void lilScene::GameObjectFactory(TiXmlElement* scene)
 		{
 			HUD* hud;
 			hud = new HUD();
-			hud->Create(gameObject, tempPixPerGU);
+			hud->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(hud);
 		}
 
@@ -120,7 +143,7 @@ void lilScene::GameObjectFactory(TiXmlElement* scene)
 		{
 			LevelObject* levelObject;
 			levelObject = new LevelObject();
-			levelObject->Create(gameObject, tempPixPerGU);
+			levelObject->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(levelObject);
 		}
 	}

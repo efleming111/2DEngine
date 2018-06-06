@@ -54,6 +54,18 @@ void HUD::Update()
 void HUD::Destroy()
 {
 	EGameObject::Destroy();
+
+	m_Player = 0;
+	m_Camera = 0;
+
+	for(int i = 0; i < 10; ++i)
+		m_NumberRenderables[i] = 0;
+
+	for(int i = 0; i < 6; ++i)
+		m_CoinAmount[i] = 0;
+
+	m_HealthAmount = 0;
+	m_MagicAmount = 0;
 }
 
 void HUD::DisplayPlayerCoins()
@@ -78,8 +90,7 @@ void HUD::DisplayPlayerCoins()
 void HUD::UpdateHealthAmount()
 {
 	m_HealthAmount->transform.scale.x = m_Player->GetHealth() * m_FullHealth;
-	EShader* shader = m_HealthAmount->renderable->GetShader();
-	shader->SetUniform("RGBalance", m_Player->GetHealth());
+	m_HealthAmount->renderable->GetShader()->SetUniform("RGBalance", m_Player->GetHealth());
 }
 
 void HUD::UpdateMagicAmount()

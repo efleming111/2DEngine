@@ -35,6 +35,9 @@ public:
 	// Flips the animations along their y axis
 	void FlipAnimationX();
 
+	// Changes the time between animations
+	void SetCurrentAnimationIntervalTime(float interval);
+
 private:
 	std::list<EAnimation*> m_Animations;
 

@@ -9,8 +9,8 @@ out vec4 OutputColor;
 
 void main()
 {
-	float red = 1.0 - RGBalance;
-	float green = 1.0 - red;
+	float green = RGBalance - .05;
+	float red = 1.0 - green + .05;
 	float blue = .05;
 	
 	vec4 pixel = texture(sprite, texCoords);

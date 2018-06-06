@@ -56,3 +56,8 @@ void EAnimator::FlipAnimationX()
 		(*it)->FlipAnimationX();
 }
 
+void EAnimator::SetCurrentAnimationIntervalTime(float interval)
+{
+	(*m_CurrentAnimation)->SetIntervalTime(interval);
+}
+

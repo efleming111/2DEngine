@@ -38,6 +38,9 @@ public:
 
 	// Flips the animation along its y axis
 	void FlipAnimationX();
+
+	// Sets the time between frames
+	void SetIntervalTime(float interval) { m_TimeBetweenFrames = interval; }
 	
 private:
 	std::list<ESprite*> m_Frames;

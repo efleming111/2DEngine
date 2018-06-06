@@ -34,6 +34,7 @@ public:
 
 private:
 	SceneObject* m_SceneObject;
+	float m_PixelsPerGameUnit;
 
 private:
 	// No copying
@@ -42,6 +43,6 @@ private:
 
 	// Creates all resources and game objects for scene
 	void LoadRenderableResources(TiXmlElement* resources);
-	void GameObjectFactory(TiXmlElement* scene);
+	void GameObjectFactory(TiXmlElement* rootElement);
 };
 

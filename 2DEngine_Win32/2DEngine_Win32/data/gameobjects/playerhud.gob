@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gob>
+	<resources>
+		<renderable type="Renderable" name="hudboxsmall" pivotpoint="center" texleft="0.018" texright="0.099" textop="0.8237" texbottom="0.713" texturefile="data/spritesheets/hudboxes.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="hudboxlarge" pivotpoint="center" texleft="0.099" texright="0.3443" textop="0.7803" texbottom="0.713" texturefile="data/spritesheets/hudboxes.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="healthbar" pivotpoint="leftcenter" texleft="0.1073" texright="0.3343" textop="0.8296" texbottom="0.7880" texturefile="data/spritesheets/hudboxes.png" shaderfile="data/shaders/HealthShader"/>
+		<renderable type="Renderable" name="magicbar" pivotpoint="leftcenter" texleft="0.1073" texright="0.3343" textop="0.8296" texbottom="0.7880" texturefile="data/spritesheets/hudboxes.png" shaderfile="data/shaders/MagicShader"/>
+		<renderable type="Renderable" name="A" pivotpoint="center" texleft="0.0" texright="0.1111" textop=".250" texbottom="0.0" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="B" pivotpoint="center" texleft="0.1111" texright="0.2222" textop=".250" texbottom="0.0" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="C" pivotpoint="center" texleft="0.2222" texright="0.3333" textop=".250" texbottom="0.0" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="D" pivotpoint="center" texleft="0.3333" texright="0.4444" textop=".250" texbottom="0.0" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="E" pivotpoint="center" texleft="0.4444" texright="0.5555" textop=".250" texbottom="0.0" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="F" pivotpoint="center" texleft="0.5555" texright="0.6666" textop=".250" texbottom="0.0" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="G" pivotpoint="center" texleft="0.6666" texright="0.7777" textop=".250" texbottom="0.0" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="H" pivotpoint="center" texleft="0.7777" texright="0.8888" textop=".250" texbottom="0.0" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="I" pivotpoint="center" texleft="0.8888" texright="1.0" textop=".250" texbottom="0.0" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="J" pivotpoint="center" texleft="0.0" texright="0.1111" textop=".500" texbottom=".250" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="K" pivotpoint="center" texleft="0.1111" texright="0.2222" textop=".500" texbottom=".250" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="L" pivotpoint="center" texleft="0.2222" texright="0.3333" textop=".500" texbottom=".250" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="M" pivotpoint="center" texleft="0.3333" texright="0.4444" textop=".500" texbottom=".250" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="N" pivotpoint="center" texleft="0.4444" texright="0.5555" textop=".500" texbottom=".250" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="O" pivotpoint="center" texleft="0.5555" texright="0.6666" textop=".500" texbottom=".250" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="P" pivotpoint="center" texleft="0.6666" texright="0.7777" textop=".500" texbottom=".250" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="Q" pivotpoint="center" texleft="0.7777" texright="0.8888" textop=".500" texbottom=".250" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="R" pivotpoint="center" texleft="0.8888" texright="1.0" textop=".500" texbottom=".250" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="S" pivotpoint="center" texleft="0.0" texright="0.1111" textop=".750" texbottom=".500" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="T" pivotpoint="center" texleft="0.1111" texright="0.2222" textop=".750" texbottom=".500" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="U" pivotpoint="center" texleft="0.2222" texright="0.3333" textop=".750" texbottom=".500" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="V" pivotpoint="center" texleft="0.3333" texright="0.4444" textop=".750" texbottom=".500" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="W" pivotpoint="center" texleft="0.4444" texright="0.5555" textop=".750" texbottom=".500" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="X" pivotpoint="center" texleft="0.5555" texright="0.6666" textop=".750" texbottom=".500" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="Y" pivotpoint="center" texleft="0.6666" texright="0.7777" textop=".750" texbottom=".500" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="Z" pivotpoint="center" texleft="0.7777" texright="0.8888" textop=".750" texbottom=".500" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="0" pivotpoint="center" texleft="0.8888" texright="1.0" textop=".750" texbottom=".500" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="1" pivotpoint="center" texleft="0.0" texright="0.1111" textop="1.0" texbottom=".750" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="2" pivotpoint="center" texleft="0.1111" texright="0.2222" textop="1.0" texbottom=".750" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="3" pivotpoint="center" texleft="0.2222" texright="0.3333" textop="1.0" texbottom=".750" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="4" pivotpoint="center" texleft="0.3333" texright="0.4444" textop="1.0" texbottom=".750" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="5" pivotpoint="center" texleft="0.4444" texright="0.5555" textop="1.0" texbottom=".750" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="6" pivotpoint="center" texleft="0.5555" texright="0.6666" textop="1.0" texbottom=".750" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="7" pivotpoint="center" texleft="0.6666" texright="0.7777" textop="1.0" texbottom=".750" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="8" pivotpoint="center" texleft="0.7777" texright="0.8888" textop="1.0" texbottom=".750" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+		<renderable type="Renderable" name="9" pivotpoint="center" texleft="0.8888" texright="1.0" textop="1.0" texbottom=".750" texturefile="data/spritesheets/hud.png" shaderfile="data/shaders/BasicTextureShader"/>
+	</resources>
+	<gameobject type="HUD" name="PlayerHud">
+		<transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
+		<components>
+			<sprite type="sprite" name="healthlabelbox" renderablename="hudboxsmall" renderorder="5" isrendered="true" width="1.0" height="1.0" xrel="-7.0" yrel="6.0f" />
+			<sprite type="sprite" name="magiclabelbox" renderablename="hudboxsmall" renderorder="5" isrendered="true" width="1.0" height="1.0" xrel="-1.0" yrel="6.0f" />
+			<sprite type="sprite" name="coinslabelbox" renderablename="hudboxsmall" renderorder="5" isrendered="true" width="1.0" height="1.0" xrel="5.0" yrel="6.0f" />
+			<sprite type="sprite" name="healthbox" renderablename="hudboxlarge" renderorder="5" isrendered="true" width="4.8" height="1.0" xrel="-4.0" yrel="6.0f" />
+			<sprite type="sprite" name="magicbox" renderablename="hudboxlarge" renderorder="5" isrendered="true" width="4.8" height="1.0" xrel="2.0" yrel="6.0f" />
+			<sprite type="sprite" name="healthamount" renderablename="healthbar" renderorder="6" isrendered="true" width="4.4" height=".65" xrel="-6.2" yrel="6.0f" />
+			<sprite type="sprite" name="magicamount" renderablename="magicbar" renderorder="6" isrendered="true" width="4.4" height=".65" xrel="-.2" yrel="6.0f" />
+			<sprite type="sprite" name="coinsbox" renderablename="hudboxlarge" renderorder="5" isrendered="true" width="4.8" height="1.0" xrel="8.0" yrel="6.0f" />
+			<sprite type="sprite" name="healthlabel" renderablename="H" renderorder="6" isrendered="true" width=".75" height=".75" xrel="-7.0" yrel="6.0f" />
+			<sprite type="sprite" name="magiclabel" renderablename="M" renderorder="6" isrendered="true" width=".75" height=".75" xrel="-1.0" yrel="6.0f" />
+			<sprite type="sprite" name="coinslabel" renderablename="C" renderorder="6" isrendered="true" width=".75" height=".75" xrel="5.0" yrel="6.0f" />
+			<sprite type="sprite" name="100000s" renderablename="0" renderorder="6" isrendered="true" width=".75" height=".75" xrel="6.3" yrel="6.0f" />
+			<sprite type="sprite" name="10000s" renderablename="0" renderorder="6" isrendered="true" width=".75" height=".75" xrel="7.0" yrel="6.0f" />
+			<sprite type="sprite" name="1000s" renderablename="0" renderorder="6" isrendered="true" width=".75" height=".75" xrel="7.7" yrel="6.0f" />
+			<sprite type="sprite" name="100s" renderablename="0" renderorder="6" isrendered="true" width=".75" height=".75" xrel="8.4" yrel="6.0f" />
+			<sprite type="sprite" name="10s" renderablename="0" renderorder="6" isrendered="true" width=".75" height=".75" xrel="9.1" yrel="6.0f" />
+			<sprite type="sprite" name="1s" renderablename="0" renderorder="6" isrendered="true" width=".75" height=".75" xrel="9.8" yrel="6.0f" />
+		</components>
+	</gameobject>
+</gob>
+    
+    

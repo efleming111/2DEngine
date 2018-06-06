@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DEngine_Win32", "2DEngine_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MapMaker", "MapMaker\MapMaker.vcxproj", "{C4E597F7-6B93-4C0E-ABEC-D534BAF8B189}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AnimationParser", "AnimationParser\AnimationParser.vcxproj", "{32E313BA-2680-4030-8CAC-CC0E9768081E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{C4E597F7-6B93-4C0E-ABEC-D534BAF8B189}.Release|x64.Build.0 = Release|x64
 		{C4E597F7-6B93-4C0E-ABEC-D534BAF8B189}.Release|x86.ActiveCfg = Release|Win32
 		{C4E597F7-6B93-4C0E-ABEC-D534BAF8B189}.Release|x86.Build.0 = Release|Win32
+		{32E313BA-2680-4030-8CAC-CC0E9768081E}.Debug|x64.ActiveCfg = Debug|x64
+		{32E313BA-2680-4030-8CAC-CC0E9768081E}.Debug|x64.Build.0 = Debug|x64
+		{32E313BA-2680-4030-8CAC-CC0E9768081E}.Debug|x86.ActiveCfg = Debug|Win32
+		{32E313BA-2680-4030-8CAC-CC0E9768081E}.Debug|x86.Build.0 = Debug|Win32
+		{32E313BA-2680-4030-8CAC-CC0E9768081E}.Release|x64.ActiveCfg = Release|x64
+		{32E313BA-2680-4030-8CAC-CC0E9768081E}.Release|x64.Build.0 = Release|x64
+		{32E313BA-2680-4030-8CAC-CC0E9768081E}.Release|x86.ActiveCfg = Release|Win32
+		{32E313BA-2680-4030-8CAC-CC0E9768081E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

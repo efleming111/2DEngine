@@ -15,6 +15,16 @@
 // TODO: For testing only
 #include <SDL.h>
 
+enum PlayerAnimationState {
+	ATTACK,
+	DEAD,
+	IDLE,
+	JUMP,
+	JUMP_ATTACK,
+	RUN,
+	WALK
+};
+
 class Player : public EGameObject
 {
 public:
@@ -38,8 +48,21 @@ protected:
 	EAnimator* m_Animator;
 
 	bool m_IsFacingRight;
+	bool m_IsJumping;
+	PlayerAnimationState m_AnimationLastFrame;
+	PlayerAnimationState m_CurrentAnimation;
+
+	float m_WalkAcceleration;
+	float m_MaxWalkSpeed;
+	float m_RunAcceleration;
+	float m_MaxRunSpeed;
 
 	bool m_IsGrounded;
+	float m_JumpPower;
+
+	bool m_IsTakingDamage;
+	float m_DamageAmount;
+	float m_AccumDamgeTime;
 
 	int m_Coins;
 	float m_Health;
@@ -48,6 +71,8 @@ protected:
 private:
 	Player(const Player& player) {}
 	void operator=(const Player& player) {}
+
+	void TakeDamage();
 };
 
 

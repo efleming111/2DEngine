@@ -19,10 +19,13 @@ void Camera::OnStart()
 
 void Camera::Update()
 {
-	EGameObject::Update();
+	if (m_Player->m_Transform.position.x > m_Transform.position.x + 3.0f)
+		m_Transform.position.x = m_Player->m_Transform.position.x - 3.0f;
 
-	if (m_Player->m_Transform.position.x > m_Transform.position.x)
-		m_Transform.position.x = m_Player->m_Transform.position.x;
+	else if (m_Player->m_Transform.position.x < m_Transform.position.x - 3.0f)
+		m_Transform.position.x = m_Player->m_Transform.position.x + 3.0f;
+
+	EGameObject::Update();
 }
 
 void Camera::Destroy()

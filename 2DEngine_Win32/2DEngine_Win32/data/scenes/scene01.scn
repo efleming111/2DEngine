@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<scene width="50" height="14">
+    <gob filename="data/gameobjects/camera.gob"/>
+	<gob filename="data/gameobjects/player.gob"/>
+	<gob filename="data/gameobjects/playerhud.gob"/>
+	<gob filename="data/gameobjects/scene01.gob"/>
+</scene>

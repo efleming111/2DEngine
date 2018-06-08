@@ -109,7 +109,6 @@ bool EGLRenderer::Initialize()
 
 	ResizeViewport(lilGLWindow->Width(), lilGLWindow->Height());
 
-	// TODO: depth testing not working
 	glEnable(GL_DEPTH_TEST);
 
 	SetClearColor(0.8f, 0.2f, 0.2f, 1.0f);

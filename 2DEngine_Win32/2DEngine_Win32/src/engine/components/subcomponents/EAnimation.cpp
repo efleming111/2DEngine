@@ -32,6 +32,8 @@ void EAnimation::Create(TiXmlElement* element, EGameObject* gameObject)
 	}
 
 	m_CurrentFrame = m_Frames.begin();
+
+	m_IsFinished = false;
 }
 
 void EAnimation::Update()
@@ -45,11 +47,19 @@ void EAnimation::Update()
 
 		m_CurrentFrame++;
 		if (m_CurrentFrame == m_Frames.end())
+		{
 			if (m_IsLooping)
+			{
 				m_CurrentFrame = m_Frames.begin();
-			else
-				m_CurrentFrame--;
+			}
 
+			else
+			{
+				m_IsFinished = true;
+				m_CurrentFrame--;
+			}
+		}
+			
 		(*m_CurrentFrame)->isRendered = true;
 	}
 
@@ -66,16 +76,23 @@ void EAnimation::StartAnimation()
 	m_CurrentFrame = m_Frames.begin();
 	m_AccumlativeTime = 0.0f;
 	(*m_CurrentFrame)->isRendered = true;
+	m_IsFinished = false;
 }
 
 void EAnimation::StopAnimation()
 {
 	(*m_CurrentFrame)->isRendered = false;
+	m_IsFinished = false;
 }
 
 void EAnimation::FlipAnimationX()
 {
 	for (std::list<ESprite*>::iterator it = m_Frames.begin(); it != m_Frames.end(); ++it)
 		(*it)->transform.scale.x *= -1.0f;
+}
+
+void EAnimation::IsRendered(bool isRendered)
+{
+	(*m_CurrentFrame)->isRendered = isRendered;
 }
 

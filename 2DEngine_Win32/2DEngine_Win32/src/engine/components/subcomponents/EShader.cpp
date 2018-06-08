@@ -102,6 +102,7 @@ char* EShader::LoadShaderToString(const char* filename)
 unsigned EShader::CompileVertexShader(const char* filename)
 {
 	char* vertexShaderData = LoadShaderToString(filename);
+	SDL_Log("%s\n, %s %d", LoadShaderToString(filename), __FILE__, __LINE__);
 
 	unsigned vertexShader = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertexShader, 1, &vertexShaderData, NULL);
@@ -125,6 +126,7 @@ unsigned EShader::CompileVertexShader(const char* filename)
 unsigned EShader::ComplieFragmentShader(const char* filename)
 {
 	char* fragmentShaderData = LoadShaderToString(filename);
+	SDL_Log("%s\n, %s %d", LoadShaderToString(filename), __FILE__, __LINE__);
 
 	unsigned fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(fragmentShader, 1, &fragmentShaderData, NULL);

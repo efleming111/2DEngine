@@ -11,7 +11,7 @@
 
 EGLWindow* EGLWindow::s_Instance = 0;
 
-EGLWindow * EGLWindow::Instance()
+EGLWindow* EGLWindow::Instance()
 {
 	if (!s_Instance)
 		s_Instance = new EGLWindow();

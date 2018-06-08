@@ -30,9 +30,24 @@ void SceneObject::OnStart()
 void SceneObject::Update()
 {
 	EGameObject::Update();
+
 	// TODO: Scene should change this not key press
+#ifdef _WIN32
 	if (lilKeyboard->GetKeyDown(KC_Y))
 		m_ChangeScene = true;
+#endif // _WIN32
+
+#ifdef __ANDROID__
+	Finger* fingers = lilTouch->GetTouches();
+	for(int i = 0; i < MAX_FINGER_TOUCHES && fingers[i].isTouching; ++i)
+		if (fingers[i].xNormalized < .25f && fingers[i].yNormalized > .75f)
+		{
+			SDL_Log("Touch Logged At Change Scene, %s %d", __FILE__, __LINE__);
+			m_ChangeScene = true;
+			break;
+		}
+#endif // __ANDROID__
+
 }
 
 void SceneObject::Destroy()

@@ -41,16 +41,25 @@ public:
 
 	// Sets the time between frames
 	void SetIntervalTime(float interval) { m_TimeBetweenFrames = interval; }
+
+	// Return true if animation has finished playing
+	bool IsAnimationFinished() { return m_IsFinished; }
+
+	void IsRendered(bool isRendered);
 	
+	std::list<ESprite*>::iterator m_CurrentFrame;
 private:
 	std::list<ESprite*> m_Frames;
 
-	std::list<ESprite*>::iterator m_CurrentFrame;
+	//std::list<ESprite*>::iterator m_CurrentFrame;
 
 	float m_TimeBetweenFrames;
 	float m_AccumlativeTime;
 
 	bool m_IsLooping;
+	bool m_IsFinished;
+
+	bool m_IsRendered;
 
 private:
 	// No copying

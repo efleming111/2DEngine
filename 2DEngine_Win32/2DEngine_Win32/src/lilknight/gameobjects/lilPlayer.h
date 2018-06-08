@@ -25,6 +25,9 @@ enum PlayerAnimationState {
 	WALK
 };
 
+const float TOTAL_DAMAGE_TIME = 2.0f;
+const float DAMAGE_BLINK_INTERVAL = .1f;
+
 class Player : public EGameObject
 {
 public:
@@ -46,9 +49,11 @@ public:
 protected:
 	ERigidbody* m_Rigidbody;
 	EAnimator* m_Animator;
+	bool m_IsRendered;
 
 	bool m_IsFacingRight;
 	bool m_IsJumping;
+	bool m_IsAttacking;
 	PlayerAnimationState m_AnimationLastFrame;
 	PlayerAnimationState m_CurrentAnimation;
 
@@ -62,7 +67,8 @@ protected:
 
 	bool m_IsTakingDamage;
 	float m_DamageAmount;
-	float m_AccumDamgeTime;
+	float m_DamageIntervalTime;
+	float m_TotalDamageTime;
 
 	int m_Coins;
 	float m_Health;

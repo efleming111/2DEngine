@@ -34,7 +34,7 @@ public:
 public:
 	std::string name;
 
-private:
+//private:
 	float m_PixelsPerGameUnit;
 
 	EMesh* m_Mesh;

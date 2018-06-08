@@ -7,7 +7,8 @@
 
 #include "EInput.h"
 #include "../renderer/EGLWindow.h"
-#include "../renderer/EGLRenderer.h"
+// TODO: Add back after touble shooting renderer
+//#include "../renderer/EGLRenderer.h"
 #include "../core/ECore.h"
 
 EInput* EInput::s_Instance = 0;
@@ -98,7 +99,7 @@ void EInput::Update()
 			{
 			case SDL_WINDOWEVENT_RESIZED:
 			case SDL_WINDOWEVENT_SIZE_CHANGED:
-				lilGLRenderer->ResizeViewport(m_Event.window.data1, m_Event.window.data2);
+				//lilGLRenderer->ResizeViewport(m_Event.window.data1, m_Event.window.data2);
 				break;
 			}
 			break;
@@ -389,6 +390,7 @@ void EInput::Shutdown()
 #endif
 }
 
+#ifdef _WIN32
 EGameController* EInput::GetController(unsigned index)
 {
 	if (index < m_NumberOfControllers)
@@ -396,6 +398,8 @@ EGameController* EInput::GetController(unsigned index)
 
 	return 0;
 }
+#endif // _WIN32
+
 
 EInput::EInput()
 {

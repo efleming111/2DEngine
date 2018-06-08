@@ -75,8 +75,10 @@ void OutputData(std::string name)
 
 		renderable->SetDoubleAttribute("texleft", g_Sprites[i]->x / g_SpriteSheetWidth);
 		renderable->SetDoubleAttribute("texright", (g_Sprites[i]->x + g_Sprites[i]->width) / g_SpriteSheetWidth);
-		renderable->SetDoubleAttribute("texbottom", (g_Sprites[i]->y + g_Sprites[i]->height) / g_SpriteSheetHeight);
-		renderable->SetDoubleAttribute("textop", g_Sprites[i]->y / g_SpriteSheetHeight);
+		/*renderable->SetDoubleAttribute("texbottom", (g_Sprites[i]->y + g_Sprites[i]->height) / g_SpriteSheetHeight);
+		renderable->SetDoubleAttribute("textop", g_Sprites[i]->y / g_SpriteSheetHeight);*/
+		renderable->SetDoubleAttribute("texbottom", g_Sprites[i]->y / g_SpriteSheetHeight);
+		renderable->SetDoubleAttribute("textop", (g_Sprites[i]->y + g_Sprites[i]->height) / g_SpriteSheetHeight);
 		std::string texfile = "data/spritesheets/";
 		texfile += g_Sprites[i]->textureFilename;
 		renderable->SetAttribute("texturefile", texfile.c_str());

@@ -26,7 +26,7 @@ const int MAX_GAME_CONTROLLERS = 4;
 #include "ETouch.h"
 
 #define lilInput EInput::Instance()
-#define liltouch EInput::Instance()->Gettouch()
+#define lilTouch EInput::Instance()->GetTouch()
 #endif
 
 class EInput

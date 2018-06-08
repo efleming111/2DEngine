@@ -43,6 +43,7 @@ void lilScene::Create(const char* filename)
 	if (sceneHeight == 0)
 		sceneHeight = 1;
 	m_PixelsPerGameUnit = (float)lilGLWindow->Height() / (float)sceneHeight;
+	SDL_Log("Pixels Per %d, %s %d", (int)m_PixelsPerGameUnit, __FILE__, __LINE__);
 
 	for (TiXmlElement* gob = scene->FirstChildElement(); gob; gob = gob->NextSiblingElement())
 	{

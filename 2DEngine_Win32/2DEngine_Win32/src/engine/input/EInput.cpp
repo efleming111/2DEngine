@@ -7,8 +7,7 @@
 
 #include "EInput.h"
 #include "../renderer/EGLWindow.h"
-// TODO: Add back after touble shooting renderer
-//#include "../renderer/EGLRenderer.h"
+#include "../renderer/EGLRenderer.h"
 #include "../core/ECore.h"
 
 EInput* EInput::s_Instance = 0;
@@ -99,7 +98,7 @@ void EInput::Update()
 			{
 			case SDL_WINDOWEVENT_RESIZED:
 			case SDL_WINDOWEVENT_SIZE_CHANGED:
-				//lilGLRenderer->ResizeViewport(m_Event.window.data1, m_Event.window.data2);
+				lilGLRenderer->ResizeViewport(m_Event.window.data1, m_Event.window.data2);
 				break;
 			}
 			break;

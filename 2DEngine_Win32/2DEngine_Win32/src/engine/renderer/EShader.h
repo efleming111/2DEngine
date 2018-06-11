@@ -48,7 +48,7 @@ public:
 	// Set the uniform variable at name to value(s) passed
 	void SetUniform(const char* name, glm::vec3 vec);
 	// Set the uniform variable at name to value(s) passed
-	void SetUniform(const char* name, float *mat4);
+	void SetUniform(const char* name, float* mat4);
 
 private:
 	unsigned m_ID;

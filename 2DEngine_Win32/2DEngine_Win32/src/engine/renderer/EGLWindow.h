@@ -9,7 +9,6 @@
 
 #include <string>
 
-#include "../../../thirdpartysrc/glad/glad/glad.h"
 #include <SDL.h>
 
 #define lilGLWindow EGLWindow::Instance()

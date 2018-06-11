@@ -12,9 +12,6 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "ESprite.h"
-#include "subcomponents\EMeshManager.h"
-#include "subcomponents\ETextureManager.h"
-#include "subcomponents\EShaderManager.h"
 #include "../renderer/EGLRenderer.h"
 
 void ESprite::Create(TiXmlElement* element)

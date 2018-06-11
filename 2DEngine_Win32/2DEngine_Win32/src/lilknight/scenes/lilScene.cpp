@@ -8,9 +8,6 @@
 #include "lilScene.h"
 #include "../../engine/gameobjects/EGameObjectManager.h"
 #include "../../engine/components/ERigidbody.h"
-#include "../../engine/components/subcomponents/EMeshManager.h"
-#include "../../engine/components/subcomponents/EShaderManager.h"
-#include "../../engine/components/subcomponents/ETextureManager.h"
 #include "../../engine/renderer/EGLRenderer.h"
 #include "../../engine/renderer/EGLWindow.h"
 #include "../../engine/audio/EAudio.h"
@@ -84,10 +81,7 @@ void lilScene::Destroy()
 	lilAudio->FreeMusic();
 	lilAudio->FreeSounds();
 	lilGameObjectManager->FreeGameObjects();
-	lilGLRenderer->FreeRenderer();
-	lilShaderManager->FreeShaders();
-	lilMeshManager->FreeMeshes();
-	lilTextureManager->FreeTextures();
+	lilGLRenderer->ClearRenderer();
 }
 
 void lilScene::LoadRenderableResources(TiXmlElement* resources)

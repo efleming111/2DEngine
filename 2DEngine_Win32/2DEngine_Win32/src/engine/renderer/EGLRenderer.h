@@ -14,38 +14,12 @@
 
 #include "../components/ECamera.h"
 #include "../components/ESprite.h"
+#include "ERenderable.h"
+#include "EMesh.h"
+#include "ETexture.h"
+#include "EShader.h"
 
 #define lilGLRenderer EGLRenderer::Instance()
-
-class ERenderable
-{
-public:
-	ERenderable() {}
-	~ERenderable() {}
-
-	// Creates a sprite
-	// @ element - data for setting up the renderable
-	void Create(TiXmlElement* element, float pixelsPerGameUnit);
-
-	void Draw(ESprite* sprite);
-
-	EShader* GetShader() { return m_Shader; }
-
-public:
-	std::string name;
-
-//private:
-	float m_PixelsPerGameUnit;
-
-	EMesh* m_Mesh;
-	EShader* m_Shader;
-	unsigned m_TextureID;
-
-private:
-	// No copying
-	ERenderable(const ERenderable& renderable) {}
-	void operator=(const ERenderable& renderable) {}
-};
 
 class EGLRenderer
 {
@@ -73,7 +47,7 @@ public:
 	void RegisterCamera(ECamera* camera);
 
 	// Adds sprite to manager
-	// Returns renderable that sprite uses
+	// Returns index to sprite
 	// @ sprite - sprite to be added
 	ERenderable* AddSprite(ESprite* sprite);
 
@@ -81,10 +55,28 @@ public:
 	// @ element - data for the renderable
 	void AddRenderable(TiXmlElement* element, float pixelsPerGameUnit);
 
+	// Creates and adds mesh object
+	// Returns pointer to mesh
+	// @ vertexData - vertex data of object packed in an array of 3 position and 2 texture coordinates per vertex
+	// @ vertexCount - number of vertices multiplied by 5
+	// @ indices - index data
+	// @ indicesCount - size of indices array
+	EMesh* AddMesh(float* vertexData, int vertexCount, unsigned short* indices, int indicesCount);
+
+	// Adds texture
+	// Returns created textures id, if texture exists, returns that texture id
+	// @ filename - name of texture image to add
+	unsigned AddTexture(const char* filename);
+
+	// Adds shader
+	// Returns a pointer to created shader, if shader exists, returns pointer to that shader
+	// @ filename - name of shader file, both vert and frag shader must be named the same
+	EShader* AddShader(const char* filename);
+
 	ERenderable* GetRenderable(const char* renderableName);
 
-	// Frees all loaded sprites
-	void FreeRenderer();
+	// Clears all current objects in the renderer
+	void ClearRenderer();
 
 private:
 	static EGLRenderer* s_Instance;
@@ -94,11 +86,18 @@ private:
 	std::list<ESprite*> m_Sprites;
 	std::list<ERenderable*> m_Renderables;
 
+	std::list<EMesh*> m_Meshes;
+	std::list<ETexture*> m_Textures;
+	std::list<EShader*> m_Shaders;
+
 private:
 	// Only one renderer, no copying
 	EGLRenderer() {}
 	~EGLRenderer() {}
 	EGLRenderer(const EGLRenderer& renderer) {}
 	void operator=(const EGLRenderer& renderer) {}
+
+	// Sets the view and projection matrix for all shaders
+	void SetViewAndProjectionMatrix();
 };
 

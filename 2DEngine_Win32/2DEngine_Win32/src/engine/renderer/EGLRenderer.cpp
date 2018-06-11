@@ -13,82 +13,8 @@
 
 #include "EGLRenderer.h"
 #include "EGLWindow.h"
-#include "../components/subcomponents/EShaderManager.h"
-#include "../components/subcomponents/EMeshManager.h"
-#include "../components/subcomponents/ETextureManager.h"
 
 EGLRenderer* EGLRenderer::s_Instance = 0;
-
-void ERenderable::Create(TiXmlElement* element, float pixelsPerGameUnit)
-{
-	m_PixelsPerGameUnit = pixelsPerGameUnit;
-
-	name = element->Attribute("name");
-
-	double texLeft, texRight, texTop, texBottom;
-
-	element->Attribute("texleft", &texLeft);
-	element->Attribute("texright", &texRight);
-	element->Attribute("textop", &texTop);
-	element->Attribute("texbottom", &texBottom);
-
-	std::string pivotPoint = element->Attribute("pivotpoint");
-
-	float* vertexData = 0;
-	if (pivotPoint.compare("center") == 0)
-	{
-		float halfWidth = m_PixelsPerGameUnit * .5f;
-		float halfHeight = m_PixelsPerGameUnit * .5f;
-
-		float vertices[20] = {
-			-halfWidth, -halfHeight, 0.0f,		(float)texLeft, (float)texTop,
-			halfWidth, -halfHeight, 0.0f,		(float)texRight, (float)texTop,
-			halfWidth, halfHeight, 0.0f,		(float)texRight, (float)texBottom,
-			-halfWidth, halfHeight, 0.0f,		(float)texLeft, (float)texBottom
-		};
-		vertexData = &vertices[0];
-	}
-
-	else if (pivotPoint.compare("leftcenter") == 0)
-	{
-		float halfHeight = m_PixelsPerGameUnit * .5f;
-
-		float vertices[20] = {
-			0.0, -halfHeight, 0.0f,		                (float)texLeft, (float)texTop,
-			m_PixelsPerGameUnit, -halfHeight, 0.0f,		(float)texRight, (float)texTop,
-			m_PixelsPerGameUnit, halfHeight, 0.0f,		(float)texRight, (float)texBottom,
-			0.0, halfHeight, 0.0f,		                (float)texLeft, (float)texBottom
-		};
-		vertexData = &vertices[0];
-	}
-
-	unsigned short indices[6] = { 0, 1, 3, 3, 1, 2 };
-
-	m_Mesh = lilMeshManager->AddMesh(vertexData, 20, indices, 6);
-
-	std::string textureFile = element->Attribute("texturefile");
-	m_TextureID = lilTextureManager->AddTexture(textureFile.c_str());
-
-	std::string shaderFile = element->Attribute("shaderfile");
-	m_Shader = lilShaderManager->AddShader(shaderFile.c_str());
-}
-
-void ERenderable::Draw(ESprite* sprite)
-{
-	if (sprite->isRendered)
-	{
-		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::translate(model, sprite->transform.position * m_PixelsPerGameUnit);
-		model = glm::rotate(model, glm::radians(sprite->transform.rotation), glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::scale(model, sprite->transform.scale);
-
-		m_Shader->SetUniform("model", glm::value_ptr(model));
-
-		glBindTexture(GL_TEXTURE_2D, m_TextureID);
-
-		m_Mesh->Draw();
-	}
-}
 
 EGLRenderer* EGLRenderer::Instance()
 {
@@ -128,7 +54,7 @@ void EGLRenderer::SetClearColor(float red, float green, float blue, float alpha)
 
 void EGLRenderer::DrawFrame()
 {
-	lilShaderManager->SetViewAndProjectionMatrix(m_CurrentCamera->GetViewMatrix(), m_CurrentCamera->GetProjectionMatrix());
+	SetViewAndProjectionMatrix();
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -162,6 +88,43 @@ void EGLRenderer::AddRenderable(TiXmlElement* element, float pixelsPerGameUnit)
 	m_Renderables.push_back(renderable);
 }
 
+EMesh* EGLRenderer::AddMesh(float * vertexData, int vertexCount, unsigned short * indices, int indicesCount)
+{
+	EMesh* mesh;
+	mesh = new EMesh();
+	mesh->Create(vertexData, vertexCount, indices, indicesCount);
+
+	m_Meshes.push_back(mesh);
+
+	return mesh;
+}
+
+unsigned EGLRenderer::AddTexture(const char * filename)
+{
+	for (std::list<ETexture*>::iterator it = m_Textures.begin(); it != m_Textures.end(); ++it)
+		if ((*it)->GetName().compare(filename) == 0)
+			return (*it)->GetID();
+
+	ETexture* tempTexture = new ETexture();
+	tempTexture->Create(filename);
+	m_Textures.push_back(tempTexture);
+
+	return tempTexture->GetID();
+}
+
+EShader* EGLRenderer::AddShader(const char * filename)
+{
+	for (std::list<EShader*>::iterator it = m_Shaders.begin(); it != m_Shaders.end(); ++it)
+		if ((*it)->GetName().compare(filename) == 0)
+			return (*it);
+
+	EShader* tempShader = new EShader();
+	tempShader->Create(filename);
+	m_Shaders.push_back(tempShader);
+
+	return tempShader;
+}
+
 ERenderable* EGLRenderer::GetRenderable(const char* renderableName)
 {
 	for (std::list<ERenderable*>::iterator it = m_Renderables.begin(); it != m_Renderables.end(); ++it)
@@ -171,7 +134,7 @@ ERenderable* EGLRenderer::GetRenderable(const char* renderableName)
 	return 0;
 }
 
-void EGLRenderer::FreeRenderer()
+void EGLRenderer::ClearRenderer()
 {
 	for (std::list<ESprite*>::iterator it = m_Sprites.begin(); it != m_Sprites.end(); ++it)
 	{
@@ -182,7 +145,37 @@ void EGLRenderer::FreeRenderer()
 	for (std::list<ERenderable*>::iterator it = m_Renderables.begin(); it != m_Renderables.end(); ++it)
 		delete (*it);
 
+	for (std::list<EMesh*>::iterator it = m_Meshes.begin(); it != m_Meshes.end(); ++it)
+	{
+		(*it)->Destroy();
+		delete (*it);
+	}
+
+	for (std::list<ETexture*>::iterator it = m_Textures.begin(); it != m_Textures.end(); ++it)
+	{
+		(*it)->Destroy();
+		delete (*it);
+	}
+
+	for (std::list<EShader*>::iterator it = m_Shaders.begin(); it != m_Shaders.end(); ++it)
+	{
+		(*it)->Destroy();
+		delete (*it);
+	}
+
 	m_Sprites.clear();
 	m_Renderables.clear();
+	m_Meshes.clear();
+	m_Textures.clear();
+	m_Shaders.clear();
+}
+
+void EGLRenderer::SetViewAndProjectionMatrix()
+{
+	for (std::list<EShader*>::iterator it = m_Shaders.begin(); it != m_Shaders.end(); ++it)
+	{
+		(*it)->SetUniform("camera", glm::value_ptr(m_CurrentCamera->GetViewMatrix()));
+		(*it)->SetUniform("projection", glm::value_ptr(m_CurrentCamera->GetProjectionMatrix()));
+	}
 }
 

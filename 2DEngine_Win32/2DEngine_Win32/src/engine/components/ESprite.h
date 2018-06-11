@@ -11,8 +11,8 @@
 
 #include "EComponent.h"
 #include "../gameobjects/ETransform.h"
-#include "subcomponents/EMesh.h"
-#include "subcomponents/EShader.h"
+#include "../renderer/EMesh.h"
+#include "../renderer/EShader.h"
 
 class ERenderable;
 

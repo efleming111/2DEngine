@@ -16,6 +16,7 @@
 #include "../gameobjects/lilLevelObject.h"
 #include "../gameobjects/lilCamera.h"
 #include "../gameobjects/lilHUD.h"
+#include "../gameobjects/lilButtonControls.h"
 #include "../../engine/utilities/EFileIO.h"
 
 void lilScene::Create(const char* filename)
@@ -140,6 +141,13 @@ void lilScene::GameObjectFactory(TiXmlElement* rootElement)
 			levelObject = new LevelObject();
 			levelObject->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(levelObject);
+		}
+
+		else if (type.compare("ButtonControls") == 0)
+		{
+			ButtonControls* buttonControls = new ButtonControls();
+			buttonControls->Create(gameObject, m_PixelsPerGameUnit);
+			lilGameObjectManager->AddGameObject(buttonControls);
 		}
 	}
 }

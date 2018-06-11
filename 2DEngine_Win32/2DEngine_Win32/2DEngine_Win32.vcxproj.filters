@@ -123,6 +123,9 @@
     <ClInclude Include="src\engine\renderer\ERenderable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\lilknight\gameobjects\lilButtonControls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="thirdpartysrc\tinyxml\tinystr.cpp">
@@ -234,6 +237,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\renderer\ERenderable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilknight\gameobjects\lilButtonControls.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

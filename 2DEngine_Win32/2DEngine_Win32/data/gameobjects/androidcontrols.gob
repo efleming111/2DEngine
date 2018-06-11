@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Windows For Testing -->
+<gobdata>
+    <resources>
+        <renderable type="Renderable" name="abutton.png" pivotpoint="center" texleft="0" texright="0.2" texbottom="0" textop="1" texturefile="data/spritesheets/androidcontrols.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="bbutton.png" pivotpoint="center" texleft="0.2" texright="0.4" texbottom="0" textop="1" texturefile="data/spritesheets/androidcontrols.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="leftcontrol.png" pivotpoint="center" texleft="0.4" texright="0.6" texbottom="0" textop="1" texturefile="data/spritesheets/androidcontrols.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="rbutton.png" pivotpoint="center" texleft="0.6" texright="0.8" texbottom="0" textop="1" texturefile="data/spritesheets/androidcontrols.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="rightcontrol.png" pivotpoint="center" texleft="0.8" texright="1" texbottom="0" textop="1" texturefile="data/spritesheets/androidcontrols.png" shaderfile="data/shaders/BasicTextureShader" />
+    </resources>
+	<gameobject type="ButtonControls" name="androidcontrols">
+        <transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="sprite" name="abutton" renderablename="abutton.png" renderorder="6" isrendered="true" width="3" height="3" xrel="0" yrel="0" />
+			<sprite type="sprite" name="bbutton" renderablename="bbutton.png" renderorder="6" isrendered="true" width="3" height="3" xrel="0" yrel="0" />
+			<sprite type="sprite" name="leftcontrol" renderablename="leftcontrol.png" renderorder="6" isrendered="true" width="3" height="3" xrel="0" yrel="0" />
+			<sprite type="sprite" name="rbutton" renderablename="rbutton.png" renderorder="6" isrendered="true" width="3" height="3" xrel="0" yrel="0" />
+			<sprite type="sprite" name="rightcontrol" renderablename="rightcontrol.png" renderorder="6" isrendered="true" width="3" height="3" xrel="0" yrel="0" />
+        </components>
+		<buttonpositions>
+			<position name="leftcontrol" x=".15" y=".12"/>
+			<position name="rightcontrol" x=".35" y=".12"/>
+			<position name="abutton" x=".6" y=".12"/>
+			<position name="bbutton" x=".75" y=".12"/>
+			<position name="rbutton" x=".9" y=".12"/>
+		</buttonpositions>
+    </gameobject>
+</gobdata>

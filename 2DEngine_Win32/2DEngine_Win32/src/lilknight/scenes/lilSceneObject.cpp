@@ -40,7 +40,7 @@ void SceneObject::Update()
 #ifdef __ANDROID__
 	Finger* fingers = lilTouch->GetTouches();
 	for(int i = 0; i < MAX_FINGER_TOUCHES && fingers[i].isTouching; ++i)
-		if (fingers[i].xNormalized < .25f && fingers[i].yNormalized > .75f)
+		if (fingers[i].xNormalized < .25f && fingers[i].yNormalized < .25f)
 		{
 			SDL_Log("Touch Logged At Change Scene, %s %d", __FILE__, __LINE__);
 			m_ChangeScene = true;

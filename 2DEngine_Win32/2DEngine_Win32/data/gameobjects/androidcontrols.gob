@@ -8,7 +8,7 @@
         <renderable type="Renderable" name="rbutton.png" pivotpoint="center" texleft="0.6" texright="0.8" texbottom="0" textop="1" texturefile="data/spritesheets/androidcontrols.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="rightcontrol.png" pivotpoint="center" texleft="0.8" texright="1" texbottom="0" textop="1" texturefile="data/spritesheets/androidcontrols.png" shaderfile="data/shaders/BasicTextureShader" />
     </resources>
-	<gameobject type="ButtonControls" name="androidcontrols">
+	<gameobject type="ButtonControls" name="androidcontrols" numberofbuttons="5" >
         <transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <sprite type="sprite" name="abutton" renderablename="abutton.png" renderorder="6" isrendered="true" width="3" height="3" xrel="0" yrel="0" />

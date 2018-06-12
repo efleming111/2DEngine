@@ -11,6 +11,7 @@
 #include "../../engine/input/EInput.h"
 #include "../../engine/components/ERigidbody.h"
 #include "../../engine/components/EAnimator.h"
+#include "lilButtonControls.h"
 
 // TODO: For testing only
 #include <SDL.h>
@@ -27,6 +28,8 @@ enum PlayerAnimationState {
 
 const float TOTAL_DAMAGE_TIME = 2.0f;
 const float DAMAGE_BLINK_INTERVAL = .1f;
+
+class ButtonControls;
 
 class Player : public EGameObject
 {
@@ -47,11 +50,13 @@ public:
 	float GetMagic() { return m_Magic; }
 
 protected:
+	ButtonControls* m_ButtonControls;
 	ERigidbody* m_Rigidbody;
 	EAnimator* m_Animator;
 	bool m_IsRendered;
 
 	bool m_IsFacingRight;
+	bool m_IsIdle;
 	bool m_IsJumping;
 	bool m_IsAttacking;
 	PlayerAnimationState m_AnimationLastFrame;
@@ -59,6 +64,7 @@ protected:
 
 	float m_WalkAcceleration;
 	float m_MaxWalkSpeed;
+	bool m_IsRunning;
 	float m_RunAcceleration;
 	float m_MaxRunSpeed;
 

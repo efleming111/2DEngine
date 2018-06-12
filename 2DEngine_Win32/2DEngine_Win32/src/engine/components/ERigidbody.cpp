@@ -96,7 +96,7 @@ void ERigidbody::AddBoxCollider(TiXmlElement* element)
 
 	std::string name = element->Attribute("name");
 	m_ColliderNames.push_back(name);
-	fixtureDef.userData = (void*)m_ColliderNames.back().c_str();
+	fixtureDef.userData = (void*)(&m_ColliderNames.back());
 
 	m_Body->CreateFixture(&fixtureDef);
 }
@@ -128,7 +128,7 @@ void ERigidbody::AddCircleCollider(TiXmlElement * element)
 
 	std::string name = element->Attribute("name");
 	m_ColliderNames.push_back(name);
-	fixtureDef.userData = (void*)m_ColliderNames.back().c_str();
+	fixtureDef.userData = (void*)(&m_ColliderNames.back());
 
 	m_Body->CreateFixture(&fixtureDef);
 }

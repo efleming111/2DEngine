@@ -7,7 +7,6 @@
 
 #pragma once
 
-#include <list>
 #include <string>
 
 #include "../../engine/components/ESprite.h"
@@ -16,9 +15,18 @@
 // TODO: For testing only
 #include <SDL.h>
 
+struct ButtonState
+{
+	bool isPressed;
+	bool isDown;
+};
+
 struct Button
 {
 	std::string name;
+
+	float xRel;
+	float yRel;
 
 	float x;
 	float y;
@@ -27,7 +35,11 @@ struct Button
 	float right;
 	float bottom;
 	float top;
+
+	ButtonState buttonState;
 };
+
+class Camera;
 
 class ButtonControls : public EGameObject
 {
@@ -40,15 +52,23 @@ public:
 	void Update();
 	void Destroy();
 
+	// Is button down
+	bool GetButton(int index);
 
+	// Per frame button was pressed
+	bool GetButtonDown(int index);
 
 private:
 	Camera* m_Camera;
-	std::list<Button*> m_Buttons;
+
+	Button* m_Buttons;
+	int m_NumberOfButtons;
 
 private:
 	ButtonControls(const ButtonControls& levelObject) {}
 	void operator=(const ButtonControls& levelObject) {}
+
+	void SetButtons();
 };
 
 

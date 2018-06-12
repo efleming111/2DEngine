@@ -39,6 +39,8 @@ void Player::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 
 void Player::OnStart()
 {
+	m_ButtonControls = (ButtonControls*)lilGameObjectManager->GetGameObject("androidcontrols");
+
 	m_Rigidbody = (ERigidbody*)GetComponentByType("rigidbody");
 	m_Animator = (EAnimator*)GetComponentByType("animator");
 
@@ -58,50 +60,39 @@ void Player::Update()
 {
 	EVector2D velocity = m_Rigidbody->GetVelocity();
 	
-#ifdef _WIN32
 	if ((m_CurrentAnimation == ATTACK || m_CurrentAnimation == JUMP_ATTACK) &&
 		m_Animator->IsCurrentAnimationFinished())
-	{
 		m_IsAttacking = false;
-	}
 
-	if (lilKeyboard->GetKeyDown(KC_A))
-	{
+#ifdef _WIN32
+	if (lilKeyboard->GetKeyDown(KC_Z))
 		m_IsAttacking = true;
-		m_CurrentAnimation = ATTACK;
-	}
 
-	if (lilKeyboard->GetKeyDown(KC_SPACE) && lilKeyboard->GetKeyDown(KC_Z) && m_IsGrounded ||
-		lilKeyboard->GetKeyDown(KC_SPACE) && m_IsAttacking ||
-		lilKeyboard->GetKeyDown(KC_Z) && m_IsJumping)
+	if (lilKeyboard->GetKeyDown(KC_SPACE) && m_IsGrounded)
 	{
 		velocity.y = m_JumpPower;
 		m_IsJumping = true;
-		m_IsAttacking = true;
-		m_CurrentAnimation = JUMP_ATTACK;
 	}
 
-	else if (lilKeyboard->GetKeyDown(KC_SPACE) && m_IsGrounded)
-	{
-		velocity.y = m_JumpPower;
+	else if (!m_IsGrounded)
 		m_IsJumping = true;
-		m_CurrentAnimation = JUMP;
-	}
 	
 	if (lilKeyboard->GetKey(KC_LEFTARROW))
 	{
+		m_IsIdle = false;
+
 		if (m_IsFacingRight)
 		{
 			m_Animator->FlipAnimationX();
 			m_IsFacingRight = false;
 		}
 
-		if (lilKeyboard->GetKey(KC_R))
+		if (lilKeyboard->GetKey(KC_X))
 		{
 			velocity.x = EMax(velocity.x - m_RunAcceleration, -m_MaxRunSpeed);
 
 			if (!m_IsJumping)
-				m_CurrentAnimation = RUN;
+				m_IsRunning = true;
 		}
 
 		else
@@ -109,24 +100,26 @@ void Player::Update()
 			velocity.x = EMax(velocity.x - m_WalkAcceleration, -m_MaxWalkSpeed);
 
 			if (!m_IsJumping)
-				m_CurrentAnimation = WALK;
+				m_IsRunning = false;
 		}
 	}
 	
 	else if (lilKeyboard->GetKey(KC_RIGHTARROW))
 	{
+		m_IsIdle = false;
+
 		if (!m_IsFacingRight)
 		{
 			m_Animator->FlipAnimationX();
 			m_IsFacingRight = true;
 		}
 
-		if (lilKeyboard->GetKey(KC_R))
+		if (lilKeyboard->GetKey(KC_X))
 		{
 			velocity.x = EMin(velocity.x + m_RunAcceleration, m_MaxRunSpeed);
 
 			if (!m_IsJumping)
-				m_CurrentAnimation = RUN;
+				m_IsRunning = true;
 		}
 
 		else
@@ -134,45 +127,129 @@ void Player::Update()
 			velocity.x = EMin(velocity.x + m_WalkAcceleration, m_MaxWalkSpeed);
 
 			if (!m_IsJumping)
-				m_CurrentAnimation = WALK;
+				m_IsRunning = false;
 		}
 	}
 	
 	else
 	{
 		velocity.x *= .98f;
-		if (!m_IsJumping && velocity.x < .05 && !m_IsAttacking)
-			m_CurrentAnimation = IDLE;
+		if (!m_IsJumping && abs(velocity.x) < .05f && !m_IsAttacking)
+			m_IsIdle = true;
 	}
+#endif
+#ifdef __ANDROID__
+	if (m_ButtonControls->GetButtonDown(2))
+		m_IsAttacking = true;
 
-	// TODO: For testing HUD
-	if (lilKeyboard->GetKeyDown(KC_C))
-		m_Coins *= 9;
-
-	if (lilKeyboard->GetKeyDown(KC_H))
+	if (m_ButtonControls->GetButtonDown(3) && m_IsGrounded)
 	{
-		// TODO: Set this thru enemy contact
-		m_IsTakingDamage = true;
-		m_DamageAmount = .1f;
+		velocity.y = m_JumpPower;
+		m_IsJumping = true;
 	}
 
-	if (lilKeyboard->GetKeyDown(KC_M))
-		m_Magic += .05f;
+	else if (!m_IsGrounded)
+		m_IsJumping = true;
+
+	if (m_ButtonControls->GetButton(0))
+	{
+		m_IsIdle = false;
+
+		if (m_IsFacingRight)
+		{
+			m_Animator->FlipAnimationX();
+			m_IsFacingRight = false;
+		}
+
+		if (m_ButtonControls->GetButton(4))
+		{
+			velocity.x = EMax(velocity.x - m_RunAcceleration, -m_MaxRunSpeed);
+
+			if (!m_IsJumping)
+				m_IsRunning = true;
+		}
+
+		else
+		{
+			velocity.x = EMax(velocity.x - m_WalkAcceleration, -m_MaxWalkSpeed);
+
+			if (!m_IsJumping)
+				m_IsRunning = false;
+		}
+	}
+
+	else if (m_ButtonControls->GetButton(1))
+	{
+		m_IsIdle = false;
+
+		if (!m_IsFacingRight)
+		{
+			m_Animator->FlipAnimationX();
+			m_IsFacingRight = true;
+		}
+
+		if (m_ButtonControls->GetButton(4))
+		{
+			velocity.x = EMin(velocity.x + m_RunAcceleration, m_MaxRunSpeed);
+
+			if (!m_IsJumping)
+				m_IsRunning = true;
+		}
+
+		else
+		{
+			velocity.x = EMin(velocity.x + m_WalkAcceleration, m_MaxWalkSpeed);
+
+			if (!m_IsJumping)
+				m_IsRunning = false;
+		}
+	}
+
+	else
+	{
+		velocity.x *= .98f;
+		if (!m_IsJumping && abs(velocity.x) < .05 && !m_IsAttacking)
+			m_IsIdle = true;
+	}
 #endif
 
-#ifdef __ANDROID__
-	Finger* fingers = lilTouch->GetTouches();
-	for (int i = 0; i < MAX_FINGER_TOUCHES && fingers[i].isTouching; ++i)
-		if (fingers[i].xNormalized > .75f && fingers[i].yNormalized < .25f)
-		{
-			int test = (int)lilGLRenderer->GetRenderable("Attack (1)")->m_TextureID;
-			SDL_Log("Renderable %s %d, %s %d", lilGLRenderer->GetRenderable("Attack (1)")->name.c_str(), test, __FILE__, __LINE__);
-			break;
-		}
-#endif 
+	// TODO: For testing HUD
+	//if (lilKeyboard->GetKeyDown(KC_C))
+	//	m_Coins *= 9;
+
+	//if (lilKeyboard->GetKeyDown(KC_H))
+	//{
+	//	// TODO: Set this thru enemy contact
+	//	m_IsTakingDamage = true;
+	//	m_DamageAmount = .1f;
+	//}
+
+	//if (lilKeyboard->GetKeyDown(KC_M))
+	//	m_Magic += .05f;
+
 
 	if (m_IsTakingDamage)
 		TakeDamage();
+
+	if (m_IsAttacking)
+	{
+		if (m_IsGrounded)
+			m_CurrentAnimation = ATTACK;
+		else
+			m_CurrentAnimation = JUMP_ATTACK;
+	}
+
+	else if (m_IsJumping || !m_IsGrounded)
+		m_CurrentAnimation = JUMP;
+
+	else if (m_IsRunning)
+		m_CurrentAnimation = RUN;
+
+	else if (!m_IsIdle)
+		m_CurrentAnimation = WALK;
+
+	else
+		m_CurrentAnimation = IDLE;
 
 	if (m_AnimationLastFrame != m_CurrentAnimation)
 	{
@@ -192,7 +269,6 @@ void Player::Destroy()
 
 void Player::BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
-	SDL_Log("COLLISION, %s %d", __FILE__, __LINE__);
 	if (thisRigidbody->colliderName->compare("groundsensor") == 0 && otherRigidbody->colliderName->compare("ground") == 0)
 	{
 		m_IsGrounded = true;

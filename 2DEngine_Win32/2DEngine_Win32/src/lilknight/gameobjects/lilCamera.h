@@ -11,6 +11,8 @@
 #include "../../engine/gameobjects/ETransform.h"
 #include "lilPlayer.h"
 
+class Player;
+
 class Camera : public EGameObject
 {
 public:
@@ -23,7 +25,7 @@ public:
 	void Destroy();
 
 private:
-	Player * m_Player;
+	Player* m_Player;
 
 private:
 	Camera(const Camera& camera) {}

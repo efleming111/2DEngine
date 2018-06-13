@@ -43,7 +43,7 @@ void ButtonControls::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 
 void ButtonControls::OnStart()
 {
-	m_Camera = (Camera*)lilGameObjectManager->GetGameObject("Camera");
+	m_Camera = (Camera*)lilGameObjectManager->GetGameObjectByName("Camera");
 	m_Transform = m_Camera->m_Transform;
 
 	for (int i = 0; i < m_NumberOfButtons; ++i)

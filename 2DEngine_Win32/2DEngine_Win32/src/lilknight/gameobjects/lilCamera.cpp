@@ -14,7 +14,7 @@ void Camera::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 
 void Camera::OnStart()
 {
-	m_Player = (Player*)lilGameObjectManager->GetGameObject("Player");
+	m_Player = (Player*)lilGameObjectManager->GetGameObjectByName("Player");
 }
 
 void Camera::Update()

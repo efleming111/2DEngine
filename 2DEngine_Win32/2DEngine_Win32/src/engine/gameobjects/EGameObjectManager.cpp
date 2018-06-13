@@ -6,6 +6,7 @@
 //
 
 #include "EGameObjectManager.h"
+#include <SDL.h>
 
 EGameObjectManager* EGameObjectManager::s_Instance = 0;
 
@@ -45,7 +46,16 @@ void EGameObjectManager::FreeGameObjects()
 	m_GameObjects.clear();
 }
 
-EGameObject* EGameObjectManager::GetGameObject(std::string name)
+EGameObject* EGameObjectManager::GetGameObjectByType(std::string type)
+{
+	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
+		if ((*it)->m_Type.compare(type) == 0)
+			return (*it);
+
+	return 0;
+}
+
+EGameObject* EGameObjectManager::GetGameObjectByName(std::string name)
 {
 	for (std::list<EGameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); ++it)
 		if ((*it)->m_Name.compare(name) == 0)

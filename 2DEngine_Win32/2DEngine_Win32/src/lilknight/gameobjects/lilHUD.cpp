@@ -14,8 +14,8 @@ void HUD::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 
 void HUD::OnStart()
 {
-	m_Player = (Player*)lilGameObjectManager->GetGameObject("Player");
-	m_Camera = (Camera*)lilGameObjectManager->GetGameObject("Camera");
+	m_Player = (Player*)lilGameObjectManager->GetGameObjectByName("Player");
+	m_Camera = (Camera*)lilGameObjectManager->GetGameObjectByName("Camera");
 
 	m_Transform = m_Camera->m_Transform;
 

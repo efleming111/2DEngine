@@ -55,6 +55,8 @@ public:
 	// @ vector - a 2d vector reprresenting the current velocity of the rigidbody
 	void SetVelocity(EVector2D vector) { m_Body->SetLinearVelocity(vector); }
 
+	void SetPosition(EVector2D position) { m_Body->SetTransform(position, 0.0f); }
+
 	// Pointer to the name of the currently collided collider
 	std::string* colliderName;
 

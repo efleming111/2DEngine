@@ -33,10 +33,17 @@
         <renderable type="Renderable" name="Tree_2.png" pivotpoint="center" texleft="0.526367" texright="0.801758" texbottom="0.525237" textop="1" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Tree_3.png" pivotpoint="center" texleft="0.250977" texright="0.526367" texbottom="0.525237" textop="0.958991" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
     </resources>
-    <gameobject type="Scene" name="Scene01">
-        <scenes option1="data/scenes/scene02.scn" />
+    <gameobject type="Scene" name="data/scenes/scene01.scn" clearcolorred=".584" clearcolorgreen=".792" clearcolorblue="1.0">
+        <scenes option1="data/scenes/scene02.scn" option2="data/scenes/scene01.scn" />
+        <playerstart x="3" y="6" />
         <transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
-        <components />
+        <components>
+            <rigidbody type="rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="box" name="option1" width="0.989586" height="4.25" xrel="49.5052" yrel="11.8854" angle="0" density="1" friction="0.3" issensor="true" />
+                <boxcollider type="box" name="option2" width="0.979164" height="2.92709" xrel="49.4896" yrel="4.02083" angle="0" density="1" friction="0.3" issensor="true" />
+                <boxcollider type="box" name="playerkillzone" width="57.8125" height="2.60416" xrel="22.1563" yrel="-1.32294" angle="0" density="1" friction="0.3" issensor="true" />
+            </rigidbody>
+        </components>
     </gameobject>
     <gameobject type="LevelObject" name="Block">
         <transform x="45.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
@@ -948,7 +955,7 @@
         <transform x="4.5" y="1.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="9" height="3" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="9" height="3" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -956,7 +963,7 @@
         <transform x="10" y="1" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="2" height="2" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="2" height="2" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -964,7 +971,7 @@
         <transform x="14.5" y="4.36776" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="5" height="0.735577" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="5" height="0.735577" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -972,7 +979,7 @@
         <transform x="19.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -980,7 +987,7 @@
         <transform x="24" y="2" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="8" height="4" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="8" height="4" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -988,7 +995,7 @@
         <transform x="30.5" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="5" height="7" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="5" height="7" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -996,7 +1003,7 @@
         <transform x="33.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -1004,7 +1011,7 @@
         <transform x="38.5" y="8.3738" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="7" height="0.747596" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="7" height="0.747596" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -1012,7 +1019,7 @@
         <transform x="40" y="1.36776" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="6" height="0.735577" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="6" height="0.735577" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -1020,7 +1027,7 @@
         <transform x="47.5" y="8" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="5" height="4" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="5" height="4" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>
@@ -1028,7 +1035,7 @@
         <transform x="48" y="2.36776" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="ground" width="4" height="0.735577" xrel="0" yrel="0" angle="0" density="1" friction="0.3" issensor="false" />
+                <boxcollider type="box" name="ground" width="4" height="0.735577" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
         </components>
     </gameobject>

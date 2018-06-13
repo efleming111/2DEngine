@@ -64,8 +64,6 @@ void lilScene::Create(const char* filename)
 	}
 
 	lilGameObjectManager->OnStart();
-
-	nextSceneFilename = m_SceneObject->GetNextScene();
 }
 
 void lilScene::Update()
@@ -73,6 +71,7 @@ void lilScene::Update()
 	lilGameObjectManager->Update();
 
 	loadNewScene = m_SceneObject->ChangeScene();
+	nextSceneFilename = m_SceneObject->GetNextScene();
 }
 
 void lilScene::Destroy()

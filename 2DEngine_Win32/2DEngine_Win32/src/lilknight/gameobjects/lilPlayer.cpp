@@ -7,7 +7,7 @@
 
 #include "lilPlayer.h"
 #include "../../engine/utilities/ETimer.h"
-
+#include "../../engine/gameobjects/EGameObjectManager.h"
 #include "../../engine/renderer/EGLRenderer.h"
 
 void Player::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
@@ -39,9 +39,16 @@ void Player::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 
 void Player::OnStart()
 {
-	m_ButtonControls = (ButtonControls*)lilGameObjectManager->GetGameObject("androidcontrols");
+	m_SceneObject = (SceneObject*)lilGameObjectManager->GetGameObjectByType("Scene");
+	float x, y;
+	m_SceneObject->GetPlayerStart(&x, &y);
+
+	m_ButtonControls = (ButtonControls*)lilGameObjectManager->GetGameObjectByName("androidcontrols");
 
 	m_Rigidbody = (ERigidbody*)GetComponentByType("rigidbody");
+	EVector2D pos(x, y);
+	m_Rigidbody->SetPosition(pos);
+
 	m_Animator = (EAnimator*)GetComponentByType("animator");
 
 	m_IsRendered = true;
@@ -134,6 +141,9 @@ void Player::Update()
 	else
 	{
 		velocity.x *= .98f;
+		if (abs(velocity.x) < .28f)
+			velocity.x = 0.0f;
+
 		if (!m_IsJumping && abs(velocity.x) < .05f && !m_IsAttacking)
 			m_IsIdle = true;
 	}
@@ -208,6 +218,9 @@ void Player::Update()
 	else
 	{
 		velocity.x *= .98f;
+		if (abs(velocity.x) < .28f)
+			velocity.x = 0.0f;
+
 		if (!m_IsJumping && abs(velocity.x) < .05 && !m_IsAttacking)
 			m_IsIdle = true;
 	}
@@ -226,7 +239,6 @@ void Player::Update()
 
 	//if (lilKeyboard->GetKeyDown(KC_M))
 	//	m_Magic += .05f;
-
 
 	if (m_IsTakingDamage)
 		TakeDamage();

@@ -12,6 +12,7 @@
 #include "../../engine/components/ERigidbody.h"
 #include "../../engine/components/EAnimator.h"
 #include "lilButtonControls.h"
+#include "../scenes/lilSceneObject.h"
 
 // TODO: For testing only
 #include <SDL.h>
@@ -50,6 +51,8 @@ public:
 	float GetMagic() { return m_Magic; }
 
 protected:
+	SceneObject* m_SceneObject;
+
 	ButtonControls* m_ButtonControls;
 	ERigidbody* m_Rigidbody;
 	EAnimator* m_Animator;

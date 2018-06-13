@@ -19,6 +19,7 @@ void EGameObject::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	m_PixelsPerGameUnit = pixelsPerGameUnit;
 
+	m_Type = rootElement->Attribute("type");
 	m_Name = rootElement->Attribute("name");
 
 	double value;

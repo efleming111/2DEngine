@@ -43,6 +43,14 @@ struct TileMapCollisionObject
 	double height;
 };
 
+struct SceneObject
+{
+	double playerStartX;
+	double playerStartY;
+
+	std::vector<TileMapCollisionObject*> collisionObjects;
+};
+
 struct TileMap
 {
 	int width;
@@ -53,6 +61,7 @@ struct TileMap
 
 	std::vector<TileMapBackgroundObject*> backgroundObjects;
 	std::vector<TileMapCollisionObject*> collisionObjects;
+	SceneObject sceneObject;
 };
 
 // Map functions
@@ -105,7 +114,7 @@ void OutputMap(std::string filename)
 	TiXmlDeclaration* scnDec = new TiXmlDeclaration("1.0", "UTF-8", "");
 	scnDoc.LinkEndChild(scnDec);
 
-	// Set up root element
+	// Set up root element for scene object file
 	TiXmlElement* scnScene = new TiXmlElement("scene");
 	scnScene->SetAttribute("width", g_TileMap.width);
 	scnScene->SetAttribute("height", g_TileMap.height);
@@ -121,7 +130,7 @@ void OutputMap(std::string filename)
 	TiXmlDeclaration* dec = new TiXmlDeclaration("1.0", "UTF-8", "");
 	xmlDoc.LinkEndChild(dec);
 
-	// Set up root element
+	// Set up root element for scene game object file
 	TiXmlElement* gob = new TiXmlElement("gob");
 	xmlDoc.LinkEndChild(gob);
 
@@ -153,11 +162,20 @@ void OutputMap(std::string filename)
 	TiXmlElement* go = new TiXmlElement("gameobject");
 	go->SetAttribute("type", "Scene");
 	go->SetAttribute("name", "SCENE_NAME");
+	go->SetDoubleAttribute("clearcolorred", 0.0);
+	go->SetDoubleAttribute("clearcolorgreen", 0.0);
+	go->SetDoubleAttribute("clearcolorblue", 0.0);
 	gob->LinkEndChild(go);
 
 	TiXmlElement* scenes = new TiXmlElement("scenes");
 	scenes->SetAttribute("option1", "NEXT_SCENE_NAME");
+	scenes->SetAttribute("option2", "ADD_FOR_ADDITIONAL_SCENE_OPTIONS");
 	go->LinkEndChild(scenes);
+
+	TiXmlElement* playerstart = new TiXmlElement("playerstart");
+	playerstart->SetDoubleAttribute("x", g_TileMap.sceneObject.playerStartX / g_TileMap.tileWidth);
+	playerstart->SetDoubleAttribute("y", g_TileMap.sceneObject.playerStartY / g_TileMap.tileHeight);
+	go->LinkEndChild(playerstart);
 
 	TiXmlElement* trans = new TiXmlElement("transform");
 	trans->SetDoubleAttribute("x", 0);
@@ -168,9 +186,35 @@ void OutputMap(std::string filename)
 	trans->SetDoubleAttribute("sy", 1);
 	trans->SetDoubleAttribute("sz", 1);
 	go->LinkEndChild(trans);
+	
+	TiXmlElement* sceneComponents = new TiXmlElement("components");
+	go->LinkEndChild(sceneComponents);
 
-	TiXmlElement* comp = new TiXmlElement("components");
-	go->LinkEndChild(comp);
+	TiXmlElement* sceneRigidbody = new TiXmlElement("rigidbody");
+	sceneRigidbody->SetAttribute("type", "rigidbody");
+	sceneRigidbody->SetAttribute("bodytype", "static");
+	sceneRigidbody->SetAttribute("canrotate", "false");
+	sceneComponents->LinkEndChild(sceneRigidbody);
+
+	for (unsigned i = 0; i < g_TileMap.sceneObject.collisionObjects.size(); ++i)
+	{
+		TiXmlElement* boxCollider = new TiXmlElement("boxcollider");
+		boxCollider->SetAttribute("type", "box");
+		boxCollider->SetAttribute("name", g_TileMap.sceneObject.collisionObjects[i]->name.c_str());
+		boxCollider->SetDoubleAttribute("width", g_TileMap.sceneObject.collisionObjects[i]->width / g_TileMap.tileWidth);
+		boxCollider->SetDoubleAttribute("height", g_TileMap.sceneObject.collisionObjects[i]->height / g_TileMap.tileHeight);
+
+		double xPos = (g_TileMap.sceneObject.collisionObjects[i]->x + (g_TileMap.sceneObject.collisionObjects[i]->width * .5)) / g_TileMap.tileWidth;
+		double yPos = g_TileMap.height - ((g_TileMap.sceneObject.collisionObjects[i]->y + (g_TileMap.sceneObject.collisionObjects[i]->height * .5)) / g_TileMap.tileHeight);
+		boxCollider->SetDoubleAttribute("xrel", xPos);
+		boxCollider->SetDoubleAttribute("yrel", yPos);
+		boxCollider->SetDoubleAttribute("angle", 0.0);
+		boxCollider->SetDoubleAttribute("density", 1.0);
+		boxCollider->SetDoubleAttribute("friction", 0.3);
+		boxCollider->SetAttribute("issensor", "true");
+
+		sceneRigidbody->LinkEndChild(boxCollider);
+	}
 
 	// Output tile map game objects
 	for (unsigned i = 0; i < g_TileMap.mapIDs.size(); ++i)
@@ -313,11 +357,10 @@ void OutputMap(std::string filename)
 		boxCollider->SetDoubleAttribute("yrel", 0.0);
 		boxCollider->SetDoubleAttribute("angle", 0.0);
 		boxCollider->SetDoubleAttribute("density", 1.0);
-		boxCollider->SetDoubleAttribute("friction", 0.3);
+		boxCollider->SetDoubleAttribute("friction", 0.0);
 		boxCollider->SetAttribute("issensor", "false");
 
 		rigidbody->LinkEndChild(boxCollider);
-
 	}
 
 	xmlDoc.SaveFile(gobFilename.c_str());
@@ -394,6 +437,32 @@ bool ReadInTileMap(std::string filename)
 					grandChild->Attribute("height", &col->height);
 
 					g_TileMap.collisionObjects.push_back(col);
+				}
+			}
+			
+			else if (groupName.compare("level") == 0)
+			{
+				for (TiXmlElement* grandChild = child->FirstChildElement(); grandChild; grandChild = grandChild->NextSiblingElement())
+				{
+					std::string objectName = grandChild->Attribute("name");
+					if (objectName.compare("playerstart") == 0)
+					{
+						grandChild->Attribute("x", &(g_TileMap.sceneObject.playerStartX));
+						grandChild->Attribute("y", &(g_TileMap.sceneObject.playerStartY));
+					}
+
+					else
+					{
+						TileMapCollisionObject* col = new TileMapCollisionObject();
+
+						col->name = grandChild->Attribute("name");
+						grandChild->Attribute("x", &col->x);
+						grandChild->Attribute("y", &col->y);
+						grandChild->Attribute("width", &col->width);
+						grandChild->Attribute("height", &col->height);
+
+						g_TileMap.sceneObject.collisionObjects.push_back(col);
+					}
 				}
 			}
 		}

@@ -33,9 +33,13 @@ public:
 	// Frees all loaded shaders
 	void FreeGameObjects();
 
-	// Gets pointer to game object
+	// Gets pointer to first game object of type, type
+	// @ type - type of game object
+	EGameObject* GetGameObjectByType(std::string type);
+
+	// Gets pointer to first game object of name, name
 	// @ name - name of game object
-	EGameObject* GetGameObject(std::string name);
+	EGameObject* GetGameObjectByName(std::string name);
 
 private:
 	static EGameObjectManager* s_Instance;

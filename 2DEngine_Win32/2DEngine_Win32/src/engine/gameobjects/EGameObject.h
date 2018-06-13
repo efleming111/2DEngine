@@ -57,6 +57,7 @@ public:
 	EComponent* GetComponentByName(const char* name);
 
 public:
+	std::string m_Type;
 	std::string m_Name;
 	ETransform m_Transform;
 	float m_PixelsPerGameUnit;

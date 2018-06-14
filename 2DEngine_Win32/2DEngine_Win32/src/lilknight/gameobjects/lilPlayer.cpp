@@ -42,9 +42,9 @@ void Player::OnStart()
 	m_SceneObject = (SceneObject*)lilGameObjectManager->GetGameObjectByType("Scene");
 	float x, y;
 	m_SceneObject->GetPlayerStart(&x, &y);
-
+#ifdef __ANDROID__
 	m_ButtonControls = (ButtonControls*)lilGameObjectManager->GetGameObjectByName("androidcontrols");
-
+#endif
 	m_Rigidbody = (ERigidbody*)GetComponentByType("rigidbody");
 	EVector2D pos(x, y);
 	m_Rigidbody->SetPosition(pos);
@@ -59,8 +59,10 @@ void Player::OnStart()
 	m_IsGrounded = false;
 
 	m_IsTakingDamage = false;
+	m_TotalDamageTime = 2.0f;
+	m_DamageBlinkInterval = .1f;
 	m_DamageAmount = 0.0f;
-	m_DamageIntervalTime = 0.0f;
+	m_AccumDamageIntervalTime = 0.0f;
 }
 
 void Player::Update()
@@ -301,21 +303,21 @@ void Player::TakeDamage()
 	m_Health -= m_DamageAmount;
 	m_DamageAmount = 0.0f;
 
-	m_DamageIntervalTime += lilTimer->DeltaTime();
-	m_TotalDamageTime += lilTimer->DeltaTime();
+	m_AccumDamageIntervalTime += lilTimer->DeltaTime();
+	m_AccumDamageTime += lilTimer->DeltaTime();
 
-	if (m_TotalDamageTime > TOTAL_DAMAGE_TIME)
+	if (m_AccumDamageTime > m_TotalDamageTime)
 	{
-		m_DamageIntervalTime = 0.0f;
-		m_TotalDamageTime = 0.0f;
+		m_AccumDamageIntervalTime = 0.0f;
+		m_AccumDamageTime = 0.0f;
 		m_IsTakingDamage = false;
 		m_Animator->IsRendered(true);
 		return;
 	}
 
-	if (m_DamageIntervalTime > DAMAGE_BLINK_INTERVAL)
+	if (m_AccumDamageIntervalTime > m_DamageBlinkInterval)
 	{
-		m_DamageIntervalTime -= DAMAGE_BLINK_INTERVAL;
+		m_AccumDamageIntervalTime -= m_DamageBlinkInterval;
 		m_IsRendered = !m_IsRendered;
 		m_Animator->IsRendered(m_IsRendered);
 	}

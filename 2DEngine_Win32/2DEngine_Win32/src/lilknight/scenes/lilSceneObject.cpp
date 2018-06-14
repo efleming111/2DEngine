@@ -85,7 +85,7 @@ void SceneObject::BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigid
 
 void SceneObject::EndContact(ERigidbody * thisRigidbody, ERigidbody * otherRigidbody)
 {
-	if (thisRigidbody->colliderName->compare("playerkillzone") == 0 && otherRigidbody->colliderName->compare("playertopcollider") == 0)
+	if (thisRigidbody->colliderName->compare("killzone") == 0 && otherRigidbody->colliderName->compare("playertopcollider") == 0)
 	{
 		m_ChangeScene = true;
 		m_NextScene = m_Name;

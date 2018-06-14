@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gobdata>
+    <resources>
+        <renderable type="Renderable" name="ZombieAttack (1)" pivotpoint="center" texleft="0.467936" texright="0.538076" texbottom="0.477223" textop="0.72885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieAttack (2)" pivotpoint="center" texleft="0.314629" texright="0.385772" texbottom="0.477223" textop="0.72885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieAttack (3)" pivotpoint="center" texleft="0.541082" texright="0.61022" texbottom="0.221258" textop="0.470716" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieAttack (4)" pivotpoint="center" texleft="0.0991984" texright="0.188377" texbottom="0.221258" textop="0.45987" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieAttack (5)" pivotpoint="center" texleft="0.289579" texright="0.375752" texbottom="0.221258" textop="0.466377" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieAttack (6)" pivotpoint="center" texleft="0.456914" texright="0.539078" texbottom="0.221258" textop="0.470716" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieAttack (7)" pivotpoint="center" texleft="0.387776" texright="0.465932" texbottom="0.477223" textop="0.72885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieAttack (8)" pivotpoint="center" texleft="0.0771543" texright="0.151303" texbottom="0.735358" textop="0.989154" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (1)" pivotpoint="center" texleft="0.001002" texright="0.0971944" texbottom="0.221258" textop="0.455531" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (2)" pivotpoint="center" texleft="0.229459" texright="0.333667" texbottom="0.735358" textop="0.989154" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (3)" pivotpoint="center" texleft="0.190381" texright="0.287575" texbottom="0.221258" textop="0.45987" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (4)" pivotpoint="center" texleft="0.868737" texright="0.956914" texbottom="0.0021692" textop="0.21692" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (5)" pivotpoint="center" texleft="0.790581" texright="0.866733" texbottom="0.0021692" textop="0.212581" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (6)" pivotpoint="center" texleft="0.708417" texright="0.788577" texbottom="0.0021692" textop="0.208243" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (7)" pivotpoint="center" texleft="0.623246" texright="0.706413" texbottom="0.0021692" textop="0.206074" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (8)" pivotpoint="center" texleft="0.513026" texright="0.621242" texbottom="0.0021692" textop="0.201735" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (9)" pivotpoint="center" texleft="0.385772" texright="0.511022" texbottom="0.0021692" textop="0.160521" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (10)" pivotpoint="center" texleft="0.257515" texright="0.383768" texbottom="0.0021692" textop="0.158351" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (11)" pivotpoint="center" texleft="0.129259" texright="0.255511" texbottom="0.0021692" textop="0.156182" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieDead (12)" pivotpoint="center" texleft="0.001002" texright="0.127255" texbottom="0.0021692" textop="0.156182" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (1)" pivotpoint="center" texleft="0.153307" texright="0.227455" texbottom="0.735358" textop="0.989154" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (2)" pivotpoint="center" texleft="0.001002" texright="0.0751503" texbottom="0.735358" textop="0.989154" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (3)" pivotpoint="center" texleft="0.689379" texright="0.764529" texbottom="0.221258" textop="0.472885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (4)" pivotpoint="center" texleft="0.612224" texright="0.687375" texbottom="0.221258" textop="0.472885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (5)" pivotpoint="center" texleft="0.766533" texright="0.841683" texbottom="0.221258" textop="0.472885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (6)" pivotpoint="center" texleft="0.0791583" texright="0.155311" texbottom="0.477223" textop="0.72885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (7)" pivotpoint="center" texleft="0.157315" texright="0.233467" texbottom="0.477223" textop="0.72885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (8)" pivotpoint="center" texleft="0.001002" texright="0.0771543" texbottom="0.477223" textop="0.72885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (9)" pivotpoint="center" texleft="0.843687" texright="0.920842" texbottom="0.221258" textop="0.472885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (10)" pivotpoint="center" texleft="0.377756" texright="0.45491" texbottom="0.221258" textop="0.470716" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (11)" pivotpoint="center" texleft="0.235471" texright="0.312625" texbottom="0.477223" textop="0.72885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (12)" pivotpoint="center" texleft="0.54008" texright="0.616232" texbottom="0.477223" textop="0.72885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (13)" pivotpoint="center" texleft="0.922846" texright="0.998998" texbottom="0.221258" textop="0.472885" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (14)" pivotpoint="center" texleft="0.701403" texright="0.776553" texbottom="0.477223" textop="0.73102" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieIdle (15)" pivotpoint="center" texleft="0.854709" texright="0.928858" texbottom="0.477223" textop="0.73102" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (1)" pivotpoint="center" texleft="0.778557" texright="0.852705" texbottom="0.477223" textop="0.73102" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (2)" pivotpoint="center" texleft="0.57014" texright="0.651303" texbottom="0.735358" textop="0.995662" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (3)" pivotpoint="center" texleft="0.89479" texright="0.981964" texbottom="0.735358" textop="0.997831" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (4)" pivotpoint="center" texleft="0.730461" texright="0.817635" texbottom="0.735358" textop="0.995662" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (5)" pivotpoint="center" texleft="0.335671" texright="0.418838" texbottom="0.735358" textop="0.993492" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (6)" pivotpoint="center" texleft="0.618236" texright="0.699399" texbottom="0.477223" textop="0.73102" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (7)" pivotpoint="center" texleft="0.496994" texright="0.568136" texbottom="0.735358" textop="0.995662" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (8)" pivotpoint="center" texleft="0.819639" texright="0.892786" texbottom="0.735358" textop="0.997831" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (9)" pivotpoint="center" texleft="0.653307" texright="0.728457" texbottom="0.735358" textop="0.995662" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ZombieWalk (10)" pivotpoint="center" texleft="0.420842" texright="0.49499" texbottom="0.735358" textop="0.993492" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
+    </resources>
+	<gameobject type="Zombie" name="ZombieBoy" walkacceleration=".1" maxwalkspeed="1.2" >
+		<transform x="8" y="3.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+		<components>
+			<rigidbody type="rigidbody" bodytype="dynamic" canrotate="false" >
+				<boxcollider type="box" name="enemy" width=".8" height="1.35" xrel="0.0" yrel="0" angle="0.0" density="1.0" friction="0." issensor="false" />
+				<boxcollider type="box" name="attack" width="2.0" height="1.5" xrel="0.0" yrel="0" angle="0.0" density="1.0" friction="0." issensor="true" />
+			</rigidbody>
+			<animator type="animator" startinganimation="3">
+				<animation name="attack" frameinterval=".15" islooping="true">
+					<sprite type="sprite" name="ZombieAttack (1)" renderablename="ZombieAttack (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieAttack (2)" renderablename="ZombieAttack (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieAttack (3)" renderablename="ZombieAttack (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieAttack (4)" renderablename="ZombieAttack (4)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieAttack (5)" renderablename="ZombieAttack (5)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieAttack (6)" renderablename="ZombieAttack (6)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieAttack (7)" renderablename="ZombieAttack (7)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieAttack (8)" renderablename="ZombieAttack (8)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+				</animation>
+				<animation name="dead" frameinterval=".15" islooping="false">
+					<sprite type="sprite" name="ZombieDead (1)" renderablename="ZombieDead (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (2)" renderablename="ZombieDead (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (3)" renderablename="ZombieDead (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (4)" renderablename="ZombieDead (4)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (5)" renderablename="ZombieDead (5)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (6)" renderablename="ZombieDead (6)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (7)" renderablename="ZombieDead (7)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (8)" renderablename="ZombieDead (8)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (9)" renderablename="ZombieDead (9)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (10)" renderablename="ZombieDead (10)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (11)" renderablename="ZombieDead (11)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieDead (12)" renderablename="ZombieDead (12)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+				</animation>
+				<animation name="idle" frameinterval=".15" islooping="true">
+					<sprite type="sprite" name="ZombieIdle (1)" renderablename="ZombieIdle (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (2)" renderablename="ZombieIdle (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (3)" renderablename="ZombieIdle (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (4)" renderablename="ZombieIdle (4)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (5)" renderablename="ZombieIdle (5)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (6)" renderablename="ZombieIdle (6)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (7)" renderablename="ZombieIdle (7)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (8)" renderablename="ZombieIdle (8)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (9)" renderablename="ZombieIdle (9)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (10)" renderablename="ZombieIdle (10)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (11)" renderablename="ZombieIdle (11)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (12)" renderablename="ZombieIdle (12)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (13)" renderablename="ZombieIdle (13)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (14)" renderablename="ZombieIdle (14)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieIdle (15)" renderablename="ZombieIdle (15)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+				</animation>
+				<animation name="walk" frameinterval=".15" islooping="true">
+					<sprite type="sprite" name="ZombieWalk (1)" renderablename="ZombieWalk (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieWalk (2)" renderablename="ZombieWalk (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieWalk (3)" renderablename="ZombieWalk (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieWalk (4)" renderablename="ZombieWalk (4)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieWalk (5)" renderablename="ZombieWalk (5)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieWalk (6)" renderablename="ZombieWalk (6)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieWalk (7)" renderablename="ZombieWalk (7)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieWalk (8)" renderablename="ZombieWalk (8)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieWalk (9)" renderablename="ZombieWalk (9)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+					<sprite type="sprite" name="ZombieWalk (10)" renderablename="ZombieWalk (10)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+				</animation>
+			</animator>
+		</components>
+	</gameobject>
+</gobdata>

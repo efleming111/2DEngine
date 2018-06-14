@@ -51,6 +51,23 @@ struct SceneObject
 	std::vector<TileMapCollisionObject*> collisionObjects;
 };
 
+struct Enemy
+{
+	std::string type;
+	std::string name;
+	double x;
+	double y;
+};
+
+struct EnemyReverse
+{
+	std::string name;
+	double x;
+	double y;
+	double width;
+	double height;
+};
+
 struct TileMap
 {
 	int width;
@@ -62,6 +79,8 @@ struct TileMap
 	std::vector<TileMapBackgroundObject*> backgroundObjects;
 	std::vector<TileMapCollisionObject*> collisionObjects;
 	SceneObject sceneObject;
+	std::vector<Enemy*> enemies;
+	std::vector<EnemyReverse*> enemyReverse;
 };
 
 // Map functions
@@ -363,6 +382,121 @@ void OutputMap(std::string filename)
 		rigidbody->LinkEndChild(boxCollider);
 	}
 
+	// Output enemy reverse sensors
+	for (unsigned i = 0; i < g_TileMap.enemyReverse.size(); ++i)
+	{
+		TiXmlElement* gameobject = new TiXmlElement("gameobject");
+		gob->LinkEndChild(gameobject);
+		gameobject->SetAttribute("type", "LevelObject");
+		gameobject->SetAttribute("name", "enemyReverse");
+
+		double cenX = ((g_TileMap.enemyReverse[i]->x + (g_TileMap.enemyReverse[i]->width * .5)) / g_TileMap.tileWidth);
+		double cenY = ((mapHeight - g_TileMap.enemyReverse[i]->y) - (g_TileMap.enemyReverse[i]->height * .5)) / g_TileMap.tileHeight;
+
+		TiXmlElement* transform = new TiXmlElement("transform");
+		transform->SetDoubleAttribute("x", cenX);
+		transform->SetDoubleAttribute("y", cenY);
+		transform->SetDoubleAttribute("z", 0.0);
+		transform->SetAttribute("rotation", 0);
+		transform->SetAttribute("sx", 1);
+		transform->SetAttribute("sy", 1);
+		transform->SetAttribute("sz", 1);
+		gameobject->LinkEndChild(transform);
+
+		TiXmlElement* components = new TiXmlElement("components");
+		gameobject->LinkEndChild(components);
+
+		TiXmlElement* rigidbody = new TiXmlElement("rigidbody");
+		rigidbody->SetAttribute("type", "rigidbody");
+		rigidbody->SetAttribute("bodytype", "static");
+		rigidbody->SetAttribute("canrotate", "false");
+		components->LinkEndChild(rigidbody);
+
+		TiXmlElement* boxCollider = new TiXmlElement("boxcollider");
+		boxCollider->SetAttribute("type", "box");
+		boxCollider->SetAttribute("name", g_TileMap.enemyReverse[i]->name.c_str());
+		boxCollider->SetDoubleAttribute("width", g_TileMap.enemyReverse[i]->width / g_TileMap.tileWidth);
+		boxCollider->SetDoubleAttribute("height", g_TileMap.enemyReverse[i]->height / g_TileMap.tileHeight);
+		boxCollider->SetDoubleAttribute("xrel", 0.0);
+		boxCollider->SetDoubleAttribute("yrel", 0.0);
+		boxCollider->SetDoubleAttribute("angle", 0.0);
+		boxCollider->SetDoubleAttribute("density", 1.0);
+		boxCollider->SetDoubleAttribute("friction", 0.0);
+		boxCollider->SetAttribute("issensor", "true");
+
+		rigidbody->LinkEndChild(boxCollider);
+	}
+
+	// Output enemies
+	for (unsigned i = 0; i < g_TileMap.enemies.size(); ++i)
+	{
+		TiXmlElement* gameobject = new TiXmlElement("gameobject");
+		gob->LinkEndChild(gameobject);
+		gameobject->SetAttribute("type", g_TileMap.enemies[i]->type.c_str());
+		gameobject->SetAttribute("name", g_TileMap.enemies[i]->name.c_str());
+		gameobject->SetDoubleAttribute("walkacceleration", .1);
+		gameobject->SetDoubleAttribute("maxwalkspeed", 1.2);
+
+		TiXmlElement* transform = new TiXmlElement("transform");
+		transform->SetDoubleAttribute("x", g_TileMap.enemies[i]->x / g_TileMap.tileWidth);
+		transform->SetDoubleAttribute("y", g_TileMap.height - (g_TileMap.enemies[i]->y / g_TileMap.tileHeight));
+		transform->SetDoubleAttribute("z", 0.0);
+		transform->SetAttribute("rotation", 0);
+		transform->SetAttribute("sx", 1);
+		transform->SetAttribute("sy", 1);
+		transform->SetAttribute("sz", 1);
+		gameobject->LinkEndChild(transform);
+
+		TiXmlElement* components = new TiXmlElement("components");
+		gameobject->LinkEndChild(components);
+
+		TiXmlElement* rigidbody = new TiXmlElement("rigidbody");
+		rigidbody->SetAttribute("type", "rigidbody");
+		rigidbody->SetAttribute("bodytype", "dynamic");
+		rigidbody->SetAttribute("canrotate", "false");
+		components->LinkEndChild(rigidbody);
+
+		TiXmlElement* enemyBoxCollider = new TiXmlElement("boxcollider");
+		enemyBoxCollider->SetAttribute("type", "box");
+		enemyBoxCollider->SetAttribute("name", "enemy");
+		enemyBoxCollider->SetDoubleAttribute("width", .8);
+		enemyBoxCollider->SetDoubleAttribute("height", 1.35);
+		enemyBoxCollider->SetDoubleAttribute("xrel", 0.0);
+		enemyBoxCollider->SetDoubleAttribute("yrel", 0.0);
+		enemyBoxCollider->SetDoubleAttribute("angle", 0.0);
+		enemyBoxCollider->SetDoubleAttribute("density", 1.0);
+		enemyBoxCollider->SetDoubleAttribute("friction", 0.0);
+		enemyBoxCollider->SetAttribute("issensor", "false");
+		rigidbody->LinkEndChild(enemyBoxCollider);
+
+		TiXmlElement* attackBoxCollider = new TiXmlElement("boxcollider");
+		attackBoxCollider->SetAttribute("type", "box");
+		attackBoxCollider->SetAttribute("name", "attack");
+		attackBoxCollider->SetDoubleAttribute("width", 2.0);
+		attackBoxCollider->SetDoubleAttribute("height", 1.5);
+		attackBoxCollider->SetDoubleAttribute("xrel", 0.0);
+		attackBoxCollider->SetDoubleAttribute("yrel", 0.0);
+		attackBoxCollider->SetDoubleAttribute("angle", 0.0);
+		attackBoxCollider->SetDoubleAttribute("density", 1.0);
+		attackBoxCollider->SetDoubleAttribute("friction", 0.0);
+		attackBoxCollider->SetAttribute("issensor", "true");
+		rigidbody->LinkEndChild(attackBoxCollider);
+
+		TiXmlElement* animator = new TiXmlElement("animator");
+		animator->SetAttribute("type", "animator");
+		animator->SetAttribute("startinganimation", 0);
+		components->LinkEndChild(animator);
+
+		TiXmlElement* animation = new TiXmlElement("animation");
+		animation->SetAttribute("name", "NAME_OF_ANIMATION");
+		animation->SetDoubleAttribute("frameinterval", .15);
+		animation->SetAttribute("islooping", "true");
+		animator->LinkEndChild(animation);
+
+		TiXmlElement* sprite = new TiXmlElement("sprite");
+		animation->LinkEndChild(sprite);
+	}
+
 	xmlDoc.SaveFile(gobFilename.c_str());
 }
 
@@ -462,6 +596,34 @@ bool ReadInTileMap(std::string filename)
 						grandChild->Attribute("height", &col->height);
 
 						g_TileMap.sceneObject.collisionObjects.push_back(col);
+					}
+				}
+			}
+
+			else if (groupName.compare("enemies") == 0)
+			{
+				for (TiXmlElement* grandChild = child->FirstChildElement(); grandChild; grandChild = grandChild->NextSiblingElement())
+				{
+					std::string enemyObjectName = grandChild->Attribute("name");
+					if (enemyObjectName.compare("ZombieBoy") == 0)
+					{
+						Enemy* enemy = new Enemy();
+						enemy->type = grandChild->Attribute("type");
+						enemy->name = enemyObjectName;
+						grandChild->Attribute("x", &enemy->x);
+						grandChild->Attribute("y", &enemy->y);
+						g_TileMap.enemies.push_back(enemy);
+					}
+
+					else if (enemyObjectName.compare("enemyreverse") == 0)
+					{
+						EnemyReverse* enemyReverse = new EnemyReverse();
+						enemyReverse->name = enemyObjectName;
+						grandChild->Attribute("x", &enemyReverse->x);
+						grandChild->Attribute("y", &enemyReverse->y);
+						grandChild->Attribute("width", &enemyReverse->width);
+						grandChild->Attribute("height", &enemyReverse->height);
+						g_TileMap.enemyReverse.push_back(enemyReverse);
 					}
 				}
 			}

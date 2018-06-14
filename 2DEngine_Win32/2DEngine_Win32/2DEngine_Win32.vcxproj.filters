@@ -126,6 +126,9 @@
     <ClInclude Include="src\lilknight\gameobjects\lilButtonControls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\lilknight\gameobjects\lilZombie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="thirdpartysrc\tinyxml\tinystr.cpp">
@@ -240,6 +243,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\lilknight\gameobjects\lilButtonControls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilknight\gameobjects\lilZombie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

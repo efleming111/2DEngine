@@ -4,5 +4,4 @@
 	<gob filename="data/gameobjects/player.gob"/>
 	<gob filename="data/gameobjects/playerhud.gob"/>
 	<gob filename="data/gameobjects/scene01.gob"/>
-	<!--gob filename="data/gameobjects/androidcontrols.gob"/-->
 </scene>

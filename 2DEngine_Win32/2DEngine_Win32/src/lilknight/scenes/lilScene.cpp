@@ -13,6 +13,7 @@
 #include "../../engine/audio/EAudio.h"
 #include "../../engine/physics/EPhysics.h"
 #include "../gameobjects/lilPlayer.h"
+#include "../gameobjects/lilZombie.h"
 #include "../gameobjects/lilLevelObject.h"
 #include "../gameobjects/lilCamera.h"
 #include "../gameobjects/lilHUD.h"
@@ -124,6 +125,14 @@ void lilScene::GameObjectFactory(TiXmlElement* rootElement)
 			player = new Player();
 			player->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(player);
+		}
+
+		else if (type.compare("Zombie") == 0)
+		{
+			Zombie* zombie;
+			zombie = new Zombie();
+			zombie->Create(gameObject, m_PixelsPerGameUnit);
+			lilGameObjectManager->AddGameObject(zombie);
 		}
 
 		else if (type.compare("HUD") == 0)

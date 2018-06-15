@@ -126,7 +126,10 @@
     <ClInclude Include="src\lilknight\gameobjects\lilButtonControls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\lilknight\gameobjects\lilZombie.h">
+    <ClInclude Include="src\lilknight\gameobjects\enemies\lilEnemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lilknight\gameobjects\enemies\lilZombie.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -245,7 +248,10 @@
     <ClCompile Include="src\lilknight\gameobjects\lilButtonControls.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\lilknight\gameobjects\lilZombie.cpp">
+    <ClCompile Include="src\lilknight\gameobjects\enemies\lilEnemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilknight\gameobjects\enemies\lilZombie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

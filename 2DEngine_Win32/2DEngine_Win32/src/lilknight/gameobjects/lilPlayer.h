@@ -11,6 +11,7 @@
 #include "../../engine/input/EInput.h"
 #include "../../engine/components/ERigidbody.h"
 #include "../../engine/components/EAnimator.h"
+#include "enemies/lilEnemy.h"
 #include "lilButtonControls.h"
 #include "../scenes/lilSceneObject.h"
 
@@ -25,6 +26,11 @@ enum PlayerAnimationState {
 	JUMP_ATTACK,
 	RUN,
 	WALK
+};
+
+enum {
+	ENEMY_ON_LEFT,
+	ENEMY_ON_RIGHT
 };
 
 class ButtonControls;
@@ -48,6 +54,10 @@ public:
 	float GetMagic() { return m_Magic; }
 
 protected:
+	struct EnemyInHitRange {
+		Enemy* enemy;
+		bool scoredHit;
+	};
 	SceneObject* m_SceneObject;
 
 	ButtonControls* m_ButtonControls;
@@ -59,6 +69,9 @@ protected:
 	bool m_IsIdle;
 	bool m_IsJumping;
 	bool m_IsAttacking;
+
+	EnemyInHitRange m_EnemiesInHitRange[2];
+
 	PlayerAnimationState m_AnimationLastFrame;
 	PlayerAnimationState m_CurrentAnimation;
 

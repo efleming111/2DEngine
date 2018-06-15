@@ -172,9 +172,10 @@
     <ClInclude Include="src\engine\utilities\EFileIO.h" />
     <ClInclude Include="src\engine\utilities\ETimer.h" />
     <ClInclude Include="src\engine\game\EGame.h" />
+    <ClInclude Include="src\lilknight\gameobjects\enemies\lilEnemy.h" />
     <ClInclude Include="src\lilknight\gameobjects\lilButtonControls.h" />
     <ClInclude Include="src\lilknight\gameobjects\lilHUD.h" />
-    <ClInclude Include="src\lilknight\gameobjects\lilZombie.h" />
+    <ClInclude Include="src\lilknight\gameobjects\enemies\lilZombie.h" />
     <ClInclude Include="src\lilknight\scenes\lilSceneObject.h" />
     <ClInclude Include="src\lilknight\scenes\lilScene.h" />
     <ClInclude Include="src\lilknight\gameobjects\lilCamera.h" />
@@ -211,9 +212,10 @@
     <ClCompile Include="src\engine\utilities\EFileIO.cpp" />
     <ClCompile Include="src\engine\utilities\ETimer.cpp" />
     <ClCompile Include="src\engine\game\EGame.cpp" />
+    <ClCompile Include="src\lilknight\gameobjects\enemies\lilEnemy.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilButtonControls.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilHUD.cpp" />
-    <ClCompile Include="src\lilknight\gameobjects\lilZombie.cpp" />
+    <ClCompile Include="src\lilknight\gameobjects\enemies\lilZombie.cpp" />
     <ClCompile Include="src\lilknight\scenes\lilSceneObject.cpp" />
     <ClCompile Include="src\lilknight\scenes\lilScene.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilCamera.cpp" />

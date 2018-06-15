@@ -34,6 +34,9 @@ public:
 	// Does nothing
 	void Destroy();
 
+	// Set weather rigidbody is active
+	void SetActive(bool isActive);
+
 	// Call back funciton for collision begin events
 	// Gameobject sub classes should override this function
 	void BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);

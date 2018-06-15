@@ -7,10 +7,10 @@
 
 #pragma once
 
-#include "../../engine/gameobjects/EGameObject.h"
-#include "../../engine/components/ERigidbody.h"
-#include "../../engine/components/EAnimator.h"
-#include "../scenes/lilSceneObject.h"
+#include "lilEnemy.h"
+#include "../../../engine/components/ERigidbody.h"
+#include "../../../engine/components/EAnimator.h"
+#include "../../scenes/lilSceneObject.h"
 
 // TODO: For testing only
 #include <SDL.h>
@@ -22,7 +22,7 @@ enum ZombieAnimationState {
 	ZOMBIE_WALK
 };
 
-class Zombie : public EGameObject
+class Zombie : public Enemy
 {
 public:
 	Zombie() {}
@@ -36,13 +36,9 @@ public:
 	void BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 	void EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 
+	void Hit();
+
 protected:
-	SceneObject * m_SceneObject;
-
-	ERigidbody* m_Rigidbody;
-	EAnimator* m_Animator;
-	bool m_IsRendered;
-
 	bool m_IsWalkingLeft;
 	bool m_IsIdle;
 	bool m_IsAttacking;
@@ -53,13 +49,11 @@ protected:
 	float m_MaxWalkSpeed;
 
 	bool m_IsTakingDamage;
-	float m_DamageAmount;
-	float m_TotalDamageTime;
 	float m_DamageBlinkInterval;
-	float m_AccumDamageIntervalTime;
-	float m_AccumDamageTime;
-
-	float m_Health;
+	float m_DamageBlinkIntervalAccum;
+	int mNumberOfBlinks;
+	int mBlinkCount;
+	int m_Health;
 
 private:
 	Zombie(const Zombie& player) {}

@@ -1118,7 +1118,7 @@
 					<sprite type="sprite" name="ZombieAttack (7)" renderablename="ZombieAttack (7)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieAttack (8)" renderablename="ZombieAttack (8)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
                 </animation>
-				<animation name="dead" frameinterval="0.15" islooping="true">
+				<animation name="dead" frameinterval="0.15" islooping="false">
                     <sprite type="sprite" name="ZombieDead (1)" renderablename="ZombieDead (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieDead (2)" renderablename="ZombieDead (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieDead (3)" renderablename="ZombieDead (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
@@ -1182,7 +1182,7 @@
 					<sprite type="sprite" name="ZombieAttack (7)" renderablename="ZombieAttack (7)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieAttack (8)" renderablename="ZombieAttack (8)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
                 </animation>
-				<animation name="dead" frameinterval="0.15" islooping="true">
+				<animation name="dead" frameinterval="0.15" islooping="false">
                     <sprite type="sprite" name="ZombieDead (1)" renderablename="ZombieDead (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieDead (2)" renderablename="ZombieDead (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieDead (3)" renderablename="ZombieDead (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
@@ -1246,7 +1246,7 @@
 					<sprite type="sprite" name="ZombieAttack (7)" renderablename="ZombieAttack (7)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieAttack (8)" renderablename="ZombieAttack (8)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
                 </animation>
-				<animation name="dead" frameinterval="0.15" islooping="true">
+				<animation name="dead" frameinterval="0.15" islooping="false">
                     <sprite type="sprite" name="ZombieDead (1)" renderablename="ZombieDead (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieDead (2)" renderablename="ZombieDead (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieDead (3)" renderablename="ZombieDead (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
@@ -1310,7 +1310,7 @@
 					<sprite type="sprite" name="ZombieAttack (7)" renderablename="ZombieAttack (7)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieAttack (8)" renderablename="ZombieAttack (8)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
                 </animation>
-				<animation name="dead" frameinterval="0.15" islooping="true">
+				<animation name="dead" frameinterval="0.15" islooping="false">
                     <sprite type="sprite" name="ZombieDead (1)" renderablename="ZombieDead (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieDead (2)" renderablename="ZombieDead (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="ZombieDead (3)" renderablename="ZombieDead (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />

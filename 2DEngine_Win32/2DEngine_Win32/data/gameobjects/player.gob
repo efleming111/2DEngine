@@ -76,12 +76,14 @@
 		<transform x="7" y="7" z=".5" rotation="0" sx="1" sy="1" sz="1" />
 		<components>
 			<rigidbody type="rigidbody" bodytype="dynamic" canrotate="false" >
-				<boxcollider type="box" name="playertopcollider" width="1.0" height=".85" xrel="0.0" yrel=".25" angle="0.0" density="1.0" friction=".3" issensor="false" />
+				<boxcollider type="box" name="playertopcollider" width=".8" height=".85" xrel="0.0" yrel=".25" angle="0.0" density="1.0" friction=".3" issensor="false" />
 				<boxcollider type="box" name="groundsensor" width=".5" height=".5" xrel="0.0" yrel="-.675" angle="0.0" density="1.0" friction=".3" issensor="true" />
-				<circlecollider type="circle" name="playerbottomcollider" radius=".5" xrel="0.0" yrel="-.175" density="1.0" friction=".3" issensor="false" />
+				<boxcollider type="box" name="attackleft" width=".25" height="1.35" xrel="-0.5" yrel="0.0" angle="0.0" density="1.0" friction=".3" issensor="true" />
+				<boxcollider type="box" name="attackright" width=".25" height="1.35" xrel="0.5" yrel="0.0" angle="0.0" density="1.0" friction=".3" issensor="true" />
+				<circlecollider type="circle" name="playerbottomcollider" radius=".45" xrel="0.0" yrel="-.175" density="1.0" friction=".3" issensor="false" />
 			</rigidbody>
 			<animator type="animator" startinganimation="3">
-				<animation name="attack" frameinterval=".15" islooping="false">
+				<animation name="attack" frameinterval=".03" islooping="false">
 					<sprite type="sprite" name="Attack (1)" renderablename="Attack (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="Attack (2)" renderablename="Attack (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="Attack (3)" renderablename="Attack (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
@@ -129,7 +131,7 @@
 					<sprite type="sprite" name="Jump (9)" renderablename="Jump (9)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="Jump (10)" renderablename="Jump (10)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 				</animation>
-				<animation name="jumpattack" frameinterval=".1" islooping="false">
+				<animation name="jumpattack" frameinterval=".05" islooping="false">
 					<sprite type="sprite" name="JumpAttack (1)" renderablename="JumpAttack (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="JumpAttack (2)" renderablename="JumpAttack (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="JumpAttack (3)" renderablename="JumpAttack (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />

@@ -13,7 +13,7 @@
 #include "../../engine/audio/EAudio.h"
 #include "../../engine/physics/EPhysics.h"
 #include "../gameobjects/lilPlayer.h"
-#include "../gameobjects/lilZombie.h"
+#include "../gameobjects/enemies/lilZombie.h"
 #include "../gameobjects/lilLevelObject.h"
 #include "../gameobjects/lilCamera.h"
 #include "../gameobjects/lilHUD.h"

@@ -6,6 +6,7 @@
 //
 
 #include "lilPlayer.h"
+#include "enemies/lilZombie.h"
 #include "../../engine/utilities/ETimer.h"
 #include "../../engine/gameobjects/EGameObjectManager.h"
 #include "../../engine/renderer/EGLRenderer.h"
@@ -58,6 +59,9 @@ void Player::OnStart()
 	m_IsAttacking = false;
 	m_IsGrounded = false;
 
+	m_EnemiesInHitRange[ENEMY_ON_LEFT].enemy = 0;
+	m_EnemiesInHitRange[ENEMY_ON_RIGHT].enemy = 0;
+
 	m_IsTakingDamage = false;
 	m_TotalDamageTime = 2.0f;
 	m_DamageBlinkInterval = .1f;
@@ -71,7 +75,11 @@ void Player::Update()
 	
 	if ((m_CurrentAnimation == ATTACK || m_CurrentAnimation == JUMP_ATTACK) &&
 		m_Animator->IsCurrentAnimationFinished())
+	{
 		m_IsAttacking = false;
+		m_EnemiesInHitRange[ENEMY_ON_LEFT].scoredHit = false;
+		m_EnemiesInHitRange[ENEMY_ON_RIGHT].scoredHit = false;
+	}
 
 #ifdef _WIN32
 	if (lilKeyboard->GetKeyDown(KC_Z))
@@ -247,6 +255,18 @@ void Player::Update()
 
 	if (m_IsAttacking)
 	{
+		if (!m_IsFacingRight && m_EnemiesInHitRange[ENEMY_ON_LEFT].enemy && !m_EnemiesInHitRange[ENEMY_ON_LEFT].scoredHit)
+		{
+			m_EnemiesInHitRange[ENEMY_ON_LEFT].enemy->Hit();
+			m_EnemiesInHitRange[ENEMY_ON_LEFT].scoredHit = true;
+		}
+
+		if (m_IsFacingRight && m_EnemiesInHitRange[ENEMY_ON_RIGHT].enemy && !m_EnemiesInHitRange[ENEMY_ON_RIGHT].scoredHit)
+		{
+			m_EnemiesInHitRange[ENEMY_ON_RIGHT].enemy->Hit();
+			m_EnemiesInHitRange[ENEMY_ON_RIGHT].scoredHit = true;
+		}
+
 		if (m_IsGrounded)
 			m_CurrentAnimation = ATTACK;
 		else
@@ -288,6 +308,24 @@ void Player::BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 		m_IsGrounded = true;
 		m_IsJumping = false;
 	}
+
+	if (thisRigidbody->colliderName->compare("attackleft") == 0 && otherRigidbody->colliderName->compare("enemy") == 0)
+	{
+		if (!m_IsFacingRight)
+		{
+			m_EnemiesInHitRange[ENEMY_ON_LEFT].enemy = (Enemy*)(otherRigidbody->GetGameObject());
+			m_EnemiesInHitRange[ENEMY_ON_LEFT].scoredHit = false;
+		}
+	}
+
+	if (thisRigidbody->colliderName->compare("attackright") == 0 && otherRigidbody->colliderName->compare("enemy") == 0)
+	{
+		if (m_IsFacingRight)
+		{
+			m_EnemiesInHitRange[ENEMY_ON_RIGHT].enemy = (Enemy*)(otherRigidbody->GetGameObject());
+			m_EnemiesInHitRange[ENEMY_ON_RIGHT].scoredHit = false;
+		}
+	}
 }
 
 void Player::EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
@@ -295,6 +333,22 @@ void Player::EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 	if (thisRigidbody->colliderName->compare("groundsensor") == 0 && otherRigidbody->colliderName->compare("ground") == 0)
 	{
 		m_IsGrounded = false;
+	}
+
+	if (thisRigidbody->colliderName->compare("attackleft") == 0 && otherRigidbody->colliderName->compare("enemy") == 0)
+	{
+		if (!m_IsFacingRight)
+		{
+			m_EnemiesInHitRange[ENEMY_ON_LEFT].enemy = 0;
+		}
+	}
+
+	if (thisRigidbody->colliderName->compare("attackright") == 0 && otherRigidbody->colliderName->compare("enemy") == 0)
+	{
+		if (m_IsFacingRight)
+		{
+			m_EnemiesInHitRange[ENEMY_ON_RIGHT].enemy = 0;
+		}
 	}
 }
 

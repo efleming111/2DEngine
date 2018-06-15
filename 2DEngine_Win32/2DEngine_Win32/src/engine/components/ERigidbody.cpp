@@ -58,6 +58,11 @@ void ERigidbody::Destroy()
 	// Empty
 }
 
+void ERigidbody::SetActive(bool isActive)
+{
+	m_Body->SetActive(isActive);
+}
+
 void ERigidbody::BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 {
 	m_GameObject->BeginContact(thisRigidbody, otherRigidbody);

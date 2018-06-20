@@ -25,6 +25,12 @@ void Camera::Update()
 	else if (m_Player->m_Transform.position.x < m_Transform.position.x - 3.0f)
 		m_Transform.position.x = m_Player->m_Transform.position.x + 3.0f;
 
+	if (m_Player->m_Transform.position.y > m_Transform.position.y + 3.0f)
+		m_Transform.position.y = m_Player->m_Transform.position.y - 3.0f;
+
+	else if (m_Player->m_Transform.position.y < m_Transform.position.y - 3.0f)
+		m_Transform.position.y = m_Player->m_Transform.position.y + 3.0f;
+
 	EGameObject::Update();
 }
 

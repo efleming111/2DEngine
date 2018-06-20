@@ -7,6 +7,7 @@
 
 #include "engine\core\ECore.h"
 
+
 int main(int argc, char* argv[])
 {
 	lilEngine->HandleCommandArgs(argc, argv);

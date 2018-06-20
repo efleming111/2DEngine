@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 	std::getline(std::cin, filename);
 	if (!ReadInSpriteSheet(filename))
 		return 1;
-	
+
 	std::cout << "Enter tile atlas file<tsx>: ";
 	std::getline(std::cin, filename);
 	if (!ReadInTileAtlas(filename))
@@ -205,7 +205,7 @@ void OutputMap(std::string filename)
 	trans->SetDoubleAttribute("sy", 1);
 	trans->SetDoubleAttribute("sz", 1);
 	go->LinkEndChild(trans);
-	
+
 	TiXmlElement* sceneComponents = new TiXmlElement("components");
 	go->LinkEndChild(sceneComponents);
 
@@ -281,7 +281,7 @@ void OutputMap(std::string filename)
 
 			components->LinkEndChild(sprite);
 		}
-		
+
 	}
 
 	double mapHeight = g_TileMap.height * g_TileMap.tileHeight;
@@ -573,7 +573,7 @@ bool ReadInTileMap(std::string filename)
 					g_TileMap.collisionObjects.push_back(col);
 				}
 			}
-			
+
 			else if (groupName.compare("level") == 0)
 			{
 				for (TiXmlElement* grandChild = child->FirstChildElement(); grandChild; grandChild = grandChild->NextSiblingElement())
@@ -695,3 +695,8 @@ bool ReadInSpriteSheet(std::string filename)
 
 	return true;
 }
+
+
+
+
+

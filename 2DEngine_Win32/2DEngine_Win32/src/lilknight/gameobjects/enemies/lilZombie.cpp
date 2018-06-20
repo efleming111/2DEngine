@@ -27,7 +27,11 @@ void Zombie::OnStart()
 {
 	Enemy::OnStart();
 
-	m_IsWalkingLeft = true;
+	mPlayer = (Player*)lilGameObjectManager->GetGameObjectByName("Player");
+	mIsHittingPlayer = false;
+
+	m_IsWalkingLeft = false;
+	m_IsIdle = true;
 	m_Animator->FlipAnimationX();
 	m_IsAttacking = false;
 
@@ -43,7 +47,16 @@ void Zombie::Update()
 {
 	EVector2D velocity = m_Rigidbody->GetVelocity();
 
-	if (m_CurrentAnimation == ZOMBIE_DEAD && m_Animator->IsCurrentAnimationFinished())
+	if (abs(m_Transform.position.x - mPlayer->m_Transform.position.x) < 8.0f)
+	{
+		m_IsWalkingLeft = true;
+		m_IsIdle = false;
+	}
+
+	if (mIsHittingPlayer)
+		mPlayer->Hit(.1f);
+
+	if (m_CurrentAnimation == ZOMBIE_DEAD)
 		m_Rigidbody->SetActive(false);
 
 
@@ -55,12 +68,13 @@ void Zombie::Update()
 
 	else
 	{
-		if (m_IsWalkingLeft)
+		if (m_IsIdle)
+			velocity.x = 0.0f;
+
+		else if (m_IsWalkingLeft)
 			velocity.x = EMax(velocity.x - m_WalkAcceleration, -m_MaxWalkSpeed);
 		else
 			velocity.x = EMin(velocity.x + m_WalkAcceleration, m_MaxWalkSpeed);
-
-		m_IsIdle = false;
 
 		if (m_IsTakingDamage)
 			TakeDamage();
@@ -97,6 +111,11 @@ void Zombie::BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 		m_IsAttacking = true;
 	}
 
+	if (thisRigidbody->colliderName->compare("hitplayer") == 0 && otherRigidbody->colliderName->compare("playertopcollider") == 0)
+	{
+		mIsHittingPlayer = true;
+	}
+
 	if (thisRigidbody->colliderName->compare("enemy") == 0 && otherRigidbody->colliderName->compare("enemyreverse") == 0)
 	{
 		m_IsWalkingLeft = !m_IsWalkingLeft;
@@ -109,6 +128,11 @@ void Zombie::EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 	if (thisRigidbody->colliderName->compare("attack") == 0 && otherRigidbody->colliderName->compare("playertopcollider") == 0)
 	{
 		m_IsAttacking = false;
+	}
+
+	if (thisRigidbody->colliderName->compare("hitplayer") == 0 && otherRigidbody->colliderName->compare("playertopcollider") == 0)
+	{
+		mIsHittingPlayer = false;
 	}
 }
 

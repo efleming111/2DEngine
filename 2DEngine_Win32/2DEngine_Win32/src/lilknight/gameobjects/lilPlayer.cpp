@@ -34,7 +34,7 @@ void Player::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 	m_JumpPower = (float)jumpPower;
 
 	m_Coins = 1;
-	m_Health = 1.0f;
+	m_Health = 1.f;
 	m_Magic = 0.0f;
 }
 
@@ -63,6 +63,7 @@ void Player::OnStart()
 	m_EnemiesInHitRange[ENEMY_ON_RIGHT].enemy = 0;
 
 	m_IsTakingDamage = false;
+	mCanTakeDamage = true;
 	m_TotalDamageTime = 2.0f;
 	m_DamageBlinkInterval = .1f;
 	m_DamageAmount = 0.0f;
@@ -72,6 +73,10 @@ void Player::OnStart()
 void Player::Update()
 {
 	EVector2D velocity = m_Rigidbody->GetVelocity();
+
+	if (m_CurrentAnimation == DEAD)
+		m_Rigidbody->SetActive(false);
+
 	
 	if ((m_CurrentAnimation == ATTACK || m_CurrentAnimation == JUMP_ATTACK) &&
 		m_Animator->IsCurrentAnimationFinished())
@@ -250,6 +255,7 @@ void Player::Update()
 	//if (lilKeyboard->GetKeyDown(KC_M))
 	//	m_Magic += .05f;
 
+
 	if (m_IsTakingDamage)
 		TakeDamage();
 
@@ -284,6 +290,12 @@ void Player::Update()
 
 	else
 		m_CurrentAnimation = IDLE;
+
+	if (m_Health <= 0)
+	{
+		m_CurrentAnimation = DEAD;
+		velocity.x = 0.0f;
+	}
 
 	if (m_AnimationLastFrame != m_CurrentAnimation)
 	{
@@ -352,10 +364,20 @@ void Player::EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
 	}
 }
 
+void Player::Hit(float amount)
+{
+	if (mCanTakeDamage)
+	{
+		m_IsTakingDamage = true;
+		m_DamageAmount = amount;
+	}
+}
+
 void Player::TakeDamage()
 {
 	m_Health -= m_DamageAmount;
 	m_DamageAmount = 0.0f;
+	mCanTakeDamage = false;
 
 	m_AccumDamageIntervalTime += lilTimer->DeltaTime();
 	m_AccumDamageTime += lilTimer->DeltaTime();
@@ -365,6 +387,7 @@ void Player::TakeDamage()
 		m_AccumDamageIntervalTime = 0.0f;
 		m_AccumDamageTime = 0.0f;
 		m_IsTakingDamage = false;
+		mCanTakeDamage = true;
 		m_Animator->IsRendered(true);
 		return;
 	}

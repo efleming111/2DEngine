@@ -95,17 +95,17 @@
 					<sprite type="sprite" name="Attack (9)" renderablename="Attack (9)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="sprite" name="Attack (10)" renderablename="Attack (10)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 				</animation>
-				<animation name="dead" frameinterval=".1" islooping="true">
-					<sprite type="sprite" name="Dead (1)" renderablename="Dead (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
-					<sprite type="sprite" name="Dead (2)" renderablename="Dead (2)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
-					<sprite type="sprite" name="Dead (3)" renderablename="Dead (3)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
-					<sprite type="sprite" name="Dead (4)" renderablename="Dead (4)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
-					<sprite type="sprite" name="Dead (5)" renderablename="Dead (5)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
-					<sprite type="sprite" name="Dead (6)" renderablename="Dead (6)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
-					<sprite type="sprite" name="Dead (7)" renderablename="Dead (7)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
-					<sprite type="sprite" name="Dead (8)" renderablename="Dead (8)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
-					<sprite type="sprite" name="Dead (9)" renderablename="Dead (9)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
-					<sprite type="sprite" name="Dead (10)" renderablename="Dead (10)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
+				<animation name="dead" frameinterval=".1" islooping="false">
+					<sprite type="sprite" name="Dead (1)" renderablename="Dead (1)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.0" />
+					<sprite type="sprite" name="Dead (2)" renderablename="Dead (2)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.033" />
+					<sprite type="sprite" name="Dead (3)" renderablename="Dead (3)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.066" />
+					<sprite type="sprite" name="Dead (4)" renderablename="Dead (4)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.1" />
+					<sprite type="sprite" name="Dead (5)" renderablename="Dead (5)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.133" />
+					<sprite type="sprite" name="Dead (6)" renderablename="Dead (6)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.166" />
+					<sprite type="sprite" name="Dead (7)" renderablename="Dead (7)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.2" />
+					<sprite type="sprite" name="Dead (8)" renderablename="Dead (8)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.233" />
+					<sprite type="sprite" name="Dead (9)" renderablename="Dead (9)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.266" />
+					<sprite type="sprite" name="Dead (10)" renderablename="Dead (10)" renderorder="4" isrendered="false" width="1.35" height="1.35" xrel="0" yrel="-.3" />
 				</animation>
 				<animation name="idle" frameinterval=".1" islooping="true">
 					<sprite type="sprite" name="Idle (1)" renderablename="Idle (1)" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />

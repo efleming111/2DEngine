@@ -49,6 +49,8 @@ public:
 	void BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 	void EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
 
+	void Hit(float amount);
+
 	int GetCoins() { return m_Coins; }
 	float GetHealth() { return m_Health; }
 	float GetMagic() { return m_Magic; }
@@ -85,6 +87,7 @@ protected:
 	float m_JumpPower;
 
 	bool m_IsTakingDamage;
+	bool mCanTakeDamage;
 	float m_DamageAmount;
 	float m_TotalDamageTime;
 	float m_DamageBlinkInterval;

@@ -122,6 +122,9 @@
     <ClCompile Include="tinyxml\tinyxmlparser.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="spritesheet.h" />
+    <ClInclude Include="tileatlas.h" />
+    <ClInclude Include="tilemap.h" />
     <ClInclude Include="tinyxml\tinystr.h" />
     <ClInclude Include="tinyxml\tinyxml.h" />
   </ItemGroup>

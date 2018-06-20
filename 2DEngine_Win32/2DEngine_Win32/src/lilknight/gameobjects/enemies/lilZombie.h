@@ -11,6 +11,7 @@
 #include "../../../engine/components/ERigidbody.h"
 #include "../../../engine/components/EAnimator.h"
 #include "../../scenes/lilSceneObject.h"
+#include "../lilPlayer.h"
 
 // TODO: For testing only
 #include <SDL.h>
@@ -39,6 +40,9 @@ public:
 	void Hit();
 
 protected:
+	Player* mPlayer;
+	bool mIsHittingPlayer;
+
 	bool m_IsWalkingLeft;
 	bool m_IsIdle;
 	bool m_IsAttacking;

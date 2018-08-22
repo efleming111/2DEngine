@@ -11,10 +11,11 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "EGLRenderer.h"
-#include "EGLWindow.h"
+#include "lilRenderable.h"
+#include "lilGLRenderer.h"
+#include "lilGLWindow.h"
 
-void ERenderable::Create(TiXmlElement* element, float pixelsPerGameUnit)
+void lilRenderable::Create(TiXmlElement* element, float pixelsPerGameUnit)
 {
 	m_PixelsPerGameUnit = pixelsPerGameUnit;
 
@@ -68,7 +69,7 @@ void ERenderable::Create(TiXmlElement* element, float pixelsPerGameUnit)
 	m_Shader = lilGLRenderer->AddShader(shaderFile.c_str());
 }
 
-void ERenderable::Draw(ESprite* sprite)
+void lilRenderable::Draw(lilSprite* sprite)
 {
 	if (sprite->isRendered)
 	{

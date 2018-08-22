@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EShader.h
+//  lilShader.h
 //  Eric Fleming
 //  4/3/2018
 //
@@ -11,11 +11,11 @@
 
 #include <glm/glm.hpp>
 
-class EShader
+class lilShader
 {
 public:
-	EShader() {}
-	~EShader() {}
+	lilShader() {}
+	~lilShader() {}
 
 	// Creates shader
 	// @ filename - filename of vertex/fragment shaders without ext.

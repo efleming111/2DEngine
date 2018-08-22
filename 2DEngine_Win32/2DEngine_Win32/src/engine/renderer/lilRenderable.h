@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ERenderable.h
+//  lilRenderable.h
 //  Eric Fleming
 //  6/11/2018
 //
@@ -12,23 +12,23 @@
 #include "../../../thirdpartysrc/glad/glad/glad.h"
 #include <SDL.h>
 
-#include "../components/ESprite.h"
+#include "../components/lilSprite.h"
+#include "lilMesh.h"
+#include "lilShader.h"
 
-#define lilGLRenderer EGLRenderer::Instance()
-
-class ERenderable
+class lilRenderable
 {
 public:
-	ERenderable() {}
-	~ERenderable() {}
+	lilRenderable() {}
+	~lilRenderable() {}
 
 	// Creates a sprite
 	// @ element - data for setting up the renderable
 	void Create(TiXmlElement* element, float pixelsPerGameUnit);
 
-	void Draw(ESprite* sprite);
+	void Draw(lilSprite* sprite);
 
-	EShader* GetShader() { return m_Shader; }
+	lilShader* GetShader() { return m_Shader; }
 
 public:
 	std::string name;
@@ -36,13 +36,13 @@ public:
 	//private:
 	float m_PixelsPerGameUnit;
 
-	EMesh* m_Mesh;
-	EShader* m_Shader;
+	lilMesh* m_Mesh;
+	lilShader* m_Shader;
 	unsigned m_TextureID;
 
 private:
 	// No copying
-	ERenderable(const ERenderable& renderable) {}
-	void operator=(const ERenderable& renderable) {}
+	lilRenderable(const lilRenderable& renderable) {}
+	void operator=(const lilRenderable& renderable) {}
 };
 

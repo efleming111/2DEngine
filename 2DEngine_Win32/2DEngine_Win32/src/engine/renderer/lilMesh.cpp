@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EMesh.cpp
+//  lilMesh.cpp
 //  Eric Fleming
 //  4/3/2018
 //
@@ -8,9 +8,9 @@
 #include "../../../thirdpartysrc/glad/glad/glad.h"
 #include <SDL.h>
 
-#include "EMesh.h"
+#include "lilMesh.h"
 
-void EMesh::Create(float* vertexData, int vertexCount, unsigned short* indices, int indicesCount)
+void lilMesh::Create(float* vertexData, int vertexCount, unsigned short* indices, int indicesCount)
 {
 	m_IndicesCount = indicesCount;
 
@@ -34,14 +34,14 @@ void EMesh::Create(float* vertexData, int vertexCount, unsigned short* indices, 
 	glBindVertexArray(0);
 }
 
-void EMesh::Destroy()
+void lilMesh::Destroy()
 {
 	glDeleteBuffers(1, &m_EBO);
 	glDeleteBuffers(1, &m_VBO);
 	glDeleteVertexArrays(1, &m_VAO);
 }
 
-void EMesh::Draw()
+void lilMesh::Draw()
 {
 	glBindVertexArray(m_VAO);
 	glDrawElements(GL_TRIANGLES, m_IndicesCount, GL_UNSIGNED_SHORT, 0);

@@ -1,13 +1,13 @@
 //
 //  2DEngine
-//  ETexture.cpp
+//  lilTexture.cpp
 //  Eric Fleming
 //  4/4/2018
 //
 
-#include "ETexture.h"
+#include "lilTexture.h"
 
-bool ETexture::Create(const char * filename)
+bool lilTexture::Create(const char * filename)
 {
 	m_Name = filename;
 
@@ -64,17 +64,17 @@ bool ETexture::Create(const char * filename)
 	return true;
 }
 
-void ETexture::Destroy()
+void lilTexture::Destroy()
 {
 	glDeleteTextures(1, &m_ID);
 }
 
-GLuint ETexture::GetID()
+GLuint lilTexture::GetID()
 {
 	return m_ID;
 }
 
-std::string ETexture::GetName()
+std::string lilTexture::GetName()
 {
 	return m_Name;
 }

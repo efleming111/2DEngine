@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EShader.cpp
+//  lilShader.cpp
 //  Eric Fleming
 //  4/3/2018
 //
@@ -8,10 +8,10 @@
 #include "../../../thirdpartysrc/glad/glad/glad.h"
 #include <SDL.h>
 
-#include "EShader.h"
-#include "../utilities/EFileIO.h"
+#include "lilShader.h"
+#include "../utilities/lilFileIO.h"
 
-void EShader::Create(const char* filename)
+void lilShader::Create(const char* filename)
 {
 	m_Name = filename;
 	std::string vertexShader = filename;
@@ -28,78 +28,78 @@ void EShader::Create(const char* filename)
 	glDeleteShader(fragmentID);
 }
 
-void EShader::Destroy()
+void lilShader::Destroy()
 {
 	glDeleteProgram(m_ID);
 }
 
-void EShader::SetAsCurrent()
+void lilShader::SetAsCurrent()
 {
 	glUseProgram(m_ID);
 }
 
-void EShader::SetUniform(const char * name, bool value)
+void lilShader::SetUniform(const char * name, bool value)
 {
 	int location = glGetUniformLocation(m_ID, name);
 	glUseProgram(m_ID);
 	glUniform1i(location, (int)value);
 }
 
-void EShader::SetUniform(const char * name, int value)
+void lilShader::SetUniform(const char * name, int value)
 {
 	int location = glGetUniformLocation(m_ID, name);
 	glUseProgram(m_ID);
 	glUniform1i(location, value);
 }
 
-void EShader::SetUniform(const char * name, float value)
+void lilShader::SetUniform(const char * name, float value)
 {
 	int location = glGetUniformLocation(m_ID, name);
 	glUseProgram(m_ID);
 	glUniform1f(location, value);
 }
 
-void EShader::SetUniform(const char * name, float x, float y)
+void lilShader::SetUniform(const char * name, float x, float y)
 {
 	int location = glGetUniformLocation(m_ID, name);
 	glUseProgram(m_ID);
 	glUniform2f(location, x, y);
 }
 
-void EShader::SetUniform(const char * name, float x, float y, float z)
+void lilShader::SetUniform(const char * name, float x, float y, float z)
 {
 	int location = glGetUniformLocation(m_ID, name);
 	glUseProgram(m_ID);
 	glUniform3f(location, x, y, z);
 }
 
-void EShader::SetUniform(const char* name, float x, float y, float z, float w)
+void lilShader::SetUniform(const char* name, float x, float y, float z, float w)
 {
 	int location = glGetUniformLocation(m_ID, name);
 	glUseProgram(m_ID);
 	glUniform4f(location, x, y, z, w);
 }
 
-void EShader::SetUniform(const char * name, glm::vec3 vec)
+void lilShader::SetUniform(const char * name, glm::vec3 vec)
 {
 	int location = glGetUniformLocation(m_ID, name);
 	glUseProgram(m_ID);
 	glUniform3f(location, vec.x, vec.y, vec.z);
 }
 
-void EShader::SetUniform(const char* name, float* mat4)
+void lilShader::SetUniform(const char* name, float* mat4)
 {
 	int location = glGetUniformLocation(m_ID, name);
 	glUseProgram(m_ID);
 	glUniformMatrix4fv(location, 1, GL_FALSE, mat4);
 }
 
-char* EShader::LoadShaderToString(const char* filename)
+char* lilShader::LoadShaderToString(const char* filename)
 {
 	return lilFileIO::ReadFile(filename, "r");
 }
 
-unsigned EShader::CompileVertexShader(const char* filename)
+unsigned lilShader::CompileVertexShader(const char* filename)
 {
 	char* vertexShaderData = LoadShaderToString(filename);
 
@@ -122,7 +122,7 @@ unsigned EShader::CompileVertexShader(const char* filename)
 	return vertexShader;
 }
 
-unsigned EShader::ComplieFragmentShader(const char* filename)
+unsigned lilShader::ComplieFragmentShader(const char* filename)
 {
 	char* fragmentShaderData = LoadShaderToString(filename);
 
@@ -145,7 +145,7 @@ unsigned EShader::ComplieFragmentShader(const char* filename)
 	return fragmentShader;
 }
 
-unsigned EShader::LinkShaderPrograms(unsigned vertexShader, unsigned fragmentShader)
+unsigned lilShader::LinkShaderPrograms(unsigned vertexShader, unsigned fragmentShader)
 {
 	unsigned shaderProgram = glCreateProgram();
 

@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EGLRenderer.h
+//  lilGLRenderer.h
 //  Eric Fleming
 //  4/2/2018
 //
@@ -12,20 +12,20 @@
 #include "../../../thirdpartysrc/glad/glad/glad.h"
 #include <SDL.h>
 
-#include "../components/ECamera.h"
-#include "../components/ESprite.h"
-#include "ERenderable.h"
-#include "EMesh.h"
-#include "ETexture.h"
-#include "EShader.h"
+#include "../components/lilCamera.h"
+#include "../components/lilSprite.h"
+#include "lilRenderable.h"
+#include "lilMesh.h"
+#include "lilTexture.h"
+#include "lilShader.h"
 
-#define lilGLRenderer EGLRenderer::Instance()
+#define lilGLRenderer laGLRenderer::Instance()
 
-class EGLRenderer
+class laGLRenderer
 {
 public:
 	// Returns only instance of renderer
-	static EGLRenderer* Instance();
+	static laGLRenderer* Instance();
 
 	// Creates renderer
 	// Returns true on success
@@ -44,12 +44,12 @@ public:
 	// Draws the current frame
 	void DrawFrame();
 
-	void RegisterCamera(ECamera* camera);
+	void RegisterCamera(lilCamera* camera);
 
 	// Adds sprite to manager
 	// Returns index to sprite
 	// @ sprite - sprite to be added
-	ERenderable* AddSprite(ESprite* sprite);
+	lilRenderable* AddSprite(lilSprite* sprite);
 
 	// Adds renderable object to renderer
 	// @ element - data for the renderable
@@ -61,7 +61,7 @@ public:
 	// @ vertexCount - number of vertices multiplied by 5
 	// @ indices - index data
 	// @ indicesCount - size of indices array
-	EMesh* AddMesh(float* vertexData, int vertexCount, unsigned short* indices, int indicesCount);
+	lilMesh* AddMesh(float* vertexData, int vertexCount, unsigned short* indices, int indicesCount);
 
 	// Adds texture
 	// Returns created textures id, if texture exists, returns that texture id
@@ -71,31 +71,31 @@ public:
 	// Adds shader
 	// Returns a pointer to created shader, if shader exists, returns pointer to that shader
 	// @ filename - name of shader file, both vert and frag shader must be named the same
-	EShader* AddShader(const char* filename);
+	lilShader* AddShader(const char* filename);
 
-	ERenderable* GetRenderable(const char* renderableName);
+	lilRenderable* GetRenderable(const char* renderableName);
 
 	// Clears all current objects in the renderer
 	void ClearRenderer();
 
 private:
-	static EGLRenderer* s_Instance;
+	static laGLRenderer* s_Instance;
 
-	ECamera* m_CurrentCamera;
+	lilCamera* m_CurrentCamera;
 
-	std::list<ESprite*> m_Sprites;
-	std::list<ERenderable*> m_Renderables;
+	std::list<lilSprite*> m_Sprites;
+	std::list<lilRenderable*> m_Renderables;
 
-	std::list<EMesh*> m_Meshes;
-	std::list<ETexture*> m_Textures;
-	std::list<EShader*> m_Shaders;
+	std::list<lilMesh*> m_Meshes;
+	std::list<lilTexture*> m_Textures;
+	std::list<lilShader*> m_Shaders;
 
 private:
 	// Only one renderer, no copying
-	EGLRenderer() {}
-	~EGLRenderer() {}
-	EGLRenderer(const EGLRenderer& renderer) {}
-	void operator=(const EGLRenderer& renderer) {}
+	laGLRenderer() {}
+	~laGLRenderer() {}
+	laGLRenderer(const laGLRenderer& renderer) {}
+	void operator=(const laGLRenderer& renderer) {}
 
 	// Sets the view and projection matrix for all shaders
 	void SetViewAndProjectionMatrix();

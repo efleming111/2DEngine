@@ -1,17 +1,17 @@
 //
 //  2DEngine
-//  EMesh.h
+//  lilMesh.h
 //  Eric Fleming
 //  4/3/2018
 //
 
 #pragma once
 
-class EMesh
+class lilMesh
 {
 public:
-	EMesh() {}
-	~EMesh() {}
+	lilMesh() {}
+	~lilMesh() {}
 
 	// Creates a mesh object
 	// @ vertexData - vertex data of object packed in an array of 3 position and 2 texture coordinates per vertex
@@ -34,7 +34,7 @@ private:
 	unsigned m_IndicesCount;
 
 private:
-	EMesh(const EMesh& mesh) {}
-	void operator=(const EMesh& mesh) {}
+	lilMesh(const lilMesh& mesh) {}
+	void operator=(const lilMesh& mesh) {}
 };
 

@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ETexture.h
+//  lilTexture.h
 //  Eric Fleming
 //  4/4/2018
 //
@@ -13,11 +13,11 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-class ETexture
+class lilTexture
 {
 public:
-	ETexture() {}
-	~ETexture() {}
+	lilTexture() {}
+	~lilTexture() {}
 
 	// Creates texture
 	// @ filename - name of texture image
@@ -38,7 +38,7 @@ private:
 
 private:
 	// No copying
-	ETexture(const ETexture& texture) {}
-	void operator=(const ETexture& texture) {}
+	lilTexture(const lilTexture& texture) {}
+	void operator=(const lilTexture& texture) {}
 };
 

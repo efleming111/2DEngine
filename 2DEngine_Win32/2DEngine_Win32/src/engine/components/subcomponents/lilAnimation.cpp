@@ -1,16 +1,16 @@
 //
 //  2DEngine
-//  EAnimation.cpp
+//  lilAnimation.cpp
 //  Eric Fleming
 //  5/9/2018
 //
 
 #include <string>
 
-#include "EAnimation.h"
-#include "../../utilities/ETimer.h"
+#include "lilAnimation.h"
+#include "../../utilities/lilTimer.h"
 
-void EAnimation::Create(TiXmlElement* element, EGameObject* gameObject)
+void lilAnimation::Create(TiXmlElement* element, lilGameObject* gameObject)
 {
 	m_AccumlativeTime = 0.0f;
 
@@ -26,7 +26,7 @@ void EAnimation::Create(TiXmlElement* element, EGameObject* gameObject)
 
 	for (TiXmlElement* spriteElement = element->FirstChildElement(); spriteElement; spriteElement = spriteElement->NextSiblingElement())
 	{
-		ESprite* sprite = new ESprite(gameObject);
+		lilSprite* sprite = new lilSprite(gameObject);
 		sprite->Create(spriteElement);
 		m_Frames.push_back(sprite);
 	}
@@ -36,7 +36,7 @@ void EAnimation::Create(TiXmlElement* element, EGameObject* gameObject)
 	m_IsFinished = false;
 }
 
-void EAnimation::Update()
+void lilAnimation::Update()
 {
 	m_AccumlativeTime += lilTimer->DeltaTime();
 	if (m_AccumlativeTime >= m_TimeBetweenFrames)
@@ -66,12 +66,12 @@ void EAnimation::Update()
 	(*m_CurrentFrame)->Update();
 }
 
-void EAnimation::Destroy()
+void lilAnimation::Destroy()
 {
 	// Empty
 }
 
-void EAnimation::StartAnimation()
+void lilAnimation::StartAnimation()
 {
 	m_CurrentFrame = m_Frames.begin();
 	m_AccumlativeTime = 0.0f;
@@ -79,19 +79,19 @@ void EAnimation::StartAnimation()
 	m_IsFinished = false;
 }
 
-void EAnimation::StopAnimation()
+void lilAnimation::StopAnimation()
 {
 	(*m_CurrentFrame)->isRendered = false;
 	m_IsFinished = false;
 }
 
-void EAnimation::FlipAnimationX()
+void lilAnimation::FlipAnimationX()
 {
-	for (std::list<ESprite*>::iterator it = m_Frames.begin(); it != m_Frames.end(); ++it)
+	for (std::list<lilSprite*>::iterator it = m_Frames.begin(); it != m_Frames.end(); ++it)
 		(*it)->transform.scale.x *= -1.0f;
 }
 
-void EAnimation::IsRendered(bool isRendered)
+void lilAnimation::IsRendered(bool isRendered)
 {
 	(*m_CurrentFrame)->isRendered = isRendered;
 }

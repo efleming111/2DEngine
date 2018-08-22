@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EAnimation.h
+//  lilAnimation.h
 //  Eric Fleming
 //  5/9/2018
 //
@@ -10,18 +10,18 @@
 #include <list>
 
 #include "../../../../thirdpartysrc/tinyxml/tinyxml.h"
-#include "../ESprite.h"
+#include "../lilSprite.h"
 
-class EAnimation
+class lilAnimation
 {
 public:
-	EAnimation() {}
-	~EAnimation() {}
+	lilAnimation() {}
+	~lilAnimation() {}
 
 	// Creates an animation
 	// @ element - tag which stores all animation data
 	// @ gameobject - game object this animation belongs to
-	void Create(TiXmlElement* element, EGameObject* gameObject);
+	void Create(TiXmlElement* element, lilGameObject* gameObject);
 
 	// Updates the animation
 	void Update();
@@ -47,9 +47,9 @@ public:
 
 	void IsRendered(bool isRendered);
 	
-	std::list<ESprite*>::iterator m_CurrentFrame;
+	std::list<lilSprite*>::iterator m_CurrentFrame;
 private:
-	std::list<ESprite*> m_Frames;
+	std::list<lilSprite*> m_Frames;
 
 	//std::list<ESprite*>::iterator m_CurrentFrame;
 
@@ -63,6 +63,6 @@ private:
 
 private:
 	// No copying
-	EAnimation(const EAnimation& animation) {}
-	void operator=(const EAnimation& animation) {}
+	lilAnimation(const lilAnimation& animation) {}
+	void operator=(const lilAnimation& animation) {}
 };

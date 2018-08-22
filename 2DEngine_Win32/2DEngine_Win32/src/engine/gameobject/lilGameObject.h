@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EGameObject.h
+//  lilGameObject.h
 //  Eric Fleming
 //  5/18/2018
 //
@@ -10,19 +10,19 @@
 #include <string>
 #include <list>
 
-#include "ETransform.h"
-#include "../components/EComponent.h"
+#include "lilTransform.h"
+#include "../components/lilComponent.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
-class EComponent;
-class ERigidbody;
+class lilComponent;
+class lilRigidbody;
 
-// Game object class that every gam object should derive from
-class EGameObject
+// Game object class that every game object should derive from
+class lilGameObject
 {
 public:
-	EGameObject() {}
-	virtual ~EGameObject() {}
+	lilGameObject() {}
+	virtual ~lilGameObject() {}
 
 	// Creates game object
 	// THIS FUNCTION MUST BE CALLED FIRST BY DERIVED CLASS
@@ -42,28 +42,28 @@ public:
 
 	// Handles collision with other objects
 	// IF GAME OBJECT CONTAINS A RIGIDBODY THIS FUNCTION MUST CONTAIN LOGIC FOR PHYSIC IN DERIVED CLASS
-	virtual void BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody) {}
+	virtual void BeginContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody) {}
 
 	// Handles collision with other objects
 	// IF GAME OBJECT CONTAINS A RIGIDBODY THIS FUNCTION MUST CONTAIN LOGIC FOR PHYSIC IN DERIVED CLASS
-	virtual void EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody) {}
+	virtual void EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody) {}
 
 	// Returns requested conponent of game object
 	// Returns 0 if component does not exist
-	EComponent* GetComponentByType(const char* type);
+	lilComponent* GetComponentByType(const char* type);
 
 	// Returns requested conponent of game object
 	// Returns 0 if component does not exist
-	EComponent* GetComponentByName(const char* name);
+	lilComponent* GetComponentByName(const char* name);
 
 public:
 	std::string m_Type;
 	std::string m_Name;
-	ETransform m_Transform;
+	lilTransform m_Transform;
 	float m_PixelsPerGameUnit;
 
 protected:
-	std::list<EComponent*> m_Components;
+	std::list<lilComponent*> m_Components;
 
 private:
 	void CreateComponents(TiXmlElement* components);

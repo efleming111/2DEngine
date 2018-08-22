@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ECamera.h
+//  lilCamera.h
 //  Eric Fleming
 //  5/18/2018
 //
@@ -10,13 +10,13 @@
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 
-#include "EComponent.h"
+#include "lilComponent.h"
 
-class ECamera : public EComponent
+class lilCamera : public lilComponent
 {
 public:
-	ECamera(EGameObject* gameObject) : EComponent(gameObject) {}
-	~ECamera() {}
+	lilCamera(EGameObject* gameObject) : lilComponent(gameObject) {}
+	~lilCamera() {}
 
 	// Creates a camera
 	// @ element - data for setting up the camera
@@ -56,6 +56,6 @@ protected:
 
 private:
 	// No copying
-	ECamera(const ECamera& component) {}
-	void operator=(const ECamera& component) {}
+	lilCamera(const lilCamera& component) {}
+	void operator=(const lilCamera& component) {}
 };

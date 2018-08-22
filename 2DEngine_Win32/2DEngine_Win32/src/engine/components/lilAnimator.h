@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EAnimator.h
+//  lilAnimator.h
 //  Eric Fleming
 //  5/9/2018
 //
@@ -9,14 +9,14 @@
 
 #include <list>
 
-#include "EComponent.h"
-#include "subcomponents\EAnimation.h"
+#include "lilComponent.h"
+#include "subcomponents\lilAnimation.h"
 
-class EAnimator : public EComponent
+class lilAnimator : public lilComponent
 {
 public:
-	EAnimator(EGameObject* gameObject) : EComponent(gameObject) {}
-	~EAnimator() {}
+	lilAnimator(lilGameObject* gameObject) : lilComponent(gameObject) {}
+	~lilAnimator() {}
 
 	// Creates animations for animator
 	// @ element - data for the animations for this animator
@@ -43,15 +43,15 @@ public:
 
 	void IsRendered(bool isRendered) { (*m_CurrentAnimation)->IsRendered(isRendered); }
 
-	std::list<EAnimation*>::iterator m_CurrentAnimation;
+	std::list<lilAnimation*>::iterator m_CurrentAnimation;
 private:
-	std::list<EAnimation*> m_Animations;
+	std::list<lilAnimation*> m_Animations;
 
 	//std::list<EAnimation*>::iterator m_CurrentAnimation;
 
 private:
 	// No copying
-	EAnimator(const EAnimator& animator) {}
-	void operator=(const EAnimator& animator) {}
+	lilAnimator(const lilAnimator& animator) {}
+	void operator=(const lilAnimator& animator) {}
 };
 

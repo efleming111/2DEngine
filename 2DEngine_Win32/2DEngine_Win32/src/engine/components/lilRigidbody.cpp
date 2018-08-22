@@ -1,14 +1,14 @@
 //
 //  2DEngine
-//  ERigidbody.cpp
+//  lilRigidbody.cpp
 //  Eric Fleming
 //  5/19/2018/
 //
 
-#include "ERigidbody.h"
+#include "lilRigidbody.h"
 #include "../physics/EPhysics.h"
 
-void ERigidbody::Create(TiXmlElement* element)
+void lilRigidbody::Create(TiXmlElement* element)
 {
 	colliderName = 0;
 
@@ -46,34 +46,34 @@ void ERigidbody::Create(TiXmlElement* element)
 	}
 }
 
-void ERigidbody::Update()
+void lilRigidbody::Update()
 {
 	b2Vec2 pos = m_Body->GetPosition();
 	m_GameObject->m_Transform.position.x = pos.x;
 	m_GameObject->m_Transform.position.y = pos.y;
 }
 
-void ERigidbody::Destroy()
+void lilRigidbody::Destroy()
 {
 	// Empty
 }
 
-void ERigidbody::SetActive(bool isActive)
+void lilRigidbody::SetActive(bool isActive)
 {
 	m_Body->SetActive(isActive);
 }
 
-void ERigidbody::BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
+void lilRigidbody::BeginContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody)
 {
 	m_GameObject->BeginContact(thisRigidbody, otherRigidbody);
 }
 
-void ERigidbody::EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody)
+void lilRigidbody::EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody)
 {
 	m_GameObject->EndContact(thisRigidbody, otherRigidbody);
 }
 
-void ERigidbody::AddBoxCollider(TiXmlElement* element)
+void lilRigidbody::AddBoxCollider(TiXmlElement* element)
 {
 	double width, height, xRel, yRel, angle, density, friction;
 
@@ -106,7 +106,7 @@ void ERigidbody::AddBoxCollider(TiXmlElement* element)
 	m_Body->CreateFixture(&fixtureDef);
 }
 
-void ERigidbody::AddCircleCollider(TiXmlElement * element)
+void lilRigidbody::AddCircleCollider(TiXmlElement * element)
 {
 	double radius, xRel, yRel, density, friction;
 

@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ERigidbody.h
+//  lilRigidbody.h
 //  Eric Fleming
 //  5/18/2018
 //
@@ -12,17 +12,17 @@
 
 #include <Box2D\Box2D.h>
 
-#include "EComponent.h"
+#include "lilComponent.h"
 
-#define EVector2D b2Vec2
-#define EMax b2Max
-#define EMin b2Min
+#define lilVector2D b2Vec2
+#define lilMax b2Max
+#define lilMin b2Min
 
-class ERigidbody : public EComponent
+class lilRigidbody : public lilComponent
 {
 public:
-	ERigidbody(EGameObject* gameObject) { m_GameObject = gameObject; }
-	~ERigidbody() {}
+	lilRigidbody(lilGameObject* gameObject) { m_GameObject = gameObject; }
+	~lilRigidbody() {}
 
 	// Creates a rigidbody
 	// @ element - data for setting up the rigidbody
@@ -39,26 +39,26 @@ public:
 
 	// Call back funciton for collision begin events
 	// Gameobject sub classes should override this function
-	void BeginContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
+	void BeginContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody);
 	
 	// Call back funciton for collision end events
 	// Gameobject sub classes should override this function
-	void EndContact(ERigidbody* thisRigidbody, ERigidbody* otherRigidbody);
+	void EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody);
 
 	// Returns the gameobject this rigidbody is attached to
-	EGameObject* GetGameObject() { return m_GameObject; }
+	lilGameObject* GetGameObject() { return m_GameObject; }
 
 	// Returns the velocity of the rigidbody
-	EVector2D GetVelocity() { return m_Body->GetLinearVelocity(); }
+	lilVector2D GetVelocity() { return m_Body->GetLinearVelocity(); }
 	
 	// Returns the position of the rigidbody
-	EVector2D GetPosition() { return m_Body->GetPosition(); }
+	lilVector2D GetPosition() { return m_Body->GetPosition(); }
 
 	// Sets the velocity of the rigidbody
 	// @ vector - a 2d vector reprresenting the current velocity of the rigidbody
-	void SetVelocity(EVector2D vector) { m_Body->SetLinearVelocity(vector); }
+	void SetVelocity(lilVector2D vector) { m_Body->SetLinearVelocity(vector); }
 
-	void SetPosition(EVector2D position) { m_Body->SetTransform(position, 0.0f); }
+	void SetPosition(lilVector2D position) { m_Body->SetTransform(position, 0.0f); }
 
 	// Pointer to the name of the currently collided collider
 	std::string* colliderName;
@@ -70,8 +70,8 @@ protected:
 
 private:
 	// No copying
-	ERigidbody(const ERigidbody& component) {}
-	void operator=(const ERigidbody& component) {}
+	lilRigidbody(const lilRigidbody& component) {}
+	void operator=(const lilRigidbody& component) {}
 
 	void AddBoxCollider(TiXmlElement* element);
 	void AddCircleCollider(TiXmlElement* element);

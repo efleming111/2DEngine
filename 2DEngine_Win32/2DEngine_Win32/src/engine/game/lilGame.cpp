@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EGamecpp
+//  lilGamecpp
 //  Eric Fleming
 //  5/17/2018
 //
@@ -8,16 +8,16 @@
 #include <sstream>
 #include <iostream>
 
-#include "EGame.h"
+#include "lilGame.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
-#include "../utilities/EFileIO.h"
+#include "../utilities/lilFileIO.h"
 
-EGame::EGame()
+lilGame::lilGame()
 {
 	m_Scene = 0;
 }
 
-bool EGame::Initialize()
+bool lilGame::Initialize()
 {
 	m_Scene = new lilScene();
 	// TODO: Change this to generic start scene from which the game is loaded
@@ -26,7 +26,7 @@ bool EGame::Initialize()
 	return true;
 }
 
-void EGame::Update()
+void lilGame::Update()
 {
 	m_Scene->Update();
 
@@ -38,7 +38,7 @@ void EGame::Update()
 	}
 }
 
-void EGame::CleanUp()
+void lilGame::CleanUp()
 {
 	m_Scene->Destroy();
 	delete m_Scene;

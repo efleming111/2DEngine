@@ -1,13 +1,13 @@
 //
 //  2DEngine
-//  EAnimator.cpp
+//  lilAnimator.cpp
 //  Eric Fleming
 //  5/9/2018
 //
 
-#include "EAnimator.h"
+#include "lilAnimator.h"
 
-void EAnimator::Create(TiXmlElement* element)
+void lilAnimator::Create(TiXmlElement* element)
 {
 	m_Type = element->Attribute("type");
 
@@ -16,7 +16,7 @@ void EAnimator::Create(TiXmlElement* element)
 
 	for (TiXmlElement* animationElement = element->FirstChildElement(); animationElement; animationElement = animationElement->NextSiblingElement())
 	{
-		EAnimation* animation = new EAnimation();
+		lilAnimation* animation = new lilAnimation();
 		animation->Create(animationElement, m_GameObject);
 		m_Animations.push_back(animation);
 	}
@@ -26,19 +26,19 @@ void EAnimator::Create(TiXmlElement* element)
 		m_CurrentAnimation++;
 }
 
-void EAnimator::Update()
+void lilAnimator::Update()
 {
 	(*m_CurrentAnimation)->Update();
 }
 
-void EAnimator::Destroy()
+void lilAnimator::Destroy()
 {
 	// Empty
 }
 
-void EAnimator::SetCurrentAnimation(unsigned animationIndex)
+void lilAnimator::SetCurrentAnimation(unsigned animationIndex)
 {
-	std::list<EAnimation*>::iterator it = m_Animations.begin();
+	std::list<lilAnimation*>::iterator it = m_Animations.begin();
 	for (unsigned i = 0; i < animationIndex; ++i)
 		it++;
 
@@ -50,13 +50,13 @@ void EAnimator::SetCurrentAnimation(unsigned animationIndex)
 	}
 }
 
-void EAnimator::FlipAnimationX()
+void lilAnimator::FlipAnimationX()
 {
-	for (std::list<EAnimation*>::iterator it = m_Animations.begin(); it != m_Animations.end(); it++)
+	for (std::list<lilAnimation*>::iterator it = m_Animations.begin(); it != m_Animations.end(); it++)
 		(*it)->FlipAnimationX();
 }
 
-void EAnimator::SetCurrentAnimationIntervalTime(float interval)
+void lilAnimator::SetCurrentAnimationIntervalTime(float interval)
 {
 	(*m_CurrentAnimation)->SetIntervalTime(interval);
 }

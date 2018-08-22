@@ -1,23 +1,23 @@
 //
 //  2DEngine
-//  EAudio.cpp
+//  lilAudio.cpp
 //  Eric Fleming
 //  5/10/2018
 //
 
-#include "EAudio.h"
+#include "lilAudio.h"
 
-EAudio* EAudio::s_Instance = 0;
+laAudio* laAudio::s_Instance = 0;
 
-EAudio* EAudio::Instance()
+laAudio* laAudio::Instance()
 {
 	if (!s_Instance)
-		s_Instance = new EAudio();
+		s_Instance = new laAudio();
 
 	return s_Instance;
 }
 
-bool EAudio::Initialize()
+bool laAudio::Initialize()
 {
 	if (!SDL_WasInit(SDL_INIT_AUDIO))
 		SDL_InitSubSystem(SDL_INIT_AUDIO);
@@ -31,7 +31,7 @@ bool EAudio::Initialize()
 	return true;
 }
 
-void EAudio::Shutdown()
+void laAudio::Shutdown()
 {
 	FreeMusic();
 	FreeSounds();
@@ -40,19 +40,19 @@ void EAudio::Shutdown()
 	Mix_Quit();
 }
 
-void EAudio::AddMusic(const char* filename)
+void laAudio::AddMusic(const char* filename)
 {
 	Mix_Music* music = Mix_LoadMUS(filename);
 	m_Music.push_back(music);
 }
 
-void EAudio::AddSound(const char* filename)
+void laAudio::AddSound(const char* filename)
 {
 	Mix_Chunk* sound = Mix_LoadWAV(filename);
 	m_Sounds.push_back(sound);
 }
 
-void EAudio::FreeMusic()
+void laAudio::FreeMusic()
 {
 	for (unsigned i = 0; i < m_Music.size(); ++i)
 		Mix_FreeMusic(m_Music[i]);
@@ -60,7 +60,7 @@ void EAudio::FreeMusic()
 	m_Music.resize(0);
 }
 
-void EAudio::FreeSounds()
+void laAudio::FreeSounds()
 {
 	for (unsigned i = 0; i < m_Sounds.size(); ++i)
 		Mix_FreeChunk(m_Sounds[i]);
@@ -68,7 +68,7 @@ void EAudio::FreeSounds()
 	m_Sounds.resize(0);
 }
 
-void EAudio::PlayMusic(unsigned index)
+void laAudio::PlayMusic(unsigned index)
 {
 	if (index < m_Music.size())
 	{
@@ -81,18 +81,18 @@ void EAudio::PlayMusic(unsigned index)
 
 }
 
-void EAudio::PauseMusic()
+void laAudio::PauseMusic()
 {
 	if (Mix_PlayingMusic())
 		Mix_PauseMusic();
 }
 
-void EAudio::StopMusic()
+void laAudio::StopMusic()
 {
 	Mix_HaltMusic();
 }
 
-void EAudio::PlaySound(unsigned index)
+void laAudio::PlaySound(unsigned index)
 {
 	if (index < m_Sounds.size())
 		Mix_PlayChannel(-1, m_Sounds[index], 0);

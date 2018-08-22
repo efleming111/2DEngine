@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EGame.h
+//  lilGame.h
 //  Eric Fleming
 //  5/17/2018
 //
@@ -9,16 +9,17 @@
 
 #include <string>
 
+// TODO: Change this to Scene.h
 #include "../../lilknight/scenes/lilScene.h"
 
-class EGame
+class lilGame
 {
 public:
 	// Constructor
-	EGame();
+	lilGame();
 
 	// Destructor
-	~EGame() {}
+	~lilGame() {}
 
 	// Initializes game, sets starting level state
 	bool Initialize();
@@ -31,11 +32,12 @@ public:
 	void CleanUp();
 
 private:
+	// TODO: Change this to Scene.h
 	lilScene* m_Scene;
 
 private:
 	// No copying of class
-	EGame(const EGame& game) {}
-	void operator=(const EGame& game) {}
+	lilGame(const lilGame& game) {}
+	void operator=(const lilGame& game) {}
 };
 

@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ECore.h
+//  lilCore.h
 //  Eric Fleming
 //  4/2/2018
 //
@@ -12,15 +12,15 @@
 
 #include <SDL.h>
 
-#include "../game/EGame.h"
+#include "../game/lilGame.h"
 
 #define lilEngine ECore::Instance()
 
-class ECore
+class laCore
 {
 public:
 	// Returns only instance of class
-	static ECore* Instance();
+	static laCore* Instance();
 
 	// Initialize all subsystems of the engine and main game file
 	bool Initialize();
@@ -45,24 +45,25 @@ public:
 	bool IsCommandActive(std::string command);
 
 private:
-	static ECore* s_Instance;
+	static laCore* s_Instance;
 
 	std::list<std::string> m_CommandLineArgs;
 
 	bool m_Running;
 
-	EGame* m_Game;
+	lilGame* m_Game;
 
 private:
+	//TODO: move this to android file
 #ifdef __ANDROID__
 	static int AndoridLifeCycleEvents(void* userData, SDL_Event* event);
 #endif
 
 	// Only one instance of class and no copying
-	ECore() {}
-	~ECore() {}
-	ECore(const ECore& core) {}
-	void operator=(const ECore& core) {}
+	laCore() {}
+	~laCore() {}
+	laCore(const laCore& core) {}
+	void operator=(const laCore& core) {}
 };
 
 #ifdef __ANDROID__

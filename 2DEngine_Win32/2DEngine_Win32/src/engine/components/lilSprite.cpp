@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ESprite.cpp
+//  lilSprite.cpp
 //  Eric Fleming
 //  5/20/2018
 //
@@ -11,10 +11,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "ESprite.h"
-#include "../renderer/EGLRenderer.h"
+#include "lilSprite.h"
+#include "../renderer/lilGLRenderer.h"
 
-void ESprite::Create(TiXmlElement* element)
+void lilSprite::Create(TiXmlElement* element)
 {
 	m_Type = element->Attribute("type");
 	m_Name = element->Attribute("name");
@@ -57,18 +57,18 @@ void ESprite::Create(TiXmlElement* element)
 	renderable = lilGLRenderer->AddSprite(this);
 }
 
-void ESprite::Update()
+void lilSprite::Update()
 {
 	transform.position.x = m_GameObject->m_Transform.position.x + xRelative;
 	transform.position.y = m_GameObject->m_Transform.position.y + yRelative;
 }
 
-void ESprite::Destroy()
+void lilSprite::Destroy()
 {
 	// Empty
 }
 
-void ESprite::Draw()
+void lilSprite::Draw()
 {
 	renderable->Draw(this);
 }

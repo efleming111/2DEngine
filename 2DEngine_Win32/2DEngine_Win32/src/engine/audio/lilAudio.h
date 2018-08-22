@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EAudio.h
+//  lilAudio.h
 //  Eric Fleming
 //  5/10/2018
 //
@@ -12,13 +12,13 @@
 #include <SDL.h>
 #include <SDL_mixer.h>
 
-#define lilAudio EAudio::Instance()
+#define lilAudio laAudio::Instance()
 
-class EAudio
+class laAudio
 {
 public:
 	// Returns only instance of class
-	static EAudio* Instance();
+	static laAudio* Instance();
 
 	// Initialize in audio player, both music and soundfx
 	bool Initialize();
@@ -55,16 +55,16 @@ public:
 	void PlaySound(unsigned index);
 
 private:
-	static EAudio* s_Instance;
+	static laAudio* s_Instance;
 
 	std::vector<Mix_Music*> m_Music;
 	std::vector<Mix_Chunk*> m_Sounds;
 
 private:
 	// Only one instance of class and no copying
-	EAudio() {}
-	~EAudio() {}
-	EAudio(const EAudio& audio) {}
-	void operator=(const EAudio& audio) {}
+	laAudio() {}
+	~laAudio() {}
+	laAudio(const laAudio& audio) {}
+	void operator=(const laAudio& audio) {}
 };
 

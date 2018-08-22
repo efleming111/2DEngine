@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EGameObject.cpp
+//  lilGameObject.cpp
 //  Eric Fleming
 //  5/18/2018
 //
@@ -8,14 +8,14 @@
 #include <sstream>
 #include <iostream>
 
-#include "EGameObject.h"
-#include "../utilities/EFileIO.h"
-#include "../components/ECamera.h"
-#include "../components/ERigidbody.h"
-#include "../components/ESprite.h"
-#include "../components/EAnimator.h"
+#include "lilGameObject.h"
+#include "../utilities/lilFileIO.h"
+#include "../components/lilCamera.h"
+#include "../components/lilRigidbody.h"
+#include "../components/lilSprite.h"
+#include "../components/lilAnimator.h"
 
-void EGameObject::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
+void lilGameObject::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	m_PixelsPerGameUnit = pixelsPerGameUnit;
 
@@ -42,15 +42,15 @@ void EGameObject::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 	CreateComponents(rootElement->FirstChildElement("components"));
 }
 
-void EGameObject::Update()
+void lilGameObject::Update()
 {
-	for (std::list<EComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
+	for (std::list<lilComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
 		(*it)->Update();
 }
 
-void EGameObject::Destroy()
+void lilGameObject::Destroy()
 {
-	for (std::list<EComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
+	for (std::list<lilComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
 	{
 		// Sprites get cleaned up by the renderer
 		if ((*it)->GetType().compare("sprite") == 0)
@@ -63,53 +63,53 @@ void EGameObject::Destroy()
 	m_Components.clear();
 }
 
-EComponent* EGameObject::GetComponentByType(const char* type)
+lilComponent* lilGameObject::GetComponentByType(const char* type)
 {
-	for (std::list<EComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
+	for (std::list<lilComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
 		if ((*it)->GetType().compare(type) == 0)
 			return (*it);
 
 	return 0;
 }
 
-EComponent* EGameObject::GetComponentByName(const char* name)
+lilComponent* lilGameObject::GetComponentByName(const char* name)
 {
-	for (std::list<EComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
+	for (std::list<lilComponent*>::iterator it = m_Components.begin(); it != m_Components.end(); ++it)
 		if ((*it)->GetName().compare(name) == 0)
 			return (*it);
 
 	return 0;
 }
 
-void EGameObject::CreateComponents(TiXmlElement* components)
+void lilGameObject::CreateComponents(TiXmlElement* components)
 {
 	for (TiXmlElement* component = components->FirstChildElement(); component; component = component->NextSiblingElement())
 	{
 		std::string type = component->Attribute("type");
 		if (type.compare("camera") == 0)
 		{
-			ECamera* camera = new ECamera(this);
+			lilCamera* camera = new lilCamera(this);
 			camera->Create(component);
 			m_Components.push_back(camera);
 		}
 
 		else if (type.compare("sprite") == 0)
 		{
-			ESprite* sprite = new ESprite(this);
+			lilSprite* sprite = new lilSprite(this);
 			sprite->Create(component);
 			m_Components.push_back(sprite);
 		}
 
 		else if (type.compare("rigidbody") == 0)
 		{
-			ERigidbody* rigidbody = new ERigidbody(this);
+			lilRigidbody* rigidbody = new lilRigidbody(this);
 			rigidbody->Create(component);
 			m_Components.push_back(rigidbody);
 		}
 
 		else if (type.compare("animator") == 0)
 		{
-			EAnimator* animator = new EAnimator(this);
+			lilAnimator* animator = new lilAnimator(this);
 			animator->Create(component);
 			m_Components.push_back(animator);
 		}

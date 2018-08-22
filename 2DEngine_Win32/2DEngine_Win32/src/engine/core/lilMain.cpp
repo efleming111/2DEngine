@@ -1,11 +1,15 @@
 //
 //  2DEngine
-//  EMain.cpp
+//  lilMain.cpp
 //  Eric Fleming
 //  4/2/2018
 //
 
-#include "engine\core\ECore.h"
+#include "lilCore.h"
+
+// Work thru separating windows and android code into separate header files
+// Rename files with la prefix to show done file
+// Complete engine then revies game files
 
 
 int main(int argc, char* argv[])

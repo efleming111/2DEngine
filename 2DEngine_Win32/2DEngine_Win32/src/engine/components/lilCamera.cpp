@@ -1,15 +1,15 @@
 //
 //  2DEngine
-//  ECamera.cpp
+//  lilCamera.cpp
 //  Eric Fleming
 //  5/18/2018
 //
 
-#include "ECamera.h"
-#include "../renderer/EGLWindow.h"
-#include "../renderer/EGLRenderer.h"
+#include "lilCamera.h"
+#include "../renderer/lilGLWindow.h"
+#include "../renderer/lilGLRenderer.h"
 
-void ECamera::Create(TiXmlElement* element)
+void lilCamera::Create(TiXmlElement* element)
 {
 	m_Type = element->Attribute("type");
 
@@ -18,7 +18,7 @@ void ECamera::Create(TiXmlElement* element)
 	lilGLRenderer->RegisterCamera(this);
 }
 
-void ECamera::Update()
+void lilCamera::Update()
 {
 	float wWidth = (float)lilGLWindow->Width();
 	float wHeight = (float)lilGLWindow->Height();
@@ -28,18 +28,18 @@ void ECamera::Update()
 	m_Projection = glm::ortho(wWidth * -.5f, wWidth * .5f, wHeight * -.5f, wHeight * .5f, .1f, 2.0f * m_GameObject->m_PixelsPerGameUnit);
 }
 
-void ECamera::Destroy()
+void lilCamera::Destroy()
 {
 	// Empty
 }
 
-void ECamera::SetPosition(float x, float y)
+void lilCamera::SetPosition(float x, float y)
 {
 	m_GameObject->m_Transform.position.x = x;
 	m_GameObject->m_Transform.position.y = y;
 }
 
-void ECamera::Move(float xAmount, float yAmount)
+void lilCamera::Move(float xAmount, float yAmount)
 {
 	m_GameObject->m_Transform.position.x += xAmount;
 	m_GameObject->m_Transform.position.y += yAmount;

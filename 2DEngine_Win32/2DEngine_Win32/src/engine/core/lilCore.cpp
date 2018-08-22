@@ -1,30 +1,30 @@
 //
 //  2DEngine
-//  ECore.cpp
+//  lilCore.cpp
 //  Eric Fleming
 //  4/2/2018
 //
 
-#include "ECore.h"
-#include "../renderer/EGLWindow.h"
-#include "../renderer/EGLRenderer.h"
-#include "../input/EInput.h"
-#include "../utilities/ETimer.h"
-#include "../audio/EAudio.h"
-#include "../physics/EPhysics.h"
+#include "lilCore.h"
+#include "../renderer/lilGLWindow.h"
+#include "../renderer/lilGLRenderer.h"
+#include "../input/lilInput.h"
+#include "../utilities/lilTimer.h"
+#include "../audio/lilAudio.h"
+#include "../physics/lilPhysics.h"
 
 
-ECore* ECore::s_Instance = 0;
+laCore* laCore::s_Instance = 0;
 
-ECore* ECore::Instance()
+laCore* laCore::Instance()
 {
 	if (!s_Instance)
-		s_Instance = new ECore();
+		s_Instance = new laCore();
 
 	return s_Instance;
 }
 
-bool ECore::Initialize()
+bool laCore::Initialize()
 {
 	m_Running = true;
 
@@ -50,7 +50,7 @@ bool ECore::Initialize()
 	if (!lilPhysics->Initialize(0.0f, -10.0f))
 		return false;
 
-	m_Game = new EGame();
+	m_Game = new lilGame();
 	if (!m_Game->Initialize())
 	{
 		SDL_Log("ERROR: Game Failed To Initialize, %s %d", __FILE__, __LINE__);
@@ -60,7 +60,7 @@ bool ECore::Initialize()
 	return true;
 }
 
-void ECore::Run()
+void laCore::Run()
 {
 	lilTimer->Start();
 	while (m_Running)
@@ -82,7 +82,7 @@ void ECore::Run()
 	}
 }
 
-void ECore::ShutDown()
+void laCore::ShutDown()
 {
 	m_Game->CleanUp();
 	delete m_Game;
@@ -94,12 +94,12 @@ void ECore::ShutDown()
 	lilGLWindow->Shutdown();
 }
 
-void ECore::Quit()
+void laCore::Quit()
 {
 	m_Running = false;
 }
 
-void ECore::HandleCommandArgs(int numOfArgs, char* args[])
+void laCore::HandleCommandArgs(int numOfArgs, char* args[])
 {
 	for (int i = 0; i < numOfArgs; ++i)
 	{
@@ -108,7 +108,7 @@ void ECore::HandleCommandArgs(int numOfArgs, char* args[])
 	}
 }
 
-bool ECore::IsCommandActive(std::string command)
+bool laCore::IsCommandActive(std::string command)
 {
 	bool temp = false;
 

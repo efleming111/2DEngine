@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EComponent.h
+//  lilComponent.h
 //  Eric Fleming
 //  5/18/2018
 //
@@ -9,18 +9,18 @@
 
 #include <string>
 
-#include "../gameobjects/EGameObject.h"
+#include "../gameobjects/lilGameObject.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
-class EGameObject;
+class lilGameObject;
 
 // Abstract class to derive all components from
-class EComponent
+class lilComponent
 {
 public:
-	EComponent() {}
-	EComponent(EGameObject* gameObject) { m_GameObject = gameObject; }
-	virtual ~EComponent() {}
+	lilComponent() {}
+	lilComponent(lilGameObject* gameObject) { m_GameObject = gameObject; }
+	virtual ~lilComponent() {}
 
 	virtual void Create(TiXmlElement* element) = 0;
 	virtual void Update() = 0;
@@ -30,12 +30,12 @@ public:
 	std::string& GetName() { return m_Name; }
 
 protected:
-	EGameObject* m_GameObject;
+	lilGameObject* m_GameObject;
 	std::string m_Type;
 	std::string m_Name;
 
 private:
-	EComponent(const EComponent& component) {}
-	void operator=(const EComponent& component) {}
+	lilComponent(const lilComponent& component) {}
+	void operator=(const lilComponent& component) {}
 };
 

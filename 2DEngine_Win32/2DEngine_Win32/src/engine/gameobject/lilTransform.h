@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ETransform.h
+//  lilTransform.h
 //  Eric Fleming
 //  5/18/2018
 //
@@ -10,7 +10,7 @@
 #include <glm\glm.hpp>
 
 // Transform object
-struct ETransform
+struct lilTransform
 {
 	glm::vec3 position;
 	float rotation;

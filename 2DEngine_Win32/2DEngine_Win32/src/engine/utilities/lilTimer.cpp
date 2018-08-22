@@ -1,23 +1,23 @@
 //
 //  2DEngine
-//  ETimer.cpp
+//  lilTimer.cpp
 //  Eric Fleming
 //  4/2/2018
 //
 
-#include "ETimer.h"
+#include "lilTimer.h"
 
-ETimer* ETimer::s_Instance = 0;
+laTimer* laTimer::s_Instance = 0;
 
-ETimer* ETimer::Instance()
+laTimer* laTimer::Instance()
 {
 	if (!s_Instance)
-		s_Instance = new ETimer();
+		s_Instance = new laTimer();
 
 	return s_Instance;
 }
 
-bool ETimer::Initialize()
+bool laTimer::Initialize()
 {
 	m_IsStarted = false;
 
@@ -33,7 +33,7 @@ bool ETimer::Initialize()
 	return true;
 }
 
-void ETimer::Start()
+void laTimer::Start()
 {
 	if (!m_IsStarted)
 	{
@@ -47,7 +47,7 @@ void ETimer::Start()
 	}
 }
 
-void ETimer::Stop()
+void laTimer::Stop()
 {
 	if (m_IsStarted)
 	{
@@ -59,7 +59,7 @@ void ETimer::Stop()
 	}
 }
 
-void ETimer::Update()
+void laTimer::Update()
 {
 	if (m_IsStarted)
 	{

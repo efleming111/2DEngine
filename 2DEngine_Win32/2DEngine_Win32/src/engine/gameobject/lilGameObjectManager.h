@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EGameObjectManager.h
+//  lilGameObjectManager.h
 //  Eric Fleming
 //  5/24/2018
 //
@@ -10,19 +10,19 @@
 #include <list>
 #include <string>
 
-#include "EGameObject.h"
+#include "lilGameObject.h"
 
-#define lilGameObjectManager EGameObjectManager::Instance()
+#define lilGameObjectManager laGameObjectManager::Instance()
 
-class EGameObjectManager
+class laGameObjectManager
 {
 public:
 	// Returns only instance of game object manager
-	static EGameObjectManager* Instance();
+	static laGameObjectManager* Instance();
 
 	// Adds game object to manager
 	// @ filename - name of game object
-	void AddGameObject(EGameObject* gameObject);
+	void AddGameObject(lilGameObject* gameObject);
 
 	// Call once just before update runs
 	void OnStart();
@@ -35,22 +35,22 @@ public:
 
 	// Gets pointer to first game object of type, type
 	// @ type - type of game object
-	EGameObject* GetGameObjectByType(std::string type);
+	lilGameObject* GetGameObjectByType(std::string type);
 
 	// Gets pointer to first game object of name, name
 	// @ name - name of game object
-	EGameObject* GetGameObjectByName(std::string name);
+	lilGameObject* GetGameObjectByName(std::string name);
 
 private:
-	static EGameObjectManager* s_Instance;
+	static laGameObjectManager* s_Instance;
 
-	std::list<EGameObject*> m_GameObjects;
+	std::list<lilGameObject*> m_GameObjects;
 
 private:
 	// Only instance of  game manager object, no copying
-	EGameObjectManager() {}
-	~EGameObjectManager() {}
-	EGameObjectManager(const EGameObjectManager& shaderManager) {}
-	void operator=(const EGameObjectManager& shaderManager) {}
+	laGameObjectManager() {}
+	~laGameObjectManager() {}
+	laGameObjectManager(const laGameObjectManager& shaderManager) {}
+	void operator=(const laGameObjectManager& shaderManager) {}
 };
 

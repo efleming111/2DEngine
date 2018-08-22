@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EPhysics.h
+//  lilPhysics.h
 //  Eric Fleming
 //  5/10/2018
 //
@@ -11,25 +11,25 @@
 
 #include <Box2D\Box2D.h>
 
-#define EVector2D b2Vec2
-#define EMax b2Max
-#define EMin b2Min
+#define lilVector2D b2Vec2
+#define lilMax b2Max
+#define lilMin b2Min
 
 const float PHYSICS_TIME_STEP = 1.0f / 60.0f;
 
-class ContactListener : public b2ContactListener
+class lilContactListener : public b2ContactListener
 {
 	void BeginContact(b2Contact* contact);
 	void EndContact(b2Contact* contact);
 };
 
-#define lilPhysics EPhysics::Instance()
+#define lilPhysics laPhysics::Instance()
 
-class EPhysics
+class laPhysics
 {
 public:
 	// Returns only instance of class
-	static EPhysics* Instance();
+	static laPhysics* Instance();
 
 	// Initialize physics engine with gravity
 	// @ xGravity - x gravity amount
@@ -51,7 +51,7 @@ public:
 	void DestroyBodies();
 
 private:
-	static EPhysics* s_Instance;
+	static laPhysics* s_Instance;
 
 	b2World * m_World;
 	std::list<b2Body*> m_Bodies;
@@ -59,15 +59,15 @@ private:
 	int32 m_VelocityIterations;
 	int32 m_PositionIterations;
 
-	ContactListener m_ContactListener;
+	lilContactListener m_ContactListener;
 
 	float m_AccumTime;
 
 private:
 	// Only one instance of class and no copying
-	EPhysics() {}
-	~EPhysics() {}
-	EPhysics(const EPhysics& physics) {}
-	void operator=(const EPhysics& physics) {}
+	laPhysics() {}
+	~laPhysics() {}
+	laPhysics(const laPhysics& physics) {}
+	void operator=(const laPhysics& physics) {}
 };
 

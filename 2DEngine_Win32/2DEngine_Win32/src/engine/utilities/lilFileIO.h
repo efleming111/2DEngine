@@ -1,15 +1,13 @@
 //
 //  2DEngine
-//  EFileIO.h
+//  lilFileIO.h
 //  Eric Fleming
 //  4/2/2018
 //
 
 #pragma once
 
-#define lilFileIO EFileIO
-
-class EFileIO
+class lilFileIO
 {
 public:
 	// Reads data from file

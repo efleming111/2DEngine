@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  ETimer.h
+//  lilTimer.h
 //  Eric Fleming
 //  4/2/2018
 //
@@ -9,13 +9,13 @@
 
 #include <SDL.h>
 
-#define lilTimer ETimer::Instance()
+#define lilTimer laTimer::Instance()
 
-class ETimer
+class laTimer
 {
 public:
 	// Returns only instance of time
-	static ETimer* Instance();
+	static laTimer* Instance();
 
 	// Creates timer
 	bool Initialize();
@@ -39,7 +39,7 @@ public:
 	int FPS() { return m_FPS; }
 
 private:
-	static ETimer* s_Instance;
+	static laTimer* s_Instance;
 
 	Uint32 m_CurrentTime;
 	Uint32 m_TimeSinceStart;
@@ -54,9 +54,9 @@ private:
 
 private:
 	// Only one instance of class and no copying
-	ETimer() {}
-	~ETimer() {}
-	ETimer(const ETimer& timer) {}
-	void operator=(const ETimer& timer) {}
+	laTimer() {}
+	~laTimer() {}
+	laTimer(const laTimer& timer) {}
+	void operator=(const laTimer& timer) {}
 };
 

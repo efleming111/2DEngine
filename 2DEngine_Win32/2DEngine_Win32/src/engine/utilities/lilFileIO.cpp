@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EFileIO.cpp
+//  lilFileIO.cpp
 //  Eric Fleming
 //  4/2/2018
 //
@@ -9,9 +9,9 @@
 
 #include <SDL.h>
 
-#include "EFileIO.h"
+#include "lilFileIO.h"
 
-char* EFileIO::ReadFile(const char* filename, const char* mode)
+char* lilFileIO::ReadFile(const char* filename, const char* mode)
 {
 	char* buffer = 0;
 
@@ -33,7 +33,7 @@ char* EFileIO::ReadFile(const char* filename, const char* mode)
 	return buffer;
 }
 
-bool EFileIO::WriteFile(const char* filename, const char* mode, char* data)
+bool lilFileIO::WriteFile(const char* filename, const char* mode, char* data)
 {
 	SDL_RWops* write = SDL_RWFromFile(filename, mode);
 	if (!write)

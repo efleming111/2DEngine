@@ -1,18 +1,18 @@
 //
 //  2DEngine
-//  EPhysics.cpp
+//  lilPhysics.cpp
 //  Eric Fleming
 //  5/10/2018
 //
 
-#include "EPhysics.h"
-#include "../utilities/ETimer.h"
-#include "../components/ERigidbody.h"
+#include "lilPhysics.h"
+#include "../utilities/lilTimer.h"
+#include "../components/lilRigidbody.h"
 
-void ContactListener::BeginContact(b2Contact* contact)
+void lilContactListener::BeginContact(b2Contact* contact)
 {
-	ERigidbody* BodyA = static_cast<ERigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
-	ERigidbody* BodyB = static_cast<ERigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
+	lilRigidbody* BodyA = static_cast<lilRigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
+	lilRigidbody* BodyB = static_cast<lilRigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
 	if (contact->GetFixtureA()->IsSensor() || contact->GetFixtureB()->IsSensor())
 	{
@@ -27,10 +27,10 @@ void ContactListener::BeginContact(b2Contact* contact)
 	}
 }
 
-void ContactListener::EndContact(b2Contact* contact)
+void lilContactListener::EndContact(b2Contact* contact)
 {
-	ERigidbody* BodyA = static_cast<ERigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
-	ERigidbody* BodyB = static_cast<ERigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
+	lilRigidbody* BodyA = static_cast<lilRigidbody*>(contact->GetFixtureA()->GetBody()->GetUserData());
+	lilRigidbody* BodyB = static_cast<lilRigidbody*>(contact->GetFixtureB()->GetBody()->GetUserData());
 
 	if (contact->GetFixtureA()->IsSensor() || contact->GetFixtureB()->IsSensor())
 	{
@@ -45,17 +45,17 @@ void ContactListener::EndContact(b2Contact* contact)
 	}
 }
 
-EPhysics* EPhysics::s_Instance = 0;
+laPhysics* laPhysics::s_Instance = 0;
 
-EPhysics* EPhysics::Instance()
+laPhysics* laPhysics::Instance()
 {
 	if (!s_Instance)
-		s_Instance = new EPhysics();
+		s_Instance = new laPhysics();
 
 	return s_Instance;
 }
 
-bool EPhysics::Initialize(float xGravity, float yGravity)
+bool laPhysics::Initialize(float xGravity, float yGravity)
 {
 	b2Vec2 gravity(xGravity, yGravity);
 	m_World = new b2World(gravity);
@@ -70,7 +70,7 @@ bool EPhysics::Initialize(float xGravity, float yGravity)
 	return true;
 }
 
-void EPhysics::Update()
+void laPhysics::Update()
 {
 	m_AccumTime += lilTimer->DeltaTime();
 	if (m_AccumTime < PHYSICS_TIME_STEP)
@@ -81,20 +81,20 @@ void EPhysics::Update()
 	m_World->Step(PHYSICS_TIME_STEP, m_VelocityIterations, m_PositionIterations);
 }
 
-void EPhysics::Shutdown()
+void laPhysics::Shutdown()
 {
 	DestroyBodies();
 	delete m_World;
 }
 
-b2Body* EPhysics::AddBody(const b2BodyDef* bodyDef)
+b2Body* laPhysics::AddBody(const b2BodyDef* bodyDef)
 {
 	b2Body* tempBody = m_World->CreateBody(bodyDef);
 	m_Bodies.push_back(tempBody);
 	return m_Bodies.back();
 }
 
-void EPhysics::DestroyBodies()
+void laPhysics::DestroyBodies()
 {
 	for (std::list<b2Body*>::iterator it = m_Bodies.begin(); it != m_Bodies.end(); ++it)
 		m_World->DestroyBody((*it));

@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  lilGamecpp
+//  lilGame.cpp
 //  Eric Fleming
 //  5/17/2018
 //

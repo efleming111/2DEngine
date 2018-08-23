@@ -1,14 +1,14 @@
 //
 //  2DEngine
-//  EInput.cpp
+//  lilInput.cpp
 //  Eric Fleming
 //  4/2/2018
 //
 
-#include "EInput.h"
-#include "../renderer/EGLWindow.h"
-#include "../renderer/EGLRenderer.h"
-#include "../core/ECore.h"
+#include "lilInput.h"
+#include "../renderer/lilGLWindow.h"
+#include "../renderer/lilGLRenderer.h"
+#include "../core/lilCore.h"
 
 EInput* EInput::s_Instance = 0;
 

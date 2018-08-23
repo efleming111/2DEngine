@@ -7,14 +7,7 @@
 
 #pragma once
 
-enum MouseButton {
-	MOUSE_BUTTON_LEFT,
-	MOUSE_BUTTON_MIDDLE,
-	MOUSE_BUTTON_RIGHT,
-	MOUSE_BUTTON_X1,
-	MOUSE_BUTTON_X2,
-	NUMBER_OF_MOUSE_BUTTONS
-};
+
 
 
 class EMouse

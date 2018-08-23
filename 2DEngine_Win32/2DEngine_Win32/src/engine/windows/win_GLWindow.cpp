@@ -5,7 +5,7 @@
 //  4/2/2018
 //
 
-#include "win_GLWindow.h"
+#include "../renderer/lilGLWindow.h"
 #include "../utilities/lilFileIO.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 

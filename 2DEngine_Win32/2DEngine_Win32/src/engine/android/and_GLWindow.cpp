@@ -5,7 +5,7 @@
 //  4/2/2018
 //
 
-#include "and_GLWindow.h"
+#include "../renderer/lilGLWindow.h"
 #include "../utilities/lilFileIO.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
@@ -75,6 +75,11 @@ void laGLWindow::Shutdown()
 void laGLWindow::SwapBuffers()
 {
 	SDL_GL_SwapWindow(m_Window);
+}
+
+void laGLWindow::ShowCursor(bool value)
+{
+	// Empty
 }
 
 bool laGLWindow::LoadData()

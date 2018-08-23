@@ -9,7 +9,7 @@
 
 // Work thru separating windows and android code into separate header files
    Core GLWindow Input
-// Rename files with la prefix to show done file
+// Rename files with lil prefix to show done file
 // Complete engine then revies game files
 
 

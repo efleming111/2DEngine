@@ -12,6 +12,9 @@
 // Rename files with lil prefix to show done file
 // Complete engine then revies game files
 
+// Load input file
+// Call functions into platform specific class that in turn calls into device class
+// ie lilInput -> getButton("Left") -> calls in to keyboard mouse joystick or touch button
 
 int main(int argc, char* argv[])
 {

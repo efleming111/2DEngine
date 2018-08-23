@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\engine\android\and_Input.h" />
     <ClInclude Include="src\engine\audio\lilAudio.h" />
     <ClInclude Include="src\engine\components\lilAnimator.h" />
     <ClInclude Include="src\engine\components\lilCamera.h" />
@@ -160,15 +161,16 @@
     <ClInclude Include="src\engine\gameobjects\lilGameObject.h" />
     <ClInclude Include="src\engine\gameobjects\lilGameObjectManager.h" />
     <ClInclude Include="src\engine\gameobjects\lilTransform.h" />
-    <ClInclude Include="src\engine\input%28redo this last%29\EKeyboard.h" />
-    <ClInclude Include="src\engine\input%28redo this last%29\EMouse.h" />
-    <ClInclude Include="src\engine\input%28redo this last%29\ETouch.h" />
-    <ClInclude Include="src\engine\input%28redo this last%29\EGameController.h" />
-    <ClInclude Include="src\engine\input%28redo this last%29\EInput.h" />
+    <ClInclude Include="src\engine\windows\win_Input.h" />
+    <ClInclude Include="src\engine\windows\EKeyboard.h" />
+    <ClInclude Include="src\engine\windows\EMouse.h" />
+    <ClInclude Include="src\engine\android\ETouch.h" />
+    <ClInclude Include="src\engine\windows\EGameController.h" />
+    <ClInclude Include="src\engine\input%28working here%29\lilInput.h" />
     <ClInclude Include="src\engine\core\lilCore.h" />
     <ClInclude Include="src\engine\physics\lilPhysics.h" />
     <ClInclude Include="src\engine\renderer\lilGLRenderer.h" />
-    <ClInclude Include="src\engine\renderer\EGLWindow.h" />
+    <ClInclude Include="src\engine\renderer\lilGLWindow.h" />
     <ClInclude Include="src\engine\utilities\lilFileIO.h" />
     <ClInclude Include="src\engine\utilities\lilTimer.h" />
     <ClInclude Include="src\engine\game\lilGame.h" />
@@ -187,6 +189,8 @@
     <ClInclude Include="thirdpartysrc\tinyxml\tinyxml.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\engine\android\and_Input.cpp" />
+    <ClCompile Include="src\engine\android\and_GLWindow.cpp" />
     <ClCompile Include="src\engine\audio\lilAudio.cpp" />
     <ClCompile Include="src\engine\components\lilAnimator.cpp" />
     <ClCompile Include="src\engine\components\lilCamera.cpp" />
@@ -199,19 +203,20 @@
     <ClCompile Include="src\engine\renderer\lilTexture.cpp" />
     <ClCompile Include="src\engine\gameobjects\lilGameObject.cpp" />
     <ClCompile Include="src\engine\gameobjects\lilGameObjectManager.cpp" />
-    <ClCompile Include="src\engine\input%28redo this last%29\EKeyboard.cpp" />
-    <ClCompile Include="src\engine\input%28redo this last%29\EMouse.cpp" />
-    <ClCompile Include="src\engine\input%28redo this last%29\ETouch.cpp" />
-    <ClCompile Include="src\engine\input%28redo this last%29\EGameController.cpp" />
-    <ClCompile Include="src\engine\input%28redo this last%29\EInput.cpp" />
+    <ClCompile Include="src\engine\windows\win_Input.cpp" />
+    <ClCompile Include="src\engine\windows\EKeyboard.cpp" />
+    <ClCompile Include="src\engine\windows\EMouse.cpp" />
+    <ClCompile Include="src\engine\android\ETouch.cpp" />
+    <ClCompile Include="src\engine\windows\EGameController.cpp" />
+    <ClCompile Include="src\engine\input%28working here%29\lilInput.cpp" />
     <ClCompile Include="src\engine\core\lilMain.cpp" />
     <ClCompile Include="src\engine\core\lilCore.cpp" />
     <ClCompile Include="src\engine\physics\lilPhysics.cpp" />
     <ClCompile Include="src\engine\renderer\lilGLRenderer.cpp" />
-    <ClCompile Include="src\engine\renderer\EGLWindow.cpp" />
     <ClCompile Include="src\engine\utilities\lilFileIO.cpp" />
     <ClCompile Include="src\engine\utilities\lilTimer.cpp" />
     <ClCompile Include="src\engine\game\lilGame.cpp" />
+    <ClCompile Include="src\engine\windows\win_GLWindow.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\enemies\lilEnemy.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilButtonControls.cpp" />
     <ClCompile Include="src\lilknight\gameobjects\lilHUD.cpp" />

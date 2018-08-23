@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EGLWindow.h
+//  win_GLWindow.h
 //  Eric Fleming
 //  4/2/2018
 //
@@ -11,13 +11,13 @@
 
 #include <SDL.h>
 
-#define lilGLWindow EGLWindow::Instance()
+#define lilGLWindow laGLWindow::Instance()
 
-class EGLWindow
+class laGLWindow
 {
 public:
 	// Returns only instance of class
-	static EGLWindow* Instance();
+	static laGLWindow* Instance();
 
 	// Creates window, returns true on success
 	bool Initialize();
@@ -34,14 +34,13 @@ public:
 	// Swaps the front and back buffers
 	void SwapBuffers();
 
-#ifdef _WIN32
 	// Set weather or not to show mouse cursor
 	// @ value - true shows cursor, false  hides cursor
 	void ShowCursor(bool value);
-#endif
+
 
 private:
-	static EGLWindow* s_Instance;
+	static laGLWindow* s_Instance;
 
 	SDL_Window* m_Window;
 	SDL_GLContext m_GLContext;
@@ -57,9 +56,9 @@ private:
 	bool LoadData();
 
 	// Only one instance of class and no copying
-	EGLWindow() { m_Window = 0; }
-	~EGLWindow() {}
-	EGLWindow(const EGLWindow& window) {}
-	void operator=(const EGLWindow& window) {}
+	laGLWindow() { m_Window = 0; }
+	~laGLWindow() {}
+	laGLWindow(const laGLWindow& window) {}
+	void operator=(const laGLWindow& window) {}
 };
 

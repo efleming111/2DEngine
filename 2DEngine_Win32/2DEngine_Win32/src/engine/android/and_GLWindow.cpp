@@ -1,25 +1,25 @@
 //
 //  2DEngine
-//  EGLWindow.cpp
+//  and_GLWindow.cpp
 //  Eric Fleming
 //  4/2/2018
 //
 
-#include "EGLWindow.h"
-#include "../utilities/EFileIO.h"
+#include "and_GLWindow.h"
+#include "../utilities/lilFileIO.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
-EGLWindow* EGLWindow::s_Instance = 0;
+laGLWindow* laGLWindow::s_Instance = 0;
 
-EGLWindow* EGLWindow::Instance()
+laGLWindow* laGLWindow::Instance()
 {
 	if (!s_Instance)
-		s_Instance = new EGLWindow();
+		s_Instance = new laGLWindow();
 
 	return s_Instance;
 }
 
-bool EGLWindow::Initialize()
+bool laGLWindow::Initialize()
 {
 	if (!LoadData())
 	{
@@ -35,35 +35,6 @@ bool EGLWindow::Initialize()
 
 	int flags = 0;
 
-#ifdef _WIN32
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-
-	if (m_Fullscreen)
-	{
-		flags = SDL_WINDOW_FULLSCREEN | SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE;
-		SDL_DisplayMode dm;
-		if (SDL_GetDisplayMode(0, 0, &dm))
-		{
-			SDL_Log("ERROR: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
-			m_Fullscreen = false;
-		}
-
-		else
-		{
-			m_Width = dm.w;
-			m_Height = dm.h;
-		}
-	}
-
-	if (!m_Fullscreen)
-	{
-		flags = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE;
-	}
-#endif
-
-#ifdef __ANDROID__
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
@@ -79,14 +50,6 @@ bool EGLWindow::Initialize()
 
 	m_Width = dm.w;
 	m_Height = dm.h;
-#endif
-	// TODO: Erase this after comfirmation
-	int major = 0;
-	int minor = 0;
-	if (!SDL_GL_GetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, &major) && !SDL_GL_GetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, &minor))
-	{
-		SDL_Log("REPORT: OpenGL version %d.%d %s %d", major, minor, __FILE__, __LINE__);
-	}
 
 	m_Window = SDL_CreateWindow(m_Title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_Width, m_Height, flags);
 	if (!m_Window)
@@ -102,29 +65,19 @@ bool EGLWindow::Initialize()
 	return true;
 }
 
-void EGLWindow::Shutdown()
+void laGLWindow::Shutdown()
 {
 	SDL_GL_DeleteContext(m_GLContext);
 	SDL_DestroyWindow(m_Window);
 	SDL_Quit();
 }
 
-void EGLWindow::SwapBuffers()
+void laGLWindow::SwapBuffers()
 {
 	SDL_GL_SwapWindow(m_Window);
 }
 
-#ifdef _WIN32
-void EGLWindow::ShowCursor(bool value)
-{
-	if (value)
-		SDL_ShowCursor(SDL_ENABLE);
-	else
-		SDL_ShowCursor(SDL_DISABLE);
-}
-#endif
-
-bool EGLWindow::LoadData()
+bool laGLWindow::LoadData()
 {
 	char* xmlFile = lilFileIO::ReadFile("data/WindowParams.xml", "r");
 

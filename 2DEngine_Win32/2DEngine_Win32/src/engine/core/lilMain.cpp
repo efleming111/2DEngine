@@ -8,7 +8,7 @@
 #include "lilCore.h"
 
 // Work thru separating windows and android code into separate header files
-   Core Game GLWindow
+   Core GLWindow Input
 // Rename files with la prefix to show done file
 // Complete engine then revies game files
 

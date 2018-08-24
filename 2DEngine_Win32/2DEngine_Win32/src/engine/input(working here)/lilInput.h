@@ -93,16 +93,18 @@ public:
 	void Shutdown();
 
 private:
-	static EInput* s_Instance;
+	static laInput* s_Instance;
 
 	SDL_Event m_Event;
 
 	int m_ScreenWidth;
 	int m_ScreenHeight;
 
-	std::vector<UserDefinedInput> mUserInput;
+	std::vector<UserDefinedInput*> mUserInput;
 
 private:
+	bool LoadData();
+
 	// Only one instance of class and no copying
 	laInput();
 	~laInput() {}

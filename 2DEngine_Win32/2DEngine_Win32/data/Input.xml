@@ -127,9 +127,11 @@
 	JB_DPADRIGHT = 15
 	
 -->
-<input>
-  <name>Left</name>
-  <keyboard>43, 78</keyboard>
-  <mouse></mouse>
-  <joystickbutton>12</joystickbutton>
-</input>
+<userdefinedinput>
+    <input>
+        <name name="Left"/>
+        <keyboard key1="43" key2="78"/>
+        <mouse button="0"/>
+        <joystickbutton button="14"/>
+    </input>
+</userdefinedinput>

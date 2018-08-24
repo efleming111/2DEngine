@@ -88,7 +88,7 @@ void lilMouse::SetButton(MouseButton button, bool state)
 
 bool lilMouse::GetButton(MouseButton button)
 {
-	if (button >= 0 && button < NUMBER_OF_MOUSE_BUTTONS)
+	if (button > 0 && button < NUMBER_OF_MOUSE_BUTTONS)
 	{
 		return mButtons[button].down;
 	}
@@ -98,7 +98,7 @@ bool lilMouse::GetButton(MouseButton button)
 
 bool lilMouse::GetButtonDown(MouseButton button)
 {
-	if (button >= 0 && button < NUMBER_OF_MOUSE_BUTTONS)
+	if (button > 0 && button < NUMBER_OF_MOUSE_BUTTONS)
 	{
 		return mButtons[button].pressed;
 	}

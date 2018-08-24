@@ -7,13 +7,27 @@
 
 #pragma once
 
+#include <string>
+#include <map>
+#include <vector>
+
 #include <SDL.h>
 
 #include "win_Mouse.h"
 #include "win_Keyboard.h"
 #include "win_GameController.h"
 
+const int MAX_CURSOR_VALUES = 10;
 const int MAX_GAME_CONTROLLERS = 4;
+
+struct UserDefinedInput
+{
+	std::vector<KeyCode> keyboardCodes;
+	MouseButton mouseButtonCode;
+	JoystickButton joystickButtonCode;
+	JoystickAxis joystickAxisCode;
+	float joystickAxisMultiplier;
+};
 
 struct CursorPosition
 {
@@ -27,7 +41,7 @@ public:
 	lilInputAbstractionLayer();
 
 	// Creates input system
-	bool Initialize(int screenWidth, int screenHeight);
+	bool Initialize();
 
 	// Updates input system
 	void Update();
@@ -36,14 +50,20 @@ public:
 	void Shutdown();
 
 	// Get input state
-	bool GetButton(std::string inputName);
-	bool GetButtonDown(std::string inputName);
-	CursorPosition* GetCursorPosition(std::string inputName);
-	CursorPosition* GetCursorRelativePosition(std::string inputName);
-	float GetValue(std::string inputName);
+	bool GetButton(std::string inputName, int gameControllerIndex);
+	bool GetButtonDown(std::string inputName, int gameControllerIndex);
+
+	void GetCursorPositions(CursorPosition* cursorPositions, int* numberOfCursors);
+	void GetCursorRelativePositions(CursorPosition* cursorRelativePositions, int* numberOfCursors);
+
+	float GetValue(std::string inputName, int gameControllerIndex);
 
 
 private:
+	std::map<std::string, UserDefinedInput> mUserInput;
+	CursorPosition mCursorPositions[MAX_CURSOR_VALUES];
+	CursorPosition mCursorRelativePositions[MAX_CURSOR_VALUES];
+
 	SDL_Event mEvent;
 
 	lilMouse* mMouse;
@@ -51,10 +71,12 @@ private:
 	lilGameController* mGameControllers[MAX_GAME_CONTROLLERS];
 	unsigned mNumberOfControllers;
 
-	int m_ScreenWidth;
-	int m_ScreenHeight;
+	int mScreenWidth;
+	int mScreenHeight;
 
 private:
+	bool LoadData();
+
 	// No copying
 	lilInputAbstractionLayer(const lilInputAbstractionLayer& input) {}
 	void operator=(const lilInputAbstractionLayer& input) {}

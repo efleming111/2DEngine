@@ -261,7 +261,7 @@ void lilKeyboard::SetKey(KeyCode keyCode, bool isPressed)
 
 bool lilKeyboard::GetKey(KeyCode keyCode) const
 {
-	if (keyCode >= 0 && keyCode < NUMBER_OF_KEYS)
+	if (keyCode > 0 && keyCode < NUMBER_OF_KEYS)
 	{
 		return mKeys[keyCode].down;
 	}
@@ -271,7 +271,7 @@ bool lilKeyboard::GetKey(KeyCode keyCode) const
 
 bool lilKeyboard::GetKeyDown(KeyCode keyCode) const
 {
-	if (keyCode >= 0 && keyCode < NUMBER_OF_KEYS)
+	if (keyCode > 0 && keyCode < NUMBER_OF_KEYS)
 	{
 		return mKeys[keyCode].pressed;
 	}

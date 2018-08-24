@@ -15,20 +15,7 @@
 #include "../android/and_Input.h"
 #endif
 
-#include <string>
-#include <vector>
-
-#include <SDL.h>
-
 #include "lilInputDefines.h"
-
-struct UserDefinedInput
-{
-	std::string name;
-	std::vector<KeyCode> keyboardCodes;
-	MouseButton mouseButtonCode;
-	JoystickButton joystickButtonCode;
-};
 
 #define lilInput laInput::Instance()
 
@@ -48,25 +35,20 @@ public:
 	void Shutdown();
 
 	// Get input state
-	bool GetButton(std::string inputName) { return mInputAbstractionLayer->GetButton(inputName); }
-	bool GetButtonDown(std::string inputName) { return mInputAbstractionLayer->GetButtonDown(inputName); }
-	CursorPosition* GetCursorPosition(std::string inputName) { return mInputAbstractionLayer->GetCursorPosition(inputName); }
-	CursorPosition* GetCursorRelativePosition(std::string inputName) { return mInputAbstractionLayer->GetCursorRelativePosition(inputName); }
-	float GetValue(std::string inputName) { return mInputAbstractionLayer->GetValue(inputName); }
+	bool GetButton(std::string inputName, int gameControllerIndex = -1) { return mInputAbstractionLayer->GetButton(inputName, gameControllerIndex); }
+	bool GetButtonDown(std::string inputName, int gameControllerIndex = -1) { return mInputAbstractionLayer->GetButtonDown(inputName, gameControllerIndex); }
+	
+	void GetCursorPositions(CursorPosition* cursorPositions, int* numberOfCursors) { return mInputAbstractionLayer->GetCursorPositions(cursorPositions, numberOfCursors); }
+	void GetCursorRelativePositions(CursorPosition* cursorRelativePositions, int* numberOfCursors) { return mInputAbstractionLayer->GetCursorRelativePositions(cursorRelativePositions, numberOfCursors); }
+	
+	float GetValue(std::string inputName, int gameControllerIndex = -1) { return mInputAbstractionLayer->GetValue(inputName, gameControllerIndex); }
 
 private:
 	static laInput* sInstance;
 
 	lilInputAbstractionLayer* mInputAbstractionLayer;
 
-	int mScreenWidth;
-	int mScreenHeight;
-
-	std::vector<UserDefinedInput*> mUserInput;
-
 private:
-	bool LoadData();
-
 	// Only one instance of class and no copying
 	laInput() { mInputAbstractionLayer = 0; }
 	~laInput() {}

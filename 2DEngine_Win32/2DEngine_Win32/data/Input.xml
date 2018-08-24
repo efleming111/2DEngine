@@ -126,19 +126,29 @@
 	JB_DPADLEFT = 14
 	JB_DPADRIGHT = 15
 	
+	THESE NEED TO BE TESTED
+	JSA_LEFTX = 1
+	JSA_LEFTY = 2
+	JSA_RIGHTX = 3
+	JSA_RIGHTY = 4
+	JSA_TRIGGERLEFT = 5
+	JSA_TRIGGERRIGHT = 6
+	
+	
+	USE 0 TO DEFINE NO INPUT
 -->
 <userdefinedinput>
     <input>
         <name name="Left"/>
         <keyboard key1="43" key2="78"/>
         <mouse button="0"/>
-        <joystickbutton button="14"/>
+        <joystickbutton button="14" axis="1" axismultipier="-1"/>
     </input>
 	<input>
         <name name="Right"/>
         <keyboard key1="45" key2="81"/>
         <mouse button="0"/>
-        <joystickbutton button="15"/>
+        <joystickbutton button="15" axis="1" axismultiplier="1"/>
     </input>
 </userdefinedinput>
 

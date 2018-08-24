@@ -80,7 +80,7 @@ void lilGameController::SetButton(JoystickButton button, bool isPressed)
 
 bool lilGameController::GetButton(JoystickButton button)
 {
-	if (button >= 0 && button < NUMBER_OF_JOYSTICK_BUTTONS)
+	if (button > 0 && button < NUMBER_OF_JOYSTICK_BUTTONS)
 		return mButtons[button].down;
 
 	return false;
@@ -88,7 +88,7 @@ bool lilGameController::GetButton(JoystickButton button)
 
 bool lilGameController::GetButtonDown(JoystickButton button)
 {
-	if (button >= 0 && button < NUMBER_OF_JOYSTICK_BUTTONS)
+	if (button > 0 && button < NUMBER_OF_JOYSTICK_BUTTONS)
 		return mButtons[button].pressed;
 
 	return false;

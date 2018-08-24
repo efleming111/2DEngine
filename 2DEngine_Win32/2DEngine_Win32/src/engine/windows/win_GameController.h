@@ -1,6 +1,6 @@
 //
 //  2DEngine
-//  EGameController.h
+//  win_GameController.h
 //  Eric Fleming
 //  5/7/2018
 //
@@ -9,23 +9,13 @@
 
 #include <SDL.h>
 
-enum JoystickAxis {
-	JSA_LEFTX = SDL_CONTROLLER_AXIS_LEFTX,
-	JSA_LEFTY = SDL_CONTROLLER_AXIS_LEFTY,
-	JSA_RIGHTX = SDL_CONTROLLER_AXIS_RIGHTX,
-	JSA_RIGHTY = SDL_CONTROLLER_AXIS_RIGHTY,
-	JSA_TRIGGERLEFT = SDL_CONTROLLER_AXIS_TRIGGERLEFT,
-	JSA_TRIGGERRIGHT = SDL_CONTROLLER_AXIS_TRIGGERRIGHT,
-	JOYSTICK_AXIS_INVALID = SDL_CONTROLLER_AXIS_INVALID
-};
+#include "../input/lilInputDefines.h"
 
-
-
-class EGameController
+class lilGameController
 {
 public:
-	EGameController() {}
-	~EGameController() {}
+	lilGameController() {}
+	~lilGameController() {}
 
 	// Initializes joystick
 	// @ controller - pointer to the controller 
@@ -67,15 +57,15 @@ private:
 		bool down;
 	};
 
-	SDL_GameController* m_Controller;
+	SDL_GameController* mController;
 
-	int m_DeadZone;
+	int mDeadZone;
 
-	Button m_Buttons[NUMBER_OF_JOYSTICK_BUTTONS];
+	Button mButtons[NUMBER_OF_JOYSTICK_BUTTONS];
 
 private:
 	// No copying
-	EGameController(const EGameController& controller) {}
-	void operator=(const EGameController& controller) {}
+	lilGameController(const lilGameController& controller) {}
+	void operator=(const lilGameController& controller) {}
 };
 

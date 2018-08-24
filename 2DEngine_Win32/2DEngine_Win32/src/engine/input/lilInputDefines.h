@@ -1,22 +1,11 @@
 //
 //  2DEngine
-//  lilInput.h
+//  lilInputDefines.h
 //  Eric Fleming
-//  4/2/2018
+//  8/24/2018
 //
 
 #pragma once
-
-#ifdef _WIN32
-#include "../windows/win_Input.h"
-#endif
-
-#ifdef __ANDROID__
-#include "../android/and_Input.h"
-#endif
-
-#include <string>
-#include <vector>
 
 #include <SDL.h>
 
@@ -67,48 +56,13 @@ enum JoystickButton {
 	JB_INVALID = SDL_CONTROLLER_BUTTON_INVALID
 };
 
-struct UserDefinedInput
-{
-	std::string name;
-	std::vector<KeyCode> keyboardCodes;
-	MouseButton mouseButtonCode;
-	JoystickButton joystickButtonCode;
-};
-
-#define lilInput laInput::Instance()
-
-class laInput
-{
-public:
-	// Return only instance of class
-	static laInput* Instance();
-
-	// Creates input system
-	bool Initialize();
-
-	// Updates input system
-	void Update();
-
-	// Closes all input devices and cleans up input system
-	void Shutdown();
-
-private:
-	static laInput* s_Instance;
-
-	SDL_Event m_Event;
-
-	int m_ScreenWidth;
-	int m_ScreenHeight;
-
-	std::vector<UserDefinedInput*> mUserInput;
-
-private:
-	bool LoadData();
-
-	// Only one instance of class and no copying
-	laInput();
-	~laInput() {}
-	laInput(const laInput& input) {}
-	void operator=(const laInput& input) {}
+enum JoystickAxis {
+	JSA_LEFTX = SDL_CONTROLLER_AXIS_LEFTX,
+	JSA_LEFTY = SDL_CONTROLLER_AXIS_LEFTY,
+	JSA_RIGHTX = SDL_CONTROLLER_AXIS_RIGHTX,
+	JSA_RIGHTY = SDL_CONTROLLER_AXIS_RIGHTY,
+	JSA_TRIGGERLEFT = SDL_CONTROLLER_AXIS_TRIGGERLEFT,
+	JSA_TRIGGERRIGHT = SDL_CONTROLLER_AXIS_TRIGGERRIGHT,
+	JOYSTICK_AXIS_INVALID = SDL_CONTROLLER_AXIS_INVALID
 };
 

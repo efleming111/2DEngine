@@ -1,26 +1,31 @@
 //
 //  2DEngine
-//  EMouse.h
+//  win_Mouse.h
 //  Eric Fleming
 //  4/2/2018
 //
 
 #pragma once
 
+#include "../input/lilInputDefines.h"
 
-
-
-class EMouse
+class lilMouse
 {
 public:
-	EMouse() {}
-	~EMouse() {}
+	lilMouse() {}
+	~lilMouse() {}
 
 	// Sets up mouse
 	bool Initialize();
 
 	// Updates frame of button press
 	void Update();
+
+	// Updates button press
+	void UpdateButtonDown(SDL_Event* input);
+
+	// Updates button release
+	void UpdateButtonUp(SDL_Event* input);
 
 	// Set weather a mouse button is pressed
 	// @ whichButton - which button is being set
@@ -46,22 +51,22 @@ public:
 	void SetRelativePosition(float x, float y);
 
 	// Returns the x position of the mouse
-	float X() const { return m_X; }
+	float X() const { return mX; }
 
 	// Returns the y position of the mouse
-	float Y() const { return m_Y; }
+	float Y() const { return mY; }
 
 	// Returns the x relative position of the mouse
-	float RelX() const { return m_RelX; }
+	float RelX() const { return mRelX; }
 
 	// Returns the y relative position of the mouse
-	float RelY() const { return m_RelY; }
+	float RelY() const { return mRelY; }
 
 	// Sets the wheel movement value
 	void SetWheel(float value);
 
 	// Returns the current value of the mouse wheel
-	float Wheel() const { return m_Wheel; }
+	float Wheel() const { return mWheel; }
 
 	// Sets if mouse input will be read after mouse leaves window
 	// If this is set to true, mouse cursor is hidden
@@ -74,18 +79,18 @@ private:
 		bool down;
 	};
 
-	Button m_Buttons[NUMBER_OF_MOUSE_BUTTONS];
+	Button mButtons[NUMBER_OF_MOUSE_BUTTONS];
 
-	float m_Wheel;
+	float mWheel;
 
-	float m_X;
-	float m_Y;
-	float m_RelX;
-	float m_RelY;
+	float mX;
+	float mY;
+	float mRelX;
+	float mRelY;
 
 private:
 	// No copying
-	EMouse(const EMouse& mouse) {}
-	EMouse& operator=(const EMouse& mouse) {}
+	lilMouse(const lilMouse& mouse) {}
+	lilMouse& operator=(const lilMouse& mouse) {}
 };
 

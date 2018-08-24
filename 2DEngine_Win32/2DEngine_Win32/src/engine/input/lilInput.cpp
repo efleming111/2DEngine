@@ -13,32 +13,35 @@
 #include "../core/lilCore.h"
 #include "../utilities/lilFileIO.h"
 
-laInput* laInput::s_Instance = 0;
+laInput* laInput::sInstance = 0;
 
 laInput* laInput::Instance()
 {
-	if (!s_Instance)
-		s_Instance = new laInput();
+	if (!sInstance)
+		sInstance = new laInput();
 
-	return s_Instance;
+	return sInstance;
 }
 
 bool laInput::Initialize()
 {
-	m_ScreenWidth = lilGLWindow->Width();
-	m_ScreenHeight = lilGLWindow->Height();
+	mScreenWidth = lilGLWindow->Width();
+	mScreenHeight = lilGLWindow->Height();
+
+	mInputAbstractionLayer = new lilInputAbstractionLayer();
+	mInputAbstractionLayer->Initialize(mScreenWidth, mScreenHeight);
 
 	return LoadData();
 }
 
 void laInput::Update()
 {
-	// Call Update of the platform specific input class
+	mInputAbstractionLayer->Update();
 }
 
 void laInput::Shutdown()
 {
-	// Call Shutdown of the platform specific input class
+	mInputAbstractionLayer->Shutdown();
 }
 
 bool laInput::LoadData()

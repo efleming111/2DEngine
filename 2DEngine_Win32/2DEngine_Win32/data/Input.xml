@@ -134,4 +134,15 @@
         <mouse button="0"/>
         <joystickbutton button="14"/>
     </input>
+	<input>
+        <name name="Right"/>
+        <keyboard key1="45" key2="81"/>
+        <mouse button="0"/>
+        <joystickbutton button="15"/>
+    </input>
 </userdefinedinput>
+
+
+
+
+

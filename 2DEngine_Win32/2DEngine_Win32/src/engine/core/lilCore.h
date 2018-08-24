@@ -14,7 +14,7 @@
 
 #include "../game/lilGame.h"
 
-#define lilEngine ECore::Instance()
+#define lilEngine laCore::Instance()
 
 class laCore
 {

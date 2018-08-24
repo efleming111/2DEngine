@@ -1,25 +1,33 @@
 //
 //  2DEngine
-//  EKeyboard.h
+//  win_Keyboard.h
 //  Eric Fleming
 //  4/2/2018
 //
 
 #pragma once
 
+#include <SDL.h>
 
+#include "../input/lilInputDefines.h"
 
-class EKeyboard
+class lilKeyboard
 {
 public:
-	EKeyboard() {}
-	~EKeyboard() {}
+	lilKeyboard() {}
+	~lilKeyboard() {}
 
 	// Sets up keyboard
 	bool Initialize();
 
 	// Updates frame of key press
 	void Update();
+
+	// Updates key press
+	void UpdateKeyDown(SDL_Event* input);
+
+	// Updates key release
+	void UpdateKeyUp(SDL_Event* input);
 
 	// Set state of key
 	// @ keycode - key code of the key being set
@@ -41,11 +49,11 @@ private:
 		bool down;
 	};
 
-	Key m_Keys[NUMBER_OF_KEYS];
+	Key mKeys[NUMBER_OF_KEYS];
 
 private:
 	// No copying
-	EKeyboard(const EKeyboard& keyboard) {}
-	EKeyboard& operator=(const EKeyboard& keyboard) {}
+	lilKeyboard(const lilKeyboard& keyboard) {}
+	lilKeyboard& operator=(const lilKeyboard& keyboard) {}
 };
 

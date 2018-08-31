@@ -14,19 +14,19 @@
 #include "../physics/lilPhysics.h"
 
 
-laCore* laCore::s_Instance = 0;
+laCore* laCore::sInstance = 0;
 
 laCore* laCore::Instance()
 {
-	if (!s_Instance)
-		s_Instance = new laCore();
+	if (!sInstance)
+		sInstance = new laCore();
 
-	return s_Instance;
+	return sInstance;
 }
 
 bool laCore::Initialize()
 {
-	m_Running = true;
+	mRunning = true;
 
 #ifdef __ANDROID__
 	SDL_SetEventFilter(AndroidLifeCycleEvents, 0);
@@ -50,11 +50,11 @@ bool laCore::Initialize()
 	if (!lilPhysics->Initialize(0.0f, -10.0f))
 		return false;
 
-	m_Game = new lilGame();
-	if (!m_Game->Initialize())
+	mGame = new lilGame();
+	if (!mGame->Initialize())
 	{
 		SDL_Log("ERROR: Game Failed To Initialize, %s %d", __FILE__, __LINE__);
-		m_Running = false;
+		mRunning = false;
 	}
 
 	return true;
@@ -63,7 +63,7 @@ bool laCore::Initialize()
 void laCore::Run()
 {
 	lilTimer->Start();
-	while (m_Running)
+	while (mRunning)
 	{
 		// Update core systems
 		lilTimer->Update();
@@ -71,7 +71,7 @@ void laCore::Run()
 		lilPhysics->Update();
 
 		// Update game
-		m_Game->Update();
+		mGame->Update();
 
 		// Renderer
 		lilGLRenderer->DrawFrame();
@@ -84,9 +84,9 @@ void laCore::Run()
 
 void laCore::ShutDown()
 {
-	m_Game->CleanUp();
-	delete m_Game;
-	m_Game = 0;
+	mGame->CleanUp();
+	delete mGame;
+	mGame = 0;
 
 	lilPhysics->Shutdown();
 	lilAudio->Shutdown();
@@ -96,7 +96,7 @@ void laCore::ShutDown()
 
 void laCore::Quit()
 {
-	m_Running = false;
+	mRunning = false;
 }
 
 void laCore::HandleCommandArgs(int numOfArgs, char* args[])
@@ -104,7 +104,7 @@ void laCore::HandleCommandArgs(int numOfArgs, char* args[])
 	for (int i = 0; i < numOfArgs; ++i)
 	{
 		std::string arg = args[i];
-		m_CommandLineArgs.push_back(arg);
+		mCommandLineArgs.push_back(arg);
 	}
 }
 
@@ -112,7 +112,7 @@ bool laCore::IsCommandActive(std::string command)
 {
 	bool temp = false;
 
-	for (std::list<std::string>::iterator it = m_CommandLineArgs.begin(); it != m_CommandLineArgs.end(); it++)
+	for (std::list<std::string>::iterator it = mCommandLineArgs.begin(); it != mCommandLineArgs.end(); it++)
 		if ((*it).compare(command) == 0)
 			return true;
 

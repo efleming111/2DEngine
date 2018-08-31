@@ -33,8 +33,8 @@ public:
 	std::string GetName();
 
 private:
-	GLuint m_ID;
-	std::string m_Name;
+	GLuint mID;
+	std::string mName;
 
 private:
 	// No copying

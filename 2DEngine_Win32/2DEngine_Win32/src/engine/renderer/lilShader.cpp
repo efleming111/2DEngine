@@ -13,7 +13,7 @@
 
 void lilShader::Create(const char* filename)
 {
-	m_Name = filename;
+	mName = filename;
 	std::string vertexShader = filename;
 	std::string fragmentShader = filename;
 	vertexShader += ".vert";
@@ -22,7 +22,7 @@ void lilShader::Create(const char* filename)
 	unsigned vertexID = CompileVertexShader(vertexShader.c_str());
 	unsigned fragmentID = ComplieFragmentShader(fragmentShader.c_str());
 
-	m_ID = LinkShaderPrograms(vertexID, fragmentID);
+	mID = LinkShaderPrograms(vertexID, fragmentID);
 
 	glDeleteShader(vertexID);
 	glDeleteShader(fragmentID);
@@ -30,67 +30,67 @@ void lilShader::Create(const char* filename)
 
 void lilShader::Destroy()
 {
-	glDeleteProgram(m_ID);
+	glDeleteProgram(mID);
 }
 
 void lilShader::SetAsCurrent()
 {
-	glUseProgram(m_ID);
+	glUseProgram(mID);
 }
 
 void lilShader::SetUniform(const char * name, bool value)
 {
-	int location = glGetUniformLocation(m_ID, name);
-	glUseProgram(m_ID);
+	int location = glGetUniformLocation(mID, name);
+	glUseProgram(mID);
 	glUniform1i(location, (int)value);
 }
 
 void lilShader::SetUniform(const char * name, int value)
 {
-	int location = glGetUniformLocation(m_ID, name);
-	glUseProgram(m_ID);
+	int location = glGetUniformLocation(mID, name);
+	glUseProgram(mID);
 	glUniform1i(location, value);
 }
 
 void lilShader::SetUniform(const char * name, float value)
 {
-	int location = glGetUniformLocation(m_ID, name);
-	glUseProgram(m_ID);
+	int location = glGetUniformLocation(mID, name);
+	glUseProgram(mID);
 	glUniform1f(location, value);
 }
 
 void lilShader::SetUniform(const char * name, float x, float y)
 {
-	int location = glGetUniformLocation(m_ID, name);
-	glUseProgram(m_ID);
+	int location = glGetUniformLocation(mID, name);
+	glUseProgram(mID);
 	glUniform2f(location, x, y);
 }
 
 void lilShader::SetUniform(const char * name, float x, float y, float z)
 {
-	int location = glGetUniformLocation(m_ID, name);
-	glUseProgram(m_ID);
+	int location = glGetUniformLocation(mID, name);
+	glUseProgram(mID);
 	glUniform3f(location, x, y, z);
 }
 
 void lilShader::SetUniform(const char* name, float x, float y, float z, float w)
 {
-	int location = glGetUniformLocation(m_ID, name);
-	glUseProgram(m_ID);
+	int location = glGetUniformLocation(mID, name);
+	glUseProgram(mID);
 	glUniform4f(location, x, y, z, w);
 }
 
 void lilShader::SetUniform(const char * name, glm::vec3 vec)
 {
-	int location = glGetUniformLocation(m_ID, name);
-	glUseProgram(m_ID);
+	int location = glGetUniformLocation(mID, name);
+	glUseProgram(mID);
 	glUniform3f(location, vec.x, vec.y, vec.z);
 }
 
 void lilShader::SetUniform(const char* name, float* mat4)
 {
-	int location = glGetUniformLocation(m_ID, name);
-	glUseProgram(m_ID);
+	int location = glGetUniformLocation(mID, name);
+	glUseProgram(mID);
 	glUniformMatrix4fv(location, 1, GL_FALSE, mat4);
 }
 

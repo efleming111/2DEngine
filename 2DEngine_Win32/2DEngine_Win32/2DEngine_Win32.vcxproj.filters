@@ -117,28 +117,22 @@
     <ClInclude Include="src\engine\renderer\lilGLWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\android\ETouch.h">
+    <ClInclude Include="src\engine\input\lilInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\windows\win_Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\android\and_Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\windows\win_Mouse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\engine\windows\win_Keyboard.h">
+    <ClInclude Include="src\engine\input\lilInputDefines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\engine\windows\win_GameController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\input\lilInput.h">
+    <ClInclude Include="src\engine\windows\win_Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\engine\input\lilInputDefines.h">
+    <ClInclude Include="src\engine\windows\win_Keyboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\windows\win_Mouse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -245,31 +239,22 @@
     <ClCompile Include="src\engine\renderer\lilTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine\android\ETouch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\windows\win_Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\windows\win_GLWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\android\and_GLWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\android\and_Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\windows\win_Mouse.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\engine\windows\win_Keyboard.cpp">
+    <ClCompile Include="src\engine\input\lilInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\windows\win_GameController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\engine\input\lilInput.cpp">
+    <ClCompile Include="src\engine\windows\win_GLWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\windows\win_Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\windows\win_Keyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\windows\win_Mouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

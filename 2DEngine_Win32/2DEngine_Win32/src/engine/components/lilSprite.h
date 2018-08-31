@@ -19,7 +19,7 @@ class lilRenderable;
 class lilSprite : public lilComponent
 {
 public:
-	lilSprite(lilGameObject* gameObject) { m_GameObject = gameObject; }
+	lilSprite(lilGameObject* gameObject) { mGameObject = gameObject; }
 	~lilSprite() {}
 
 	// Creates a sprite

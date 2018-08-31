@@ -6,13 +6,13 @@
 //
 
 #include "lilRigidbody.h"
-#include "../physics/EPhysics.h"
+#include "../physics/lilPhysics.h"
 
 void lilRigidbody::Create(TiXmlElement* element)
 {
 	colliderName = 0;
 
-	m_Type = element->Attribute("type");
+	mType = element->Attribute("type");
 
 	b2BodyDef bodyDef;
 
@@ -24,7 +24,7 @@ void lilRigidbody::Create(TiXmlElement* element)
 	else
 		bodyDef.type = b2_staticBody;
 
-	bodyDef.position.Set(m_GameObject->m_Transform.position.x, m_GameObject->m_Transform.position.y);
+	bodyDef.position.Set(mGameObject->mTransform.position.x, mGameObject->mTransform.position.y);
 
 	std::string canRotate = element->Attribute("canrotate");
 	if (canRotate.compare("true") == 0)
@@ -34,7 +34,7 @@ void lilRigidbody::Create(TiXmlElement* element)
 
 	bodyDef.userData = (void*)this;
 
-	m_Body = lilPhysics->AddBody(&bodyDef);
+	mBody = lilPhysics->AddBody(&bodyDef);
 
 	for (TiXmlElement* colliders = element->FirstChildElement(); colliders; colliders = colliders->NextSiblingElement())
 	{
@@ -48,9 +48,9 @@ void lilRigidbody::Create(TiXmlElement* element)
 
 void lilRigidbody::Update()
 {
-	b2Vec2 pos = m_Body->GetPosition();
-	m_GameObject->m_Transform.position.x = pos.x;
-	m_GameObject->m_Transform.position.y = pos.y;
+	b2Vec2 pos = mBody->GetPosition();
+	mGameObject->mTransform.position.x = pos.x;
+	mGameObject->mTransform.position.y = pos.y;
 }
 
 void lilRigidbody::Destroy()
@@ -60,17 +60,17 @@ void lilRigidbody::Destroy()
 
 void lilRigidbody::SetActive(bool isActive)
 {
-	m_Body->SetActive(isActive);
+	mBody->SetActive(isActive);
 }
 
 void lilRigidbody::BeginContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody)
 {
-	m_GameObject->BeginContact(thisRigidbody, otherRigidbody);
+	mGameObject->BeginContact(thisRigidbody, otherRigidbody);
 }
 
 void lilRigidbody::EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody)
 {
-	m_GameObject->EndContact(thisRigidbody, otherRigidbody);
+	mGameObject->EndContact(thisRigidbody, otherRigidbody);
 }
 
 void lilRigidbody::AddBoxCollider(TiXmlElement* element)
@@ -100,10 +100,10 @@ void lilRigidbody::AddBoxCollider(TiXmlElement* element)
 		fixtureDef.isSensor = false;
 
 	std::string name = element->Attribute("name");
-	m_ColliderNames.push_back(name);
-	fixtureDef.userData = (void*)(&m_ColliderNames.back());
+	mColliderNames.push_back(name);
+	fixtureDef.userData = (void*)(&mColliderNames.back());
 
-	m_Body->CreateFixture(&fixtureDef);
+	mBody->CreateFixture(&fixtureDef);
 }
 
 void lilRigidbody::AddCircleCollider(TiXmlElement * element)
@@ -132,9 +132,9 @@ void lilRigidbody::AddCircleCollider(TiXmlElement * element)
 		fixtureDef.isSensor = false;
 
 	std::string name = element->Attribute("name");
-	m_ColliderNames.push_back(name);
-	fixtureDef.userData = (void*)(&m_ColliderNames.back());
+	mColliderNames.push_back(name);
+	fixtureDef.userData = (void*)(&mColliderNames.back());
 
-	m_Body->CreateFixture(&fixtureDef);
+	mBody->CreateFixture(&fixtureDef);
 }
 

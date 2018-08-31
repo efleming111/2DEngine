@@ -1,39 +1,37 @@
 //
 //  2DEngine
-//  EInput.h
+//  and_Input.h
 //  Eric Fleming
 //  4/2/2018
 //
 
 #pragma once
 
+#include <vector>
+#include <map>
+
 #include <SDL.h>
 
-#ifdef _WIN32
-#include "EMouse.h"
-#include "EKeyboard.h"
-#include "EGameController.h"
+#include "and_Touch.h"
+#include "../input/lilInputDefines.h"
 
-#define lilInput EInput::Instance()
-#define lilMouse EInput::Instance()->GetMouse()
-#define lilKeyboard EInput::Instance()->GetKeyboard()
-#define lilGameController EInput::Instance()->GetController()
+const int MAX_CURSOR_VALUES = 10;
 
-const int MAX_GAME_CONTROLLERS = 4;
-#endif
+struct UserDefinedInput
+{
+	lilButton button;
+};
 
-#ifdef __ANDROID__
-#include "ETouch.h"
+struct CursorPosition
+{
+	float x;
+	float y;
+};
 
-#define lilInput EInput::Instance()
-#define lilTouch EInput::Instance()->GetTouch()
-#endif
-
-class EInput
+class lilInputAbstractionLayer
 {
 public:
-	// Return olny instance of class
-	static EInput* Instance();
+	lilInputAbstractionLayer();
 
 	// Creates input system
 	bool Initialize();
@@ -44,42 +42,31 @@ public:
 	// Closes all input devices and cleans up input system
 	void Shutdown();
 
-#ifdef _WIN32
-	EKeyboard* GetKeyboard() { return m_Keyboard; }
-	EMouse* GetMouse() { return m_Mouse; }
-	EGameController* GetController(unsigned index);
-#endif
+	// Get input state
+	bool GetButton(std::string inputName, int gameControllerIndex);
+	bool GetButtonDown(std::string inputName, int gameControllerIndex);
 
-	// TODO: Test touch input
-#ifdef __ANDROID__
-	// Returns the touch manager
-	ETouch* GetTouch() { return m_Touch; }
-#endif
+	void GetCursorPositions(CursorPosition* cursorPositions, int* numberOfCursors);
+	void GetCursorRelativePositions(CursorPosition* cursorRelativePositions, int* numberOfCursors);
+
+	float GetValue(std::string inputName, int gameControllerIndex) { return 0.0f; }
 
 private:
-	static EInput* s_Instance;
+	std::map<std::string, UserDefinedInput> mUserInput;
+	CursorPosition mCursorPositions[MAX_CURSOR_VALUES];
+	CursorPosition mCursorRelativePositions[MAX_CURSOR_VALUES];
 
-	SDL_Event m_Event;
+	SDL_Event mEvent;
 
-#ifdef _WIN32
-	EMouse* m_Mouse;
-	EKeyboard* m_Keyboard;
-	EGameController* m_GameControllers[MAX_GAME_CONTROLLERS];
-	unsigned m_NumberOfControllers;
-#endif
+	lilTouch* mTouch;
 
-#ifdef __ANDROID__
-	ETouch* m_Touch;
-#endif
-
-	int m_ScreenWidth;
-	int m_ScreenHeight;
+	int mScreenWidth;
+	int mScreenHeight;
 
 private:
-	// Only one instance of class and no copying
-	EInput();
-	~EInput() {}
-	EInput(const EInput& input) {}
-	void operator=(const EInput& input) {}
+	bool LoadData();
+
+	lilInputAbstractionLayer(const lilInputAbstractionLayer& input) {}
+	void operator=(const lilInputAbstractionLayer& input) {}
 };
 

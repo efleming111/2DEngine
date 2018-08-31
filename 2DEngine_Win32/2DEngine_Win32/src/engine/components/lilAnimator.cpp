@@ -9,7 +9,7 @@
 
 void lilAnimator::Create(TiXmlElement* element)
 {
-	m_Type = element->Attribute("type");
+	mType = element->Attribute("type");
 
 	int currentAnimation;
 	element->Attribute("startinganimation", &currentAnimation);
@@ -17,18 +17,18 @@ void lilAnimator::Create(TiXmlElement* element)
 	for (TiXmlElement* animationElement = element->FirstChildElement(); animationElement; animationElement = animationElement->NextSiblingElement())
 	{
 		lilAnimation* animation = new lilAnimation();
-		animation->Create(animationElement, m_GameObject);
-		m_Animations.push_back(animation);
+		animation->Create(animationElement, mGameObject);
+		mAnimations.push_back(animation);
 	}
 
-	m_CurrentAnimation = m_Animations.begin();
+	mCurrentAnimation = mAnimations.begin();
 	for (int i = 0; i < currentAnimation; ++i)
-		m_CurrentAnimation++;
+		mCurrentAnimation++;
 }
 
 void lilAnimator::Update()
 {
-	(*m_CurrentAnimation)->Update();
+	(*mCurrentAnimation)->Update();
 }
 
 void lilAnimator::Destroy()
@@ -38,26 +38,26 @@ void lilAnimator::Destroy()
 
 void lilAnimator::SetCurrentAnimation(unsigned animationIndex)
 {
-	std::list<lilAnimation*>::iterator it = m_Animations.begin();
+	std::list<lilAnimation*>::iterator it = mAnimations.begin();
 	for (unsigned i = 0; i < animationIndex; ++i)
 		it++;
 
-	if (animationIndex < m_Animations.size() && m_CurrentAnimation != it)
+	if (animationIndex < mAnimations.size() && mCurrentAnimation != it)
 	{
-		(*m_CurrentAnimation)->StopAnimation();
-		m_CurrentAnimation = it;
-		(*m_CurrentAnimation)->StartAnimation();
+		(*mCurrentAnimation)->StopAnimation();
+		mCurrentAnimation = it;
+		(*mCurrentAnimation)->StartAnimation();
 	}
 }
 
 void lilAnimator::FlipAnimationX()
 {
-	for (std::list<lilAnimation*>::iterator it = m_Animations.begin(); it != m_Animations.end(); it++)
+	for (std::list<lilAnimation*>::iterator it = mAnimations.begin(); it != mAnimations.end(); it++)
 		(*it)->FlipAnimationX();
 }
 
 void lilAnimator::SetCurrentAnimationIntervalTime(float interval)
 {
-	(*m_CurrentAnimation)->SetIntervalTime(interval);
+	(*mCurrentAnimation)->SetIntervalTime(interval);
 }
 

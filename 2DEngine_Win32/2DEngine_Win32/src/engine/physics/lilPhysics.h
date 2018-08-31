@@ -51,17 +51,17 @@ public:
 	void DestroyBodies();
 
 private:
-	static laPhysics* s_Instance;
+	static laPhysics* sInstance;
 
-	b2World * m_World;
-	std::list<b2Body*> m_Bodies;
+	b2World * mWorld;
+	std::list<b2Body*> mBodies;
 
-	int32 m_VelocityIterations;
-	int32 m_PositionIterations;
+	int32 mVelocityIterations;
+	int32 mPositionIterations;
 
-	lilContactListener m_ContactListener;
+	lilContactListener mContactListener;
 
-	float m_AccumTime;
+	float mAccumTime;
 
 private:
 	// Only one instance of class and no copying

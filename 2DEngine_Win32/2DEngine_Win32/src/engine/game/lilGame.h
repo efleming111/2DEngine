@@ -33,7 +33,7 @@ public:
 
 private:
 	// TODO: Change this to Scene.h
-	lilScene* m_Scene;
+	lilScene* mScene;
 
 private:
 	// No copying of class

@@ -25,10 +25,10 @@ public:
 	void Destroy();
 
 	// Gets the id of the shader program
-	unsigned GetID() { return m_ID; }
+	unsigned GetID() { return mID; }
 
 	// Gets the name of the shader program
-	std::string GetName() { return m_Name; }
+	std::string GetName() { return mName; }
 
 	// Sets this shader as the current shader being used
 	void SetAsCurrent();
@@ -51,8 +51,8 @@ public:
 	void SetUniform(const char* name, float* mat4);
 
 private:
-	unsigned m_ID;
-	std::string m_Name;
+	unsigned mID;
+	std::string mName;
 
 private:
 	char* LoadShaderToString(const char* filename);

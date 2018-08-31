@@ -42,9 +42,9 @@ public:
 	lilGameObject* GetGameObjectByName(std::string name);
 
 private:
-	static laGameObjectManager* s_Instance;
+	static laGameObjectManager* sInstance;
 
-	std::list<lilGameObject*> m_GameObjects;
+	std::list<lilGameObject*> mGameObjects;
 
 private:
 	// Only instance of  game manager object, no copying

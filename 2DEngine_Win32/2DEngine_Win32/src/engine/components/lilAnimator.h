@@ -39,15 +39,15 @@ public:
 	void SetCurrentAnimationIntervalTime(float interval);
 
 	// Return true if animation has finished playing
-	bool IsCurrentAnimationFinished() { return (*m_CurrentAnimation)->IsAnimationFinished(); }
+	bool IsCurrentAnimationFinished() { return (*mCurrentAnimation)->IsAnimationFinished(); }
 
-	void IsRendered(bool isRendered) { (*m_CurrentAnimation)->IsRendered(isRendered); }
+	void IsRendered(bool isRendered) { (*mCurrentAnimation)->IsRendered(isRendered); }
 
-	std::list<lilAnimation*>::iterator m_CurrentAnimation;
+	std::list<lilAnimation*>::iterator mCurrentAnimation;
 private:
-	std::list<lilAnimation*> m_Animations;
+	std::list<lilAnimation*> mAnimations;
 
-	//std::list<EAnimation*>::iterator m_CurrentAnimation;
+	//std::list<EAnimation*>::iterator mCurrentAnimation;
 
 private:
 	// No copying

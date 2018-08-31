@@ -15,7 +15,7 @@
 class lilCamera : public lilComponent
 {
 public:
-	lilCamera(EGameObject* gameObject) : lilComponent(gameObject) {}
+	lilCamera(lilGameObject* gameObject) : lilComponent(gameObject) {}
 	~lilCamera() {}
 
 	// Creates a camera
@@ -39,20 +39,20 @@ public:
 	void Move(float xAmount, float yAmount);
 
 	// Returns the view matrix
-	glm::mat4& GetViewMatrix() { return m_View; }
+	glm::mat4& GetViewMatrix() { return mView; }
 
 	// Returns the projection matrix
-	glm::mat4& GetProjectionMatrix() { return m_Projection; }
+	glm::mat4& GetProjectionMatrix() { return mProjection; }
 
 	// Returns the x position of the camera
-	float X() { return m_GameObject->m_Transform.position.x; }
+	float X() { return mGameObject->mTransform.position.x; }
 
 	// Returns the y position of the camera
-	float Y() { return m_GameObject->m_Transform.position.y; }
+	float Y() { return mGameObject->mTransform.position.y; }
 
 protected:
-	glm::mat4 m_View;
-	glm::mat4 m_Projection;
+	glm::mat4 mView;
+	glm::mat4 mProjection;
 
 private:
 	// No copying

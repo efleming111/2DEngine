@@ -19,20 +19,20 @@ class lilComponent
 {
 public:
 	lilComponent() {}
-	lilComponent(lilGameObject* gameObject) { m_GameObject = gameObject; }
+	lilComponent(lilGameObject* gameObject) { mGameObject = gameObject; }
 	virtual ~lilComponent() {}
 
 	virtual void Create(TiXmlElement* element) = 0;
 	virtual void Update() = 0;
 	virtual void Destroy() = 0;
 
-	std::string& GetType() { return m_Type; }
-	std::string& GetName() { return m_Name; }
+	std::string& GetType() { return mType; }
+	std::string& GetName() { return mName; }
 
 protected:
-	lilGameObject* m_GameObject;
-	std::string m_Type;
-	std::string m_Name;
+	lilGameObject* mGameObject;
+	std::string mType;
+	std::string mName;
 
 private:
 	lilComponent(const lilComponent& component) {}

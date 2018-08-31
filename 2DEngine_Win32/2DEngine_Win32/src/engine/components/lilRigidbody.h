@@ -21,7 +21,7 @@
 class lilRigidbody : public lilComponent
 {
 public:
-	lilRigidbody(lilGameObject* gameObject) { m_GameObject = gameObject; }
+	lilRigidbody(lilGameObject* gameObject) { mGameObject = gameObject; }
 	~lilRigidbody() {}
 
 	// Creates a rigidbody
@@ -46,27 +46,27 @@ public:
 	void EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody);
 
 	// Returns the gameobject this rigidbody is attached to
-	lilGameObject* GetGameObject() { return m_GameObject; }
+	lilGameObject* GetGameObject() { return mGameObject; }
 
 	// Returns the velocity of the rigidbody
-	lilVector2D GetVelocity() { return m_Body->GetLinearVelocity(); }
+	lilVector2D GetVelocity() { return mBody->GetLinearVelocity(); }
 	
 	// Returns the position of the rigidbody
-	lilVector2D GetPosition() { return m_Body->GetPosition(); }
+	lilVector2D GetPosition() { return mBody->GetPosition(); }
 
 	// Sets the velocity of the rigidbody
 	// @ vector - a 2d vector reprresenting the current velocity of the rigidbody
-	void SetVelocity(lilVector2D vector) { m_Body->SetLinearVelocity(vector); }
+	void SetVelocity(lilVector2D vector) { mBody->SetLinearVelocity(vector); }
 
-	void SetPosition(lilVector2D position) { m_Body->SetTransform(position, 0.0f); }
+	void SetPosition(lilVector2D position) { mBody->SetTransform(position, 0.0f); }
 
 	// Pointer to the name of the currently collided collider
 	std::string* colliderName;
 
 protected:
-	b2Body* m_Body;
+	b2Body* mBody;
 
-	std::list<std::string> m_ColliderNames;
+	std::list<std::string> mColliderNames;
 
 private:
 	// No copying

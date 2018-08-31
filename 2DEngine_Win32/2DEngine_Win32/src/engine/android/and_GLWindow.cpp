@@ -9,14 +9,14 @@
 #include "../utilities/lilFileIO.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
-laGLWindow* laGLWindow::s_Instance = 0;
+laGLWindow* laGLWindow::sInstance = 0;
 
 laGLWindow* laGLWindow::Instance()
 {
-	if (!s_Instance)
-		s_Instance = new laGLWindow();
+	if (!sInstance)
+		sInstance = new laGLWindow();
 
-	return s_Instance;
+	return sInstance;
 }
 
 bool laGLWindow::Initialize()
@@ -48,33 +48,33 @@ bool laGLWindow::Initialize()
 		return false;
 	}
 
-	m_Width = dm.w;
-	m_Height = dm.h;
+	mWidth = dm.w;
+	mHeight = dm.h;
 
-	m_Window = SDL_CreateWindow(m_Title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, m_Width, m_Height, flags);
-	if (!m_Window)
+	mWindow = SDL_CreateWindow(mTitle.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, mWidth, mHeight, flags);
+	if (!mWindow)
 	{
 		SDL_Log("ERROR: %s %s %d", SDL_GetError(), __FILE__, __LINE__);
 		SDL_Quit();
 		return false;
 	}
 
-	m_GLContext = SDL_GL_CreateContext(m_Window);
-	SDL_GL_SetSwapInterval(m_VSync);
+	mGLContext = SDL_GL_CreateContext(mWindow);
+	SDL_GL_SetSwapInterval(mVSync);
 
 	return true;
 }
 
 void laGLWindow::Shutdown()
 {
-	SDL_GL_DeleteContext(m_GLContext);
-	SDL_DestroyWindow(m_Window);
+	SDL_GL_DeleteContext(mGLContext);
+	SDL_DestroyWindow(mWindow);
 	SDL_Quit();
 }
 
 void laGLWindow::SwapBuffers()
 {
-	SDL_GL_SwapWindow(m_Window);
+	SDL_GL_SwapWindow(mWindow);
 }
 
 void laGLWindow::ShowCursor(bool value)
@@ -97,27 +97,27 @@ bool laGLWindow::LoadData()
 		return false;
 
 	TiXmlElement* widthElement = rootElement->FirstChildElement("width");
-	m_Width = widthElement->FirstAttribute()->IntValue();
+	mWidth = widthElement->FirstAttribute()->IntValue();
 
 	TiXmlElement* heightElement = rootElement->FirstChildElement("height");
-	m_Height = heightElement->FirstAttribute()->IntValue();
+	mHeight = heightElement->FirstAttribute()->IntValue();
 
 	TiXmlElement* fullscreenElement = rootElement->FirstChildElement("fullscreen");
 	std::string isFullscreen = fullscreenElement->FirstAttribute()->Value();
 	if (isFullscreen.compare("true") == 0)
-		m_Fullscreen = true;
+		mFullscreen = true;
 	else
-		m_Fullscreen = false;
+		mFullscreen = false;
 
 	TiXmlElement* titleElement = rootElement->FirstChildElement("title");
-	m_Title = titleElement->FirstAttribute()->Value();
+	mTitle = titleElement->FirstAttribute()->Value();
 
 	TiXmlElement* vsyncElement = rootElement->FirstChildElement("vsync");
 	std::string isVSync = vsyncElement->FirstAttribute()->Value();
 	if (isVSync.compare("true") == 0)
-		m_VSync = 1;
+		mVSync = 1;
 	else
-		m_VSync = 0;
+		mVSync = 0;
 
 	return true;
 }

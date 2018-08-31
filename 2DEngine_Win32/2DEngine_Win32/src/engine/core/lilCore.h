@@ -45,13 +45,13 @@ public:
 	bool IsCommandActive(std::string command);
 
 private:
-	static laCore* s_Instance;
+	static laCore* sInstance;
 
-	std::list<std::string> m_CommandLineArgs;
+	std::list<std::string> mCommandLineArgs;
 
-	bool m_Running;
+	bool mRunning;
 
-	lilGame* m_Game;
+	lilGame* mGame;
 
 private:
 	//TODO: move this to android file

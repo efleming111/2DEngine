@@ -26,10 +26,10 @@ public:
 	void Shutdown();
 
 	// Returns width of window
-	int Width() const { return m_Width; }
+	int Width() const { return mWidth; }
 
 	// Returns height of window
-	int Height() const { return m_Height; }
+	int Height() const { return mHeight; }
 
 	// Swaps the front and back buffers
 	void SwapBuffers();
@@ -40,23 +40,23 @@ public:
 
 
 private:
-	static laGLWindow* s_Instance;
+	static laGLWindow* sInstance;
 
-	SDL_Window* m_Window;
-	SDL_GLContext m_GLContext;
+	SDL_Window* mWindow;
+	SDL_GLContext mGLContext;
 
-	std::string m_Title;
-	bool m_Fullscreen;
-	int m_Width;
-	int m_Height;
+	std::string mTitle;
+	bool mFullscreen;
+	int mWidth;
+	int mHeight;
 
-	int m_VSync;
+	int mVSync;
 
 private:
 	bool LoadData();
 
 	// Only one instance of class and no copying
-	laGLWindow() { m_Window = 0; }
+	laGLWindow() { mWindow = 0; }
 	~laGLWindow() {}
 	laGLWindow(const laGLWindow& window) {}
 	void operator=(const laGLWindow& window) {}

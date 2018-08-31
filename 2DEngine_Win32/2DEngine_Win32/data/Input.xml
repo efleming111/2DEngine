@@ -136,6 +136,11 @@
 	
 	
 	USE 0 TO DEFINE NO INPUT
+	TOUCH BUTTON -
+	  X - X NORMALIZED POSITION ON SCREEN
+	  Y - Y NORMALIZED POISITON ON SCREEN
+	  WIDTH - NORMALIZED WIDTH OF BUTTON COMPARED TO HEIGHT
+	  HEIGHT - NORMALIZED HEIGHT OF BUTTON
 -->
 <userdefinedinput>
     <input>
@@ -143,12 +148,14 @@
         <keyboard key1="43" key2="78"/>
         <mouse button="0"/>
         <joystickbutton button="14" axis="1" axismultipier="-1"/>
+		<touchbutton x=".25" y=".125" width=".125" height=".125"/>
     </input>
 	<input>
         <name name="Right"/>
         <keyboard key1="45" key2="81"/>
         <mouse button="0"/>
         <joystickbutton button="15" axis="1" axismultiplier="1"/>
+		<touchbutton x=".5" y=".125" width=".125" height=".125"/>
     </input>
 </userdefinedinput>
 

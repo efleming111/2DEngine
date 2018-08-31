@@ -7,75 +7,75 @@
 
 #include "lilTimer.h"
 
-laTimer* laTimer::s_Instance = 0;
+laTimer* laTimer::sInstance = 0;
 
 laTimer* laTimer::Instance()
 {
-	if (!s_Instance)
-		s_Instance = new laTimer();
+	if (!sInstance)
+		sInstance = new laTimer();
 
-	return s_Instance;
+	return sInstance;
 }
 
 bool laTimer::Initialize()
 {
-	m_IsStarted = false;
+	mIsStarted = false;
 
-	m_TimeSinceStart = 0;
-	m_CurrentTime = SDL_GetTicks();
+	mTimeSinceStart = 0;
+	mCurrentTime = SDL_GetTicks();
 
-	m_AccumulatedTime = 0.0f;
-	m_DeltaTime = 0.0f;
+	mAccumulatedTime = 0.0f;
+	mDeltaTime = 0.0f;
 
-	m_Frames = 0;
-	m_FPS = 0;
+	mFrames = 0;
+	mFPS = 0;
 
 	return true;
 }
 
 void laTimer::Start()
 {
-	if (!m_IsStarted)
+	if (!mIsStarted)
 	{
-		m_TimeSinceStart += SDL_GetTicks() - m_CurrentTime;
-		m_CurrentTime = SDL_GetTicks();
-		m_AccumulatedTime = 0.0f;
-		m_DeltaTime = 0.0f;
-		m_Frames = 0;
-		m_FPS = 0;
-		m_IsStarted = true;
+		mTimeSinceStart += SDL_GetTicks() - mCurrentTime;
+		mCurrentTime = SDL_GetTicks();
+		mAccumulatedTime = 0.0f;
+		mDeltaTime = 0.0f;
+		mFrames = 0;
+		mFPS = 0;
+		mIsStarted = true;
 	}
 }
 
 void laTimer::Stop()
 {
-	if (m_IsStarted)
+	if (mIsStarted)
 	{
-		m_AccumulatedTime = 0.0f;
-		m_DeltaTime = 0.0f;
-		m_Frames = 0;
-		m_FPS = 0;
-		m_IsStarted = false;
+		mAccumulatedTime = 0.0f;
+		mDeltaTime = 0.0f;
+		mFrames = 0;
+		mFPS = 0;
+		mIsStarted = false;
 	}
 }
 
 void laTimer::Update()
 {
-	if (m_IsStarted)
+	if (mIsStarted)
 	{
-		m_DeltaTime = (float(SDL_GetTicks() - m_CurrentTime)) / 1000.0f;
-		++m_Frames;
+		mDeltaTime = (float(SDL_GetTicks() - mCurrentTime)) / 1000.0f;
+		++mFrames;
 	}
 
-	m_TimeSinceStart += SDL_GetTicks() - m_CurrentTime;
-	m_CurrentTime = SDL_GetTicks();
+	mTimeSinceStart += SDL_GetTicks() - mCurrentTime;
+	mCurrentTime = SDL_GetTicks();
 
-	m_AccumulatedTime += m_DeltaTime;
-	if (m_AccumulatedTime >= 1.0f)
+	mAccumulatedTime += mDeltaTime;
+	if (mAccumulatedTime >= 1.0f)
 	{
-		m_FPS = m_Frames;
-		m_Frames = 0;
-		m_AccumulatedTime = 0.0f;
+		mFPS = mFrames;
+		mFrames = 0;
+		mAccumulatedTime = 0.0f;
 	}
 }
 

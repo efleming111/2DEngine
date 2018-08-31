@@ -28,17 +28,17 @@ public:
 
 	void Draw(lilSprite* sprite);
 
-	lilShader* GetShader() { return m_Shader; }
+	lilShader* GetShader() { return mShader; }
 
 public:
 	std::string name;
 
 	//private:
-	float m_PixelsPerGameUnit;
+	float mPixelsPerGameUnit;
 
-	lilMesh* m_Mesh;
-	lilShader* m_Shader;
-	unsigned m_TextureID;
+	lilMesh* mMesh;
+	lilShader* mShader;
+	unsigned mTextureID;
 
 private:
 	// No copying

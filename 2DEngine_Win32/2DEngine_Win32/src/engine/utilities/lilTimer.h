@@ -30,27 +30,27 @@ public:
 	void Update();
 
 	// Returns time since last frame
-	float DeltaTime() { return m_DeltaTime; }
+	float DeltaTime() { return mDeltaTime; }
 
 	// Returns time since game loop started
-	float GameTime() { return (float)m_TimeSinceStart; }
+	float GameTime() { return (float)mTimeSinceStart; }
 
 	// Returns current frames per second
-	int FPS() { return m_FPS; }
+	int FPS() { return mFPS; }
 
 private:
-	static laTimer* s_Instance;
+	static laTimer* sInstance;
 
-	Uint32 m_CurrentTime;
-	Uint32 m_TimeSinceStart;
+	Uint32 mCurrentTime;
+	Uint32 mTimeSinceStart;
 
-	float m_AccumulatedTime;
-	float m_DeltaTime;
+	float mAccumulatedTime;
+	float mDeltaTime;
 
-	bool m_IsStarted;
+	bool mIsStarted;
 
-	int m_Frames;
-	int m_FPS;
+	int mFrames;
+	int mFPS;
 
 private:
 	// Only one instance of class and no copying

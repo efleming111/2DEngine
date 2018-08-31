@@ -11,6 +11,14 @@
 
 const int MAX_FINGER_TOUCHES = 10;
 
+struct lilButton
+{
+	float x;
+	float y;
+	float width;
+	float height;
+};
+
 struct Finger
 {
 	SDL_FingerID fingerID;
@@ -24,14 +32,16 @@ struct Finger
 	float yNormalized;
 };
 
-class ETouch
+class lilTouch
 {
 public:
-	ETouch() {}
-	~ETouch() {}
+	lilTouch() {}
+	~lilTouch() {}
 
 	// Initializes touch manager
 	bool Initialize();
+
+	void Update();
 
 	// Sets the touch state of one finger
 	// @ fingerID - id of the finger being set
@@ -44,13 +54,13 @@ public:
 	Finger* GetTouches();
 
 private:
-	float m_ScreenWidth;
-	float m_ScreenHeight;
+	float mScreenWidth;
+	float mScreenHeight;
 
-	Finger m_Touches[MAX_FINGER_TOUCHES];
+	Finger mTouches[MAX_FINGER_TOUCHES];
 
 private:
-	ETouch(const ETouch& touch) {}
-	void operator=(const ETouch& touch) {}
+	lilTouch(const lilTouch& touch) {}
+	void operator=(const lilTouch& touch) {}
 };
 

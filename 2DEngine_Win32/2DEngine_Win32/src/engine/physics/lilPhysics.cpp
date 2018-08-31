@@ -45,61 +45,61 @@ void lilContactListener::EndContact(b2Contact* contact)
 	}
 }
 
-laPhysics* laPhysics::s_Instance = 0;
+laPhysics* laPhysics::sInstance = 0;
 
 laPhysics* laPhysics::Instance()
 {
-	if (!s_Instance)
-		s_Instance = new laPhysics();
+	if (!sInstance)
+		sInstance = new laPhysics();
 
-	return s_Instance;
+	return sInstance;
 }
 
 bool laPhysics::Initialize(float xGravity, float yGravity)
 {
 	b2Vec2 gravity(xGravity, yGravity);
-	m_World = new b2World(gravity);
+	mWorld = new b2World(gravity);
 
-	m_AccumTime = 0.0f;
+	mAccumTime = 0.0f;
 
-	m_VelocityIterations = 6;
-	m_PositionIterations = 2;
+	mVelocityIterations = 6;
+	mPositionIterations = 2;
 
-	m_World->SetContactListener(&m_ContactListener);
+	mWorld->SetContactListener(&mContactListener);
 
 	return true;
 }
 
 void laPhysics::Update()
 {
-	m_AccumTime += lilTimer->DeltaTime();
-	if (m_AccumTime < PHYSICS_TIME_STEP)
+	mAccumTime += lilTimer->DeltaTime();
+	if (mAccumTime < PHYSICS_TIME_STEP)
 		return;
 
-	m_AccumTime -= PHYSICS_TIME_STEP;
+	mAccumTime -= PHYSICS_TIME_STEP;
 
-	m_World->Step(PHYSICS_TIME_STEP, m_VelocityIterations, m_PositionIterations);
+	mWorld->Step(PHYSICS_TIME_STEP, mVelocityIterations, mPositionIterations);
 }
 
 void laPhysics::Shutdown()
 {
 	DestroyBodies();
-	delete m_World;
+	delete mWorld;
 }
 
 b2Body* laPhysics::AddBody(const b2BodyDef* bodyDef)
 {
-	b2Body* tempBody = m_World->CreateBody(bodyDef);
-	m_Bodies.push_back(tempBody);
-	return m_Bodies.back();
+	b2Body* tempBody = mWorld->CreateBody(bodyDef);
+	mBodies.push_back(tempBody);
+	return mBodies.back();
 }
 
 void laPhysics::DestroyBodies()
 {
-	for (std::list<b2Body*>::iterator it = m_Bodies.begin(); it != m_Bodies.end(); ++it)
-		m_World->DestroyBody((*it));
+	for (std::list<b2Body*>::iterator it = mBodies.begin(); it != mBodies.end(); ++it)
+		mWorld->DestroyBody((*it));
 
-	m_Bodies.clear();
+	mBodies.clear();
 }
 
 

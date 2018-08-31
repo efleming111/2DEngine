@@ -40,26 +40,26 @@ public:
 	void FlipAnimationX();
 
 	// Sets the time between frames
-	void SetIntervalTime(float interval) { m_TimeBetweenFrames = interval; }
+	void SetIntervalTime(float interval) { mTimeBetweenFrames = interval; }
 
 	// Return true if animation has finished playing
-	bool IsAnimationFinished() { return m_IsFinished; }
+	bool IsAnimationFinished() { return mIsFinished; }
 
 	void IsRendered(bool isRendered);
 	
-	std::list<lilSprite*>::iterator m_CurrentFrame;
+	std::list<lilSprite*>::iterator mCurrentFrame;
 private:
-	std::list<lilSprite*> m_Frames;
+	std::list<lilSprite*> mFrames;
 
-	//std::list<ESprite*>::iterator m_CurrentFrame;
+	//std::list<ESprite*>::iterator mCurrentFrame;
 
-	float m_TimeBetweenFrames;
-	float m_AccumlativeTime;
+	float mTimeBetweenFrames;
+	float mAccumlativeTime;
 
-	bool m_IsLooping;
-	bool m_IsFinished;
+	bool mIsLooping;
+	bool mIsFinished;
 
-	bool m_IsRendered;
+	bool mIsRendered;
 
 private:
 	// No copying

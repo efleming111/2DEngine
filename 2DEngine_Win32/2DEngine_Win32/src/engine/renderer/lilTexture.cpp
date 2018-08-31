@@ -9,9 +9,9 @@
 
 bool lilTexture::Create(const char * filename)
 {
-	m_Name = filename;
+	mName = filename;
 
-	glGenTextures(1, &m_ID);
+	glGenTextures(1, &mID);
 
 	SDL_Surface* tempSurface = IMG_Load(filename);
 	if (!tempSurface)
@@ -25,7 +25,7 @@ bool lilTexture::Create(const char * filename)
 	unsigned imageSize = 0;
 	GLubyte* imagePixels = 0;
 
-	glBindTexture(GL_TEXTURE_2D, m_ID);
+	glBindTexture(GL_TEXTURE_2D, mID);
 
 	int colorMode = 0;
 	if (tempSurface->format->BytesPerPixel == 3)
@@ -66,15 +66,15 @@ bool lilTexture::Create(const char * filename)
 
 void lilTexture::Destroy()
 {
-	glDeleteTextures(1, &m_ID);
+	glDeleteTextures(1, &mID);
 }
 
 GLuint lilTexture::GetID()
 {
-	return m_ID;
+	return mID;
 }
 
 std::string lilTexture::GetName()
 {
-	return m_Name;
+	return mName;
 }

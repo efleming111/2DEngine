@@ -7,14 +7,14 @@
 
 #include "lilAudio.h"
 
-laAudio* laAudio::s_Instance = 0;
+laAudio* laAudio::sInstance = 0;
 
 laAudio* laAudio::Instance()
 {
-	if (!s_Instance)
-		s_Instance = new laAudio();
+	if (!sInstance)
+		sInstance = new laAudio();
 
-	return s_Instance;
+	return sInstance;
 }
 
 bool laAudio::Initialize()
@@ -43,37 +43,37 @@ void laAudio::Shutdown()
 void laAudio::AddMusic(const char* filename)
 {
 	Mix_Music* music = Mix_LoadMUS(filename);
-	m_Music.push_back(music);
+	mMusic.push_back(music);
 }
 
 void laAudio::AddSound(const char* filename)
 {
 	Mix_Chunk* sound = Mix_LoadWAV(filename);
-	m_Sounds.push_back(sound);
+	mSounds.push_back(sound);
 }
 
 void laAudio::FreeMusic()
 {
-	for (unsigned i = 0; i < m_Music.size(); ++i)
-		Mix_FreeMusic(m_Music[i]);
+	for (unsigned i = 0; i < mMusic.size(); ++i)
+		Mix_FreeMusic(mMusic[i]);
 
-	m_Music.resize(0);
+	mMusic.resize(0);
 }
 
 void laAudio::FreeSounds()
 {
-	for (unsigned i = 0; i < m_Sounds.size(); ++i)
-		Mix_FreeChunk(m_Sounds[i]);
+	for (unsigned i = 0; i < mSounds.size(); ++i)
+		Mix_FreeChunk(mSounds[i]);
 
-	m_Sounds.resize(0);
+	mSounds.resize(0);
 }
 
 void laAudio::PlayMusic(unsigned index)
 {
-	if (index < m_Music.size())
+	if (index < mMusic.size())
 	{
 		if (!Mix_PlayingMusic())
-			Mix_PlayMusic(m_Music[index], -1);
+			Mix_PlayMusic(mMusic[index], -1);
 
 		else if (Mix_PausedMusic())
 			Mix_ResumeMusic();
@@ -94,7 +94,7 @@ void laAudio::StopMusic()
 
 void laAudio::PlaySound(unsigned index)
 {
-	if (index < m_Sounds.size())
-		Mix_PlayChannel(-1, m_Sounds[index], 0);
+	if (index < mSounds.size())
+		Mix_PlayChannel(-1, mSounds[index], 0);
 }
 

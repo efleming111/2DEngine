@@ -55,10 +55,10 @@ public:
 	void PlaySound(unsigned index);
 
 private:
-	static laAudio* s_Instance;
+	static laAudio* sInstance;
 
-	std::vector<Mix_Music*> m_Music;
-	std::vector<Mix_Chunk*> m_Sounds;
+	std::vector<Mix_Music*> mMusic;
+	std::vector<Mix_Chunk*> mSounds;
 
 private:
 	// Only one instance of class and no copying

@@ -79,16 +79,16 @@ public:
 	void ClearRenderer();
 
 private:
-	static laGLRenderer* s_Instance;
+	static laGLRenderer* sInstance;
 
-	lilCamera* m_CurrentCamera;
+	lilCamera* mCurrentCamera;
 
-	std::list<lilSprite*> m_Sprites;
-	std::list<lilRenderable*> m_Renderables;
+	std::list<lilSprite*> mSprites;
+	std::list<lilRenderable*> mRenderables;
 
-	std::list<lilMesh*> m_Meshes;
-	std::list<lilTexture*> m_Textures;
-	std::list<lilShader*> m_Shaders;
+	std::list<lilMesh*> mMeshes;
+	std::list<lilTexture*> mTextures;
+	std::list<lilShader*> mShaders;
 
 private:
 	// Only one renderer, no copying

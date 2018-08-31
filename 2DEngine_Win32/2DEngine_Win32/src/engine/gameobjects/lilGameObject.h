@@ -57,13 +57,13 @@ public:
 	lilComponent* GetComponentByName(const char* name);
 
 public:
-	std::string m_Type;
-	std::string m_Name;
-	lilTransform m_Transform;
-	float m_PixelsPerGameUnit;
+	std::string mType;
+	std::string mName;
+	lilTransform mTransform;
+	float mPixelsPerGameUnit;
 
 protected:
-	std::list<lilComponent*> m_Components;
+	std::list<lilComponent*> mComponents;
 
 private:
 	void CreateComponents(TiXmlElement* components);

@@ -27,11 +27,11 @@ public:
 	void Draw();
 
 private:
-	unsigned m_VAO;
-	unsigned m_VBO;
-	unsigned m_EBO;
+	unsigned mVAO;
+	unsigned mVBO;
+	unsigned mEBO;
 
-	unsigned m_IndicesCount;
+	unsigned mIndicesCount;
 
 private:
 	lilMesh(const lilMesh& mesh) {}

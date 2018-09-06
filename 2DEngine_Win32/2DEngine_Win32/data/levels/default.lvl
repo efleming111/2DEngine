@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<level width="0" height="0">
+    <go filename="data/gameobjects/defaultlevelcontroller.go"/>
+</level>

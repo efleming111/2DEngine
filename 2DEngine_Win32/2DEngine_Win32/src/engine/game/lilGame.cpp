@@ -14,34 +14,33 @@
 
 lilGame::lilGame()
 {
-	mScene = 0;
+	mLevelManager = 0;
 }
 
 bool lilGame::Initialize()
 {
-	mScene = new lilScene();
-	// TODO: Change this to generic start scene from which the game is loaded
-	mScene->Create("data/scenes/starterscene.scn");
+	mLevelManager = new laLevelManager();
+	mLevelManager->Create("data/scenes/default.lvl");
 
 	return true;
 }
 
 void lilGame::Update()
 {
-	mScene->Update();
+	mLevelManager->Update();
 
-	if (mScene->loadNewScene)
+	if (mLevelManager->loadNewScene)
 	{
-		std::string newScene = mScene->nextSceneFilename;
-		mScene->Destroy();
-		mScene->Create(newScene.c_str());
+		std::string newScene = mLevelManager->nextSceneFilename;
+		mLevelManager->Destroy();
+		mLevelManager->Create(newScene.c_str());
 	}
 }
 
 void lilGame::CleanUp()
 {
-	mScene->Destroy();
-	delete mScene;
-	mScene = 0;
+	mLevelManager->Destroy();
+	delete mLevelManager;
+	mLevelManager = 0;
 }
 

@@ -9,8 +9,7 @@
 
 #include <string>
 
-// TODO: Change this to Scene.h
-#include "../../lilknight/scenes/lilScene.h"
+#include "../../lilalien/levelmanager/laLevelManager.h"
 
 class lilGame
 {
@@ -32,8 +31,7 @@ public:
 	void CleanUp();
 
 private:
-	// TODO: Change this to Scene.h
-	lilScene* mScene;
+	laLevelManager * mLevelManager;
 
 private:
 	// No copying of class

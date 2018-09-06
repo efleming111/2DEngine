@@ -9,14 +9,14 @@
 
 #include <string>
 
-#include "lilSceneObject.h"
+#include "../gameobjects/laLevelController.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
-class lilScene
+class laLevelManager
 {
 public:
-	lilScene() {}
-	~lilScene() {}
+	laLevelManager() {}
+	~laLevelManager() {}
 
 	// Creates scene from filename passed
 	// @ filename - file name of scene data
@@ -33,13 +33,13 @@ public:
 	std::string nextSceneFilename;
 
 private:
-	SceneObject* m_SceneObject;
-	float m_PixelsPerGameUnit;
+	laLevelController* mLevelController;
+	float mPixelsPerGameUnit;
 
 private:
 	// No copying
-	lilScene(const lilScene& scene) {}
-	void operator=(const lilScene& scene) {}
+	laLevelManager(const laLevelManager& scene) {}
+	void operator=(const laLevelManager& scene) {}
 
 	// Creates all resources and game objects for scene
 	void LoadRenderableResources(TiXmlElement* resources);

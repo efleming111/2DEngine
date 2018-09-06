@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<gob>
-	<resources />
-	<gameobject type="Scene" name="StarterScene" clearcolorred="0" clearcolorgreen="0" clearcolorblue="0">
-		<scenes option1="data/scenes/scene01.scn" />
-		<transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
-		<components/>
-	</gameobject>
-</gob>

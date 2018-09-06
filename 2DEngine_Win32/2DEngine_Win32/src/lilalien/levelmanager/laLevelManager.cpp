@@ -5,22 +5,24 @@
 //  5/21/2018
 //
 
-#include "lilScene.h"
-#include "../../engine/gameobjects/EGameObjectManager.h"
-#include "../../engine/components/ERigidbody.h"
-#include "../../engine/renderer/EGLRenderer.h"
-#include "../../engine/renderer/EGLWindow.h"
-#include "../../engine/audio/EAudio.h"
-#include "../../engine/physics/EPhysics.h"
-#include "../gameobjects/lilPlayer.h"
-#include "../gameobjects/enemies/lilZombie.h"
-#include "../gameobjects/lilLevelObject.h"
-#include "../gameobjects/lilCamera.h"
-#include "../gameobjects/lilHUD.h"
-#include "../gameobjects/lilButtonControls.h"
-#include "../../engine/utilities/EFileIO.h"
+#include "laLevelManager.h"
+#include "../../engine/gameobjects/lilGameObjectManager.h"
+#include "../../engine/components/lilRigidbody.h"
+#include "../../engine/renderer/lilGLRenderer.h"
+#include "../../engine/renderer/lilGLWindow.h"
+#include "../../engine/audio/lilAudio.h"
+#include "../../engine/physics/lilPhysics.h"
+#include "../../engine/utilities/lilFileIO.h"
 
-void lilScene::Create(const char* filename)
+#include "../gameobjects/laPlayer.h"
+#include "../gameobjects/enemies/laZombie.h"
+#include "../gameobjects/laLevelObject.h"
+#include "../gameobjects/laCamera.h"
+#include "../gameobjects/laHUD.h"
+#include "../gameobjects/laButtonControls.h"
+
+
+void laLevelManager::Create(const char* filename)
 {
 	loadNewScene = false;
 
@@ -32,31 +34,30 @@ void lilScene::Create(const char* filename)
 	delete[] xmlFile;
 	xmlFile = 0;
 
-	TiXmlElement* scene = xmlDoc.RootElement();
-	if (!scene)
+	TiXmlElement* level = xmlDoc.RootElement();
+	if (!level)
 		return;
 
-	int sceneWidth, sceneHeight;
-	scene->Attribute("width", &sceneWidth);
-	scene->Attribute("height", &sceneHeight);
-	if (sceneHeight == 0)
-		sceneHeight = 1;
-	m_PixelsPerGameUnit = (float)lilGLWindow->Height() / (float)sceneHeight;
-	SDL_Log("Pixels Per %d, %s %d", (int)m_PixelsPerGameUnit, __FILE__, __LINE__);
+	int levelWidth, levelHeight;
+	level->Attribute("width", &levelWidth);
+	level->Attribute("height", &levelHeight);
+	if (levelHeight == 0)
+		levelHeight = 1;
+	mPixelsPerGameUnit = (float)lilGLWindow->Height() / (float)levelHeight;
 
-	for (TiXmlElement* gob = scene->FirstChildElement(); gob; gob = gob->NextSiblingElement())
+	for (TiXmlElement* go = level->FirstChildElement(); go; go = go->NextSiblingElement())
 	{
-		std::string gobFilename = gob->Attribute("filename");
+		std::string goFilename = go->Attribute("filename");
 
-		char* gobFile = lilFileIO::ReadFile(gobFilename.c_str(), "r");
+		char* goFile = lilFileIO::ReadFile(goFilename.c_str(), "r");
 
-		TiXmlDocument gobDoc;
-		gobDoc.Parse(gobFile);
+		TiXmlDocument goDoc;
+		goDoc.Parse(goFile);
 
-		delete[] gobFile;
-		gobFile = 0;
+		delete[] goFile;
+		goFile = 0;
 
-		TiXmlElement* rootElement = gobDoc.RootElement();
+		TiXmlElement* rootElement = goDoc.RootElement();
 		if (!rootElement)
 			return;
 
@@ -67,15 +68,15 @@ void lilScene::Create(const char* filename)
 	lilGameObjectManager->OnStart();
 }
 
-void lilScene::Update()
+void laLevelManager::Update()
 {
 	lilGameObjectManager->Update();
 
-	loadNewScene = m_SceneObject->ChangeScene();
-	nextSceneFilename = m_SceneObject->GetNextScene();
+	loadNewScene = mLevelController->ChangeScene();
+	nextSceneFilename = mLevelController->GetNextScene();
 }
 
-void lilScene::Destroy()
+void laLevelManager::Destroy()
 {
 	// This Order is important
 	lilPhysics->DestroyBodies();
@@ -85,7 +86,7 @@ void lilScene::Destroy()
 	lilGLRenderer->ClearRenderer();
 }
 
-void lilScene::LoadRenderableResources(TiXmlElement* resources)
+void laLevelManager::LoadRenderableResources(TiXmlElement* resources)
 {
 	// TODO: Add new type of resource here
 	for (TiXmlElement* asset = resources->FirstChildElement(); asset; asset = asset->NextSiblingElement())
@@ -93,11 +94,11 @@ void lilScene::LoadRenderableResources(TiXmlElement* resources)
 		std::string type = asset->Attribute("type");
 
 		if (type.compare("Renderable") == 0)
-			lilGLRenderer->AddRenderable(asset, m_PixelsPerGameUnit);
+			lilGLRenderer->AddRenderable(asset, mPixelsPerGameUnit);
 	}
 }
 
-void lilScene::GameObjectFactory(TiXmlElement* rootElement)
+void laLevelManager::GameObjectFactory(TiXmlElement* rootElement)
 {
 	// TODO: Add new game objects here
 	for (TiXmlElement* gameObject = rootElement->FirstChildElement("gameobject"); gameObject; gameObject = gameObject->NextSiblingElement())
@@ -106,9 +107,9 @@ void lilScene::GameObjectFactory(TiXmlElement* rootElement)
 
 		if (type.compare("Scene") == 0)
 		{
-			m_SceneObject = new SceneObject();
-			m_SceneObject->Create(gameObject, m_PixelsPerGameUnit);
-			lilGameObjectManager->AddGameObject(m_SceneObject);
+			mLevelController = new laLevelController();
+			mLevelController->Create(gameObject, mPixelsPerGameUnit);
+			lilGameObjectManager->AddGameObject(mLevelController);
 		}
 
 		if (type.compare("Camera") == 0)

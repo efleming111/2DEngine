@@ -12,7 +12,7 @@
 
 #include "../../engine/gameobjects/EGameObject.h"
 
-class SceneObject : public EGameObject
+class laLevelController : public EGameObject
 {
 public:
 	SceneObject() {}

@@ -29,9 +29,9 @@ enum KeyCode {
 };
 
 enum MouseButton {
-	NO_MB,
-	MB_LEFT, MB_MIDDLE, MB_RIGHT,
-	MB_X1, MB_X2,
+	NO_MBB,
+	MBB_LEFT, MBB_MIDDLE, MBB_RIGHT,
+	MBB_X1, MBB_X2,
 	NUMBER_OF_MOUSE_BUTTONS
 };
 

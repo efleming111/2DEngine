@@ -1,6 +1,6 @@
 //
-//  lil Knight
-//  lilScene.cpp
+//  lil Alien
+//  laLevelManager.cpp
 //  Eric Fleming
 //  5/21/2018
 //
@@ -14,12 +14,11 @@
 #include "../../engine/physics/lilPhysics.h"
 #include "../../engine/utilities/lilFileIO.h"
 
-#include "../gameobjects/laPlayer.h"
+#include "../gameobjects/characters/laPlayer.h"
 #include "../gameobjects/enemies/laZombie.h"
-#include "../gameobjects/laLevelObject.h"
-#include "../gameobjects/laCamera.h"
-#include "../gameobjects/laHUD.h"
-#include "../gameobjects/laButtonControls.h"
+#include "../gameobjects/level/laLevelObject.h"
+#include "../gameobjects/level/laCamera.h"
+#include "../gameobjects/level/laHUD.h"
 
 
 void laLevelManager::Create(const char* filename)
@@ -105,7 +104,7 @@ void laLevelManager::GameObjectFactory(TiXmlElement* rootElement)
 	{
 		std::string type = gameObject->Attribute("type");
 
-		if (type.compare("Scene") == 0)
+		if (type.compare("LevelController") == 0)
 		{
 			mLevelController = new laLevelController();
 			mLevelController->Create(gameObject, mPixelsPerGameUnit);
@@ -114,50 +113,50 @@ void laLevelManager::GameObjectFactory(TiXmlElement* rootElement)
 
 		if (type.compare("Camera") == 0)
 		{
-			Camera* camera;
-			camera = new Camera();
-			camera->Create(gameObject, m_PixelsPerGameUnit);
+			laCamera* camera;
+			camera = new laCamera();
+			camera->Create(gameObject, mPixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(camera);
 		}
 
 		else if (type.compare("Player") == 0)
 		{
-			Player* player;
-			player = new Player();
-			player->Create(gameObject, m_PixelsPerGameUnit);
+			laPlayer* player;
+			player = new laPlayer();
+			player->Create(gameObject, mPixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(player);
 		}
 
-		else if (type.compare("Zombie") == 0)
+		/*else if (type.compare("Zombie") == 0)
 		{
 			Zombie* zombie;
 			zombie = new Zombie();
 			zombie->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(zombie);
-		}
+		}*/
 
 		else if (type.compare("HUD") == 0)
 		{
-			HUD* hud;
-			hud = new HUD();
-			hud->Create(gameObject, m_PixelsPerGameUnit);
+			laHUD* hud;
+			hud = new laHUD();
+			hud->Create(gameObject, mPixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(hud);
 		}
 
 		else if (type.compare("LevelObject") == 0)
 		{
-			LevelObject* levelObject;
+			laLevelObject* levelObject;
 			levelObject = new LevelObject();
 			levelObject->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(levelObject);
 		}
 
-		else if (type.compare("ButtonControls") == 0)
+		/*else if (type.compare("ButtonControls") == 0)
 		{
 			ButtonControls* buttonControls = new ButtonControls();
 			buttonControls->Create(gameObject, m_PixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(buttonControls);
-		}
+		}*/
 	}
 }
 

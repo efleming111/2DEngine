@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<game>
-    <resources>
-    </resources>
+<level width="0" height="0">
+    <go filename="data/gameobjects/mainmenulevelcontroller.go"/>
+</level>
+<!-- put this in a game object file for the main menugame>
+    <resources/>
     <scene width="0" height="0">
-        <!-- Only one scene object per scene -->
         <gameobject type="Scene" name="MainMenu">
             <scenes option1="data/scenes/scene01.lvl" />
             <transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
@@ -11,4 +12,4 @@
             </components>
         </gameobject>
     </scene>
-</game>
+</game-->

@@ -1,6 +1,6 @@
 //
-//  lil Knight
-//  lilScene.h
+//  lil Alien
+//  laLevelManager.h
 //  Eric Fleming
 //  5/17/2018
 //
@@ -9,7 +9,7 @@
 
 #include <string>
 
-#include "../gameobjects/laLevelController.h"
+#include "../gameobjects/level/laLevelController.h"
 #include "../../../thirdpartysrc/tinyxml/tinyxml.h"
 
 class laLevelManager

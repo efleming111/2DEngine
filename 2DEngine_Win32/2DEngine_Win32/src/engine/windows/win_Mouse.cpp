@@ -48,11 +48,11 @@ void lilMouse::UpdateButtonDown(SDL_Event* input)
 {
 	switch (input->button.button)
 	{
-	case SDL_BUTTON_LEFT: SetButton(MB_LEFT, true); break;
-	case SDL_BUTTON_MIDDLE: SetButton(MB_MIDDLE, true); break;
-	case SDL_BUTTON_RIGHT: SetButton(MB_RIGHT, true); break;
-	case SDL_BUTTON_X1: SetButton(MB_X1, true); break;
-	case SDL_BUTTON_X2: SetButton(MB_X2, true); break;
+	case SDL_BUTTON_LEFT: SetButton(MBB_LEFT, true); break;
+	case SDL_BUTTON_MIDDLE: SetButton(MBB_MIDDLE, true); break;
+	case SDL_BUTTON_RIGHT: SetButton(MBB_RIGHT, true); break;
+	case SDL_BUTTON_X1: SetButton(MBB_X1, true); break;
+	case SDL_BUTTON_X2: SetButton(MBB_X2, true); break;
 	}
 }
 
@@ -60,11 +60,11 @@ void lilMouse::UpdateButtonUp(SDL_Event* input)
 {
 	switch (input->button.button)
 	{
-	case SDL_BUTTON_LEFT: SetButton(MB_LEFT, false); break;
-	case SDL_BUTTON_MIDDLE: SetButton(MB_MIDDLE, false); break;
-	case SDL_BUTTON_RIGHT: SetButton(MB_RIGHT, false); break;
-	case SDL_BUTTON_X1: SetButton(MB_X1, false); break;
-	case SDL_BUTTON_X2: SetButton(MB_X2, false); break;
+	case SDL_BUTTON_LEFT: SetButton(MBB_LEFT, false); break;
+	case SDL_BUTTON_MIDDLE: SetButton(MBB_MIDDLE, false); break;
+	case SDL_BUTTON_RIGHT: SetButton(MBB_RIGHT, false); break;
+	case SDL_BUTTON_X1: SetButton(MBB_X1, false); break;
+	case SDL_BUTTON_X2: SetButton(MBB_X2, false); break;
 	}
 }
 

@@ -39,9 +39,9 @@ void lilRigidbody::Create(TiXmlElement* element)
 	for (TiXmlElement* colliders = element->FirstChildElement(); colliders; colliders = colliders->NextSiblingElement())
 	{
 		std::string colliderType = colliders->Attribute("type");
-		if (colliderType.compare("box") == 0)
+		if (colliderType.compare("Box") == 0)
 			AddBoxCollider(colliders);
-		else if (colliderType.compare("circle") == 0)
+		else if (colliderType.compare("Circle") == 0)
 			AddCircleCollider(colliders);
 	}
 }

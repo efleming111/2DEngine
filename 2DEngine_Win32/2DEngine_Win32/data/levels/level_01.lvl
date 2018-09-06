@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<level width="50" height="14">
+    <go filename="data/gameobjects/camera.go"/>
+	<go filename="data/gameobjects/player.go"/>
+	<go filename="data/gameobjects/playerhud.go"/>
+	<go filename="data/gameobjects/level_01.go"/>
+</level>

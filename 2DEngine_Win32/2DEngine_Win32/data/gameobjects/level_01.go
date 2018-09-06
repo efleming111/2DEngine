@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<gob>
+<go>
     <resources>
         <renderable type="Renderable" name="1.png" pivotpoint="center" texleft="0.125" texright="0.25" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="2.png" pivotpoint="center" texleft="0.625" texright="0.75" texbottom="0.323344" textop="0.525237" texturefile="data/spritesheets/freetilesetspritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
@@ -78,18 +78,22 @@
         <renderable type="Renderable" name="ZombieWalk (9)" pivotpoint="center" texleft="0.653307" texright="0.728457" texbottom="0.735358" textop="0.995662" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="ZombieWalk (10)" pivotpoint="center" texleft="0.420842" texright="0.49499" texbottom="0.735358" textop="0.993492" texturefile="data/spritesheets/zombieboy.png" shaderfile="data/shaders/BasicTextureShader" />
     </resources>
-    <gameobject type="Scene" name="data/scenes/scene01.scn" clearcolorred=".584" clearcolorgreen=".792" clearcolorblue="1.0">
-        <scenes option1="data/scenes/scene02.scn" option2="data/scenes/scene01.scn" />
+	
+	
+    <gameobject type="LevelController" name="Level_01" clearcolorred=".584" clearcolorgreen=".792" clearcolorblue="1.0">
+        <levels option1="data/scenes/scene02.scn" option2="data/scenes/scene01.scn" />
         <playerstart x="3" y="6" />
         <transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <rigidbody type="rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="box" name="option1" width="0.989586" height="4.25" xrel="49.5052" yrel="11.8854" angle="0" density="1" friction="0.3" issensor="true" />
-                <boxcollider type="box" name="option2" width="0.979164" height="2.92709" xrel="49.4896" yrel="4.02083" angle="0" density="1" friction="0.3" issensor="true" />
-                <boxcollider type="box" name="killzone" width="57.8125" height="2.60416" xrel="22.1563" yrel="-1.32294" angle="0" density="1" friction="0.3" issensor="true" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="option1" width="0.989586" height="4.25" xrel="49.5052" yrel="11.8854" angle="0" density="1" friction="0.3" issensor="true" />
+                <boxcollider type="Box" name="option2" width="0.979164" height="2.92709" xrel="49.4896" yrel="4.02083" angle="0" density="1" friction="0.3" issensor="true" />
+                <boxcollider type="Box" name="KillZone" width="57.8125" height="2.60416" xrel="22.1563" yrel="-1.32294" angle="0" density="1" friction="0.3" issensor="true" />
             </rigidbody>
         </components>
     </gameobject>
+	
+	
     <gameobject type="LevelObject" name="Block">
         <transform x="45.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
@@ -1360,4 +1364,4 @@
             </animator>
         </components>
     </gameobject>
-</gob>
+</go>

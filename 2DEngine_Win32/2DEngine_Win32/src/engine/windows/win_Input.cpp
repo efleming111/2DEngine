@@ -152,7 +152,7 @@ bool lilInputAbstractionLayer::GetButton(std::string inputName, int gameControll
 		result = mMouse->GetButton(mUserInput[inputName].mouseButtonCode);
 		if (result)
 			return result;
-		for (int i = 0; i < mUserInput[inputName].keyboardCodes.size(); ++i)
+		for (unsigned i = 0; i < mUserInput[inputName].keyboardCodes.size(); ++i)
 		{
 			result = mKeyboard->GetKey(mUserInput[inputName].keyboardCodes[i]);
 			if (result)
@@ -179,7 +179,7 @@ bool lilInputAbstractionLayer::GetButtonDown(std::string inputName, int gameCont
 		result = mMouse->GetButtonDown(mUserInput[inputName].mouseButtonCode);
 		if (result)
 			return result;
-		for (int i = 0; i < mUserInput[inputName].keyboardCodes.size(); ++i)
+		for (unsigned i = 0; i < mUserInput[inputName].keyboardCodes.size(); ++i)
 		{
 			result = mKeyboard->GetKeyDown(mUserInput[inputName].keyboardCodes[i]);
 			if (result)
@@ -228,7 +228,7 @@ float lilInputAbstractionLayer::GetValue(std::string inputName, int gameControll
 		result = mMouse->GetButton(mUserInput[inputName].mouseButtonCode);
 		if (result)
 			return 1.0f;
-		for (int i = 0; i < mUserInput[inputName].keyboardCodes.size(); ++i)
+		for (unsigned i = 0; i < mUserInput[inputName].keyboardCodes.size(); ++i)
 		{
 			result = mKeyboard->GetKey(mUserInput[inputName].keyboardCodes[i]);
 			if (result)
@@ -281,7 +281,7 @@ bool lilInputAbstractionLayer::LoadData()
 		mUserInput[inputName].mouseButtonCode = mouseButtonCode;
 		mUserInput[inputName].joystickButtonCode = joystickButtonCode;
 		mUserInput[inputName].joystickAxisCode = (JoystickAxis)joystickAxisCode;
-		mUserInput[inputName].joystickAxisMultiplier = joystickAxisMultiplier;
+		mUserInput[inputName].joystickAxisMultiplier = (float)joystickAxisMultiplier;
 	}
 
 	return true;

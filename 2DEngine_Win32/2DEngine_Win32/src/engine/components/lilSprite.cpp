@@ -48,9 +48,9 @@ void lilSprite::Create(TiXmlElement* element)
 	5 - Hud level 1
 	6 - Hud level 2
 	*/
-	transform.position.x = xRelative + mGameObject->m_Transform.position.x;
-	transform.position.y = yRelative + mGameObject->m_Transform.position.y;
-	transform.position.z = (.01f * (float)renderOrder) / mGameObject->m_PixelsPerGameUnit;
+	transform.position.x = xRelative + mGameObject->mTransform.position.x;
+	transform.position.y = yRelative + mGameObject->mTransform.position.y;
+	transform.position.z = (.01f * (float)renderOrder) / mGameObject->mPixelsPerGameUnit;
 	transform.rotation = 0.0f;
 	transform.scale = glm::vec3((float)xScale, (float)yScale, 1.0f);
 
@@ -59,8 +59,8 @@ void lilSprite::Create(TiXmlElement* element)
 
 void lilSprite::Update()
 {
-	transform.position.x = mGameObject->m_Transform.position.x + xRelative;
-	transform.position.y = mGameObject->m_Transform.position.y + yRelative;
+	transform.position.x = mGameObject->mTransform.position.x + xRelative;
+	transform.position.y = mGameObject->mTransform.position.y + yRelative;
 }
 
 void lilSprite::Destroy()

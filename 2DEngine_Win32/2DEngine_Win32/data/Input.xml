@@ -136,6 +136,7 @@
 	
 	
 	USE 0 TO DEFINE NO INPUT
+	
 	TOUCH BUTTON -
 	  X - X NORMALIZED POSITION ON SCREEN
 	  Y - Y NORMALIZED POISITON ON SCREEN
@@ -148,14 +149,28 @@
         <keyboard key1="43" key2="78"/>
         <mouse button="0"/>
         <joystickbutton button="14" axis="1" axismultipier="-1"/>
-		<touchbutton x=".25" y=".125" width=".125" height=".125"/>
+		<touchbutton x=".125" y=".125" width=".125" height=".125"/>
     </input>
 	<input>
         <name name="Right"/>
         <keyboard key1="45" key2="81"/>
         <mouse button="0"/>
         <joystickbutton button="15" axis="1" axismultiplier="1"/>
-		<touchbutton x=".5" y=".125" width=".125" height=".125"/>
+		<touchbutton x=".375" y=".125" width=".125" height=".125"/>
+    </input>
+	<input>
+        <name name="Jump"/>
+        <keyboard key1="69"/>
+        <mouse button="0"/>
+        <joystickbutton button="4" axis="0" axismultiplier="0"/>
+		<touchbutton x=".625" y=".125" width=".125" height=".125"/>
+    </input>
+	<input>
+        <name name="Run"/>
+        <keyboard key1="57"/>
+        <mouse button="0"/>
+        <joystickbutton button="3" axis="0" axismultiplier="0"/>
+		<touchbutton x=".875" y=".125" width=".125" height=".125"/>
     </input>
 </userdefinedinput>
 

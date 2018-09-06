@@ -23,7 +23,7 @@ enum ZombieAnimationState {
 	ZOMBIE_WALK
 };
 
-class Zombie : public Enemy
+class laZombie : public Enemy
 {
 public:
 	Zombie() {}

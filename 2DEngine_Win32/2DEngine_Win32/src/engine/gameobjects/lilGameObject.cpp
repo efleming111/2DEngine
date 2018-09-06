@@ -86,28 +86,29 @@ void lilGameObject::CreateComponents(TiXmlElement* components)
 	for (TiXmlElement* component = components->FirstChildElement(); component; component = component->NextSiblingElement())
 	{
 		std::string type = component->Attribute("type");
-		if (type.compare("camera") == 0)
+
+		if (type.compare("Camera") == 0)
 		{
 			lilCamera* camera = new lilCamera(this);
 			camera->Create(component);
 			mComponents.push_back(camera);
 		}
 
-		else if (type.compare("sprite") == 0)
+		else if (type.compare("Sprite") == 0)
 		{
 			lilSprite* sprite = new lilSprite(this);
 			sprite->Create(component);
 			mComponents.push_back(sprite);
 		}
 
-		else if (type.compare("rigidbody") == 0)
+		else if (type.compare("Rigidbody") == 0)
 		{
 			lilRigidbody* rigidbody = new lilRigidbody(this);
 			rigidbody->Create(component);
 			mComponents.push_back(rigidbody);
 		}
 
-		else if (type.compare("animator") == 0)
+		else if (type.compare("Animator") == 0)
 		{
 			lilAnimator* animator = new lilAnimator(this);
 			animator->Create(component);

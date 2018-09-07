@@ -11,7 +11,7 @@
 #include "../../../engine/input/lilInput.h"
 #include "../../../engine/components/lilRigidbody.h"
 #include "../../../engine/components/lilAnimator.h"
-#include "lilEnemy.h"
+#include "laEnemy.h"
 #include "../level/laLevelController.h"
 
 // TODO: For testing only
@@ -42,7 +42,7 @@ public:
 	void BeginContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody);
 	void EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody);
 
-	void Hit(float amount);
+	void Hit(int amount);
 
 	int GetCoins() { return mCoins; }
 	int GetHealth() { return mHealth; }
@@ -74,14 +74,14 @@ protected:
 
 	bool mIsTakingDamage;
 	bool mCanTakeDamage;
-	float mDamageAmount;
+	int mDamageAmount;
 	float mTotalDamageTime;
 	float mDamageBlinkInterval;
 	float mAccumDamageIntervalTime;
 	float mAccumDamageTime;
 
 	int mCoins;
-	float mHealth;
+	int mHealth;
 	int mScore;
 
 private:

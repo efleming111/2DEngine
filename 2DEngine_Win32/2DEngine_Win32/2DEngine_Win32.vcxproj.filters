@@ -120,16 +120,16 @@
     <ClInclude Include="src\lilalien\gameobjects\level\laHUD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\lilalien\gameobjects\characters\laZombie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lilalien\gameobjects\characters\lilEnemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\lilalien\gameobjects\characters\laPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\lilalien\gameobjects\level\laLevelObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lilalien\gameobjects\characters\laEnemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lilalien\gameobjects\characters\laSnail.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -239,16 +239,16 @@
     <ClCompile Include="src\lilalien\gameobjects\level\laHUD.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\lilalien\gameobjects\characters\lilEnemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lilalien\gameobjects\characters\lilZombie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\lilalien\gameobjects\characters\laPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\lilalien\gameobjects\level\laLevelObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilalien\gameobjects\characters\laEnemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lilalien\gameobjects\characters\laSnail.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

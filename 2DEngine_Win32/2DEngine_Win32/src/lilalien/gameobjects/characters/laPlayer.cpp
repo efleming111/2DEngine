@@ -6,10 +6,9 @@
 //
 
 #include "laPlayer.h"
-#include "enemies/laZombie.h"
-#include "../../engine/utilities/lilTimer.h"
-#include "../../engine/gameobjects/lilGameObjectManager.h"
-#include "../../engine/renderer/lilGLRenderer.h"
+#include "../../../engine/utilities/lilTimer.h"
+#include "../../../engine/gameobjects/lilGameObjectManager.h"
+#include "../../../engine/renderer/lilGLRenderer.h"
 
 void laPlayer::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
@@ -35,7 +34,7 @@ void laPlayer::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 	mJumpPower = (float)jumpPower;
 
 	mCoins = 1;
-	mHealth = 1.f;
+	mHealth = 1;
 	mScore = 1;
 }
 
@@ -62,7 +61,7 @@ void laPlayer::OnStart()
 	mCanTakeDamage = true;
 	mTotalDamageTime = 2.0f;
 	mDamageBlinkInterval = .1f;
-	mDamageAmount = 0.0f;
+	mDamageAmount = 0;
 	mAccumDamageIntervalTime = 0.0f;
 }
 
@@ -200,7 +199,7 @@ void laPlayer::EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidb
 	}
 }
 
-void laPlayer::Hit(float amount)
+void laPlayer::Hit(int amount)
 {
 	if (mCanTakeDamage)
 	{
@@ -212,7 +211,7 @@ void laPlayer::Hit(float amount)
 void laPlayer::TakeDamage()
 {
 	mHealth -= mDamageAmount;
-	mDamageAmount = 0.0f;
+	mDamageAmount = 0;
 	mCanTakeDamage = false;
 
 	mAccumDamageIntervalTime += lilTimer->DeltaTime();

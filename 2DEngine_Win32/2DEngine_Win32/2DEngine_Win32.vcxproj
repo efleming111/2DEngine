@@ -173,9 +173,9 @@
     <ClInclude Include="src\engine\windows\win_Input.h" />
     <ClInclude Include="src\engine\windows\win_Keyboard.h" />
     <ClInclude Include="src\engine\windows\win_Mouse.h" />
-    <ClInclude Include="src\lilalien\gameobjects\characters\lilEnemy.h" />
+    <ClInclude Include="src\lilalien\gameobjects\characters\laEnemy.h" />
     <ClInclude Include="src\lilalien\gameobjects\level\laHUD.h" />
-    <ClInclude Include="src\lilalien\gameobjects\characters\laZombie.h" />
+    <ClInclude Include="src\lilalien\gameobjects\characters\laSnail.h" />
     <ClInclude Include="src\lilalien\gameobjects\level\laLevelController.h" />
     <ClInclude Include="src\lilalien\levelmanager\laLevelManager.h" />
     <ClInclude Include="src\lilalien\gameobjects\level\laCamera.h" />
@@ -212,9 +212,9 @@
     <ClCompile Include="src\engine\windows\win_Input.cpp" />
     <ClCompile Include="src\engine\windows\win_Keyboard.cpp" />
     <ClCompile Include="src\engine\windows\win_Mouse.cpp" />
-    <ClCompile Include="src\lilalien\gameobjects\characters\lilEnemy.cpp" />
+    <ClCompile Include="src\lilalien\gameobjects\characters\laEnemy.cpp" />
     <ClCompile Include="src\lilalien\gameobjects\level\laHUD.cpp" />
-    <ClCompile Include="src\lilalien\gameobjects\characters\lilZombie.cpp" />
+    <ClCompile Include="src\lilalien\gameobjects\characters\laSnail.cpp" />
     <ClCompile Include="src\lilalien\gameobjects\level\laLevelController.cpp" />
     <ClCompile Include="src\lilalien\levelmanager\laLevelManager.cpp" />
     <ClCompile Include="src\lilalien\gameobjects\level\laCamera.cpp" />

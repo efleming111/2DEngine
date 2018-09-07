@@ -15,7 +15,7 @@
 #include "../../engine/utilities/lilFileIO.h"
 
 #include "../gameobjects/characters/laPlayer.h"
-#include "../gameobjects/enemies/laZombie.h"
+#include "../gameobjects/characters/laSnail.h"
 #include "../gameobjects/level/laLevelObject.h"
 #include "../gameobjects/level/laCamera.h"
 #include "../gameobjects/level/laHUD.h"
@@ -146,8 +146,8 @@ void laLevelManager::GameObjectFactory(TiXmlElement* rootElement)
 		else if (type.compare("LevelObject") == 0)
 		{
 			laLevelObject* levelObject;
-			levelObject = new LevelObject();
-			levelObject->Create(gameObject, m_PixelsPerGameUnit);
+			levelObject = new laLevelObject();
+			levelObject->Create(gameObject, mPixelsPerGameUnit);
 			lilGameObjectManager->AddGameObject(levelObject);
 		}
 

@@ -9,7 +9,7 @@
 
 #include "../../../engine/gameobjects/lilGameObjectManager.h"
 #include "../../../engine/gameobjects/lilTransform.h"
-#include "../laPlayer.h"
+#include "../characters/laPlayer.h"
 
 class laPlayer;
 

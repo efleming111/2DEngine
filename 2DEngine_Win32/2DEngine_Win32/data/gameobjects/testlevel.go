@@ -31,7 +31,7 @@
     </resources>
     <gameobject type="LevelController" name="TestLevel" clearcolorred="0.494118" clearcolorgreen="0.752941" clearcolorblue="0.933333">
         <levels option1="data/levels/level_01.lvl" option2="data/levels/level_02.lvl" />
-        <playerstart x="3" y="7" />
+        <playerstart x="3" y="10" />
         <transform x="0" y="0" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components />
     </gameobject>
@@ -2661,6 +2661,266 @@
         <transform x="99.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <sprite type="Sprite" name="Tile" renderablename="Sprite153" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="97.5" y="5.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite698" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="2.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="9.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="14.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite18" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="15.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite18" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="19.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="27.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="28.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="37.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="38.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="39.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="47.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite18" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="51.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="59.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="60.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="67.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite18" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="79.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="80.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="81.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="89.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite18" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="90.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite18" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BackgroundTile">
+        <transform x="94.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Tile" renderablename="Sprite47" renderorder="2" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="11.5" y="2" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="23" height="4" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="34" y="2" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="18" height="4" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="21.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="3" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="22" y="5.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="2" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="73" y="2" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="54" height="4" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="70.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="5" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="70.5" y="5.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="3" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="70.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="85.5" y="4.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="7" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="86" y="5.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="6" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="86.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="5" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="87" y="7.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="4" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="87.5" y="8.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="3" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="88" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="2" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="88.5" y="10.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Collider">
+        <transform x="22.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Ground" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
         </components>
     </gameobject>
 </go>

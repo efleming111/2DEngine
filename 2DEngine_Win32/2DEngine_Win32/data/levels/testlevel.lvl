@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <level width="100" height="14">
     <gofilename name="data/gameobjects/camera.go" />
+    <gofilename name="data/gameobjects/player.go" />
     <gofilename name="data/gameobjects/testlevel.go" />
 </level>

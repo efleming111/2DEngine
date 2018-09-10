@@ -41,6 +41,8 @@ struct TileMap
 
 	int width;
 	int height;
+	int tileWidth;
+	int tileHeight;
 
 	int red;
 	int green;
@@ -198,33 +200,6 @@ void OutputMap(const char* filename)
 	TiXmlElement* sceneComponents = new TiXmlElement("components");
 	lcGameObject->LinkEndChild(sceneComponents);
 
-	// TODO: Create this with the rest of the collision objects
-//	TiXmlElement* sceneRigidbody = new TiXmlElement("rigidbody");
-//	sceneRigidbody->SetAttribute("type", "rigidbody");
-//	sceneRigidbody->SetAttribute("bodytype", "static");
-//	sceneRigidbody->SetAttribute("canrotate", "false");
-//	sceneComponents->LinkEndChild(sceneRigidbody);
-//
-//	for (unsigned i = 0; i < g_TileMap.sceneObject.collisionObjects.size(); ++i)
-//	{
-//		TiXmlElement* boxCollider = new TiXmlElement("boxcollider");
-//		boxCollider->SetAttribute("type", "box");
-//		boxCollider->SetAttribute("name", g_TileMap.sceneObject.collisionObjects[i]->name.c_str());
-//		boxCollider->SetDoubleAttribute("width", g_TileMap.sceneObject.collisionObjects[i]->width / g_TileMap.tileWidth);
-//		boxCollider->SetDoubleAttribute("height", g_TileMap.sceneObject.collisionObjects[i]->height / g_TileMap.tileHeight);
-//
-//		double xPos = (g_TileMap.sceneObject.collisionObjects[i]->x + (g_TileMap.sceneObject.collisionObjects[i]->width * .5)) / g_TileMap.tileWidth;
-//		double yPos = g_TileMap.height - ((g_TileMap.sceneObject.collisionObjects[i]->y + (g_TileMap.sceneObject.collisionObjects[i]->height * .5)) / g_TileMap.tileHeight);
-//		boxCollider->SetDoubleAttribute("xrel", xPos);
-//		boxCollider->SetDoubleAttribute("yrel", yPos);
-//		boxCollider->SetDoubleAttribute("angle", 0.0);
-//		boxCollider->SetDoubleAttribute("density", 1.0);
-//		boxCollider->SetDoubleAttribute("friction", 0.3);
-//		boxCollider->SetAttribute("issensor", "true");
-//
-//		sceneRigidbody->LinkEndChild(boxCollider);
-//	}
-
 	// Output foreground tiles
 	for (unsigned i = 0; i < gTileMap.foregroundIds.size(); ++i)
 	{
@@ -264,104 +239,93 @@ void OutputMap(const char* filename)
 
 	}
 
-//	double mapHeight = g_TileMap.height * g_TileMap.tileHeight;
-//
-//	// Output background game objects
-//	for (unsigned i = 0; i < g_TileMap.backgroundObjects.size(); ++i)
-//	{
-//		if (g_TileMap.backgroundObjects[i]->id >= 0)
-//		{
-//			TiXmlElement* gameobject = new TiXmlElement("gameobject");
-//			gob->LinkEndChild(gameobject);
-//			gameobject->SetAttribute("type", "LevelObject");
-//			gameobject->SetAttribute("name", "Background");
-//
-//			double cenX = (g_TileMap.backgroundObjects[i]->x + (g_TileMap.backgroundObjects[i]->width * .5)) / g_TileMap.tileWidth;
-//			double cenY = ((mapHeight - g_TileMap.backgroundObjects[i]->y) + (g_TileMap.backgroundObjects[i]->height * .5)) / g_TileMap.tileHeight;
-//
-//			TiXmlElement* transform = new TiXmlElement("transform");
-//			transform->SetDoubleAttribute("x", cenX);
-//			transform->SetDoubleAttribute("y", cenY);
-//			transform->SetDoubleAttribute("z", 0.0);
-//			transform->SetAttribute("rotation", 0);
-//			transform->SetAttribute("sx", 1);
-//			transform->SetAttribute("sy", 1);
-//			transform->SetAttribute("sz", 1);
-//			gameobject->LinkEndChild(transform);
-//
-//			TiXmlElement* components = new TiXmlElement("components");
-//			gameobject->LinkEndChild(components);
-//
-//			Sprite* currentSprite = 0;
-//			for (unsigned j = 0; j < g_Sprites.size(); ++j)
-//			{
-//				if (g_Sprites[j]->name.compare(g_TileAtlas[g_TileMap.backgroundObjects[i]->id]) == 0)
-//				{
-//					currentSprite = g_Sprites[j];
-//					break;
-//				}
-//			}
-//
-//			TiXmlElement* sprite = new TiXmlElement("sprite");
-//			sprite->SetAttribute("type", "sprite");
-//			sprite->SetAttribute("name", "background");
-//			sprite->SetAttribute("renderablename", currentSprite->name.c_str());
-//			sprite->SetAttribute("renderorder", 2);
-//			sprite->SetAttribute("isrendered", "true");
-//			sprite->SetDoubleAttribute("width", g_TileMap.backgroundObjects[i]->width / g_TileMap.tileWidth);
-//			sprite->SetDoubleAttribute("height", g_TileMap.backgroundObjects[i]->height / g_TileMap.tileHeight);
-//			sprite->SetDoubleAttribute("xrel", 0.0);
-//			sprite->SetDoubleAttribute("yrel", 0.0);
-//
-//			components->LinkEndChild(sprite);
-//		}
-//	}
-//
-//	// Output collision blocks game objects
-//	for (unsigned i = 0; i < g_TileMap.collisionObjects.size(); ++i)
-//	{
-//		TiXmlElement* gameobject = new TiXmlElement("gameobject");
-//		gob->LinkEndChild(gameobject);
-//		gameobject->SetAttribute("type", "LevelObject");
-//		gameobject->SetAttribute("name", "Collider");
-//
-//		double cenX = ((g_TileMap.collisionObjects[i]->x + (g_TileMap.collisionObjects[i]->width * .5)) / g_TileMap.tileWidth);
-//		double cenY = ((mapHeight - g_TileMap.collisionObjects[i]->y) - (g_TileMap.collisionObjects[i]->height * .5)) / g_TileMap.tileHeight;
-//
-//		TiXmlElement* transform = new TiXmlElement("transform");
-//		transform->SetDoubleAttribute("x", cenX);
-//		transform->SetDoubleAttribute("y", cenY);
-//		transform->SetDoubleAttribute("z", 0.0);
-//		transform->SetAttribute("rotation", 0);
-//		transform->SetAttribute("sx", 1);
-//		transform->SetAttribute("sy", 1);
-//		transform->SetAttribute("sz", 1);
-//		gameobject->LinkEndChild(transform);
-//
-//		TiXmlElement* components = new TiXmlElement("components");
-//		gameobject->LinkEndChild(components);
-//
-//		TiXmlElement* rigidbody = new TiXmlElement("rigidbody");
-//		rigidbody->SetAttribute("type", "rigidbody");
-//		rigidbody->SetAttribute("bodytype", "static");
-//		rigidbody->SetAttribute("canrotate", "false");
-//		components->LinkEndChild(rigidbody);
-//
-//		TiXmlElement* boxCollider = new TiXmlElement("boxcollider");
-//		boxCollider->SetAttribute("type", "box");
-//		boxCollider->SetAttribute("name", g_TileMap.collisionObjects[i]->name.c_str());
-//		boxCollider->SetDoubleAttribute("width", g_TileMap.collisionObjects[i]->width / g_TileMap.tileWidth);
-//		boxCollider->SetDoubleAttribute("height", g_TileMap.collisionObjects[i]->height / g_TileMap.tileHeight);
-//		boxCollider->SetDoubleAttribute("xrel", 0.0);
-//		boxCollider->SetDoubleAttribute("yrel", 0.0);
-//		boxCollider->SetDoubleAttribute("angle", 0.0);
-//		boxCollider->SetDoubleAttribute("density", 1.0);
-//		boxCollider->SetDoubleAttribute("friction", 0.0);
-//		boxCollider->SetAttribute("issensor", "false");
-//
-//		rigidbody->LinkEndChild(boxCollider);
-//	}
-//
+	// Output background tiles
+	for (unsigned i = 0; i < gTileMap.backgroundIds.size(); ++i)
+	{
+		if (gTileMap.backgroundIds[i] >= 0)
+		{
+			TiXmlElement* gameobject = new TiXmlElement("gameobject");
+			go->LinkEndChild(gameobject);
+			gameobject->SetAttribute("type", "Tile");
+			gameobject->SetAttribute("name", "BackgroundTile");
+
+			TiXmlElement* transform = new TiXmlElement("transform");
+			transform->SetDoubleAttribute("x", (double)((int)i % gTileMap.width) + .5);
+			transform->SetDoubleAttribute("y", (double)(gTileMap.height - ((int)i / gTileMap.width)) - .5);
+			transform->SetDoubleAttribute("z", 0.0);
+			transform->SetDoubleAttribute("rotation", 0.0);
+			transform->SetDoubleAttribute("sx", 1.0);
+			transform->SetDoubleAttribute("sy", 1.0);
+			transform->SetDoubleAttribute("sz", 1.0);
+			gameobject->LinkEndChild(transform);
+
+			TiXmlElement* components = new TiXmlElement("components");
+			gameobject->LinkEndChild(components);
+
+			TiXmlElement* sprite = new TiXmlElement("sprite");
+			sprite->SetAttribute("type", "Sprite");
+			sprite->SetAttribute("name", "Tile");
+			sprite->SetAttribute("renderablename", gSprites[gTileMap.backgroundIds[i]]->name.c_str());
+			sprite->SetAttribute("renderorder", 2);
+			sprite->SetAttribute("isrendered", "true");
+			sprite->SetDoubleAttribute("width", 1.0);
+			sprite->SetDoubleAttribute("height", 1.0);
+			sprite->SetDoubleAttribute("xrel", 0.0);
+			sprite->SetDoubleAttribute("yrel", 0.0);
+
+			components->LinkEndChild(sprite);
+		}
+
+	}
+
+	// Output level collision game objects
+	double mapHeight = gTileMap.height * gTileMap.tileHeight;
+	for (unsigned i = 0; i < gTileMap.collisionObjects.size(); ++i)
+	{
+		TiXmlElement* gameobject = new TiXmlElement("gameobject");
+		go->LinkEndChild(gameobject);
+		gameobject->SetAttribute("type", "Tile");
+		gameobject->SetAttribute("name", "Collider");
+
+		double cenX = ((gTileMap.collisionObjects[i]->x + (gTileMap.collisionObjects[i]->width * .5)) / gTileMap.tileWidth);
+		double cenY = ((mapHeight - gTileMap.collisionObjects[i]->y) - (gTileMap.collisionObjects[i]->height * .5)) / gTileMap.tileHeight;
+
+		std::cout << gTileMap.height << " " << gTileMap.tileHeight << std::endl;
+
+		TiXmlElement* transform = new TiXmlElement("transform");
+		transform->SetDoubleAttribute("x", cenX);
+		transform->SetDoubleAttribute("y", cenY);
+		transform->SetDoubleAttribute("z", 0.0);
+		transform->SetAttribute("rotation", 0);
+		transform->SetAttribute("sx", 1);
+		transform->SetAttribute("sy", 1);
+		transform->SetAttribute("sz", 1);
+		gameobject->LinkEndChild(transform);
+
+		TiXmlElement* components = new TiXmlElement("components");
+		gameobject->LinkEndChild(components);
+
+		TiXmlElement* rigidbody = new TiXmlElement("rigidbody");
+		rigidbody->SetAttribute("type", "Rigidbody");
+		rigidbody->SetAttribute("bodytype", "static");
+		rigidbody->SetAttribute("canrotate", "false");
+		components->LinkEndChild(rigidbody);
+
+		TiXmlElement* boxCollider = new TiXmlElement("boxcollider");
+		boxCollider->SetAttribute("type", gTileMap.collisionObjects[i]->type.c_str());
+		boxCollider->SetAttribute("name", gTileMap.collisionObjects[i]->name.c_str());
+		boxCollider->SetDoubleAttribute("width", gTileMap.collisionObjects[i]->width / gTileMap.tileWidth);
+		boxCollider->SetDoubleAttribute("height", gTileMap.collisionObjects[i]->height / gTileMap.tileHeight);
+		boxCollider->SetDoubleAttribute("xrel", 0.0);
+		boxCollider->SetDoubleAttribute("yrel", 0.0);
+		boxCollider->SetDoubleAttribute("angle", 0.0);
+		boxCollider->SetDoubleAttribute("density", 1.0);
+		boxCollider->SetDoubleAttribute("friction", 0.0);
+		boxCollider->SetAttribute("issensor", "false");
+
+		rigidbody->LinkEndChild(boxCollider);
+	}
+
 //	// Output enemy reverse sensors
 //	for (unsigned i = 0; i < g_TileMap.enemyReverse.size(); ++i)
 //	{
@@ -495,6 +459,8 @@ bool ReadInTileMap(const char* filename)
 
 	map->Attribute("width", &gTileMap.width);
 	map->Attribute("height", &gTileMap.height);
+	map->Attribute("tilewidth", &gTileMap.tileWidth);
+	map->Attribute("tileheight", &gTileMap.tileHeight);
 
 	std::string rgb = map->Attribute("backgroundcolor");
 	std::string redStr = rgb.substr(1, 2);

@@ -46,7 +46,7 @@ void laLevelManager::Create(const char* filename)
 
 	for (TiXmlElement* go = level->FirstChildElement(); go; go = go->NextSiblingElement())
 	{
-		std::string goFilename = go->Attribute("filename");
+		std::string goFilename = go->Attribute("name");
 
 		char* goFile = lilFileIO::ReadFile(goFilename.c_str(), "r");
 
@@ -143,7 +143,7 @@ void laLevelManager::GameObjectFactory(TiXmlElement* rootElement)
 			lilGameObjectManager->AddGameObject(hud);
 		}
 
-		else if (type.compare("LevelObject") == 0)
+		else if (type.compare("Tile") == 0)
 		{
 			laLevelObject* levelObject;
 			levelObject = new laLevelObject();

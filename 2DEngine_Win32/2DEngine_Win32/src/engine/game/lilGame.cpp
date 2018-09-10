@@ -20,7 +20,7 @@ lilGame::lilGame()
 bool lilGame::Initialize()
 {
 	mLevelManager = new laLevelManager();
-	mLevelManager->Create("data/scenes/default.lvl");
+	mLevelManager->Create("data/levels/default.lvl");
 
 	return true;
 }

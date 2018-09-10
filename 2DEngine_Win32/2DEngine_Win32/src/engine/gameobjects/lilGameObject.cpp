@@ -53,7 +53,7 @@ void lilGameObject::Destroy()
 	for (std::list<lilComponent*>::iterator it = mComponents.begin(); it != mComponents.end(); ++it)
 	{
 		// Sprites get cleaned up by the renderer
-		if ((*it)->GetType().compare("sprite") == 0)
+		if ((*it)->GetType().compare("Sprite") == 0)
 			continue;
 
 		(*it)->Destroy();
@@ -116,3 +116,5 @@ void lilGameObject::CreateComponents(TiXmlElement* components)
 		}
 	}
 }
+
+

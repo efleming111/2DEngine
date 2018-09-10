@@ -75,7 +75,7 @@ lilRenderable* laGLRenderer::AddSprite(lilSprite* sprite)
 	for (std::list<lilRenderable*>::iterator it = mRenderables.begin(); it != mRenderables.end(); ++it)
 		if (sprite->renderableName.compare((*it)->name) == 0)
 			renderable = (*it);
-	
+
 	mSprites.push_back(sprite);
 
 	return renderable;

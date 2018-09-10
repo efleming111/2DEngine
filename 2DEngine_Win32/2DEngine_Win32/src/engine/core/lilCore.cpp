@@ -112,8 +112,8 @@ bool laCore::IsCommandActive(std::string command)
 {
 	bool temp = false;
 
-	for (std::list<std::string>::iterator it = mCommandLineArgs.begin(); it != mCommandLineArgs.end(); it++)
-		if ((*it).compare(command) == 0)
+	for (unsigned i = 0; i < mCommandLineArgs.size(); ++i)
+		if (mCommandLineArgs[i].compare(command) == 0)
 			return true;
 
 	return false;

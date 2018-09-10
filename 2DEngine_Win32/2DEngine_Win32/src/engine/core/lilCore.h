@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <list>
+#include <vector>
 #include <string>
 
 #include <SDL.h>
@@ -47,7 +47,7 @@ public:
 private:
 	static laCore* sInstance;
 
-	std::list<std::string> mCommandLineArgs;
+	std::vector<std::string> mCommandLineArgs;
 
 	bool mRunning;
 

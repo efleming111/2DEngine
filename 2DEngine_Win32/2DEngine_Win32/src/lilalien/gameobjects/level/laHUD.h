@@ -7,7 +7,6 @@
 
 #pragma once
 
-#include <list>
 
 #include "../../../engine/gameobjects/lilGameObject.h"
 #include "../../../engine/renderer/lilGLRenderer.h"

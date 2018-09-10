@@ -37,10 +37,20 @@ struct CollisionObject
 
 struct TileMap
 {
+	std::string name;
+
 	int width;
 	int height;
 
-	std::vector<std::string> levelGOFilenames;
+	int red;
+	int green;
+	int blue;
+
+	int playerStartX;
+	int playerStartY;
+
+	std::vector<std::string> nextLevelFilenames;
+	std::vector<std::string> goFilenames;
 
 	std::vector<int> foregroundIds;
 	std::vector<int> backgroundIds;
@@ -90,16 +100,19 @@ void OutputMap(const char* filename)
 	level->SetAttribute("height", gTileMap.height);
 	levelDoc.LinkEndChild(level);
 
-	for (unsigned i = 0; i < gTileMap.levelGOFilenames.size(); ++i)
+	for (unsigned i = 0; i < gTileMap.goFilenames.size(); ++i)
 	{
 		TiXmlElement* goFilename = new TiXmlElement("gofilename");
-		goFilename->SetAttribute("name", gTileMap.levelGOFilenames[i].c_str());
+		goFilename->SetAttribute("name", gTileMap.goFilenames[i].c_str());
 		level->LinkEndChild(goFilename);
 	}
 
 	levelDoc.SaveFile(levelFilename.c_str());
 
 	// Create level game object
+	std::string goFilename = filename;
+	goFilename += ".go";
+
 	TiXmlDocument goDoc;
 	TiXmlDeclaration* goDec = new TiXmlDeclaration("1.0", "UTF-8", "");
 	goDoc.LinkEndChild(goDec);
@@ -108,62 +121,84 @@ void OutputMap(const char* filename)
 	TiXmlElement* go = new TiXmlElement("go");
 	goDoc.LinkEndChild(go);
 
-//	// Set up resources
-//	TiXmlElement* resources = new TiXmlElement("resources");
-//	gob->LinkEndChild(resources);
-//
-//	// Output renderable resources
-//	for (unsigned i = 0; i < g_Sprites.size(); ++i)
-//	{
-//		TiXmlElement* renderable = new TiXmlElement("renderable");
-//		resources->LinkEndChild(renderable);
-//
-//		renderable->SetAttribute("type", "Renderable");
-//		renderable->SetAttribute("name", g_Sprites[i]->name.c_str());
-//		renderable->SetAttribute("pivotpoint", "center");
-//
-//		renderable->SetDoubleAttribute("texleft", g_Sprites[i]->x / g_SpriteSheetWidth);
-//		renderable->SetDoubleAttribute("texright", (g_Sprites[i]->x + g_Sprites[i]->width) / g_SpriteSheetWidth);
-//		renderable->SetDoubleAttribute("texbottom", g_Sprites[i]->y / g_SpriteSheetHeight);
-//		renderable->SetDoubleAttribute("textop", (g_Sprites[i]->y + g_Sprites[i]->height) / g_SpriteSheetHeight);
-//		std::string texfile = "data/spritesheets/";
-//		texfile += g_Sprites[i]->textureFilename;
-//		renderable->SetAttribute("texturefile", texfile.c_str());
-//		renderable->SetAttribute("shaderfile", "data/shaders/BasicTextureShader");
-//	}
-//
-//	// Set up scene game object
-//	TiXmlElement* go = new TiXmlElement("gameobject");
-//	go->SetAttribute("type", "Scene");
-//	go->SetAttribute("name", "SCENE_NAME");
-//	go->SetDoubleAttribute("clearcolorred", 0.0);
-//	go->SetDoubleAttribute("clearcolorgreen", 0.0);
-//	go->SetDoubleAttribute("clearcolorblue", 0.0);
-//	gob->LinkEndChild(go);
-//
-//	TiXmlElement* scenes = new TiXmlElement("scenes");
-//	scenes->SetAttribute("option1", "NEXT_SCENE_NAME");
-//	scenes->SetAttribute("option2", "ADD_FOR_ADDITIONAL_SCENE_OPTIONS");
-//	go->LinkEndChild(scenes);
-//
-//	TiXmlElement* playerstart = new TiXmlElement("playerstart");
-//	playerstart->SetDoubleAttribute("x", g_TileMap.sceneObject.playerStartX / g_TileMap.tileWidth);
-//	playerstart->SetDoubleAttribute("y", g_TileMap.sceneObject.playerStartY / g_TileMap.tileHeight);
-//	go->LinkEndChild(playerstart);
-//
-//	TiXmlElement* trans = new TiXmlElement("transform");
-//	trans->SetDoubleAttribute("x", 0);
-//	trans->SetDoubleAttribute("y", 0);
-//	trans->SetDoubleAttribute("z", 0);
-//	trans->SetDoubleAttribute("rotation", 0.0);
-//	trans->SetDoubleAttribute("sx", 1);
-//	trans->SetDoubleAttribute("sy", 1);
-//	trans->SetDoubleAttribute("sz", 1);
-//	go->LinkEndChild(trans);
-//
-//	TiXmlElement* sceneComponents = new TiXmlElement("components");
-//	go->LinkEndChild(sceneComponents);
-//
+	// Set up resources
+	TiXmlElement* resources = new TiXmlElement("resources");
+	go->LinkEndChild(resources);
+
+	// Create list of renderable items
+	std::map<int, bool> renderables;
+	for (unsigned i = 0; i < gTileMap.backgroundIds.size(); ++i)
+		if (gTileMap.backgroundIds[i] >= 0)
+			renderables[gTileMap.backgroundIds[i]] = true;
+
+	for (unsigned i = 0; i < gTileMap.enemyIds.size(); ++i)
+		if (gTileMap.enemyIds[i] >= 0)
+			renderables[gTileMap.enemyIds[i]] = true;
+
+	for (unsigned i = 0; i < gTileMap.objectIds.size(); ++i)
+		if (gTileMap.objectIds[i] >= 0)
+			renderables[gTileMap.objectIds[i]] = true;
+
+	for (unsigned i = 0; i < gTileMap.foregroundIds.size(); ++i)
+		if (gTileMap.foregroundIds[i] >= 0)
+			renderables[gTileMap.foregroundIds[i]] = true;
+
+	// Output renderable resources
+	for (std::map<int, bool>::iterator it = renderables.begin(); it != renderables.end(); ++it)
+	{
+		TiXmlElement* renderable = new TiXmlElement("renderable");
+		resources->LinkEndChild(renderable);
+
+		renderable->SetAttribute("type", "Renderable");
+		renderable->SetAttribute("name", gSprites[it->first]->name.c_str());
+		renderable->SetAttribute("pivotpoint", "center");
+
+		renderable->SetDoubleAttribute("texleft", gSprites[it->first]->x / gSpriteSheetWidth);
+		renderable->SetDoubleAttribute("texright", (gSprites[it->first]->x + gSprites[it->first]->width) / gSpriteSheetWidth);
+		renderable->SetDoubleAttribute("texbottom", gSprites[it->first]->y / gSpriteSheetHeight);
+		renderable->SetDoubleAttribute("textop", (gSprites[it->first]->y + gSprites[it->first]->height) / gSpriteSheetHeight);
+		std::string texfile = gSprites[it->first]->textureFilename;
+		renderable->SetAttribute("texturefile", texfile.c_str());
+		renderable->SetAttribute("shaderfile", "data/shaders/BasicTextureShader");
+	}
+
+	// Create level controller
+	TiXmlElement* lcGameObject = new TiXmlElement("gameobject");
+	lcGameObject->SetAttribute("type", "LevelController");
+	lcGameObject->SetAttribute("name", gTileMap.name.c_str());
+	lcGameObject->SetDoubleAttribute("clearcolorred", (double)gTileMap.red / 255.0);
+	lcGameObject->SetDoubleAttribute("clearcolorgreen", (double)gTileMap.green / 255.0);
+	lcGameObject->SetDoubleAttribute("clearcolorblue", (double)gTileMap.blue / 255.0);
+	go->LinkEndChild(lcGameObject);
+
+	TiXmlElement* levels = new TiXmlElement("levels");
+	for (unsigned i = 0; i < gTileMap.nextLevelFilenames.size(); ++i)
+	{
+		std::ostringstream optionTag;
+		optionTag << "option" << (i + 1);
+		levels->SetAttribute(optionTag.str().c_str(), gTileMap.nextLevelFilenames[i].c_str());
+	}
+	lcGameObject->LinkEndChild(levels);
+
+	TiXmlElement* playerstart = new TiXmlElement("playerstart");
+	playerstart->SetDoubleAttribute("x", gTileMap.playerStartX);
+	playerstart->SetDoubleAttribute("y", gTileMap.playerStartY);
+	lcGameObject->LinkEndChild(playerstart);
+
+	TiXmlElement* trans = new TiXmlElement("transform");
+	trans->SetDoubleAttribute("x", 0);
+	trans->SetDoubleAttribute("y", 0);
+	trans->SetDoubleAttribute("z", 0);
+	trans->SetDoubleAttribute("rotation", 0.0);
+	trans->SetDoubleAttribute("sx", 1);
+	trans->SetDoubleAttribute("sy", 1);
+	trans->SetDoubleAttribute("sz", 1);
+	lcGameObject->LinkEndChild(trans);
+
+	TiXmlElement* sceneComponents = new TiXmlElement("components");
+	lcGameObject->LinkEndChild(sceneComponents);
+
+	// TODO: Create this with the rest of the collision objects
 //	TiXmlElement* sceneRigidbody = new TiXmlElement("rigidbody");
 //	sceneRigidbody->SetAttribute("type", "rigidbody");
 //	sceneRigidbody->SetAttribute("bodytype", "static");
@@ -189,56 +224,46 @@ void OutputMap(const char* filename)
 //
 //		sceneRigidbody->LinkEndChild(boxCollider);
 //	}
-//
-//	// Output tile map game objects
-//	for (unsigned i = 0; i < g_TileMap.mapIDs.size(); ++i)
-//	{
-//		if (g_TileMap.mapIDs[i] >= 0)
-//		{
-//			TiXmlElement* gameobject = new TiXmlElement("gameobject");
-//			gob->LinkEndChild(gameobject);
-//			gameobject->SetAttribute("type", "LevelObject");
-//			gameobject->SetAttribute("name", "Block");
-//
-//			TiXmlElement* transform = new TiXmlElement("transform");
-//			transform->SetDoubleAttribute("x", (double)((int)i % g_TileMap.width) + .5);
-//			transform->SetDoubleAttribute("y", (double)(g_TileMap.height - ((int)i / g_TileMap.width)) - .5);
-//			transform->SetDoubleAttribute("z", 0.0);
-//			transform->SetDoubleAttribute("rotation", 0.0);
-//			transform->SetDoubleAttribute("sx", 1.0);
-//			transform->SetDoubleAttribute("sy", 1.0);
-//			transform->SetDoubleAttribute("sz", 1.0);
-//			gameobject->LinkEndChild(transform);
-//
-//			TiXmlElement* components = new TiXmlElement("components");
-//			gameobject->LinkEndChild(components);
-//
-//			Sprite* currentSprite = 0;
-//			for (unsigned j = 0; j < g_Sprites.size(); ++j)
-//			{
-//				if (g_Sprites[j]->name.compare(g_TileAtlas[g_TileMap.mapIDs[i]]) == 0)
-//				{
-//					currentSprite = g_Sprites[j];
-//					break;
-//				}
-//			}
-//
-//			TiXmlElement* sprite = new TiXmlElement("sprite");
-//			sprite->SetAttribute("type", "sprite");
-//			sprite->SetAttribute("name", "tile");
-//			sprite->SetAttribute("renderablename", currentSprite->name.c_str());
-//			sprite->SetAttribute("renderorder", 3);
-//			sprite->SetAttribute("isrendered", "true");
-//			sprite->SetDoubleAttribute("width", currentSprite->width / g_TileMap.tileWidth);
-//			sprite->SetDoubleAttribute("height", currentSprite->height / g_TileMap.tileHeight);
-//			sprite->SetDoubleAttribute("xrel", 0.0);
-//			sprite->SetDoubleAttribute("yrel", 0.0);
-//
-//			components->LinkEndChild(sprite);
-//		}
-//
-//	}
-//
+
+	// Output foreground tiles
+	for (unsigned i = 0; i < gTileMap.foregroundIds.size(); ++i)
+	{
+		if (gTileMap.foregroundIds[i] >= 0)
+		{
+			TiXmlElement* gameobject = new TiXmlElement("gameobject");
+			go->LinkEndChild(gameobject);
+			gameobject->SetAttribute("type", "Tile");
+			gameobject->SetAttribute("name", "ForegroundTile");
+
+			TiXmlElement* transform = new TiXmlElement("transform");
+			transform->SetDoubleAttribute("x", (double)((int)i % gTileMap.width) + .5);
+			transform->SetDoubleAttribute("y", (double)(gTileMap.height - ((int)i / gTileMap.width)) - .5);
+			transform->SetDoubleAttribute("z", 0.0);
+			transform->SetDoubleAttribute("rotation", 0.0);
+			transform->SetDoubleAttribute("sx", 1.0);
+			transform->SetDoubleAttribute("sy", 1.0);
+			transform->SetDoubleAttribute("sz", 1.0);
+			gameobject->LinkEndChild(transform);
+
+			TiXmlElement* components = new TiXmlElement("components");
+			gameobject->LinkEndChild(components);
+
+			TiXmlElement* sprite = new TiXmlElement("sprite");
+			sprite->SetAttribute("type", "Sprite");
+			sprite->SetAttribute("name", "Tile");
+			sprite->SetAttribute("renderablename", gSprites[gTileMap.foregroundIds[i]]->name.c_str());
+			sprite->SetAttribute("renderorder", 3);
+			sprite->SetAttribute("isrendered", "true");
+			sprite->SetDoubleAttribute("width", 1.0);
+			sprite->SetDoubleAttribute("height", 1.0);
+			sprite->SetDoubleAttribute("xrel", 0.0);
+			sprite->SetDoubleAttribute("yrel", 0.0);
+
+			components->LinkEndChild(sprite);
+		}
+
+	}
+
 //	double mapHeight = g_TileMap.height * g_TileMap.tileHeight;
 //
 //	// Output background game objects
@@ -451,8 +476,8 @@ void OutputMap(const char* filename)
 //		TiXmlElement* sprite = new TiXmlElement("sprite");
 //		animation->LinkEndChild(sprite);
 //	}
-//
-//	xmlDoc.SaveFile(gobFilename.c_str());
+
+	goDoc.SaveFile(goFilename.c_str());
 }
 
 bool ReadInTileMap(const char* filename)
@@ -471,6 +496,14 @@ bool ReadInTileMap(const char* filename)
 	map->Attribute("width", &gTileMap.width);
 	map->Attribute("height", &gTileMap.height);
 
+	std::string rgb = map->Attribute("backgroundcolor");
+	std::string redStr = rgb.substr(1, 2);
+	std::string greenStr = rgb.substr(3, 2);
+	std::string blueStr = rgb.substr(5);
+	gTileMap.red = std::stoi(redStr, nullptr, 16);
+	gTileMap.green = std::stoi(greenStr, nullptr, 16);
+	gTileMap.blue = std::stoi(blueStr, nullptr, 16);
+
 	for (TiXmlElement* childElement = map->FirstChildElement(); childElement; childElement = childElement->NextSiblingElement())
 	{
 		std::string elementName = childElement->Value();
@@ -484,7 +517,29 @@ bool ReadInTileMap(const char* filename)
 				if (propertyName.find("filename") != std::string::npos)
 				{
 					std::string goFilename = property->Attribute("value");
-					gTileMap.levelGOFilenames.push_back(goFilename);
+					gTileMap.goFilenames.push_back(goFilename);
+				}
+
+				else if (propertyName.find("levelname") != std::string::npos)
+				{
+					gTileMap.name = property->Attribute("value");
+				}
+
+				else if (propertyName.find("nextlevel") != std::string::npos)
+				{
+					std::string nextLevelFilename = "data/levels/";
+					nextLevelFilename += property->Attribute("value");
+					gTileMap.nextLevelFilenames.push_back(nextLevelFilename);
+				}
+
+				else if (propertyName.find("playerstartx") != std::string::npos)
+				{
+					property->Attribute("value", &gTileMap.playerStartX);
+				}
+
+				else if (propertyName.find("playerstarty") != std::string::npos)
+				{
+					property->Attribute("value", &gTileMap.playerStartY);
 				}
 			}
 		}

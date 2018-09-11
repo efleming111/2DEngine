@@ -145,6 +145,9 @@ void OutputMap(const char* filename)
 		if (gTileMap.foregroundIds[i] >= 0)
 			renderables[gTileMap.foregroundIds[i]] = true;
 
+	// Add alt objects to renderables
+	if (renderables[132])renderables[162] = true;
+
 	// Output renderable resources
 	for (std::map<int, bool>::iterator it = renderables.begin(); it != renderables.end(); ++it)
 	{
@@ -239,6 +242,81 @@ void OutputMap(const char* filename)
 
 	}
 
+	// Output object tiles
+	for (unsigned i = 0; i < gTileMap.objectIds.size(); ++i)
+	{
+		if (gTileMap.objectIds[i] >= 0)
+		{
+			TiXmlElement* gameobject = new TiXmlElement("gameobject");
+			go->LinkEndChild(gameobject);
+			gameobject->SetAttribute("type", "Tile");
+			gameobject->SetAttribute("name", gSprites[gTileMap.objectIds[i]]->name.c_str());
+
+			TiXmlElement* transform = new TiXmlElement("transform");
+			transform->SetDoubleAttribute("x", (double)((int)i % gTileMap.width) + .5);
+			transform->SetDoubleAttribute("y", (double)(gTileMap.height - ((int)i / gTileMap.width)) - .5);
+			transform->SetDoubleAttribute("z", 0.0);
+			transform->SetDoubleAttribute("rotation", 0.0);
+			transform->SetDoubleAttribute("sx", 1.0);
+			transform->SetDoubleAttribute("sy", 1.0);
+			transform->SetDoubleAttribute("sz", 1.0);
+			gameobject->LinkEndChild(transform);
+
+			TiXmlElement* components = new TiXmlElement("components");
+			gameobject->LinkEndChild(components);
+
+			TiXmlElement* sprite = new TiXmlElement("sprite");
+			sprite->SetAttribute("type", "Sprite");
+			sprite->SetAttribute("name", gSprites[gTileMap.objectIds[i]]->name.c_str());
+			sprite->SetAttribute("renderablename", gSprites[gTileMap.objectIds[i]]->name.c_str());
+			sprite->SetAttribute("renderorder", 3);
+			sprite->SetAttribute("isrendered", "true");
+			sprite->SetDoubleAttribute("width", 1.0);
+			sprite->SetDoubleAttribute("height", 1.0);
+			sprite->SetDoubleAttribute("xrel", 0.0);
+			sprite->SetDoubleAttribute("yrel", 0.0);
+
+			components->LinkEndChild(sprite);
+
+			if (gSprites[gTileMap.objectIds[i]]->name.compare("CoinBox") == 0)
+			{
+				TiXmlElement* AltSprite = new TiXmlElement("sprite");
+				AltSprite->SetAttribute("type", "Sprite");
+				AltSprite->SetAttribute("name", gSprites[gTileMap.objectIds[i] + 30]->name.c_str());
+				AltSprite->SetAttribute("renderablename", gSprites[gTileMap.objectIds[i] + 30]->name.c_str());
+				AltSprite->SetAttribute("renderorder", 3);
+				AltSprite->SetAttribute("isrendered", "false");
+				AltSprite->SetDoubleAttribute("width", 1.0);
+				AltSprite->SetDoubleAttribute("height", 1.0);
+				AltSprite->SetDoubleAttribute("xrel", 0.0);
+				AltSprite->SetDoubleAttribute("yrel", 0.0);
+
+				components->LinkEndChild(AltSprite);
+			}
+
+			TiXmlElement* rigidbody = new TiXmlElement("rigidbody");
+			rigidbody->SetAttribute("type", "Rigidbody");
+			rigidbody->SetAttribute("bodytype", "static");
+			rigidbody->SetAttribute("canrotate", "false");
+			components->LinkEndChild(rigidbody);
+
+			TiXmlElement* boxCollider = new TiXmlElement("boxcollider");
+			boxCollider->SetAttribute("type", "Box");
+			boxCollider->SetAttribute("name", gSprites[gTileMap.objectIds[i]]->name.c_str());
+			boxCollider->SetDoubleAttribute("width", 1.0);
+			boxCollider->SetDoubleAttribute("height", 1.0);
+			boxCollider->SetDoubleAttribute("xrel", 0.0);
+			boxCollider->SetDoubleAttribute("yrel", 0.0);
+			boxCollider->SetDoubleAttribute("angle", 0.0);
+			boxCollider->SetDoubleAttribute("density", 1.0);
+			boxCollider->SetDoubleAttribute("friction", 0.0);
+			boxCollider->SetAttribute("issensor", "false");
+
+			rigidbody->LinkEndChild(boxCollider);
+		}
+
+	}
+
 	// Output background tiles
 	for (unsigned i = 0; i < gTileMap.backgroundIds.size(); ++i)
 	{
@@ -289,8 +367,6 @@ void OutputMap(const char* filename)
 
 		double cenX = ((gTileMap.collisionObjects[i]->x + (gTileMap.collisionObjects[i]->width * .5)) / gTileMap.tileWidth);
 		double cenY = ((mapHeight - gTileMap.collisionObjects[i]->y) - (gTileMap.collisionObjects[i]->height * .5)) / gTileMap.tileHeight;
-
-		std::cout << gTileMap.height << " " << gTileMap.tileHeight << std::endl;
 
 		TiXmlElement* transform = new TiXmlElement("transform");
 		transform->SetDoubleAttribute("x", cenX);

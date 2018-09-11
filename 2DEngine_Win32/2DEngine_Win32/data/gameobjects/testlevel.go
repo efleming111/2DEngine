@@ -6,12 +6,13 @@
         <renderable type="Renderable" name="Sprite123" pivotpoint="center" texleft="0.0693642" texright="0.099711" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite124" pivotpoint="center" texleft="0.102601" texright="0.132948" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite125" pivotpoint="center" texleft="0.135838" texright="0.166185" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
-        <renderable type="Renderable" name="Sprite133" pivotpoint="center" texleft="0.401734" texright="0.432081" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="CoinBox" pivotpoint="center" texleft="0.401734" texright="0.432081" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite153" pivotpoint="center" texleft="0.0693642" texright="0.099711" texbottom="0.169075" textop="0.199422" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="CoinBoxHit" pivotpoint="center" texleft="0.401734" texright="0.432081" texbottom="0.169075" textop="0.199422" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite193" pivotpoint="center" texleft="0.401734" texright="0.432081" texbottom="0.202312" textop="0.232659" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite195" pivotpoint="center" texleft="0.468208" texright="0.498555" texbottom="0.202312" textop="0.232659" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite198" pivotpoint="center" texleft="0.567919" texright="0.598266" texbottom="0.202312" textop="0.232659" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
-        <renderable type="Renderable" name="Sprite221" pivotpoint="center" texleft="0.33526" texright="0.365607" texbottom="0.235549" textop="0.265896" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="BreakableBrick" pivotpoint="center" texleft="0.33526" texright="0.365607" texbottom="0.235549" textop="0.265896" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite265" pivotpoint="center" texleft="0.800578" texright="0.830925" texbottom="0.268786" textop="0.299133" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite295" pivotpoint="center" texleft="0.800578" texright="0.830925" texbottom="0.302023" textop="0.33237" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite415" pivotpoint="center" texleft="0.800578" texright="0.830925" texbottom="0.434971" textop="0.465318" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
@@ -2661,6 +2662,222 @@
         <transform x="99.5" y="0.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
             <sprite type="Sprite" name="Tile" renderablename="Sprite153" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="88.5" y="13.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="88.5" y="12.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="Sprite195">
+        <transform x="88.5" y="11.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="Sprite195" renderablename="Sprite195" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="Sprite195" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="33.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="34.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="35.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="36.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="CoinBox">
+        <transform x="37.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="CoinBox">
+        <transform x="56.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="CoinBox">
+        <transform x="7.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="8.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="CoinBox">
+        <transform x="9.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="10.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="CoinBox">
+        <transform x="11.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="CoinBox">
+        <transform x="30.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="31.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="32.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="33.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="34.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="BreakableBrick">
+        <transform x="35.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="BreakableBrick" renderablename="BreakableBrick" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="BreakableBrick" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="CoinBox">
+        <transform x="54.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="CoinBox">
+        <transform x="56.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
+        </components>
+    </gameobject>
+    <gameobject type="Tile" name="CoinBox">
+        <transform x="58.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
+        <components>
+            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
+                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+            </rigidbody>
         </components>
     </gameobject>
     <gameobject type="Tile" name="BackgroundTile">

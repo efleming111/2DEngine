@@ -10,9 +10,8 @@
 		<components>
 			<rigidbody type="Rigidbody" bodytype="dynamic" canrotate="false" >
 				<boxcollider type="Box" name="PlayerTopCollider" width=".8" height=".85" xrel="0.0" yrel=".25" angle="0.0" density="1.0" friction=".3" issensor="false" />
+				<boxcollider type="Box" name="HeadSensor" width=".6" height=".85" xrel="0.0" yrel=".3" angle="0.0" density="1.0" friction=".3" issensor="true" />
 				<boxcollider type="Box" name="GroundSensor" width=".5" height=".5" xrel="0.0" yrel="-.675" angle="0.0" density="1.0" friction=".3" issensor="true" />
-				<boxcollider type="Box" name="AttackLeft" width=".25" height="1.35" xrel="-0.5" yrel="0.0" angle="0.0" density="1.0" friction=".3" issensor="true" />
-				<boxcollider type="Box" name="AttackRight" width=".25" height="1.35" xrel="0.5" yrel="0.0" angle="0.0" density="1.0" friction=".3" issensor="true" />
 				<circlecollider type="Circle" name="PlayerBottomCollider" radius=".45" xrel="0.0" yrel="-.175" density="1.0" friction=".3" issensor="false" />
 			</rigidbody>
 			<animator type="Animator" startinganimation="0">

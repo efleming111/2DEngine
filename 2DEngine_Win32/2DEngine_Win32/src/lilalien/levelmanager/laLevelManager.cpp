@@ -19,6 +19,8 @@
 #include "../gameobjects/level/laLevelObject.h"
 #include "../gameobjects/level/laCamera.h"
 #include "../gameobjects/level/laHUD.h"
+#include "../gameobjects/objects/laCoinBox.h"
+#include "../gameobjects/objects/laBreakableBrick.h"
 
 
 void laLevelManager::Create(const char* filename)
@@ -103,6 +105,7 @@ void laLevelManager::GameObjectFactory(TiXmlElement* rootElement)
 	for (TiXmlElement* gameObject = rootElement->FirstChildElement("gameobject"); gameObject; gameObject = gameObject->NextSiblingElement())
 	{
 		std::string type = gameObject->Attribute("type");
+		std::string name = gameObject->Attribute("name");
 
 		if (type.compare("LevelController") == 0)
 		{
@@ -145,10 +148,29 @@ void laLevelManager::GameObjectFactory(TiXmlElement* rootElement)
 
 		else if (type.compare("Tile") == 0)
 		{
-			laLevelObject* levelObject;
-			levelObject = new laLevelObject();
-			levelObject->Create(gameObject, mPixelsPerGameUnit);
-			lilGameObjectManager->AddGameObject(levelObject);
+			if (name.compare("CoinBox") == 0)
+			{
+				laCoinBox* coinBox;
+				coinBox = new laCoinBox();
+				coinBox->Create(gameObject, mPixelsPerGameUnit);
+				lilGameObjectManager->AddGameObject(coinBox);
+			}
+
+			else if (name.compare("BreakableBrick") == 0)
+			{
+				laBreakableBrick* breakableBrick;
+				breakableBrick = new laBreakableBrick();
+				breakableBrick->Create(gameObject, mPixelsPerGameUnit);
+				lilGameObjectManager->AddGameObject(breakableBrick);
+			}
+
+			else
+			{
+				laLevelObject* levelObject;
+				levelObject = new laLevelObject();
+				levelObject->Create(gameObject, mPixelsPerGameUnit);
+				lilGameObjectManager->AddGameObject(levelObject);
+			}
 		}
 
 		/*else if (type.compare("ButtonControls") == 0)

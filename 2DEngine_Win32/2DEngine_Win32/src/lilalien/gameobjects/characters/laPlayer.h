@@ -21,7 +21,6 @@
 enum PlayerAnimationState {
 	SHOOT,
 	DEAD,
-	IDLE,
 	JUMP,
 	CLIMB,
 	RUN,

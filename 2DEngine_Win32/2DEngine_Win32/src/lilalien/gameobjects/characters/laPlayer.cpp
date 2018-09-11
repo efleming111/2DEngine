@@ -70,7 +70,7 @@ void laPlayer::Update()
 	lilVector2D velocity = mRigidbody->GetVelocity();
 
 	/*if (mCurrentAnimation == DEAD)
-		mRigidbody->SetActive(false);
+		mRigidbody->SetActive(false);*/
 
 	if (lilInput->GetButtonDown("Jump") && mIsGrounded)
 	{
@@ -145,10 +145,10 @@ void laPlayer::Update()
 			mIsIdle = true;
 	}
 
-	if (mIsTakingDamage)
-		TakeDamage();
+	/*if (mIsTakingDamage)
+		TakeDamage();*/
 
-	if (mIsJumping || !mIsGrounded)
+	/*if (mIsJumping || !mIsGrounded)
 		mCurrentAnimation = JUMP;
 
 	else if (mIsRunning)
@@ -158,9 +158,9 @@ void laPlayer::Update()
 		mCurrentAnimation = WALK;
 
 	else
-		mCurrentAnimation = IDLE;
+		mCurrentAnimation = IDLE;*/
 
-	if (mHealth <= 0)
+	/*if (mHealth <= 0)
 	{
 		mCurrentAnimation = DEAD;
 		velocity.x = 0.0f;

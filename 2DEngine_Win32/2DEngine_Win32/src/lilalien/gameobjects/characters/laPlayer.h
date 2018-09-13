@@ -44,7 +44,7 @@ public:
 	void Hit(int amount);
 
 	int GetCoins() { return mCoins; }
-	int GetHealth() { return mHealth; }
+	bool* GetKeys() { return mKeys; }
 	int GetScore() { return mScore; }
 
 protected:
@@ -80,7 +80,7 @@ protected:
 	float mAccumDamageTime;
 
 	int mCoins;
-	int mHealth;
+	bool mKeys[4]; // Yellow, Green, Red, Blue
 	int mScore;
 
 private:

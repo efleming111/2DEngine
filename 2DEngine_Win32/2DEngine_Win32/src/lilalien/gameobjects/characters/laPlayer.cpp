@@ -33,9 +33,12 @@ void laPlayer::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 	mMaxRunSpeed = (float)maxRunSpeed;
 	mJumpPower = (float)jumpPower;
 
-	mCoins = 1;
-	mHealth = 1;
-	mScore = 1;
+	mCoins = 87;
+	mKeys[0] = true;
+	mKeys[1] = false;
+	mKeys[2] = false;
+	mKeys[3] = true;
+	mScore = 9876543;
 }
 
 void laPlayer::OnStart()
@@ -210,7 +213,7 @@ void laPlayer::Hit(int amount)
 
 void laPlayer::TakeDamage()
 {
-	mHealth -= mDamageAmount;
+	/*mHealth -= mDamageAmount;
 	mDamageAmount = 0;
 	mCanTakeDamage = false;
 
@@ -232,7 +235,7 @@ void laPlayer::TakeDamage()
 		mAccumDamageIntervalTime -= mDamageBlinkInterval;
 		mIsRendered = !mIsRendered;
 		mAnimator->IsRendered(mIsRendered);
-	}
+	}*/
 }
 
 

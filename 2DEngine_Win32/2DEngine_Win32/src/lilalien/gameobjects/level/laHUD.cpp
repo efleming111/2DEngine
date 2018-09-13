@@ -5,11 +5,27 @@
 //  6/1/2018
 //
 
+#include <vector>
+
+#include "../../../engine/renderer/lilGLWindow.h"
+
 #include "laHUD.h"
 
 void laHUD::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	lilGameObject::Create(rootElement, pixelsPerGameUnit);
+
+	float xGameUnits = lilGLWindow->Width() / pixelsPerGameUnit;
+	float yGameUnits = lilGLWindow->Height() / pixelsPerGameUnit;
+
+	for (std::list<lilComponent*>::iterator it = mComponents.begin(); it != mComponents.end(); ++it)
+	{
+		if ((*it)->GetType().compare("Sprite") == 0)
+		{
+			((lilSprite*)(*it))->xRelative = (((lilSprite*)(*it))->xRelative * xGameUnits) - (xGameUnits *.5f);
+			((lilSprite*)(*it))->yRelative = (((lilSprite*)(*it))->yRelative * yGameUnits) - (yGameUnits *.5f);
+		}
+	}
 }
 
 void laHUD::OnStart()
@@ -19,29 +35,37 @@ void laHUD::OnStart()
 
 	mTransform = mCamera->mTransform;
 
-	std::string numbers[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+	std::string numbers[] = { "HUD0", "HUD1", "HUD2", "HUD3", "HUD4", "HUD5", "HUD6", "HUD7", "HUD8", "HUD9" };
 	for(int i = 0; i < 10; ++i)
 		mNumberRenderables[i] = lilGLRenderer->GetRenderable(numbers[i].c_str());
 
-	std::string names[] = { "100000s", "10000s", "1000s" , "100s" , "10s" , "1s" };
-	for(int i = 0; i < 6; ++i)
-		mCoinAmount[i] = (lilSprite*)GetComponentByName(names[i].c_str());
+	std::string coinNames[] = { "CoinTens", "CoinOnes" };
+	for(int i = 0; i < 2; ++i)
+		mCoinAmount[i] = (lilSprite*)GetComponentByName(coinNames[i].c_str());
 
-	DisplayPlayerCoins();
+	std::string keyNames[] = { "KeyYellow", "KeyGreen", "KeyRed", "KeyBlue" };
+	for (int i = 0; i < 4; ++i)
+		mKeys[i] = (lilSprite*)GetComponentByName(keyNames[i].c_str());
 
-	mHealthAmount = (lilSprite*)GetComponentByName("HealthAmount");
-	mFullHealth = mHealthAmount->transform.scale.x;
-	UpdateHealthAmount();
+	std::string timerNames[] = { "TimerHundreds", "TimerTens", "TimerOnes" };
+	for (int i = 0; i < 3; ++i)
+		mTimer[i] = (lilSprite*)GetComponentByName(timerNames[i].c_str());
+
+	std::string scoreNames[] = { "ScoreMillions", "ScoreHundredThousands", "ScoreTenThousands", "ScoreThousands", "ScoreHundreds", "ScoreTens", "ScoreOnes" };
+	for (int i = 0; i < 7; ++i)
+		mScore[i] = (lilSprite*)GetComponentByName(scoreNames[i].c_str());
+
+	SetDisplay(mPlayer->GetCoins(), mCoinAmount, 2);
+	SetDisplay(mPlayer->GetScore(), mScore, 7);
+
 }
 
 void laHUD::Update()
 {
 	mTransform = mCamera->mTransform;
 
-	if (mLastCoinAmount != mPlayer->GetCoins())
-		DisplayPlayerCoins();
-
-	UpdateHealthAmount();
+	/*if (mLastCoinAmount != mPlayer->GetCoins())
+		DisplayPlayerCoins();*/
 
 	lilGameObject::Update();
 }
@@ -58,31 +82,29 @@ void laHUD::Destroy()
 
 	for(int i = 0; i < 6; ++i)
 		mCoinAmount[i] = 0;
-
-	mHealthAmount = 0;
 }
 
-void laHUD::DisplayPlayerCoins()
+void laHUD::SetDisplay(int value, lilSprite** sprites, int numberOfPlaces)
 {
-	mLastCoinAmount = mPlayer->GetCoins();
-	if (mLastCoinAmount < 999999)
+	int place = 1;
+	for (int i = 1; i < numberOfPlaces; ++i)
+		place *= 10;
+
+	for (int i = 0; i < numberOfPlaces; ++i)
 	{
-		int place = 100000;
-		int coins = mLastCoinAmount;
-		for (int i = 0; i < 6; ++i)
-		{
-			int placeNumber = coins / place;
-			coins %= place;
+		int placeNumber = value / place;
+		value %= place;
 
-			mCoinAmount[i]->renderable = mNumberRenderables[placeNumber];
+		sprites[i]->renderable = mNumberRenderables[placeNumber];
 
-			place /= 10;
-		}
+		place /= 10;
 	}
 }
 
-void laHUD::UpdateHealthAmount()
+void laHUD::SetKeys()
 {
-	mHealthAmount->transform.scale.x = mPlayer->GetHealth() * mFullHealth;
-	mHealthAmount->renderable->GetShader()->SetUniform("RGBalance", mPlayer->GetHealth());
+	for (int i = 0; i < 4; ++i)
+	{
+		mKeys[i]->isRendered = mPlayer->GetKeys()[i];
+	}
 }

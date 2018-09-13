@@ -7,7 +7,6 @@
 
 #pragma once
 
-
 #include "../../../engine/gameobjects/lilGameObject.h"
 #include "../../../engine/renderer/lilGLRenderer.h"
 #include "../characters/laPlayer.h"
@@ -29,16 +28,16 @@ protected:
 	laCamera* mCamera;
 
 	lilRenderable* mNumberRenderables[10];
-	lilSprite* mCoinAmount[6];
-	int mLastCoinAmount;
 
-	lilSprite* mHealthAmount;
-	float mFullHealth;
+	lilSprite* mCoinAmount[2];
+	lilSprite* mKeys[4];
+	lilSprite* mTimer[3];
+	lilSprite* mScore[7];
 
 private:
 	laHUD(const laHUD& hud) {}
 	void operator=(const laHUD& hud) {}
 
-	void DisplayPlayerCoins();
-	void UpdateHealthAmount();
+	void SetDisplay(int value, lilSprite** sprites, int numberOfPlaces);
+	void SetKeys();
 };

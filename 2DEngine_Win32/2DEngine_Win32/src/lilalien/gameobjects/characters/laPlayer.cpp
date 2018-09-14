@@ -12,9 +12,6 @@
 
 void laPlayer::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
-	// TODO: For testing only
-	SDL_Log("Created lilPlayer, %s %d", __FILE__, __LINE__);
-
 	lilGameObject::Create(rootElement, pixelsPerGameUnit);
 
 	// TODO: Get player attribute here. 
@@ -25,7 +22,7 @@ void laPlayer::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 	rootElement->Attribute("maxrunspeed", &maxRunSpeed);
 	rootElement->Attribute("jumppower", &jumpPower);
 
-	mAnimationLastFrame = mCurrentAnimation = JUMP;
+	mAnimationLastFrame = mCurrentAnimation = FACE;
 
 	mWalkAcceleration = (float)walkAcc;
 	mMaxWalkSpeed = (float)maxWalkSpeed;
@@ -33,12 +30,10 @@ void laPlayer::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 	mMaxRunSpeed = (float)maxRunSpeed;
 	mJumpPower = (float)jumpPower;
 
-	mCoins = 87;
-	mKeys[0] = true;
-	mKeys[1] = false;
-	mKeys[2] = false;
-	mKeys[3] = true;
-	mScore = 9876543;
+	mCoins = 00;
+	for (int i = 0; i < 4; ++i)
+		mKeys[i] = false;
+	mScore = 0000000;
 }
 
 void laPlayer::OnStart()
@@ -57,23 +52,14 @@ void laPlayer::OnStart()
 
 	mIsFacingRight = true;
 	mIsJumping = false;
-	mIsAttacking = false;
 	mIsGrounded = false;
-
-	mIsTakingDamage = false;
-	mCanTakeDamage = true;
-	mTotalDamageTime = 2.0f;
-	mDamageBlinkInterval = .1f;
-	mDamageAmount = 0;
-	mAccumDamageIntervalTime = 0.0f;
 }
 
 void laPlayer::Update()
 {
 	lilVector2D velocity = mRigidbody->GetVelocity();
 
-	/*if (mCurrentAnimation == DEAD)
-		mRigidbody->SetActive(false);*/
+	// TODO: Handler player dying
 
 	if (lilInput->GetButtonDown("Jump") && mIsGrounded)
 	{
@@ -140,40 +126,38 @@ void laPlayer::Update()
 	
 	else
 	{
-		velocity.x *= .98f;
-		if (abs(velocity.x) < .28f)
+		velocity.x *= .96f;
+		if (abs(velocity.x) < .3f)
 			velocity.x = 0.0f;
 
-		if (!mIsJumping && abs(velocity.x) < .05f && !mIsAttacking)
+		if (!mIsJumping && abs(velocity.x) < .05f)
 			mIsIdle = true;
 	}
 
-	/*if (mIsTakingDamage)
-		TakeDamage();*/
-
-	/*if (mIsJumping || !mIsGrounded)
+	if (mIsJumping || !mIsGrounded)
 		mCurrentAnimation = JUMP;
 
 	else if (mIsRunning)
-		mCurrentAnimation = RUN;
+	{
+		mCurrentAnimation = WALK;
+		mAnimator->SetCurrentAnimationIntervalTime(.75f);
+	}
 
 	else if (!mIsIdle)
+	{
 		mCurrentAnimation = WALK;
+		mAnimator->SetCurrentAnimationIntervalTime(.125f);
+	}
+		
 
 	else
-		mCurrentAnimation = IDLE;*/
-
-	/*if (mHealth <= 0)
-	{
-		mCurrentAnimation = DEAD;
-		velocity.x = 0.0f;
-	}
+		mCurrentAnimation = FACE;
 
 	if (mAnimationLastFrame != mCurrentAnimation)
 	{
 		mAnimationLastFrame = mCurrentAnimation;
 		mAnimator->SetCurrentAnimation((unsigned)mCurrentAnimation);
-	}*/
+	}
 	
 	mRigidbody->SetVelocity(velocity);
 
@@ -202,40 +186,19 @@ void laPlayer::EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidb
 	}
 }
 
-void laPlayer::Hit(int amount)
+void laPlayer::AddKey(int index)
 {
-	if (mCanTakeDamage)
-	{
-		mIsTakingDamage = true;
-		mDamageAmount = amount;
-	}
+	if (index >= 0 && index < 4)
+		mKeys[index] = true;
 }
 
-void laPlayer::TakeDamage()
+bool laPlayer::GetKey(int index)
 {
-	/*mHealth -= mDamageAmount;
-	mDamageAmount = 0;
-	mCanTakeDamage = false;
+	if (index >= 0 && index < 4)
+		return mKeys[index];
 
-	mAccumDamageIntervalTime += lilTimer->DeltaTime();
-	mAccumDamageTime += lilTimer->DeltaTime();
-
-	if (mAccumDamageTime > mTotalDamageTime)
-	{
-		mAccumDamageIntervalTime = 0.0f;
-		mAccumDamageTime = 0.0f;
-		mIsTakingDamage = false;
-		mCanTakeDamage = true;
-		mAnimator->IsRendered(true);
-		return;
-	}
-
-	if (mAccumDamageIntervalTime > mDamageBlinkInterval)
-	{
-		mAccumDamageIntervalTime -= mDamageBlinkInterval;
-		mIsRendered = !mIsRendered;
-		mAnimator->IsRendered(mIsRendered);
-	}*/
+	return false;
 }
+
 
 

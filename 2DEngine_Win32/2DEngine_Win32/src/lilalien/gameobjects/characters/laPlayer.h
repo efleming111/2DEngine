@@ -19,11 +19,12 @@
 
 // TODO: set to order of animations
 enum PlayerAnimationState {
-	SHOOT,
-	DEAD,
+	FACE,
 	JUMP,
+	CROUCH,
+	HURT,
 	CLIMB,
-	RUN,
+	SWIM,
 	WALK
 };
 
@@ -41,10 +42,13 @@ public:
 	void BeginContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody);
 	void EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody);
 
-	void Hit(int amount);
+	void AddCoin() { mCoins++; }
+	void AddScore(int amount) { mScore += amount; }
+	void AddKey(int index);
 
 	int GetCoins() { return mCoins; }
 	bool* GetKeys() { return mKeys; }
+	bool GetKey(int index);
 	int GetScore() { return mScore; }
 
 protected:
@@ -57,7 +61,6 @@ protected:
 	bool mIsFacingRight;
 	bool mIsIdle;
 	bool mIsJumping;
-	bool mIsAttacking;
 
 	PlayerAnimationState mAnimationLastFrame;
 	PlayerAnimationState mCurrentAnimation;
@@ -71,14 +74,6 @@ protected:
 	bool mIsGrounded;
 	float mJumpPower;
 
-	bool mIsTakingDamage;
-	bool mCanTakeDamage;
-	int mDamageAmount;
-	float mTotalDamageTime;
-	float mDamageBlinkInterval;
-	float mAccumDamageIntervalTime;
-	float mAccumDamageTime;
-
 	int mCoins;
 	bool mKeys[4]; // Yellow, Green, Red, Blue
 	int mScore;
@@ -86,8 +81,6 @@ protected:
 private:
 	laPlayer(const laPlayer& player) {}
 	void operator=(const laPlayer& player) {}
-
-	void TakeDamage();
 };
 
 

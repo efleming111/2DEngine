@@ -10,6 +10,7 @@
 #include "../../../engine/gameobjects/lilGameObject.h"
 #include "../../../engine/components/lilRigidbody.h"
 #include "../../../engine/components/lilSprite.h"
+#include "../characters/laPlayer.h"
 
 // TODO: For testing only
 #include <SDL.h>
@@ -28,11 +29,20 @@ public:
 	void EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody);
 
 private:
+	laPlayer* mPlayer;
+
 	lilSprite* mCoinBox;
 	lilSprite* mCoinBoxHit;
+	lilSprite* mCoin;
+
+	float mHitBounceTime;
+
+	bool mIsAlive;
 
 private:
 	laCoinBox(const laCoinBox& coinBox) {}
 	void operator=(const laCoinBox& coinBox) {}
+
+	void MoveCoin();
 };
 

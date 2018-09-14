@@ -57,15 +57,16 @@ void laHUD::OnStart()
 
 	SetDisplay(mPlayer->GetCoins(), mCoinAmount, 2);
 	SetDisplay(mPlayer->GetScore(), mScore, 7);
-
+	SetKeys();
 }
 
 void laHUD::Update()
 {
 	mTransform = mCamera->mTransform;
 
-	/*if (mLastCoinAmount != mPlayer->GetCoins())
-		DisplayPlayerCoins();*/
+	SetDisplay(mPlayer->GetCoins(), mCoinAmount, 2);
+	SetDisplay(mPlayer->GetScore(), mScore, 7);
+	SetKeys();
 
 	lilGameObject::Update();
 }

@@ -3,6 +3,7 @@
     <resources>
         <renderable type="Renderable" name="Sprite18" pivotpoint="center" texleft="0.567919" texright="0.598266" texbottom="0.00289017" textop="0.033237" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite47" pivotpoint="center" texleft="0.534682" texright="0.565029" texbottom="0.0361272" textop="0.066474" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="CoinGold" pivotpoint="center" texleft="0.601156" texright="0.631503" texbottom="0.0693642" textop="0.099711" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite123" pivotpoint="center" texleft="0.0693642" texright="0.099711" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite124" pivotpoint="center" texleft="0.102601" texright="0.132948" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite125" pivotpoint="center" texleft="0.135838" texright="0.166185" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
@@ -2732,6 +2733,7 @@
         <components>
             <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
             <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
                 <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
@@ -2742,6 +2744,7 @@
         <components>
             <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
             <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
                 <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
@@ -2752,6 +2755,7 @@
         <components>
             <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
             <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
                 <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
@@ -2771,6 +2775,7 @@
         <components>
             <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
             <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
                 <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
@@ -2790,6 +2795,7 @@
         <components>
             <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
             <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
                 <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
@@ -2800,6 +2806,7 @@
         <components>
             <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
             <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
                 <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
@@ -2855,6 +2862,7 @@
         <components>
             <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
             <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
                 <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
@@ -2865,6 +2873,7 @@
         <components>
             <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
             <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
                 <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>
@@ -2875,6 +2884,7 @@
         <components>
             <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
             <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
                 <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
             </rigidbody>

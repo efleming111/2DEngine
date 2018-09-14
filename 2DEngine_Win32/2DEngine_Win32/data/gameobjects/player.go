@@ -26,7 +26,7 @@
 				<animation name="Face" frameinterval=".03" islooping="false">
 					<sprite type="Sprite" name="GreenAlienFace" renderablename="GreenAlienFace" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 				</animation>
-				<animation name="Jump" frameinterval=".03" islooping="false">
+				<animation name="Jump" frameinterval=".05" islooping="false">
 					<sprite type="Sprite" name="GreenAlienJump1" renderablename="GreenAlienJump1" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="Sprite" name="GreenAlienJump2" renderablename="GreenAlienJump2" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 				</animation>
@@ -36,15 +36,15 @@
 				<animation name="Hurt" frameinterval=".03" islooping="false">
 					<sprite type="Sprite" name="GreenAlienHurt" renderablename="GreenAlienHurt" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 				</animation>
-				<animation name="Climb" frameinterval=".03" islooping="true">
+				<animation name="Climb" frameinterval=".1" islooping="true">
 					<sprite type="Sprite" name="GreenAlienClimb1" renderablename="GreenAlienClimb1" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="Sprite" name="GreenAlienClimb2" renderablename="GreenAlienClimb2" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 				</animation>
-				<animation name="Swim" frameinterval=".03" islooping="true">
+				<animation name="Swim" frameinterval=".1" islooping="true">
 					<sprite type="Sprite" name="GreenAlienSwim1" renderablename="GreenAlienSwim1" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="Sprite" name="GreenAlienSwim2" renderablename="GreenAlienSwim2" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 				</animation>
-				<animation name="Walk" frameinterval=".03" islooping="true">
+				<animation name="Walk" frameinterval=".125" islooping="true">
 					<sprite type="Sprite" name="GreenAlienWalk1" renderablename="GreenAlienWalk1" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 					<sprite type="Sprite" name="GreenAlienWalk2" renderablename="GreenAlienWalk2" renderorder="4" isrendered="false" width="1" height="1.35" xrel="0" yrel="0" />
 				</animation>

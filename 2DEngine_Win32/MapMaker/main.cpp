@@ -147,6 +147,7 @@ void OutputMap(const char* filename)
 
 	// Add alt objects to renderables
 	if (renderables[132])renderables[162] = true;
+	renderables[78] = true;// CoinGold
 
 	// Output renderable resources
 	for (std::map<int, bool>::iterator it = renderables.begin(); it != renderables.end(); ++it)
@@ -292,6 +293,19 @@ void OutputMap(const char* filename)
 				AltSprite->SetDoubleAttribute("yrel", 0.0);
 
 				components->LinkEndChild(AltSprite);
+
+				TiXmlElement* CoinSprite = new TiXmlElement("sprite");
+				CoinSprite->SetAttribute("type", "Sprite");
+				CoinSprite->SetAttribute("name", "CoinGold");
+				CoinSprite->SetAttribute("renderablename", "CoinGold");
+				CoinSprite->SetAttribute("renderorder", 2);
+				CoinSprite->SetAttribute("isrendered", "false");
+				CoinSprite->SetDoubleAttribute("width", 1.0);
+				CoinSprite->SetDoubleAttribute("height", 1.0);
+				CoinSprite->SetDoubleAttribute("xrel", 0.0);
+				CoinSprite->SetDoubleAttribute("yrel", 0.0);
+
+				components->LinkEndChild(CoinSprite);
 			}
 
 			TiXmlElement* rigidbody = new TiXmlElement("rigidbody");

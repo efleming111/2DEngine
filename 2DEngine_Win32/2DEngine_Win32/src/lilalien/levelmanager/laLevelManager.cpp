@@ -20,6 +20,7 @@
 #include "../gameobjects/level/laCamera.h"
 #include "../gameobjects/level/laHUD.h"
 #include "../gameobjects/objects/laCoinBox.h"
+#include "../gameobjects/objects/laItemBox.h"
 #include "../gameobjects/objects/laBreakableBrick.h"
 
 
@@ -154,6 +155,14 @@ void laLevelManager::GameObjectFactory(TiXmlElement* rootElement)
 				coinBox = new laCoinBox();
 				coinBox->Create(gameObject, mPixelsPerGameUnit);
 				lilGameObjectManager->AddGameObject(coinBox);
+			}
+
+			if (name.compare("ItemBox") == 0)
+			{
+				laItemBox* itemBox;
+				itemBox = new laItemBox();
+				itemBox->Create(gameObject, mPixelsPerGameUnit);
+				lilGameObjectManager->AddGameObject(itemBox);
 			}
 
 			else if (name.compare("BreakableBrick") == 0)

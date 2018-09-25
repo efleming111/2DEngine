@@ -58,6 +58,7 @@ struct TileMap
 	std::vector<int> backgroundIds;
 	std::vector<int> enemyIds;
 	std::vector<int> objectIds;
+	std::vector<int> objectAltIds;
 
 	std::vector<CollisionObject*> collisionObjects;
 };
@@ -141,12 +142,17 @@ void OutputMap(const char* filename)
 		if (gTileMap.objectIds[i] >= 0)
 			renderables[gTileMap.objectIds[i]] = true;
 
+	for (unsigned i = 0; i < gTileMap.objectAltIds.size(); ++i)
+		if (gTileMap.objectAltIds[i] >= 0)
+			renderables[gTileMap.objectAltIds[i]] = true;
+
 	for (unsigned i = 0; i < gTileMap.foregroundIds.size(); ++i)
 		if (gTileMap.foregroundIds[i] >= 0)
 			renderables[gTileMap.foregroundIds[i]] = true;
 
 	// Add alt objects to renderables
-	if (renderables[132])renderables[162] = true;
+	renderables[162] = true;// CoinBoxHit
+	renderables[160] = true;// ItemBoxHit
 	renderables[78] = true;// CoinGold
 
 	// Output renderable resources
@@ -308,6 +314,35 @@ void OutputMap(const char* filename)
 				components->LinkEndChild(CoinSprite);
 			}
 
+			if (gSprites[gTileMap.objectIds[i]]->name.compare("ItemBox") == 0)
+			{
+				TiXmlElement* AltSprite = new TiXmlElement("sprite");
+				AltSprite->SetAttribute("type", "Sprite");
+				AltSprite->SetAttribute("name", gSprites[gTileMap.objectIds[i] + 30]->name.c_str());
+				AltSprite->SetAttribute("renderablename", gSprites[gTileMap.objectIds[i] + 30]->name.c_str());
+				AltSprite->SetAttribute("renderorder", 3);
+				AltSprite->SetAttribute("isrendered", "false");
+				AltSprite->SetDoubleAttribute("width", 1.0);
+				AltSprite->SetDoubleAttribute("height", 1.0);
+				AltSprite->SetDoubleAttribute("xrel", 0.0);
+				AltSprite->SetDoubleAttribute("yrel", 0.0);
+
+				components->LinkEndChild(AltSprite);
+
+				TiXmlElement* CoinSprite = new TiXmlElement("sprite");
+				CoinSprite->SetAttribute("type", "Sprite");
+				CoinSprite->SetAttribute("name", gSprites[gTileMap.objectAltIds[i]]->name.c_str());
+				CoinSprite->SetAttribute("renderablename", gSprites[gTileMap.objectAltIds[i]]->name.c_str());
+				CoinSprite->SetAttribute("renderorder", 2);
+				CoinSprite->SetAttribute("isrendered", "false");
+				CoinSprite->SetDoubleAttribute("width", 1.0);
+				CoinSprite->SetDoubleAttribute("height", 1.0);
+				CoinSprite->SetDoubleAttribute("xrel", 0.0);
+				CoinSprite->SetDoubleAttribute("yrel", 0.0);
+
+				components->LinkEndChild(CoinSprite);
+			}
+
 			TiXmlElement* rigidbody = new TiXmlElement("rigidbody");
 			rigidbody->SetAttribute("type", "Rigidbody");
 			rigidbody->SetAttribute("bodytype", "static");
@@ -327,6 +362,23 @@ void OutputMap(const char* filename)
 			boxCollider->SetAttribute("issensor", "false");
 
 			rigidbody->LinkEndChild(boxCollider);
+
+			if (gSprites[gTileMap.objectIds[i]]->name.compare("ItemBox") == 0)
+			{
+				TiXmlElement* boxItemCollider = new TiXmlElement("boxcollider");
+				boxItemCollider->SetAttribute("type", "Box");
+				boxItemCollider->SetAttribute("name", gSprites[gTileMap.objectIds[i]]->name.c_str());
+				boxItemCollider->SetDoubleAttribute("width", 1.0);
+				boxItemCollider->SetDoubleAttribute("height", 1.0);
+				boxItemCollider->SetDoubleAttribute("xrel", 0.0);
+				boxItemCollider->SetDoubleAttribute("yrel", 1.0);
+				boxItemCollider->SetDoubleAttribute("angle", 0.0);
+				boxItemCollider->SetDoubleAttribute("density", 1.0);
+				boxItemCollider->SetDoubleAttribute("friction", 0.0);
+				boxItemCollider->SetAttribute("issensor", "true");
+
+				rigidbody->LinkEndChild(boxItemCollider);
+			}
 		}
 
 	}
@@ -669,6 +721,23 @@ bool ReadInTileMap(const char* filename)
 					tileData >> discard;
 					id--;
 					gTileMap.objectIds.push_back(id);
+				}
+			}
+
+			else if (layerName.compare("TilesObjectAlt") == 0)
+			{
+				TiXmlElement* dataElement = childElement->FirstChildElement();
+				std::string data = dataElement->GetText();
+				std::stringstream tileData(data, std::ios_base::in);
+
+				int id;
+				char discard;
+				for (int i = 0; i < (gTileMap.width * gTileMap.height); ++i)
+				{
+					tileData >> id;
+					tileData >> discard;
+					id--;
+					gTileMap.objectAltIds.push_back(id);
 				}
 			}
 		}

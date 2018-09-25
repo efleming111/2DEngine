@@ -1,8 +1,8 @@
 //
 //  lil Alien
-//  laBeakableBrick.h
+//  laItemBox.h
 //  Eric Fleming
-//  9/11/2018
+//  9/17/2018
 //
 
 #pragma once
@@ -10,15 +10,16 @@
 #include "../../../engine/gameobjects/lilGameObject.h"
 #include "../../../engine/components/lilRigidbody.h"
 #include "../../../engine/components/lilSprite.h"
+#include "../characters/laPlayer.h"
 
 // TODO: For testing only
 #include <SDL.h>
 
-class laBreakableBrick : public lilGameObject
+class laItemBox : public lilGameObject
 {
 public:
-	laBreakableBrick() {}
-	~laBreakableBrick() {}
+	laItemBox() {}
+	~laItemBox() {}
 	void Create(TiXmlElement* rootElement, float pixelsPerGameUnit);
 	void OnStart();
 	void Update();
@@ -28,13 +29,19 @@ public:
 	void EndContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody);
 
 private:
-	lilSprite* mBrick;
-	lilRigidbody* mRigidbody;
+	laPlayer* mPlayer;
 
-	bool mAlive;
+	lilSprite* mItemBox;
+	lilSprite* mItemBoxHit;
+	lilSprite* mItem;
+
+	float mHitBounceTime;
+
+	bool mIsAlive;
 
 private:
-	laBreakableBrick(const laBreakableBrick& levelObject) {}
-	void operator=(const laBreakableBrick& levelObject) {}
-};
+	laItemBox(const laItemBox& coinBox) {}
+	void operator=(const laItemBox& coinBox) {}
 
+	void MoveItem();
+};

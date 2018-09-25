@@ -179,6 +179,7 @@
     <ClInclude Include="src\lilalien\gameobjects\level\laLevelController.h" />
     <ClInclude Include="src\lilalien\gameobjects\objects\laCoinBox.h" />
     <ClInclude Include="src\lilalien\gameobjects\objects\laBreakableBrick.h" />
+    <ClInclude Include="src\lilalien\gameobjects\objects\laItemBox.h" />
     <ClInclude Include="src\lilalien\levelmanager\laLevelManager.h" />
     <ClInclude Include="src\lilalien\gameobjects\level\laCamera.h" />
     <ClInclude Include="src\lilalien\gameobjects\level\laLevelObject.h" />
@@ -220,6 +221,7 @@
     <ClCompile Include="src\lilalien\gameobjects\level\laLevelController.cpp" />
     <ClCompile Include="src\lilalien\gameobjects\objects\laCoinBox.cpp" />
     <ClCompile Include="src\lilalien\gameobjects\objects\laBreakableBrick.cpp" />
+    <ClCompile Include="src\lilalien\gameobjects\objects\laItemBox.cpp" />
     <ClCompile Include="src\lilalien\levelmanager\laLevelManager.cpp" />
     <ClCompile Include="src\lilalien\gameobjects\level\laCamera.cpp" />
     <ClCompile Include="src\lilalien\gameobjects\level\laLevelObject.cpp" />

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <go>
     <resources>
+        <renderable type="Renderable" name="YellowKeyItem" pivotpoint="center" texleft="0.468208" texright="0.498555" texbottom="0.00289017" textop="0.033237" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="GreenKeyItem" pivotpoint="center" texleft="0.501445" texright="0.531792" texbottom="0.00289017" textop="0.033237" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite18" pivotpoint="center" texleft="0.567919" texright="0.598266" texbottom="0.00289017" textop="0.033237" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite47" pivotpoint="center" texleft="0.534682" texright="0.565029" texbottom="0.0361272" textop="0.066474" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="CoinGold" pivotpoint="center" texleft="0.601156" texright="0.631503" texbottom="0.0693642" textop="0.099711" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite123" pivotpoint="center" texleft="0.0693642" texright="0.099711" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite124" pivotpoint="center" texleft="0.102601" texright="0.132948" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite125" pivotpoint="center" texleft="0.135838" texright="0.166185" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ItemBox" pivotpoint="center" texleft="0.33526" texright="0.365607" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="CoinBox" pivotpoint="center" texleft="0.401734" texright="0.432081" texbottom="0.135838" textop="0.166185" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite153" pivotpoint="center" texleft="0.0693642" texright="0.099711" texbottom="0.169075" textop="0.199422" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
+        <renderable type="Renderable" name="ItemBoxHit" pivotpoint="center" texleft="0.33526" texright="0.365607" texbottom="0.169075" textop="0.199422" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="CoinBoxHit" pivotpoint="center" texleft="0.401734" texright="0.432081" texbottom="0.169075" textop="0.199422" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite193" pivotpoint="center" texleft="0.401734" texright="0.432081" texbottom="0.202312" textop="0.232659" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
         <renderable type="Renderable" name="Sprite195" pivotpoint="center" texleft="0.468208" texright="0.498555" texbottom="0.202312" textop="0.232659" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
@@ -2739,14 +2743,15 @@
             </rigidbody>
         </components>
     </gameobject>
-    <gameobject type="Tile" name="CoinBox">
+    <gameobject type="Tile" name="ItemBox">
         <transform x="56.5" y="9.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
-            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
-            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="ItemBox" renderablename="ItemBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="ItemBoxHit" renderablename="ItemBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="GreenKeyItem" renderablename="GreenKeyItem" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+                <boxcollider type="Box" name="ItemBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+                <boxcollider type="Box" name="ItemBox" width="1" height="1" xrel="0" yrel="1" angle="0" density="1" friction="0" issensor="true" />
             </rigidbody>
         </components>
     </gameobject>
@@ -2790,14 +2795,15 @@
             </rigidbody>
         </components>
     </gameobject>
-    <gameobject type="Tile" name="CoinBox">
+    <gameobject type="Tile" name="ItemBox">
         <transform x="11.5" y="6.5" z="0" rotation="0" sx="1" sy="1" sz="1" />
         <components>
-            <sprite type="Sprite" name="CoinBox" renderablename="CoinBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
-            <sprite type="Sprite" name="CoinBoxHit" renderablename="CoinBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
-            <sprite type="Sprite" name="CoinGold" renderablename="CoinGold" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="ItemBox" renderablename="ItemBox" renderorder="3" isrendered="true" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="ItemBoxHit" renderablename="ItemBoxHit" renderorder="3" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
+            <sprite type="Sprite" name="YellowKeyItem" renderablename="YellowKeyItem" renderorder="2" isrendered="false" width="1" height="1" xrel="0" yrel="0" />
             <rigidbody type="Rigidbody" bodytype="static" canrotate="false">
-                <boxcollider type="Box" name="CoinBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+                <boxcollider type="Box" name="ItemBox" width="1" height="1" xrel="0" yrel="0" angle="0" density="1" friction="0" issensor="false" />
+                <boxcollider type="Box" name="ItemBox" width="1" height="1" xrel="0" yrel="1" angle="0" density="1" friction="0" issensor="true" />
             </rigidbody>
         </components>
     </gameobject>

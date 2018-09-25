@@ -10,6 +10,8 @@
 void laBreakableBrick::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 {
 	lilGameObject::Create(rootElement, pixelsPerGameUnit);
+
+	mAlive = true;
 }
 
 void laBreakableBrick::OnStart()
@@ -20,6 +22,9 @@ void laBreakableBrick::OnStart()
 
 void laBreakableBrick::Update()
 {
+	if(!mAlive)
+		mRigidbody->SetActive(false);
+
 	lilGameObject::Update();
 }
 
@@ -33,7 +38,7 @@ void laBreakableBrick::BeginContact(lilRigidbody* thisRigidbody, lilRigidbody* o
 	if (otherRigidbody->colliderName->compare("HeadSensor") == 0)
 	{
 		mBrick->isRendered = false;
-		mRigidbody->SetActive(false);
+		mAlive = false;
 	}
 }
 

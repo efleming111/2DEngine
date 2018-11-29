@@ -150,10 +150,12 @@ void OutputMap(const char* filename)
 		if (gTileMap.foregroundIds[i] >= 0)
 			renderables[gTileMap.foregroundIds[i]] = true;
 
-	// Add alt objects to renderables
+	// Add alt objects to renderables(Subtract 1 to number in XML file)
 	renderables[162] = true;// CoinBoxHit
 	renderables[160] = true;// ItemBoxHit
 	renderables[78] = true;// CoinGold
+	renderables[198] = true;// BrickFrag1
+	renderables[199] = true;// BrickFrag2
 
 	// Output renderable resources
 	for (std::map<int, bool>::iterator it = renderables.begin(); it != renderables.end(); ++it)

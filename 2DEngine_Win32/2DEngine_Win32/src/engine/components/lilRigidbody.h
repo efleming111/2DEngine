@@ -60,6 +60,8 @@ public:
 
 	void SetPosition(lilVector2D position) { mBody->SetTransform(position, 0.0f); }
 
+	void SetOwnGravityScale(float scale) { mBody->SetGravityScale(scale); }
+
 	// Pointer to the name of the currently collided collider
 	std::string* colliderName;
 

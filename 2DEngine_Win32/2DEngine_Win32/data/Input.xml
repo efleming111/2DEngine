@@ -172,6 +172,13 @@
         <joystickbutton button="3" axis="0" axismultiplier="0"/>
 		<touchbutton x=".875" y=".125" width=".125" height=".125"/>
     </input>
+	<input>
+        <name name="FPS"/>
+        <keyboard key1="46"/>
+        <mouse button="0"/>
+        <joystickbutton button="0" axis="0" axismultiplier="0"/>
+		<touchbutton x=".875" y=".125" width=".125" height=".125"/>
+    </input>
 </userdefinedinput>
 
 

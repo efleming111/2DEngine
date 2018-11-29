@@ -65,6 +65,8 @@ protected:
 	PlayerAnimationState mAnimationLastFrame;
 	PlayerAnimationState mCurrentAnimation;
 
+	float mGravityScale;
+
 	float mWalkAcceleration;
 	float mMaxWalkSpeed;
 	bool mIsRunning;

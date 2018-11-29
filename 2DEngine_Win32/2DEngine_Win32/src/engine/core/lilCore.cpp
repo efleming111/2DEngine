@@ -77,7 +77,7 @@ void laCore::Run()
 		lilGLRenderer->DrawFrame();
 
 		// TODO: Erase after testing
-		if(lilTimer->FPS() < 30)
+		if(lilInput->GetButtonDown("FPS"))
 			SDL_Log("LOW FPS: %d, %s %d", lilTimer->FPS(), __FILE__, __LINE__);
 	}
 }

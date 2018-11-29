@@ -15,7 +15,8 @@ void laPlayer::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 	lilGameObject::Create(rootElement, pixelsPerGameUnit);
 
 	// TODO: Get player attribute here. 
-	double walkAcc, maxWalkSpeed, runAcc, maxRunSpeed, jumpPower;
+	double gravityScale, walkAcc, maxWalkSpeed, runAcc, maxRunSpeed, jumpPower;
+	rootElement->Attribute("gravityscale", &gravityScale);
 	rootElement->Attribute("walkacceleration", &walkAcc);
 	rootElement->Attribute("maxwalkspeed", &maxWalkSpeed);
 	rootElement->Attribute("runacceleration", &runAcc);
@@ -24,6 +25,7 @@ void laPlayer::Create(TiXmlElement* rootElement, float pixelsPerGameUnit)
 
 	mAnimationLastFrame = mCurrentAnimation = FACE;
 
+	mGravityScale = (float)gravityScale;
 	mWalkAcceleration = (float)walkAcc;
 	mMaxWalkSpeed = (float)maxWalkSpeed;
 	mRunAcceleration = (float)runAcc;
@@ -45,6 +47,7 @@ void laPlayer::OnStart()
 	mRigidbody = (lilRigidbody*)GetComponentByType("Rigidbody");
 	lilVector2D pos(x, y);
 	mRigidbody->SetPosition(pos);
+	mRigidbody->SetOwnGravityScale(mGravityScale);
 
 	mAnimator = (lilAnimator*)GetComponentByType("Animator");
 
@@ -171,10 +174,17 @@ void laPlayer::Destroy()
 
 void laPlayer::BeginContact(lilRigidbody* thisRigidbody, lilRigidbody* otherRigidbody)
 {
-	if (thisRigidbody->colliderName->compare("GroundSensor") == 0 && otherRigidbody->colliderName->compare("Ground") == 0)
+	if (thisRigidbody->colliderName->compare("GroundSensor") == 0 && 
+		(otherRigidbody->colliderName->compare("Ground") == 0 || otherRigidbody->colliderName->compare("ItemBox") == 0 || otherRigidbody->colliderName->compare("CoinBox") == 0 ||
+			otherRigidbody->colliderName->compare("BreakableBrick") == 0))
 	{
 		mIsGrounded = true;
 		mIsJumping = false;
+	}
+
+	if (thisRigidbody->colliderName->compare("HeadSensor") == 0 && otherRigidbody->colliderName->compare("BreakableBrick") == 0)
+	{
+		mScore += 10;
 	}
 }
 

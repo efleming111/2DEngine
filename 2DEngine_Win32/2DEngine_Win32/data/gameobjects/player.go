@@ -13,12 +13,12 @@
 		<renderable type="Renderable" name="GreenAlienWalk1" pivotpoint="center" texleft="0.933526" texright="0.963872" texbottom="0.00289" textop="0.033237" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
 		<renderable type="Renderable" name="GreenAlienWalk2" pivotpoint="center" texleft="0.966763" texright="0.997109" texbottom="0.00289" textop="0.033237" texturefile="data/spritesheets/spritesheet.png" shaderfile="data/shaders/BasicTextureShader" />
 	</resources>
-	<gameobject type="Player" name="Player" walkacceleration=".15" maxwalkspeed="4." runacceleration=".25" maxrunspeed="6." jumppower="8.0" >
+	<gameobject type="Player" name="Player" gravityscale="2.0" walkacceleration=".15" maxwalkspeed="5." runacceleration=".25" maxrunspeed="6." jumppower="12.0" >
 		<transform x="7" y="7" z=".5" rotation="0" sx="1" sy="1" sz="1" />
 		<components>
 			<rigidbody type="Rigidbody" bodytype="dynamic" canrotate="false" >
 				<boxcollider type="Box" name="PlayerTopCollider" width=".8" height=".85" xrel="0.0" yrel=".25" angle="0.0" density="1.0" friction=".3" issensor="false" />
-				<boxcollider type="Box" name="HeadSensor" width=".6" height=".85" xrel="0.0" yrel=".3" angle="0.0" density="1.0" friction=".3" issensor="true" />
+				<boxcollider type="Box" name="HeadSensor" width=".25" height=".85" xrel="0.0" yrel=".3" angle="0.0" density="1.0" friction=".3" issensor="true" />
 				<boxcollider type="Box" name="GroundSensor" width=".5" height=".5" xrel="0.0" yrel="-.675" angle="0.0" density="1.0" friction=".3" issensor="true" />
 				<circlecollider type="Circle" name="PlayerBottomCollider" radius=".45" xrel="0.0" yrel="-.175" density="1.0" friction=".3" issensor="false" />
 			</rigidbody>
